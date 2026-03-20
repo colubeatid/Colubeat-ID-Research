@@ -1,0 +1,1923 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colubeat Investment Desk — Research Pipeline</title>
+  <meta name="description"
+    content="Independent, numbers-first equity research. Track our published theses, upcoming earnings, and research pipeline.">
+  <meta property="og:title" content="Colubeat Investment Desk — Research Pipeline">
+  <meta property="og:description" content="Independent, numbers-first equity research by Colubeat.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    /* ══════════════════════════════════════════════════
+   COLUBEAT DESIGN SYSTEM
+   ══════════════════════════════════════════════════ */
+    :root {
+      --bg: #0a0b0d;
+      --surface: rgba(255, 255, 255, 0.025);
+      --surface-hover: rgba(255, 255, 255, 0.045);
+      --border: rgba(255, 255, 255, 0.06);
+      --border-hover: rgba(212, 175, 55, 0.2);
+      --text: #e8e6e1;
+      --text-secondary: rgba(255, 255, 255, 0.803);
+      --text-muted: rgba(255, 255, 255, 0.773);
+      --text-faint: rgba(255, 255, 255, 0.2);
+      --gold: #d4af37;
+      --gold-dim: rgba(212, 175, 55, 0.5);
+      --gold-bg: rgba(212, 175, 55, 0.12);
+      --green: #22c55e;
+      --green-bg: rgba(34, 197, 94, 0.1);
+      --amber: #f59e0b;
+      --amber-bg: rgba(245, 158, 11, 0.12);
+      --blue: #3b82f6;
+      --blue-bg: rgba(59, 130, 246, 0.1);
+      --purple: #8b5cf6;
+      --purple-bg: rgba(139, 92, 246, 0.08);
+      --red: #ef4444;
+      /* ── THESIS STATUS COLORS ── */
+      --status-active: #3b82f6;
+      --status-active-bg: rgba(59, 130, 246, 0.1);
+      --status-updated: #14b8a6;
+      --status-updated-bg: rgba(20, 184, 166, 0.1);
+      --status-closed: #f33d0f;
+      --status-closed-bg: rgba(107, 114, 128, 0.09);
+      --status-watching: #f59e0b;
+      --status-watching-bg: rgba(245, 158, 11, 0.1);
+      --mono: 'JetBrains Mono', 'Courier New', monospace;
+      --serif: 'Newsreader', Georgia, serif;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--serif);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Grain overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      position: relative;
+      z-index: 1;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+      padding: 40px 0 32px;
+      background: linear-gradient(180deg, rgba(212, 175, 55, 0.04) 0%, transparent 100%);
+      text-align: center;
+      animation: fadeDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .logo-block {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .logo-mark {
+      width: 50px;
+      height: 50px;
+      background-image: url('Logo-Colubeat.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-text {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      line-height: 1;
+      font-family: var(--serif);
+    }
+
+    .logo-sub {
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      color: var(--gold);
+      font-family: var(--mono);
+      font-weight: 500;
+    }
+
+    .philosophy {
+      font-size: 15px;
+      color: var(--text-secondary);
+      max-width: 500px;
+      margin: 0 auto 20px;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-subscribe {
+      display: inline-block;
+      padding: 10px 28px;
+      background: linear-gradient(135deg, #d4af37, #c5a028);
+      color: #0a0b0d;
+      font-weight: 700;
+      font-size: 14px;
+      border-radius: 6px;
+      letter-spacing: 0.04em;
+      font-family: var(--mono);
+      box-shadow: 0 2px 12px rgba(212, 175, 55, 0.25);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-subscribe:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(212, 175, 55, 0.35);
+    }
+
+    .btn-outline {
+      display: inline-block;
+      padding: 10px 28px;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      color: var(--gold);
+      font-size: 14px;
+      border-radius: 6px;
+      font-family: var(--mono);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: border-color 0.2s;
+    }
+
+    .btn-outline:hover {
+      border-color: rgba(212, 175, 55, 0.6);
+    }
+
+    /* ── PIPELINE BAR ── */
+    .pipeline-bar {
+      position: relative;
+      z-index: 1;
+      padding: 20px 0;
+      background: rgba(255, 255, 255, 0.015);
+      border-bottom: 1px solid var(--border);
+      animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+    }
+
+    .pipeline-inner {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .pipeline-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: rgba(241, 239, 239, 0.726);
+      font-family: var(--mono);
+      font-weight: 600;
+    }
+
+    .pipeline-track {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .pipeline-stage {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pipeline-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .pipeline-count {
+      font-size: 18px;
+      font-weight: 700;
+      font-family: var(--mono);
+    }
+
+    .pipeline-stage-name {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-family: var(--mono);
+    }
+
+    /* ── MAIN ── */
+    .main-content {
+      position: relative;
+      z-index: 1;
+      padding: 24px 0 48px;
+      animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+    }
+
+    /* Tabs */
+    .tab-row {
+      display: flex;
+      gap: 4px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .tab {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 13px;
+      font-family: var(--mono);
+      font-weight: 500;
+      transition: all 0.2s;
+      margin-bottom: -1px;
+    }
+
+    .tab:hover {
+      color: var(--text-secondary);
+    }
+
+    .tab.active {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+    }
+
+    .tab-badge {
+      padding: 1px 7px;
+      border-radius: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-muted);
+    }
+
+    .tab.active .tab-badge {
+      background: var(--gold-bg);
+      color: var(--gold);
+    }
+
+    /* Legend */
+    .legend {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+      padding: 12px 16px;
+      background: rgba(16, 186, 39, 0.084);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .legend-title {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: #f2eee3;
+      font-family: var(--mono);
+      font-weight: 600;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-muted);
+      font-family: var(--mono);
+    }
+
+    .legend-bar {
+      width: 3px;
+      height: 18px;
+      border-radius: 2px;
+    }
+
+    /* Filters */
+    .filters {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .filter-label {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: var(--text-faint);
+      font-family: var(--mono);
+      font-weight: 600;
+      margin-right: 4px;
+    }
+
+    .filter-btn {
+      padding: 4px 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 4px;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 12px;
+      font-family: var(--mono);
+      transition: all 0.15s;
+    }
+
+    .filter-btn:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+      color: var(--text-secondary);
+    }
+
+    .filter-btn.active {
+      background: var(--gold-bg);
+      border-color: rgba(212, 175, 55, 0.3);
+      color: var(--gold);
+    }
+
+    /* Sections (tab panels) */
+    .section {
+      display: none;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    /* Cards */
+    .card-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .card {
+      display: block;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 0 8px 8px 0;
+      padding: 20px;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Background image layer inside card */
+    .card-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.16;
+      transform: scale(1.15);
+      transition: opacity 0.4s, filter 0.4s;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .card:hover .card-bg {
+      opacity: 0.35;
+      filter: saturate(1) brightness(1) contrast(1.1);
+    }
+
+    .card-closed .card-bg {
+      opacity: 0.06;
+      filter: blur(24px) saturate(0.2) grayscale(0.6);
+    }
+
+    /* Ensure all card content sits above the bg */
+    .card-header,
+    .company-name,
+    .card-summary,
+    .card-tags,
+    .update-row,
+    .price-row,
+    .read-more,
+    .closed-info,
+    .position-tag,
+    .entry-target {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card:hover {
+      background: var(--surface-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .ticker-block {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ticker {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--gold);
+      font-family: var(--mono);
+      letter-spacing: 0.05em;
+    }
+
+    .ticker-mystery {
+      font-size: 22px;
+      font-weight: 700;
+      color: rgba(59, 130, 246, 0.7);
+      font-family: var(--mono);
+      letter-spacing: 0.15em;
+    }
+
+    /* ── STATUS BADGES ── */
+    .badge {
+      padding: 2px 8px;
+      font-size: 9px;
+      font-weight: 700;
+      border-radius: 3px;
+      letter-spacing: 0.1em;
+      font-family: var(--mono);
+      display: inline-block;
+    }
+
+    .badge-active {
+      background: var(--status-active-bg);
+      color: var(--status-active);
+    }
+
+    .badge-updated {
+      background: var(--status-updated-bg);
+      color: var(--status-updated);
+    }
+
+    .badge-closed {
+      background: var(--status-closed-bg);
+      color: var(--status-closed);
+    }
+
+    .badge-paid {
+      padding: 2px 8px;
+      background: var(--gold-bg);
+      color: var(--gold);
+      font-size: 9px;
+      font-weight: 700;
+      border-radius: 3px;
+      letter-spacing: 0.1em;
+      font-family: var(--mono);
+    }
+
+    .badge-free {
+      padding: 2px 8px;
+      background: var(--green-bg);
+      color: var(--green);
+      font-size: 9px;
+      font-weight: 700;
+      border-radius: 3px;
+      letter-spacing: 0.1em;
+      font-family: var(--mono);
+    }
+
+    .badge-watching {
+      background: var(--status-watching-bg);
+      color: var(--status-watching);
+    }
+
+    /* ── POSITION TAG (distinct from sector tags) ── */
+    .position-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 10px;
+      font-weight: 600;
+      font-family: var(--mono);
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 3px;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 10px;
+    }
+
+    .position-holding {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.12), rgba(212, 175, 55, 0.06));
+      border: 1px solid rgba(165, 227, 42, 0.882);
+      color: rgba(165, 227, 42, 0.882);
+    }
+
+    .position-none {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.263);
+      color: rgba(255, 255, 255, 0.639);
+    }
+
+    /* ── WATCHING — Entry target block ── */
+    .entry-target {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 10px 14px;
+      background: rgba(245, 158, 11, 0.04);
+      border: 1px solid rgba(245, 158, 11, 0.12);
+      border-radius: 6px;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .entry-target-label {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--status-watching);
+      font-family: var(--mono);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .entry-target-price {
+      font-size: 18px;
+      font-weight: 700;
+      font-family: var(--mono);
+      color: var(--status-watching);
+    }
+
+    .entry-target-note {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-family: var(--mono);
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+    .card-watching {
+      opacity: 0.75;
+    }
+
+    .card-watching:hover {
+      opacity: 0.92;
+    }
+
+    .card-date {
+      font-size: 14px;
+      color: #f3f310;
+      font-family: var(--mono);
+      text-align: right;
+    }
+
+    .card-date-original {
+      font-size: 10px;
+      color: rgb(245, 245, 245);
+      font-family: var(--mono);
+      margin-top: 2px;
+      text-align: right;
+    }
+
+    .company-name {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      font-family: var(--mono);
+    }
+
+    .card-summary {
+      font-size: 14px;
+      line-height: 1.65;
+      color: rgba(255, 255, 255, 0.893);
+      margin-bottom: 12px;
+    }
+
+    .card-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .tag {
+      padding: 3px 10px;
+      background: rgba(255, 255, 255, 0.111);
+      border-radius: 3px;
+      font-size: 11px;
+      color: var(--text-muted);
+      font-family: var(--mono);
+    }
+
+    .tag-blue {
+      background: var(--blue-bg);
+      color: rgba(59, 130, 246, 0.8);
+    }
+
+    .tag-purple {
+      background: var(--purple-bg);
+      color: rgba(139, 92, 246, 0.7);
+    }
+
+    /* Update indicator — inline inside card */
+    .update-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+      padding: 8px 12px;
+      background: rgba(245, 244, 247, 0.034);
+      border: 2px solid rgba(1, 2, 7, 0.593);
+      border-radius: 6px;
+    }
+
+    .update-row-label {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--status-updated);
+      font-family: var(--mono);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .update-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      color: var(--status-updated);
+      font-family: var(--mono);
+      padding: 2px 8px;
+      background: rgb(2, 2, 2);
+      border-radius: 3px;
+      transition: background 0.15s;
+      cursor: pointer;
+    }
+
+    .update-chip:hover {
+      color: rgba(2, 1, 12, 0.85);
+      background: rgb(80, 203, 234);
+    }
+
+    /* Closed card */
+    .card-closed {
+      opacity: 0.55;
+    }
+
+    .card-closed:hover {
+      opacity: 0.8;
+    }
+
+    .closed-info {
+      font-size: 12px;
+      color: var(--status-closed);
+      font-family: var(--mono);
+      margin-bottom: 8px;
+    }
+
+    /* Price row (hidden by default, ready for future use) */
+    .price-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 14px;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 6px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .price-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .price-label {
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      color: var(--text-faint);
+      font-family: var(--mono);
+      font-weight: 600;
+    }
+
+    .price-val {
+      font-size: 16px;
+      font-weight: 700;
+      font-family: var(--mono);
+    }
+
+    .price-val.green {
+      color: var(--green);
+    }
+
+    .price-val.red {
+      color: var(--red);
+    }
+
+    .price-val.gold {
+      color: var(--gold);
+    }
+
+    .price-arrow {
+      color: var(--text-faint);
+      font-size: 16px;
+      font-family: var(--mono);
+    }
+
+    .read-more {
+      font-size: 13px;
+      color: var(--gold);
+      font-family: var(--mono);
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .card-closed .read-more {
+      color: var(--text-muted);
+    }
+
+    /* Earnings */
+    .earnings-date {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .earnings-countdown {
+      padding: 3px 10px;
+      background: var(--amber-bg);
+      color: var(--amber);
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 700;
+      font-family: var(--mono);
+    }
+
+    .note-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      background: rgba(212, 175, 55, 0.04);
+      border-radius: 6px;
+      border: 1px solid rgba(212, 175, 55, 0.08);
+      font-size: 12px;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: 12px;
+    }
+
+    /* Progress bar */
+    .progress-outer {
+      margin-bottom: 14px;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: var(--text-faint);
+      font-family: var(--mono);
+      margin-bottom: 6px;
+    }
+
+    .progress-track {
+      height: 4px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #3b82f6, #60a5fa);
+      border-radius: 2px;
+      transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Watchlist */
+    .watchlist-intro {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    .watchlist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 12px;
+    }
+
+    .watchlist-item {
+      padding: 16px 20px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+
+    .watchlist-item:hover {
+      background: rgba(139, 92, 246, 0.04);
+      border-color: rgba(139, 92, 246, 0.15);
+    }
+
+    .watchlist-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .watchlist-ticker {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--purple);
+      font-family: var(--mono);
+    }
+
+    .watchlist-tags {
+      display: flex;
+      gap: 4px;
+    }
+
+    .tag-small {
+      padding: 2px 8px;
+      background: var(--purple-bg);
+      border-radius: 3px;
+      font-size: 10px;
+      color: rgba(139, 92, 246, 0.7);
+      font-family: var(--mono);
+    }
+
+    .watchlist-note {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      position: relative;
+      z-index: 1;
+      padding: 48px 0;
+      border-top: 1px solid rgba(212, 175, 55, 0.1);
+      background: linear-gradient(180deg, transparent 0%, rgba(212, 175, 55, 0.03) 100%);
+      text-align: center;
+    }
+
+    .cta-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 28px;
+      font-family: var(--serif);
+    }
+
+    .cta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .cta-tier {
+      padding: 24px;
+      background: var(--surface);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      text-align: left;
+    }
+
+    .cta-tier.paid {
+      border-color: rgba(212, 175, 55, 0.25);
+      background: rgba(212, 175, 55, 0.03);
+    }
+
+    .cta-tier-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 16px;
+    }
+
+    .cta-tier-name {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      font-family: var(--mono);
+    }
+
+    .cta-tier-price {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-family: var(--mono);
+    }
+
+    .cta-features {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+
+    .cta-features li {
+      font-size: 13px;
+      color: var(--text-secondary);
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      font-family: var(--mono);
+    }
+
+    .cta-btn-free {
+      display: block;
+      text-align: center;
+      padding: 10px;
+      background: linear-gradient(135deg, #d4af37, #c5a028);
+      color: #0a0b0d;
+      font-weight: 700;
+      font-size: 13px;
+      border-radius: 6px;
+      font-family: var(--mono);
+      letter-spacing: 0.04em;
+      transition: transform 0.2s;
+    }
+
+    .cta-btn-free:hover {
+      transform: translateY(-1px);
+    }
+
+    .cta-btn-paid {
+      display: block;
+      text-align: center;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0);
+      border: 0px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-muted);
+      font-size: 13px;
+      border-radius: 6px;
+      font-family: var(--mono);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      position: relative;
+      z-index: 1;
+      padding: 32px 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      text-align: center;
+    }
+
+    .footer-disclaimer {
+      font-size: 11px;
+      color: rgba(245, 245, 245, 0.584);
+      max-width: 600px;
+      margin: 0 auto 16px;
+      line-height: 1.6;
+      font-family: var(--mono);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 12px;
+    }
+
+    .footer-link {
+      font-size: 25px;
+      color: rgb(253, 253, 16);
+      font-family: var(--mono);
+    }
+
+    .footer-link:hover {
+      color: var(--gold);
+    }
+
+    .footer-dot {
+      color: rgba(255, 255, 255, 0.331);
+    }
+
+    .footer-copy {
+      font-size: 10px;
+      color: rgba(245, 245, 245, 0.584);
+      font-family: var(--mono);
+    }
+
+    .empty-text {
+      font-size: 14px;
+      color: var(--text-faint);
+      text-align: center;
+      padding: 40px 0;
+      font-style: italic;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .tab {
+        padding: 10px 10px;
+        font-size: 11px;
+      }
+
+      .tab-badge {
+        font-size: 10px;
+      }
+
+      .pipeline-track {
+        gap: 20px;
+      }
+
+      .card {
+        padding: 16px 18px;
+      }
+
+      .price-row {
+        gap: 12px;
+      }
+
+      .logo-text {
+        font-size: 22px;
+      }
+
+      .cta-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .legend {
+        gap: 12px;
+      }
+
+      .update-row {
+        gap: 6px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════
+     HEADER
+     ═══════════════════════════════════════════════════════════ -->
+  <header class="header">
+    <div class="container">
+      <div class="logo-block">
+        <div class="logo-mark"></div>
+        <div>
+          <h1 class="logo-text">COLUBEAT</h1>
+          <p class="logo-sub">INVESTMENT DESK</p>
+        </div>
+      </div>
+      <p class="philosophy">Independent, numbers-first research on high-quality companies. I break down how these
+        businesses actually operate,
+        keeping the analysis clear and honest. No hype, just real moats.</p>
+      <div class="header-actions">
+        <a href="https://colubeatid.substack.com/subscribe" target="_blank" class="btn-subscribe">Subscribe Free →</a>
+        <a href="https://colubeatid.substack.com/" target="_blank" class="btn-outline">Read on Substack</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════════
+     PIPELINE BAR (auto-calculated from data below)
+     ═══════════════════════════════════════════════════════════ -->
+  <div class="pipeline-bar">
+    <div class="container">
+      <div class="pipeline-inner" id="pipeline-bar">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+     MAIN CONTENT
+     ═══════════════════════════════════════════════════════════ -->
+  <main class="main-content">
+    <div class="container">
+
+      <!-- Tabs -->
+      <div class="tab-row" id="tab-row"></div>
+
+      <!-- Legend (published tab only) -->
+      <div id="legend-container"></div>
+
+      <!-- Filters (published only) -->
+      <div class="filters" id="filters" style="display:none"></div>
+
+      <!-- Tab panels -->
+      <div id="section-published" class="section active"></div>
+      <div id="section-earnings" class="section"></div>
+      <div id="section-wip" class="section"></div>
+      <div id="section-watchlist" class="section"></div>
+    </div>
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════════
+     CTA / VALUE PROP
+     ═══════════════════════════════════════════════════════════ -->
+  <section class="cta-section">
+    <div class="container">
+      <h2 class="cta-title">Why Subscribe?</h2>
+      <div class="cta-grid">
+        <div class="cta-tier">
+          <div class="cta-tier-header">
+            <span class="cta-tier-name">FREE</span>
+            <span class="cta-tier-price">$0</span>
+          </div>
+          <ul class="cta-features">
+            <li>✓ All published theses</li>
+            <li>✓ Earnings updates</li>
+            <li>✓ Research pipeline visibility</li>
+            <li>✓ Email delivery</li>
+          </ul>
+          <a href="https://colubeatid.substack.com/subscribe" target="_blank" class="cta-btn-free">Subscribe Free</a>
+        </div>
+        <div class="cta-tier paid">
+          <div class="cta-tier-header">
+            <span class="cta-tier-name">PAID</span>
+            <span class="cta-tier-price">$5/MONTH</span>
+          </div>
+          <ul class="cta-features">
+            <li>✓ Everything in Free</li>
+            <li>✓ Early access in all posts</li>
+            <li>✓ Portfolio construction notes</li>
+          </ul>
+          <div class="cta-btn-paid"><a href="https://colubeatid.substack.com/subscribe" target="_blank"
+              class="cta-btn-free">Subscribe</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <p class="footer-disclaimer">
+      Colubeat Investment Desk provides independent equity research for educational purposes only.
+      Nothing published constitutes investment advice. Always do your own due diligence.
+      Past thesis performance does not guarantee future results.
+    </p>
+    <div class="footer-links">
+      <a href="https://colubeatid.substack.com/" target="_blank" class="footer-link">Substack</a>
+      <span class="footer-dot">·</span>
+      <a href="https://x.com/colubeatid" target="_blank" class="footer-link">𝕏</a>
+    </div>
+    <p class="footer-copy">© 2026 Colubeat Investment Desk. All rights reserved.</p>
+  </footer>
+
+
+  <script>
+    /* ══════════════════════════════════════════════════════════════
+       ██████   █████  ████████  █████
+       ██   ██ ██   ██    ██    ██   ██
+       ██   ██ ███████    ██    ███████
+       ██   ██ ██   ██    ██    ██   ██
+       ██████  ██   ██    ██    ██   ██
+    
+       ✏️  EDIT YOUR CONTENT HERE — everything else is automatic.
+       ══════════════════════════════════════════════════════════════
+
+       THESIS STATUS SYSTEM
+       ─────────────────────────────────────────────────────────────
+       "active"   → BLUE border   Thesis published, no follow-up yet.
+       "updated"  → TEAL border   Has update(s). Fill the updates[] array
+                                   with {label, url, date} for each follow-up.
+       "watching" → AMBER border  Thesis published but stock is expensive.
+                                   Set targetEntry to show your ideal entry price.
+       "closed"   → ORANGE border Thesis concluded. Card appears dimmed.
+                                   Fill closedReason to explain why.
+       ─────────────────────────────────────────────────────────────
+
+       POSITION FIELD
+       Set position: true if you hold the stock, false if you don't.
+       Shows a "◆ HOLDING" or "◇ NO POSITION" tag on the card.
+       ─────────────────────────────────────────────────────────────
+
+       PRICE FIELDS (priceAtPublish, targetPrice, closedPrice)
+       are kept for future use but NOT displayed right now.
+       When you're ready to show them, set showPrices = true below.
+
+       IMAGE FIELD
+       Each thesis has an "image" field pointing to a file, e.g.
+       "images/CHE.jpg". Create an /images/ folder next to index.html
+       and drop your photos there. Name them TICKER.jpg.
+       The image appears blurred + darkened behind the card text.
+       If you don't have an image yet, set image: null — no bg shows.
+       ─────────────────────────────────────────────────────────────── */
+
+    const SUBSTACK = "https://colubeatid.substack.com/";
+    const showPrices = false; // ← flip to true when you want price/target visible
+
+    // ── PUBLISHED THESES ──────────────────────────────────────────
+    const publishedTheses = [
+      /*{
+        ticker: "CHE",
+        company: "Chemed Corporation",
+        sector: "Healthcare",
+        geo: "US",
+        datePublished: "2026-03-15",
+        image: "images/chemed.png",
+        summary: "Dual-engine compounder: VITAS hospice rides Medicare tailwinds while Roto-Rooter generates recession-proof FCF. Base case IRR +9.5%.",
+        priceAtPublish: 490,
+        targetPrice: 522,
+        url: SUBSTACK + "p/chemed-corporation-investment-thesis",
+        tags: ["Compounder", "Healthcare Services", "FCF Machine"],
+        isPaid: false,
+        // ── STATUS ──
+        status: "active",
+        updates: [],
+        closedReason: null,
+      },*/
+      {
+        ticker: "TIC",
+        company: "TIC Solutions",
+        sector: "Technology",
+        geo: "US",
+        datePublished: "2026-02-20",
+        image: "images/TIC.webp",
+        summary: "Co-investing with Martin Franklin in an asymmetric bet. How to buy a Data Center infrastructure play at industrial distress prices. A 3-5 year roadmap.",
+        priceAtPublish: null,
+        targetPrice: null,
+        url: "https://colubeatid.substack.com/p/tic-solutions-nyse-tic?r=392fuc",
+        tags: ["Small Cap", "TIC", "Industrial", "Engineering", "Data Centers", "Infrastructure"],
+        isPaid: false,
+        status: "updated",
+        updates: [
+          { label: "FY 2025 Results", url: "https://colubeatid.substack.com/p/update-tic-solutions-tic-fy-2025?r=392fuc", date: "2026-03-13" },
+        ],
+        closedReason: null,
+        position: true,
+        targetEntry: null,
+      },
+      {
+        ticker: "ALX",
+        company: "Alexander's",
+        sector: "REIT",
+        geo: "US",
+        datePublished: "2025-12-29",
+        image: "images/ALX.jpg",
+        summary: "The Rego Park Sale Changes Everything: Updated NAV, A Likely Special Dividend, and Why the Bear Case Just Collapsed",
+        priceAtPublish: null,
+        targetPrice: null,
+        url: "https://colubeatid.substack.com/p/alexanders-inc-nyse-alx",
+        tags: ["REIT", "Bloomberg", "NYC Assets", "SOTP Play"],
+        isPaid: false,
+        status: "updated",
+        updates: [
+          { label: "FY 2025 Results", url: "https://colubeatid.substack.com/p/update-alexanders-alx-fy-2025-results?r=392fuc", date: "2026-02-09" },
+        ],
+        closedReason: null,
+        position: true,
+        targetEntry: null,
+      },
+      {
+        ticker: "BZU",
+        company: "Buzzi SpA",
+        sector: "Materials",
+        geo: "Europe",
+        datePublished: "2026-2-18",
+        image: "images/BZU.webp",
+        summary: "Highly cash-generative cement producer controlled by the founding family, and right now they're using their strong balance sheet to buy back their own shares.",
+        priceAtPublish: null,
+        targetPrice: null,
+        url: "https://colubeatid.substack.com/p/buzzi-spa-bzumi",
+        tags: ["Cement", "Industrial", "Building Materials", "Family-Controlled"],
+        isPaid: false,
+        status: "active",
+        updates: [],
+        closedReason: null,
+        position: true,
+        targetEntry: null,
+      },
+      {
+        ticker: "MSA",
+        company: "MSA Safety Incorporated",
+        sector: "Industrials",
+        geo: "US",
+        datePublished: "2026-3-3",
+        image: "images/MSA.jpg",
+        summary: "An elite 'regulatory tax' on safety with 45% recurring revenue, but right now it’s a great business at a very difficult price.",
+        priceAtPublish: null,
+        targetPrice: null,
+        url: "https://colubeatid.substack.com/p/msa-safety-incorporated-nyse-msa",
+        tags: ["Industrial", "Compounder", "Regulatory", "Defensive"],
+        isPaid: false,
+        status: "watching",
+        updates: [],
+        closedReason: null,
+        position: false,
+        targetEntry: 155,  // ← your ideal entry price
+      },
+      {
+        ticker: "BNZL",
+        company: "BUNZL plc",
+        sector: "Industrial",
+        geo: "Europe",
+        datePublished: "2026-02-04",
+        image: "images/BNZL.webp",
+        summary: "An M&A machine that scales by buying smaller distributors, currently busy fixing a centralization mess in the US.",
+        priceAtPublish: null,
+        targetPrice: null,
+        url: "https://colubeatid.substack.com/p/bunzl-plc-lon-bnzl?r=392fuc",
+        tags: ["UK", "Defensive", "Distribution"],
+        isPaid: false,
+        status: "updated",
+        updates: [
+          { label: "FY 2025 Results", url: "https://colubeatid.substack.com/p/update-bunzl-plc-bnzll-fy-2025-results?r=392fuc", date: "2026-03-02" },
+        ],
+        closedReason: null,
+        position: true,
+        targetEntry: null,
+      },
+      {
+        ticker: "VRE",
+        company: "Veris Residential",
+        sector: "REIT",
+        geo: "US",
+        datePublished: "2025-12-11",
+        image: "images/VRE.jpg",
+        summary: "Irreplaceable luxury, mercenary management, and a 35% discount: Veris Residential's master stroke.",
+        priceAtPublish: null,
+        targetPrice: null,
+        url: "https://colubeatid.substack.com/p/veris-residential-nyse-vre-the-deep?r=392fuc",
+        tags: ["REIT"],
+        isPaid: false,
+        status: "closed",
+        updates: [
+          { label: "Thesis Closed: Acquired at $19.00", url: "https://colubeatid.substack.com/p/thesis-closed-vre-acquired-at-1900?r=392fuc", date: "2026-02-23" },
+        ],
+        closedReason: "Acquired at $19.00",
+        position: false,
+        targetEntry: null,
+      },
+      {
+        ticker: "ERF",
+        company: "Eurofins Scientific",
+        sector: "Pharma",
+        geo: "Europe",
+        datePublished: "2026-01-08",
+        image: "images/ERF.webp",
+        summary: "Global laboratory leader that’s finished its heavy investment cycle and is now turning its massive network into a high-cash-flow operation.",
+        priceAtPublish: null,
+        targetPrice: null,
+        url: "https://colubeatid.substack.com/p/eurofins-scientific-erfpa?r=392fuc",
+        tags: ["Pharma", "BioPharma", "Life Sciences", "Testing Services", "RE"],
+        isPaid: false,
+        status: "updated",
+        updates: [{ label: "FY 2025 Results", url: "https://colubeatid.substack.com/p/update-eurofins-scientific-erf-fy?r=392fuc", date: "2026-02-10" }],
+        closedReason: null,
+        position: true,
+        targetEntry: null,
+      },
+      {
+        ticker: "POOL",
+        company: "POOL Corporation",
+        sector: "Industrial",
+        geo: "US",
+        datePublished: "2025-12-19",
+        image: "images/POOL.jpg",
+        summary: "A massive distribution machine where 64% of the revenue is locked in by mandatory maintenance, making it a resilient compounder just waiting for the construction cycle to turn.",
+        priceAtPublish: null,
+        targetPrice: null,
+        url: "https://colubeatid.substack.com/p/pool-corporation-nasdaq-pool?r=392fuc",
+        tags: ["Industrial", "B2B Distribution", "Recurring Revenue", "Compounder"],
+        isPaid: false,
+        status: "updated",
+        updates: [
+          { label: "FY 2025 Results", url: "https://colubeatid.substack.com/p/update-pool-corporation-pool-fy-2025?r=392fuc", date: "2026-02-20" },
+        ],
+        closedReason: null,
+        position: true,
+        targetEntry: null,
+      },
+      {
+        ticker: "FRPH",
+        company: "FRP Holdings",
+        sector: "RE Developer",
+        geo: "US",
+        datePublished: "2025-12-06",
+        image: "images/FRPH.webp",
+        summary: "A legacy asset-heavy business that just brought a full-cycle development platform in-house to control the entire lifecycle of its projects and expand into new markets.",
+        priceAtPublish: null,
+        targetPrice: null,
+        url: "https://colubeatid.substack.com/p/frp-holdings-inc-nasdaq-frph?r=392fuc",
+        tags: ["RE", "Development", "Industrial RE", "Residential RE"],
+        isPaid: false,
+        status: "active",
+        updates: [],
+        closedReason: null,
+        position: true,
+        targetEntry: null,
+      },
+      {
+        ticker: "3828.HK",
+        company: "MING FAI International Holding Limited",
+        sector: "Consumer Staples",
+        geo: "Asia",
+        datePublished: "2025-12-04",
+        image: "images/3828.png",
+        summary: "Cash fortress and anti-tariff shield trading at panic levels. New strategic value unlocks.",
+        priceAtPublish: null,
+        targetPrice: null,
+        url: "https://colubeatid.substack.com/p/ming-fai-international-holding-limited?r=392fuc",
+        tags: ["Xina", "Deep Value ", "Arbitrage", "B2B"],
+        isPaid: false,
+        status: "active",
+        updates: [],
+        closedReason: null,
+        position: false,
+        targetEntry: null,
+      },
+    ];
+
+    // ── EARNINGS & CATALYSTS ──────────────────────────────────────
+    // Companies you've covered that have upcoming earnings or catalysts.
+    const earningsAwaiting = [
+      {
+        ticker: "FRPH",
+        company: "FRP Holdings",
+        sector: "REIT",
+        geo: "US",
+        nextEarnings: "2026-04-01",
+        catalyst: "Update: FRP Holdings ($FRPH) FY 2025 Results",
+        originalThesisUrl: "https://colubeatid.substack.com/p/update-alexanders-alx-fy-2025-results?r=392fuc",
+      },
+      {
+        ticker: "ALX",
+        company: "Alexander's",
+        sector: "REIT",
+        geo: "US",
+        nextEarnings: "2026-02-09",
+        catalyst: "Update: Alexander's ($ALX) FY 2025 Results",
+        originalThesisUrl: "https://colubeatid.substack.com/p/update-alexanders-alx-fy-2025-results?r=392fuc",
+      },
+      {
+        ticker: "TIC",
+        company: "TIC Solutions",
+        sector: "Industrials",
+        geo: "US",
+        nextEarnings: "2026-03-13",
+        catalyst: "Update: TIC Solutions ($TIC) FY 2025 Results",
+        originalThesisUrl: "https://colubeatid.substack.com/p/update-tic-solutions-tic-fy-2025?r=392fuc",
+      },
+      {
+        ticker: "BNZL",
+        company: "BUNZL PLC",
+        sector: "Industrials",
+        geo: "Europe",
+        nextEarnings: "2026-03-02",
+        catalyst: "Update: Bunzl plc ($BNZL.L) FY 2025 Results",
+        originalThesisUrl: "https://colubeatid.substack.com/p/update-bunzl-plc-bnzll-fy-2025-results?r=392fuc",
+      },
+      {
+        ticker: "POOL",
+        company: "POOL Corporation",
+        sector: "Industrials",
+        geo: "US",
+        nextEarnings: "2026-02-20",
+        catalyst: "Update: Pool Corporation ($POOL) FY 2025 Results",
+        originalThesisUrl: "https://colubeatid.substack.com/p/update-pool-corporation-pool-fy-2025?r=392fuc",
+      },
+      {
+        ticker: "VRE",
+        company: "Veris Residential",
+        sector: "REIT",
+        geo: "US",
+        nextEarnings: "2026-02-23",
+        catalyst: "Thesis Closed: $VRE Acquired at $19.00",
+        originalThesisUrl: "https://colubeatid.substack.com/p/thesis-closed-vre-acquired-at-1900?r=392fuc",
+      },
+    ];
+
+    // ── WORK IN PROGRESS ──────────────────────────────────────────
+    // Use ticker "???" to keep it secret, or reveal the ticker if you want.
+    const wipTheses = [
+      {
+        ticker: "???",
+        sector: "Healthcare",
+        geo: "US",
+        hint: "2 segments. Stock at 3-Year Lows, $325M FCF, Zero Debt. Transition Year or Permanent Decline?",
+        estimatedRelease: "March 2026",
+        progress: 85,  // percent 0–100
+      },
+    ];
+
+    // ── WATCHLIST ─────────────────────────────────────────────────
+    // Tickers on your radar. Not yet modeled.
+    const watchlist = [
+      { ticker: "WSO", sector: "Industrials", geo: "US", note: "HVAC distribution leader. Recurring revenue angle." },
+      { ticker: "SCI", sector: "Consumer", geo: "US", note: "Funeral & cemetery services. Demographic tailwind thesis." },
+    ];
+
+    // ── FILTER OPTIONS ────────────────────────────────────────────
+    // Add new sectors/geos here if needed.
+    const SECTORS = ["All", "Healthcare", "Technology", "Industrials", "Consumer", "Financials", "Energy", "REIT", "Materials", "Pharma", "RE Developer", "Consumer Staples"];
+    const GEOS = ["All", "US", "Europe", "Asia"];
+    const STATUSES = ["All", "active", "updated", "watching", "closed"];
+    const STATUS_LABELS = { "All": "All", "active": "Active", "updated": "Updated", "watching": "Watching", "closed": "Closed" };
+
+
+    /* ══════════════════════════════════════════════════════════════
+       END OF DATA — BELOW IS AUTO-RENDER LOGIC (no need to touch)
+       ══════════════════════════════════════════════════════════════ */
+
+    // State
+    let activeTab = "published";
+    let sectorFilter = "All";
+    let geoFilter = "All";
+    let statusFilter = "All";
+
+    // Helpers
+    function formatDate(d) {
+      if (!d) return "—";
+      return new Date(d).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+    }
+    function daysUntil(d) {
+      const diff = Math.ceil((new Date(d) - new Date()) / 864e5);
+      if (diff < 0) return "Past";
+      if (diff === 0) return "Today";
+      return diff + "d";
+    }
+    function upside(entry, target) {
+      return ((target / entry - 1) * 100).toFixed(1);
+    }
+    function latestDate(t) {
+      let dates = [t.datePublished];
+      if (t.updates) t.updates.forEach(u => { if (u.date) dates.push(u.date); });
+      return dates.sort((a, b) => new Date(b) - new Date(a))[0];
+    }
+    function statusColor(s) {
+      if (s === "active") return "var(--status-active)";
+      if (s === "updated") return "var(--status-updated)";
+      if (s === "watching") return "var(--status-watching)";
+      return "var(--status-closed)";
+    }
+    function statusBadgeCls(s) {
+      if (s === "active") return "badge-active";
+      if (s === "updated") return "badge-updated";
+      if (s === "watching") return "badge-watching";
+      return "badge-closed";
+    }
+    function statusLabelText(s) {
+      if (s === "active") return "ACTIVE";
+      if (s === "updated") return "UPDATED";
+      if (s === "watching") return "WATCHING";
+      return "CLOSED";
+    }
+
+    // ── RENDER PIPELINE BAR ──
+    function renderPipeline() {
+      const active = publishedTheses.filter(t => t.status === "active").length;
+      const updated = publishedTheses.filter(t => t.status === "updated").length;
+      const watching = publishedTheses.filter(t => t.status === "watching").length;
+      const closed = publishedTheses.filter(t => t.status === "closed").length;
+      const stages = [
+        { label: "Updated", color: "var(--status-updated)", count: updated },
+        { label: "Active", color: "var(--status-active)", count: active },
+        { label: "Watching", color: "var(--status-watching)", count: watching },
+        { label: "Earnings", color: "#f59e0b", count: earningsAwaiting.length },
+        { label: "In Progress", color: "#3b82f6", count: wipTheses.length },
+        { label: "Watchlist", color: "#8b5cf6", count: watchlist.length },
+        { label: "Closed", color: "var(--status-closed)", count: closed },
+      ];
+      document.getElementById("pipeline-bar").innerHTML =
+        `<span class="pipeline-label">RESEARCH PIPELINE</span>
+     <div class="pipeline-track">
+       ${stages.map(s => `
+         <div class="pipeline-stage">
+           <div class="pipeline-dot" style="background:${s.color}"></div>
+           <span class="pipeline-count">${s.count}</span>
+           <span class="pipeline-stage-name">${s.label}</span>
+         </div>`).join("")}
+     </div>`;
+    }
+
+    // ── RENDER LEGEND ──
+    function renderLegend() {
+      return `
+      <div class="legend">
+        <span class="legend-title">STATUS</span>
+        <div class="legend-item">
+          <div class="legend-bar" style="background:var(--status-active)"></div>
+          <span>Active — thesis published, doesn't include new results</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-bar" style="background:var(--status-updated)"></div>
+          <span>Updated — has earnings/follow-up article(s)</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-bar" style="background:var(--status-watching)"></div>
+          <span>Watching — thesis published, waiting for better entry</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-bar" style="background:var(--status-closed)"></div>
+          <span>Closed — thesis concluded</span>
+        </div>
+      </div>`;
+    }
+
+    // ── RENDER TABS ──
+    function renderTabs() {
+      const tabs = [
+        { id: "published", label: "Published Theses", count: publishedTheses.length, icon: "◆" },
+        { id: "earnings", label: "Earnings & Catalysts", count: earningsAwaiting.length, icon: "◷" },
+        { id: "wip", label: "Work in Progress", count: wipTheses.length, icon: "◐" },
+        { id: "watchlist", label: "Watchlist", count: watchlist.length, icon: "◎" },
+      ];
+      document.getElementById("tab-row").innerHTML = tabs.map(t => `
+    <button class="tab ${activeTab === t.id ? 'active' : ''}" onclick="switchTab('${t.id}')">
+      <span>${t.icon}</span>
+      <span>${t.label}</span>
+      <span class="tab-badge">${t.count}</span>
+    </button>`).join("");
+    }
+
+    function switchTab(id) {
+      activeTab = id;
+      renderTabs();
+      document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
+      document.getElementById("section-" + id).classList.add("active");
+      document.getElementById("filters").style.display = id === "published" ? "flex" : "none";
+      document.getElementById("legend-container").innerHTML = id === "published" ? renderLegend() : "";
+    }
+
+    // ── RENDER FILTERS ──
+    function renderFilters() {
+      const el = document.getElementById("filters");
+      el.innerHTML = `
+    <div class="filter-group">
+      <span class="filter-label">Status</span>
+      ${STATUSES.map(s => `<button class="filter-btn ${statusFilter === s ? 'active' : ''}" onclick="setStatus('${s}')">${STATUS_LABELS[s]}</button>`).join("")}
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">Sector</span>
+      ${SECTORS.map(s => `<button class="filter-btn ${sectorFilter === s ? 'active' : ''}" onclick="setSector('${s}')">${s}</button>`).join("")}
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">Geo</span>
+      ${GEOS.map(g => `<button class="filter-btn ${geoFilter === g ? 'active' : ''}" onclick="setGeo('${g}')">${g}</button>`).join("")}
+    </div>`;
+    }
+    function setSector(s) { sectorFilter = s; renderFilters(); renderPublished(); }
+    function setGeo(g) { geoFilter = g; renderFilters(); renderPublished(); }
+    function setStatus(s) { statusFilter = s; renderFilters(); renderPublished(); }
+
+    // ── RENDER PUBLISHED ──
+    function renderPublished() {
+      const filtered = publishedTheses.filter(t => {
+        if (statusFilter !== "All" && t.status !== statusFilter) return false;
+        if (sectorFilter !== "All" && t.sector !== sectorFilter) return false;
+        if (geoFilter !== "All" && t.geo !== geoFilter) return false;
+        return true;
+      });
+      filtered.sort((a, b) => new Date(latestDate(b)) - new Date(latestDate(a)));
+      if (filtered.length === 0) {
+        document.getElementById("section-published").innerHTML = `<p class="empty-text">No theses match the current filters.</p>`;
+        return;
+      }
+      document.getElementById("section-published").innerHTML = `<div class="card-grid">${filtered.map(t => {
+        const isClosed = t.status === "closed";
+        const isWatching = t.status === "watching";
+        let cardClass = "card";
+        if (isClosed) cardClass = "card card-closed";
+        else if (isWatching) cardClass = "card card-watching";
+
+        // Status badge + paid badge
+        const statusBadge = `<span class="badge ${statusBadgeCls(t.status)}">${statusLabelText(t.status)}</span>`;
+        const paidBadge = t.isPaid ? `<span class="badge badge-paid">PAID</span>` : "";
+        const badges = statusBadge + paidBadge;
+
+        // Position tag
+        let positionTag = "";
+        if (t.position === true) {
+          positionTag = `<div class="position-tag position-holding">◆ HOLDING</div>`;
+        } else if (t.position === false && !isClosed) {
+          positionTag = `<div class="position-tag position-none">◇ NO POSITION</div>`;
+        }
+
+        // Closed reason line
+        const closedInfo = isClosed && t.closedReason
+          ? `<div class="closed-info">✓ ${t.closedReason}</div>` : "";
+
+        // Watching entry target block
+        let entryBlock = "";
+        if (isWatching && t.targetEntry) {
+          entryBlock = `<div class="entry-target">
+            <div>
+              <div class="entry-target-label">INTERESTED BELOW</div>
+              <div class="entry-target-price">$${t.targetEntry}</div>
+            </div>
+            <div class="entry-target-note">Published thesis but waiting for a better entry point. Subscribe to be notified if I open a position.</div>
+          </div>`;
+        }
+
+        // Update chips — inline teal row with direct links to each update
+        let updateRow = "";
+        if (t.updates && t.updates.length > 0) {
+          const chips = t.updates.map(u =>
+            `<span class="update-chip" onclick="event.preventDefault();event.stopPropagation();window.open('${u.url}','_blank')">↗ ${u.label}</span>`
+          ).join("");
+          updateRow = `<div class="update-row">
+            <span class="update-row-label">EARNINGS</span>${chips}
+          </div>`;
+        }
+
+        // Price block (hidden unless showPrices is true)
+        let priceBlock = "";
+        if (showPrices && t.priceAtPublish && t.targetPrice) {
+          priceBlock = `
+          <div class="price-row">
+            <div class="price-item"><span class="price-label">ENTRY</span><span class="price-val">$${t.priceAtPublish}</span></div>
+            <div class="price-arrow">→</div>
+            <div class="price-item"><span class="price-label">TARGET</span><span class="price-val ${t.targetPrice > t.priceAtPublish ? 'green' : 'red'}">$${t.targetPrice}</span></div>
+            <div class="price-item"><span class="price-label">UPSIDE</span><span class="price-val gold">${upside(t.priceAtPublish, t.targetPrice)}%</span></div>
+          </div>`;
+        }
+
+        return `
+    <a href="${t.url}" target="_blank" class="${cardClass}" style="border-left:3px solid ${statusColor(t.status)}">
+      ${t.image ? `<div class="card-bg" style="background-image:url('${t.image}')"></div>` : ''}
+      <div class="card-header">
+        <div class="ticker-block"><span class="ticker">${t.ticker}</span>${badges}</div>
+        <div>
+          <div class="card-date">${formatDate(latestDate(t))}</div>
+          ${t.updates && t.updates.length > 0 ? `<div class="card-date-original">Thesis: ${formatDate(t.datePublished)}</div>` : ''}
+        </div>
+      </div>
+      <p class="company-name">${t.company}</p>
+      ${positionTag}
+      ${closedInfo}
+      <p class="card-summary">${t.summary}</p>
+      <div class="card-tags">${t.tags.map(tg => `<span class="tag">${tg}</span>`).join("")}</div>
+      ${updateRow}
+      ${entryBlock}
+      ${priceBlock}
+      <div class="read-more">${isClosed ? "Read thesis →" : "Read full thesis →"}</div>
+    </a>`;
+      }).join("")}</div>`;
+    }
+
+    // ── RENDER EARNINGS ──
+    function renderEarnings() {
+      if (earningsAwaiting.length === 0) {
+        document.getElementById("section-earnings").innerHTML = `<p class="empty-text">No pending earnings right now. Subscribe to be notified.</p>`;
+        return;
+      }
+      document.getElementById("section-earnings").innerHTML = `<div class="card-grid">${earningsAwaiting.map(e => `
+    <div class="card" style="border-left:2px solid white">
+      <div class="card-header">
+        <span class="ticker">${e.ticker}</span>
+        <div class="earnings-date">
+          <span class="earnings-countdown">${daysUntil(e.nextEarnings)}</span>
+          <span class="card-date">${formatDate(e.nextEarnings)}</span>
+        </div>
+      </div>
+      <p class="company-name">${e.company}</p>
+      <p class="card-summary">${e.catalyst}</p>
+      <a href="${e.originalThesisUrl}" target="_blank" class="read-more" style="display:inline-block;margin-bottom:4px">Read original thesis →</a>
+      <div class="note-box">
+        <span>🔔</span>
+        <span>Subscribe to get the earnings update as soon as it drops.</span>
+      </div>
+    </div>`).join("")}</div>`;
+    }
+
+    // ── RENDER WIP ──
+    function renderWip() {
+      document.getElementById("section-wip").innerHTML = `<div class="card-grid">${wipTheses.map(w => `
+    <div class="card" style="border-left:3px solid var(--blue)">
+      <div class="card-header">
+        <span class="ticker-mystery">${w.ticker}</span>
+        <span class="card-date">ETA: ${w.estimatedRelease}</span>
+      </div>
+      <div class="card-tags" style="margin-top:8px">
+        <span class="tag tag-blue">${w.sector}</span>
+        <span class="tag tag-blue">${w.geo}</span>
+      </div>
+      <p class="card-summary">${w.hint}</p>
+      <div class="progress-outer">
+        <div class="progress-label"><span>Research Progress</span><span>${w.progress}%</span></div>
+        <div class="progress-track"><div class="progress-fill" style="width:${w.progress}%"></div></div>
+      </div>
+      <div class="note-box">
+        <span>📬</span>
+        <span>Subscribe to be first to read this thesis when it publishes.</span>
+      </div>
+    </div>`).join("")}</div>`;
+    }
+
+    // ── RENDER WATCHLIST ──
+    function renderWatchlist() {
+      document.getElementById("section-watchlist").innerHTML = `
+    <p class="watchlist-intro">Companies on my radar. Not yet modeled — just interesting enough to track.
+    If you want me to prioritize one, let me know on Substack.</p>
+    <div class="watchlist-grid">${watchlist.map(w => `
+      <div class="watchlist-item">
+        <div class="watchlist-header">
+          <span class="watchlist-ticker">${w.ticker}</span>
+          <div class="watchlist-tags">
+            <span class="tag-small">${w.sector}</span>
+            <span class="tag-small">${w.geo}</span>
+          </div>
+        </div>
+        <p class="watchlist-note">${w.note}</p>
+      </div>`).join("")}
+    </div>`;
+    }
+
+    // ── INIT ──
+    renderPipeline();
+    renderTabs();
+    document.getElementById("legend-container").innerHTML = renderLegend();
+    renderFilters();
+    renderPublished();
+    renderEarnings();
+    renderWip();
+    renderWatchlist();
+  </script>
+</body>
+
+</html>

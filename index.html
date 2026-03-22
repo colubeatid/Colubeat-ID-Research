@@ -1219,7 +1219,26 @@
         position: true,
         targetEntry: null,
       },
-      { ticker: "ALX", company: "Alexander's", sector: "REIT", geo: "US", datePublished: "2025-12-29", image: "images/ALX.webp", summary: "The Rego Park Sale Changes Everything: Updated NAV, A Likely Special Dividend, and Why the Bear Case Just Collapsed", priceAtPublish: null, targetPrice: null, url: "https://colubeatid.substack.com/p/alexanders-inc-nyse-alx", tags: ["REIT", "NYC Assets", "SOTP Play"], isPaid: false, status: "updated", updates: [{ label: "FY 2025 Results", url: "https://colubeatid.substack.com/p/update-alexanders-alx-fy-2025-results?r=392fuc", date: "2026-02-09" }], earningsIntegrated: true, closedReason: null, position: true, targetEntry: null },
+      {
+        ticker: "ALX",
+        company: "Alexander's",
+        sector: "REIT",
+        geo: "US",
+        datePublished: "2025-12-29",
+        image: "images/ALX.webp",
+        summary: "The Rego Park Sale Changes Everything: Updated NAV, A Likely Special Dividend, and Why the Bear Case Just Collapsed",
+        priceAtPublish: null,
+        targetPrice: null,
+        url: "https://colubeatid.substack.com/p/alexanders-inc-nyse-alx",
+        tags: ["REIT", "NYC Assets", "SOTP Play"],
+        isPaid: false,
+        status: "updated",
+        updates: [{ label: "FY 2025 Results", url: "https://colubeatid.substack.com/p/update-alexanders-alx-fy-2025-results?r=392fuc", date: "2026-02-09" }],
+        earningsIntegrated: true,
+        closedReason: null,
+        position: true,
+        targetEntry: null
+      },
       { ticker: "BZU", company: "Buzzi SpA", sector: "Materials", geo: "Europe", datePublished: "2026-2-18", image: "images/BZU.webp", summary: "Highly cash-generative cement producer controlled by the founding family, and right now they're using their strong balance sheet to buy back their own shares.", priceAtPublish: null, targetPrice: null, url: "https://colubeatid.substack.com/p/buzzi-spa-bzumi", tags: ["Cement", "Building Materials", "Family-Controlled"], isPaid: false, status: "active", updates: [], earningsIntegrated: false, closedReason: null, position: true, targetEntry: null },
       { ticker: "MSA", company: "MSA Safety Incorporated", sector: "Industrials", geo: "US", datePublished: "2026-3-3", image: "images/MSA.jpg", summary: "An elite 'regulatory tax' on safety with 45% recurring revenue, but right now it's a great business at a very difficult price.", priceAtPublish: null, targetPrice: null, url: "https://colubeatid.substack.com/p/msa-safety-incorporated-nyse-msa", tags: ["Compounder", "Regulatory", "Defensive"], isPaid: false, status: "watching", updates: [], earningsIntegrated: false, closedReason: null, position: false, targetEntry: 155 },
       { ticker: "BNZL", company: "BUNZL plc", sector: "Industrials", geo: "Europe", datePublished: "2026-02-04", image: "images/BNZL.webp", summary: "An M&A machine that scales by buying smaller distributors, currently busy fixing a centralization mess in the US.", priceAtPublish: null, targetPrice: null, url: "https://colubeatid.substack.com/p/bunzl-plc-lon-bnzl?r=392fuc", tags: ["UK", "Defensive", "Distribution"], isPaid: false, status: "active", updates: [{ label: "FY 2025 Results", url: "https://colubeatid.substack.com/p/update-bunzl-plc-bnzll-fy-2025-results?r=392fuc", date: "2026-03-02" }], earningsIntegrated: false, closedReason: null, position: true, targetEntry: null },
@@ -1291,7 +1310,7 @@
         const ci = cl && t.closedReason ? `<div class="closed-info">✓ ${t.closedReason}</div>` : "";
         let eb = ""; if (wt && t.targetEntry) eb = `<div class="entry-target"><div><div class="entry-target-label">INTERESTED BELOW</div><div class="entry-target-price">$${t.targetEntry}</div></div><div class="entry-target-note">Waiting for better entry. Subscribe to be notified.</div></div>`;
         let ur = ""; if (t.updates && t.updates.length > 0) { const ch = t.updates.map(u => `<span class="update-chip" onclick="event.preventDefault();event.stopPropagation();window.open('${u.url}','_blank')">↗ ${u.label}</span>`).join(""); ur = `<div class="update-row"><span class="update-row-label">EARNINGS</span>${ch}</div>` }
-        let ir = ""; if (t.status === "updated" && t.updates && t.updates.length > 0) { ir = t.earningsIntegrated ? `<div class="integration-row integration-done">✓ Thesis reflects latest data</div>` : `<div class="integration-row integration-pending">⏳ Integration pending</div>` }
+        let ir = ""; if (t.status !== "closed" && t.updates && t.updates.length > 0) { ir = t.earningsIntegrated ? `<div class="integration-row integration-done">✓ Thesis reflects latest data</div>` : `<div class="integration-row integration-pending">⏳ Integration pending</div>` }
         // Image section: real thumbnail or thin status bar
         const imgSection = t.image ? `<img class="card-img" src="${t.image}" alt="${t.company}" onerror="this.outerHTML='<div class=card-img-placeholder></div>'">` : `<div class="card-img-placeholder"></div>`;
         return `<a href="${t.url}" target="_blank" class="${cc}">${imgSection}<div class="card-status-bar" style="background:${sColor(t.status)}"></div><div class="card-body"><div class="card-header"><div class="ticker-block">${nw}<span class="ticker">${t.ticker}</span>${sb}${pb}</div><div><div class="card-date">${fmt(latest(t))}</div>${t.updates && t.updates.length > 0 ? `<div class="card-date-original">Thesis: ${fmt(t.datePublished)}</div>` : ''}</div></div><p class="company-name">${t.company}</p>${pt}${ci}<p class="card-summary">${t.summary}</p><div class="card-tags">${t.tags.map(tg => `<span class="tag">${tg}</span>`).join("")}</div>${ur}${ir}${eb}<div class="read-more">${cl ? "Read thesis →" : "Read full thesis →"}</div></div></a>`

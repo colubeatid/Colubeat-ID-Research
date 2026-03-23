@@ -131,6 +131,18 @@
       }
     }
 
+    @keyframes tp {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(58, 170, 150, .4)
+      }
+
+      50% {
+        box-shadow: 0 0 0 6px rgba(58, 170, 150, 0)
+      }
+    }
+
     .logo-block {
       display: flex;
       align-items: center;
@@ -534,6 +546,20 @@
       animation: np 2s ease-in-out infinite
     }
 
+    .badge-integrated {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 8px;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      font-family: var(--mono);
+      border-radius: 3px;
+      background: linear-gradient(135deg, #13b8f4, #18c2ab);
+      color: var(--bg);
+      animation: tp 2s ease-in-out infinite
+    }
+
     .badge {
       padding: 2px 7px;
       font-size: 8px;
@@ -738,7 +764,8 @@
     .integration-done {
       background: rgba(76, 175, 106, .05);
       border: 1px solid rgba(76, 175, 106, .1);
-      color: var(--green)
+      color: var(--green);
+      animation: tp 7s ease-in-out infinite
     }
 
     .integration-pending {
@@ -1191,6 +1218,9 @@
        ═══════════════════════════════════════
        STATUS: "active" | "updated" | "watching" | "closed"
        earningsIntegrated: true/false (only matters when status="updated")
+       dateIntegrated: "2026-03-23" — date you integrated earnings into thesis.
+                       Shows "UPDATED" badge for 14 days, then disappears auto.
+                       Set null if not integrated yet.
        NEW badge: auto — shows 14 days from datePublished
        image: "images/TICKER.jpg" — shows as visible thumbnail on card
        ═══════════════════════════════════════ */
@@ -1225,7 +1255,7 @@
         sector: "REIT",
         geo: "US",
         datePublished: "2025-12-29",
-        image: "images/ALX.webp",
+        image: "images/ALX.jpg",
         summary: "The Rego Park Sale Changes Everything: Updated NAV, A Likely Special Dividend, and Why the Bear Case Just Collapsed",
         priceAtPublish: null,
         targetPrice: null,
@@ -1244,7 +1274,27 @@
       { ticker: "BNZL", company: "BUNZL plc", sector: "Industrials", geo: "Europe", datePublished: "2026-02-04", image: "images/BNZL.webp", summary: "An M&A machine that scales by buying smaller distributors, currently busy fixing a centralization mess in the US.", priceAtPublish: null, targetPrice: null, url: "https://colubeatid.substack.com/p/bunzl-plc-lon-bnzl?r=392fuc", tags: ["UK", "Defensive", "Distribution"], isPaid: false, status: "active", updates: [{ label: "FY 2025 Results", url: "https://colubeatid.substack.com/p/update-bunzl-plc-bnzll-fy-2025-results?r=392fuc", date: "2026-03-02" }], earningsIntegrated: false, closedReason: null, position: true, targetEntry: null },
       { ticker: "VRE", company: "Veris Residential", sector: "REIT", geo: "US", datePublished: "2025-12-11", image: "images/VRE.jpg", summary: "Irreplaceable luxury, mercenary management, and a 35% discount: Veris Residential's master stroke.", priceAtPublish: null, targetPrice: null, url: "https://colubeatid.substack.com/p/veris-residential-nyse-vre-the-deep?r=392fuc", tags: ["REIT"], isPaid: false, status: "closed", updates: [{ label: "Acquired at $19.00", url: "https://colubeatid.substack.com/p/thesis-closed-vre-acquired-at-1900?r=392fuc", date: "2026-02-23" }], earningsIntegrated: false, closedReason: "Acquired at $19.00", position: false, targetEntry: null },
       { ticker: "ERF", company: "Eurofins Scientific", sector: "Pharma", geo: "Europe", datePublished: "2026-01-08", image: "images/ERF.webp", summary: "Global laboratory leader that's finished its heavy investment cycle and is now turning its massive network into a high-cash-flow operation.", priceAtPublish: null, targetPrice: null, url: "https://colubeatid.substack.com/p/eurofins-scientific-erfpa?r=392fuc", tags: ["BioPharma", "Life Sciences", "Testing"], isPaid: false, status: "updated", updates: [{ label: "FY 2025 Results", url: "https://colubeatid.substack.com/p/update-eurofins-scientific-erf-fy?r=392fuc", date: "2026-02-10" }], earningsIntegrated: true, closedReason: null, position: true, targetEntry: null },
-      { ticker: "POOL", company: "POOL Corporation", sector: "Industrials", geo: "US", datePublished: "2025-12-19", image: "images/POOL.jpg", summary: "A massive distribution machine where 64% of the revenue is locked in by mandatory maintenance, making it a resilient compounder just waiting for the construction cycle to turn.", priceAtPublish: null, targetPrice: null, url: "https://colubeatid.substack.com/p/pool-corporation-nasdaq-pool?r=392fuc", tags: ["B2B Distribution", "Recurring Revenue", "Compounder"], isPaid: false, status: "active", updates: [{ label: "FY 2025 Results", url: "https://colubeatid.substack.com/p/update-pool-corporation-pool-fy-2025?r=392fuc", date: "2026-02-20" }], earningsIntegrated: false, closedReason: null, position: true, targetEntry: null },
+      {
+        ticker: "POOL",
+        company: "POOL Corporation",
+        sector: "Industrials",
+        geo: "US",
+        datePublished: "2025-12-19",
+        image: "images/POOL.jpg",
+        summary: "A massive distribution machine where 64% of the revenue is locked in by mandatory maintenance, making it a resilient compounder just waiting for the construction cycle to turn.",
+        priceAtPublish: "$236",
+        targetPrice: null,
+        url: "https://colubeatid.substack.com/p/pool-corporation-nasdaq-pool?r=392fuc",
+        tags: ["B2B Distribution", "Recurring Revenue", "Compounder"],
+        isPaid: false,
+        status: "updated",
+        updates: [{ label: "FY 2025 Results", url: "https://colubeatid.substack.com/p/update-pool-corporation-pool-fy-2025?r=392fuc", date: "2026-03-23" }],
+        earningsIntegrated: true,
+        dateIntegrated: "2026-03-23",
+        closedReason: null,
+        position: true,
+        targetEntry: null
+      },
       { ticker: "FRPH", company: "FRP Holdings", sector: "RE Developer", geo: "US", datePublished: "2025-12-06", image: "images/FRPH.webp", summary: "A legacy asset-heavy business that just brought a full-cycle development platform in-house to control the entire lifecycle of its projects.", priceAtPublish: null, targetPrice: null, url: "https://colubeatid.substack.com/p/frp-holdings-inc-nasdaq-frph?r=392fuc", tags: ["Development", "Industrial RE", "Residential RE"], isPaid: false, status: "active", updates: [], earningsIntegrated: false, closedReason: null, position: true, targetEntry: null },
       { ticker: "3828.HK", company: "MING FAI International", sector: "Consumer", geo: "Asia", datePublished: "2025-12-04", image: "images/3828.webp", summary: "Cash fortress and anti-tariff shield trading at panic levels. New strategic value unlocks.", priceAtPublish: null, targetPrice: null, url: "https://colubeatid.substack.com/p/ming-fai-international-holding-limited?r=392fuc", tags: ["Deep Value", "Arbitrage", "B2B"], isPaid: false, status: "active", updates: [], earningsIntegrated: false, closedReason: null, position: false, targetEntry: null },
     ];
@@ -1276,6 +1326,7 @@
     const daysUntil = d => { const x = Math.ceil((new Date(d) - new Date()) / 864e5); return x < 0 ? "Past" : x === 0 ? "Today" : x + "d" };
     const latest = t => { let d = [t.datePublished]; if (t.updates) t.updates.forEach(u => { if (u.date) d.push(u.date) }); return d.sort((a, b) => new Date(b) - new Date(a))[0] };
     const isNew = t => (new Date() - new Date(t.datePublished)) / 864e5 <= NEW_DAYS;
+    const isRecentlyIntegrated = t => t.earningsIntegrated && t.dateIntegrated && (new Date() - new Date(t.dateIntegrated)) / 864e5 <= NEW_DAYS;
     const sColor = s => s === "active" ? "var(--s-active)" : s === "updated" ? "var(--s-updated)" : s === "watching" ? "var(--s-watching)" : "var(--s-closed)";
     const sBadge = s => "badge-" + s;
     const sLabel = s => ({ active: "ACTIVE", updated: "UPDATED", watching: "WATCHING", closed: "CLOSED" })[s];
@@ -1304,6 +1355,7 @@
         const cl = t.status === "closed", wt = t.status === "watching";
         let cc = cl ? "card card-closed" : wt ? "card card-watching" : "card";
         const nw = isNew(t) ? `<span class="badge-new">NEW</span>` : "";
+        const ib = isRecentlyIntegrated(t) ? `<span class="badge-integrated">UPDATED</span>` : "";
         const sb = `<span class="badge ${sBadge(t.status)}">${sLabel(t.status)}</span>`;
         const pb = t.isPaid ? `<span class="badge badge-paid">PAID</span>` : "";
         let pt = ""; if (t.position === true) pt = `<div class="position-tag position-holding">◆ HOLDING</div>`; else if (t.position === false && !cl) pt = `<div class="position-tag position-none">◇ NO POSITION</div>`;
@@ -1313,7 +1365,7 @@
         let ir = ""; if (t.status !== "closed" && t.updates && t.updates.length > 0) { ir = t.earningsIntegrated ? `<div class="integration-row integration-done">✓ Thesis reflects latest data</div>` : `<div class="integration-row integration-pending">⏳ Integration pending</div>` }
         // Image section: real thumbnail or thin status bar
         const imgSection = t.image ? `<img class="card-img" src="${t.image}" alt="${t.company}" onerror="this.outerHTML='<div class=card-img-placeholder></div>'">` : `<div class="card-img-placeholder"></div>`;
-        return `<a href="${t.url}" target="_blank" class="${cc}">${imgSection}<div class="card-status-bar" style="background:${sColor(t.status)}"></div><div class="card-body"><div class="card-header"><div class="ticker-block">${nw}<span class="ticker">${t.ticker}</span>${sb}${pb}</div><div><div class="card-date">${fmt(latest(t))}</div>${t.updates && t.updates.length > 0 ? `<div class="card-date-original">Thesis: ${fmt(t.datePublished)}</div>` : ''}</div></div><p class="company-name">${t.company}</p>${pt}${ci}<p class="card-summary">${t.summary}</p><div class="card-tags">${t.tags.map(tg => `<span class="tag">${tg}</span>`).join("")}</div>${ur}${ir}${eb}<div class="read-more">${cl ? "Read thesis →" : "Read full thesis →"}</div></div></a>`
+        return `<a href="${t.url}" target="_blank" class="${cc}">${imgSection}<div class="card-status-bar" style="background:${sColor(t.status)}"></div><div class="card-body"><div class="card-header"><div class="ticker-block">${nw}${ib}<span class="ticker">${t.ticker}</span>${sb}${pb}</div><div><div class="card-date">${fmt(latest(t))}</div>${t.updates && t.updates.length > 0 ? `<div class="card-date-original">Thesis: ${fmt(t.datePublished)}</div>` : ''}</div></div><p class="company-name">${t.company}</p>${pt}${ci}<p class="card-summary">${t.summary}</p><div class="card-tags">${t.tags.map(tg => `<span class="tag">${tg}</span>`).join("")}</div>${ur}${ir}${eb}<div class="read-more">${cl ? "Read thesis →" : "Read full thesis →"}</div></div></a>`
       }).join("")}</div>`;
     }
 

@@ -435,7 +435,7 @@
     /* ── CARDS: 2-column with image strip ── */
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 40px
     }
 
@@ -541,7 +541,7 @@
       letter-spacing: .1em;
       font-family: var(--mono);
       border-radius: 3px;
-      background: linear-gradient(135deg, #cdb321, #f6e20d);
+      background: linear-gradient(135deg, var(--gold), #b09525);
       color: var(--bg);
       animation: np 2s ease-in-out infinite
     }
@@ -1092,6 +1092,214 @@
       font-style: italic
     }
 
+    /* ── INSIGHTS: Editorial feed layout ── */
+    .insights-feed {
+      max-width: 760px;
+      margin: 0 auto
+    }
+
+    /* Featured (first) article */
+    .insight-featured {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      margin-bottom: 32px;
+      border: 1px solid var(--border);
+      transition: all .3s cubic-bezier(.16, 1, .3, 1)
+    }
+
+    .insight-featured:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, .3)
+    }
+
+    .insight-featured-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      filter: brightness(.7)
+    }
+
+    .insight-featured:hover .insight-featured-img {
+      filter: brightness(.8)
+    }
+
+    .insight-featured-body {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 28px 28px 24px;
+      background: linear-gradient(0deg, rgba(20, 18, 16, .95) 0%, rgba(20, 18, 16, .7) 60%, transparent 100%)
+    }
+
+    .insight-featured-tag {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      font-family: var(--mono);
+      color: var(--gold);
+      margin-bottom: 8px;
+      display: block
+    }
+
+    .insight-featured-title {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: #fff;
+      margin-bottom: 8px;
+      font-family: var(--serif)
+    }
+
+    .insight-featured-excerpt {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, .7);
+      margin-bottom: 10px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden
+    }
+
+    .insight-featured-meta {
+      font-size: 10px;
+      color: rgba(255, 255, 255, .4);
+      font-family: var(--mono)
+    }
+
+    .insight-featured-new {
+      position: absolute;
+      top: 16px;
+      right: 16px
+    }
+
+    /* Timeline articles */
+    .insight-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0
+    }
+
+    .insight-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+      transition: all .2s
+    }
+
+    .insight-item:first-child {
+      padding-top: 0
+    }
+
+    .insight-item:last-child {
+      border-bottom: none
+    }
+
+    .insight-item:hover {
+      padding-left: 8px
+    }
+
+    .insight-item-img {
+      width: 110px;
+      height: 80px;
+      border-radius: 6px;
+      object-fit: cover;
+      flex-shrink: 0;
+      filter: brightness(.85);
+      transition: filter .3s
+    }
+
+    .insight-item:hover .insight-item-img {
+      filter: brightness(1)
+    }
+
+    .insight-item-body {
+      flex: 1;
+      min-width: 0
+    }
+
+    .insight-item-tag {
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      font-family: var(--mono);
+      color: var(--gold);
+      margin-bottom: 4px;
+      display: block
+    }
+
+    .insight-item-title {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--text);
+      margin-bottom: 6px;
+      font-family: var(--serif);
+      transition: color .2s
+    }
+
+    .insight-item:hover .insight-item-title {
+      color: var(--gold)
+    }
+
+    .insight-item-excerpt {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--text-sec);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 6px
+    }
+
+    .insight-item-meta {
+      font-size: 10px;
+      color: var(--text-fnt);
+      font-family: var(--mono)
+    }
+
+    .insight-item-new {
+      margin-left: 8px;
+      vertical-align: middle
+    }
+
+    .insights-cta {
+      text-align: center;
+      padding: 32px 0 8px
+    }
+
+    .insights-cta-text {
+      font-size: 13px;
+      color: var(--text-mut);
+      font-style: italic;
+      margin-bottom: 12px
+    }
+
+    .insights-cta-btn {
+      display: inline-block;
+      padding: 10px 28px;
+      background: linear-gradient(135deg, var(--gold), #b09525);
+      color: var(--bg);
+      font-weight: 700;
+      font-size: 12px;
+      border-radius: 6px;
+      font-family: var(--mono);
+      letter-spacing: .04em;
+      transition: transform .2s
+    }
+
+    .insights-cta-btn:hover {
+      transform: translateY(-1px)
+    }
+
     @media(max-width:860px) {
       .card-grid {
         grid-template-columns: 1fr
@@ -1099,6 +1307,14 @@
 
       .card-img {
         height: 80px
+      }
+
+      .insight-featured-title {
+        font-size: 18px
+      }
+
+      .insight-featured-img {
+        height: 180px
       }
     }
 
@@ -1136,6 +1352,28 @@
       .card-img {
         height: 60px
       }
+
+      .insight-item {
+        flex-direction: column;
+        gap: 12px
+      }
+
+      .insight-item-img {
+        width: 100%;
+        height: 120px
+      }
+
+      .insight-featured-body {
+        padding: 20px 18px 18px
+      }
+
+      .insight-featured-title {
+        font-size: 16px
+      }
+
+      .insight-featured-img {
+        height: 160px
+      }
     }
   </style>
 </head>
@@ -1170,6 +1408,7 @@
       <div class="filters" id="filters" style="display:none"></div>
       <div id="section-published" class="section active"></div>
       <div id="section-earnings" class="section"></div>
+      <div id="section-insights" class="section"></div>
       <div id="section-wip" class="section"></div>
       <div id="section-watchlist" class="section"></div>
     </div>
@@ -1241,7 +1480,7 @@
         targetPrice: null,
         url: "https://colubeatid.substack.com/p/chemed-corporation-nyse-che?r=392fuc",
         tags: ["Healthcare Services", "Industrial", "Compounder", "Business Services"],
-        isPaid: true,
+        isPaid: false,
         status: "watching",
         updates: [],
         earningsIntegrated: false,
@@ -1327,13 +1566,30 @@
       { ticker: "POOL", company: "POOL Corporation", sector: "Industrials", geo: "US", nextEarnings: "2026-02-20", catalyst: "Update: Pool Corporation ($POOL) FY 2025 Results", originalThesisUrl: "https://colubeatid.substack.com/p/update-pool-corporation-pool-fy-2025?r=392fuc" },
       { ticker: "VRE", company: "Veris Residential", sector: "REIT", geo: "US", nextEarnings: "2026-02-23", catalyst: "Thesis Closed: $VRE Acquired at $19.00", originalThesisUrl: "https://colubeatid.substack.com/p/thesis-closed-vre-acquired-at-1900?r=392fuc" },
     ];
-    const wipTheses = [{ ticker: "???", sector: "Healthcare", geo: "US", hint: "2 segments. Stock at 3-Year Lows, $325M FCF, Zero Debt. Transition Year or Permanent Decline?", estimatedRelease: "March 2026", progress: 85 }];
+    const wipTheses = [{ ticker: "???", sector: "Industrials", geo: "US", hint: "An industrial firm that connects traditional buried pipes with real-time cloud data analytics.", estimatedRelease: "Abril 2026", progress: 5 }];
     const watchlist = [
       { ticker: "WSO", sector: "Industrials", geo: "US", note: "HVAC distribution leader. Recurring revenue angle." },
       { ticker: "SCI", sector: "Consumer", geo: "US", note: "Funeral & cemetery services. Demographic tailwind thesis." },
       { ticker: "MWA", sector: "Industrials", geo: "US", note: "It is one of the largest manufacturers and distributors of fire hydrants, gate valves, and other water infrastructure products in North America." },
       { ticker: "SSD", sector: "Industrials", geo: "US", note: "Is a leading building materials manufacturer in the United States that produces structural connectors, fasteners, anchors, and products for new construction and retrofitting." },
       { ticker: "HLMA.L", sector: "Industrials", geo: "Europe", note: "UK tech firm's provided specialized safety, environmental, and medical solutions, focusing on fire protection, monitoring, and diagnostics through its three main business segments." },
+    ];
+
+    // ── INSIGHTS ──────────────────────────────────────────────────
+    // Short-form articles, market thoughts, portfolio notes.
+    // tag: category label (e.g. "Market View", "Portfolio Note", "Deep Dive")
+    // image: optional cover image. Set null for no image.
+    // featured: true → first item renders as hero card. Only set ONE to true.
+    const insights = [
+      {
+        title: "GEO Agent: The Part of TIC Solutions Nobody Is Pricing",
+        tag: "TIC insight",
+        date: "2026-03-26",
+        excerpt: "GEO Agent is the asset nobody is pricing. The CEO transition may be the reason it gets built.",
+        url: "https://colubeatid.substack.com/p/insight-geo-agent-the-part-of-tic?r=392fuc",
+        image: "images/TIC.webp",
+        featured: true,
+      },
     ];
     const SECTORS = ["All", "Healthcare", "Technology", "Industrials", "Consumer", "Financials", "REIT", "Materials", "Pharma", "RE Developer", "Consumer Staples"];
     const GEOS = ["All", "US", "Europe", "Asia"];
@@ -1353,12 +1609,12 @@
 
     function renderPipeline() {
       const a = publishedTheses.filter(t => t.status === "active").length, u = publishedTheses.filter(t => t.status === "updated").length, w = publishedTheses.filter(t => t.status === "watching").length, c = publishedTheses.filter(t => t.status === "closed").length;
-      const st = [{ l: "Updated", c: "var(--s-updated)", n: u }, { l: "Active", c: "var(--s-active)", n: a }, { l: "Watching", c: "var(--s-watching)", n: w }, { l: "Earnings", c: "var(--amber)", n: earningsAwaiting.length }, { l: "WIP", c: "var(--blue)", n: wipTheses.length }, { l: "Watchlist", c: "var(--purple)", n: watchlist.length }, { l: "Closed", c: "var(--s-closed)", n: c }];
+      const st = [{ l: "Updated", c: "var(--s-updated)", n: u }, { l: "Active", c: "var(--s-active)", n: a }, { l: "Watching", c: "var(--s-watching)", n: w }, { l: "Earnings", c: "var(--amber)", n: earningsAwaiting.length }, { l: "Insights", c: "var(--gold)", n: insights.length }, { l: "WIP", c: "var(--blue)", n: wipTheses.length }, { l: "Watchlist", c: "var(--purple)", n: watchlist.length }, { l: "Closed", c: "var(--s-closed)", n: c }];
       document.getElementById("pipeline-bar").innerHTML = `<span class="pipeline-label">PIPELINE</span><div class="pipeline-track">${st.map(s => `<div class="pipeline-stage"><div class="pipeline-dot" style="background:${s.c}"></div><span class="pipeline-count">${s.n}</span><span class="pipeline-stage-name">${s.l}</span></div>`).join("")}</div>`;
     }
     function renderLegend() { return `<div class="legend"><span class="legend-title">STATUS</span><div class="legend-item"><div class="legend-bar" style="background:var(--s-active)"></div><span>Active — no earnings update yet</span></div><div class="legend-item"><div class="legend-bar" style="background:var(--s-updated)"></div><span>Updated — has earnings follow-up</span></div><div class="legend-item"><div class="legend-bar" style="background:var(--s-watching)"></div><span>Watching — waiting for entry</span></div><div class="legend-item"><div class="legend-bar" style="background:var(--s-closed)"></div><span>Closed — thesis concluded</span></div></div>` }
     function renderTabs() {
-      const tabs = [{ id: "published", label: "Published", count: publishedTheses.length, icon: "◆" }, { id: "earnings", label: "Earnings", count: earningsAwaiting.length, icon: "◷" }, { id: "wip", label: "WIP", count: wipTheses.length, icon: "◐" }, { id: "watchlist", label: "Watchlist", count: watchlist.length, icon: "◎" }];
+      const tabs = [{ id: "published", label: "Published", count: publishedTheses.length, icon: "◆" }, { id: "earnings", label: "Earnings", count: earningsAwaiting.length, icon: "◷" }, { id: "insights", label: "Insights", count: insights.length, icon: "✦" }, { id: "wip", label: "WIP", count: wipTheses.length, icon: "◐" }, { id: "watchlist", label: "Watchlist", count: watchlist.length, icon: "◎" }];
       document.getElementById("tab-row").innerHTML = tabs.map(t => `<button class="tab ${activeTab === t.id ? 'active' : ''}" onclick="switchTab('${t.id}')"><span>${t.icon}</span><span>${t.label}</span><span class="tab-badge">${t.count}</span></button>`).join("");
     }
     function switchTab(id) { activeTab = id; renderTabs(); document.querySelectorAll(".section").forEach(s => s.classList.remove("active")); document.getElementById("section-" + id).classList.add("active"); document.getElementById("filters").style.display = id === "published" ? "flex" : "none"; document.getElementById("legend-container").innerHTML = id === "published" ? renderLegend() : "" }
@@ -1395,7 +1651,45 @@
 
     function renderWatchlist() { document.getElementById("section-watchlist").innerHTML = `<p class="watchlist-intro">Companies on my radar. Not yet modeled — just interesting enough to track. If you want me to prioritize one, let me know on Substack.</p><div class="watchlist-grid">${watchlist.map(w => `<div class="watchlist-item"><div class="watchlist-header"><span class="watchlist-ticker">${w.ticker}</span><div class="watchlist-tags"><span class="tag-small">${w.sector}</span><span class="tag-small">${w.geo}</span></div></div><p class="watchlist-note">${w.note}</p></div>`).join("")}</div>` }
 
-    renderPipeline(); renderTabs(); document.getElementById("legend-container").innerHTML = renderLegend(); renderFilters(); renderPublished(); renderEarnings(); renderWip(); renderWatchlist();
+    function renderInsights() {
+      if (!insights.length) { document.getElementById("section-insights").innerHTML = `<p class="empty-text">No insights published yet. Subscribe to be notified.</p>`; return }
+      const sorted = [...insights].sort((a, b) => new Date(b.date) - new Date(a.date));
+      const feat = sorted.find(i => i.featured) || sorted[0];
+      const rest = sorted.filter(i => i !== feat);
+      const isRecent = d => (new Date() - new Date(d)) / 864e5 <= NEW_DAYS;
+
+      const featHtml = `<a href="${feat.url}" target="_blank" class="insight-featured">
+        ${feat.image ? `<img class="insight-featured-img" src="${feat.image}" alt="" onerror="this.style.height='80px';this.style.background='var(--bg2)'">` : ''}
+        ${isRecent(feat.date) ? `<span class="badge-new insight-featured-new">NEW</span>` : ''}
+        <div class="insight-featured-body">
+          <span class="insight-featured-tag">${feat.tag}</span>
+          <h2 class="insight-featured-title">${feat.title}</h2>
+          <p class="insight-featured-excerpt">${feat.excerpt}</p>
+          <span class="insight-featured-meta">${fmt(feat.date)} · Read on Substack →</span>
+        </div>
+      </a>`;
+
+      const timelineHtml = rest.map(i => `<a href="${i.url}" target="_blank" class="insight-item">
+        ${i.image ? `<img class="insight-item-img" src="${i.image}" alt="" onerror="this.style.display='none'">` : ''}
+        <div class="insight-item-body">
+          <span class="insight-item-tag">${i.tag}${isRecent(i.date) ? `<span class="badge-new insight-item-new">NEW</span>` : ''}</span>
+          <h3 class="insight-item-title">${i.title}</h3>
+          <p class="insight-item-excerpt">${i.excerpt}</p>
+          <span class="insight-item-meta">${fmt(i.date)} · Read on Substack →</span>
+        </div>
+      </a>`).join("");
+
+      document.getElementById("section-insights").innerHTML = `<div class="insights-feed">
+        ${featHtml}
+        ${rest.length ? `<div class="insight-timeline">${timelineHtml}</div>` : ''}
+        <div class="insights-cta">
+          <p class="insights-cta-text">Get every insight delivered to your inbox — free.</p>
+          <a href="https://colubeatid.substack.com/subscribe" target="_blank" class="insights-cta-btn">Subscribe →</a>
+        </div>
+      </div>`;
+    }
+
+    renderPipeline(); renderTabs(); document.getElementById("legend-container").innerHTML = renderLegend(); renderFilters(); renderPublished(); renderEarnings(); renderInsights(); renderWip(); renderWatchlist();
   </script>
 </body>
 

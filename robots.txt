@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://colubeat.com/sitemap.xml

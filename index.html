@@ -546,6 +546,20 @@
       animation: np 2s ease-in-out infinite
     }
 
+    .badge-read {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 25px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      font-family: var(--mono);
+      border-radius: 3px;
+      background: linear-gradient(135deg, #f4f4f3, #e1e1e1);
+      color: var(--bg);
+      animation: np 2s ease-in-out infinite
+    }
+
     .badge-integrated {
       display: inline-flex;
       align-items: center;
@@ -1299,6 +1313,168 @@
       transform: translateY(-1px)
     }
 
+    /* ── NETFLIX HERO BANNER ── */
+    .hero {
+      display: block;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+      cursor: pointer;
+      animation: fu .8s cubic-bezier(.16, 1, .3, 1) .2s both;
+      padding: 20px;
+    }
+
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(.55);
+      transition: filter .6s, transform 8s cubic-bezier(.16, 1, .3, 1)
+    }
+
+    .hero:hover .hero-img {
+      filter: brightness(.65);
+      transform: scale(1.03)
+    }
+
+    .hero-gradient {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(0deg, var(--bg) 0%, rgba(20, 18, 16, .7) 35%, transparent 60%),
+        linear-gradient(90deg, rgba(20, 18, 16, .6) 0%, transparent 50%);
+      pointer-events: none
+    }
+
+    .hero-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px 50px 20px 20px;
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px
+    }
+
+    .hero-label-type {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      font-family: var(--mono);
+      color: var(--gold)
+    }
+
+    .hero-label-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      font-family: var(--mono);
+      border-radius: 3px;
+      background: linear-gradient(135deg, var(--gold), #b09525);
+      color: var(--bg);
+      animation: np 2s ease-in-out infinite
+    }
+
+    .hero-title {
+      font-size: 34px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #fff;
+      font-family: var(--serif);
+      margin-bottom: 12px;
+      max-width: 650px;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, .4)
+    }
+
+    .hero-excerpt {
+      font-size: 15px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, .7);
+      max-width: 550px;
+      margin-bottom: 20px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .hero-btn-read {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      background: #fff;
+      color: var(--bg);
+      font-weight: 700;
+      font-size: 14px;
+      border-radius: 6px;
+      font-family: var(--mono);
+      letter-spacing: .02em;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, .3);
+    }
+
+    .hero-btn-read:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, .4)
+    }
+
+    .hero-btn-subscribe {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 24px;
+      background: rgba(255, 255, 255, .1);
+      backdrop-filter: blur(8px);
+      color: rgba(255, 255, 255, .9);
+      font-weight: 600;
+      font-size: 13px;
+      border-radius: 6px;
+      font-family: var(--mono);
+      border: 1px solid rgba(255, 255, 255, .12);
+      transition: background .2s, border-color .2s
+    }
+
+    .hero-btn-subscribe:hover {
+      background: rgba(255, 255, 255, .18);
+      border-color: rgba(255, 255, 255, .25)
+    }
+
+    .hero-meta {
+      font-size: 11px;
+      color: rgba(255, 255, 255, .35);
+      font-family: var(--mono);
+      margin-top: 14px
+    }
+
+    .hero-no-img {
+      background: linear-gradient(135deg, #1f1d18, #2a2720, #1f1d18);
+      height: 320px
+    }
+
+    .hero-no-img .hero-gradient {
+      background: linear-gradient(0deg, var(--bg) 0%, transparent 100%)
+    }
+
     @media(max-width:860px) {
       .card-grid {
         grid-template-columns: 1fr
@@ -1306,6 +1482,18 @@
 
       .card-img {
         height: 80px
+      }
+
+      .hero {
+        height: 340px
+      }
+
+      .hero-title {
+        font-size: 26px
+      }
+
+      .hero-content {
+        padding: 0 32px 32px
       }
 
       .insight-featured-title {
@@ -1350,6 +1538,34 @@
 
       .card-img {
         height: 60px
+      }
+
+      .hero {
+        height: 280px
+      }
+
+      .hero-title {
+        font-size: 20px;
+        max-width: 100%
+      }
+
+      .hero-excerpt {
+        font-size: 13px;
+        -webkit-line-clamp: 2
+      }
+
+      .hero-content {
+        padding: 0 20px 24px
+      }
+
+      .hero-btn-read {
+        padding: 10px 20px;
+        font-size: 12px
+      }
+
+      .hero-btn-subscribe {
+        padding: 10px 16px;
+        font-size: 11px
       }
 
       .insight-item {
@@ -1400,6 +1616,8 @@
       <div class="pipeline-inner" id="pipeline-bar"></div>
     </div>
   </div>
+  <!-- ── NETFLIX HERO: Latest publication ── -->
+  <div id="hero-banner"></div>
   <main class="main-content">
     <div class="container">
       <div class="tab-row" id="tab-row"></div>
@@ -1410,6 +1628,7 @@
       <div id="section-insights" class="section"></div>
       <div id="section-wip" class="section"></div>
       <div id="section-watchlist" class="section"></div>
+      <div id="section-btn" class="section"></div>
     </div>
   </main>
   <section class="cta-section">
@@ -1609,6 +1828,23 @@
         featured: true,
       },
     ];
+
+    // ── BEHIND THE NUMBER ─────────────────────────────────────────
+    // Educational series. tag: "P&L"|"BALANCE SHEET"|"CASH FLOW"|"BEHAVIOR"
+    // issue: number. featured: true on ONE only.
+    const behindTheNumber = [
+      {
+        title: "Behind the Number #01 - Not All Revenue Is Created Equal",
+        tag: "P&L",
+        issue: 1,
+        date: "2026-04-07",
+        excerpt: "The difference between revenue a company owns and revenue it just rents, and why the income statement won't tell you.",
+        url: "https://colubeatid.substack.com/p/behind-the-number-01-not-all-revenue",
+        image: "images/behindthescenes.webp",
+        featured: true,
+      },
+    ];
+
     const SECTORS = ["All", "Healthcare", "Technology", "Industrials", "Consumer", "Financials", "REIT", "Materials", "Pharma", "RE Developer", "Consumer Staples"];
     const GEOS = ["All", "US", "Europe", "Asia"];
     const STATUSES = ["All", "active", "updated", "watching", "closed"];
@@ -1627,12 +1863,12 @@
 
     function renderPipeline() {
       const a = publishedTheses.filter(t => t.status === "active").length, u = publishedTheses.filter(t => t.status === "updated").length, w = publishedTheses.filter(t => t.status === "watching").length, c = publishedTheses.filter(t => t.status === "closed").length;
-      const st = [{ l: "Updated", c: "var(--s-updated)", n: u }, { l: "Active", c: "var(--s-active)", n: a }, { l: "Watching", c: "var(--s-watching)", n: w }, { l: "Earnings", c: "var(--amber)", n: earningsAwaiting.length }, { l: "Insights", c: "var(--gold)", n: insights.length }, { l: "WIP", c: "var(--blue)", n: wipTheses.length }, { l: "Watchlist", c: "var(--purple)", n: watchlist.length }, { l: "Closed", c: "var(--s-closed)", n: c }];
+      const st = [{ l: "Updated", c: "var(--s-updated)", n: u }, { l: "Active", c: "var(--s-active)", n: a }, { l: "Watching", c: "var(--s-watching)", n: w }, { l: "Earnings", c: "var(--amber)", n: earningsAwaiting.length }, { l: "Insights", c: "var(--gold)", n: insights.length }, { l: "Behind #", c: "var(--teal)", n: behindTheNumber.length }, { l: "WIP", c: "var(--blue)", n: wipTheses.length }, { l: "Watchlist", c: "var(--purple)", n: watchlist.length }, { l: "Closed", c: "var(--s-closed)", n: c }];
       document.getElementById("pipeline-bar").innerHTML = `<span class="pipeline-label">PIPELINE</span><div class="pipeline-track">${st.map(s => `<div class="pipeline-stage"><div class="pipeline-dot" style="background:${s.c}"></div><span class="pipeline-count">${s.n}</span><span class="pipeline-stage-name">${s.l}</span></div>`).join("")}</div>`;
     }
     function renderLegend() { return `<div class="legend"><span class="legend-title">STATUS</span><div class="legend-item"><div class="legend-bar" style="background:var(--s-active)"></div><span>Active — no earnings update yet</span></div><div class="legend-item"><div class="legend-bar" style="background:var(--s-updated)"></div><span>Updated — has earnings follow-up</span></div><div class="legend-item"><div class="legend-bar" style="background:var(--s-watching)"></div><span>Watching — waiting for entry</span></div><div class="legend-item"><div class="legend-bar" style="background:var(--s-closed)"></div><span>Closed — thesis concluded</span></div></div>` }
     function renderTabs() {
-      const tabs = [{ id: "published", label: "Published", count: publishedTheses.length, icon: "◆" }, { id: "earnings", label: "Earnings", count: earningsAwaiting.length, icon: "◷" }, { id: "insights", label: "Insights", count: insights.length, icon: "✦" }, { id: "wip", label: "WIP", count: wipTheses.length, icon: "◐" }, { id: "watchlist", label: "Watchlist", count: watchlist.length, icon: "◎" }];
+      const tabs = [{ id: "published", label: "Published", count: publishedTheses.length, icon: "◆" }, { id: "earnings", label: "Earnings", count: earningsAwaiting.length, icon: "◷" }, { id: "insights", label: "Insights", count: insights.length, icon: "✦" }, { id: "wip", label: "WIP", count: wipTheses.length, icon: "◐" }, { id: "watchlist", label: "Watchlist", count: watchlist.length, icon: "◎" }, { id: "btn", label: "Behind the Number", count: behindTheNumber.length, icon: "§" }];
       document.getElementById("tab-row").innerHTML = tabs.map(t => `<button class="tab ${activeTab === t.id ? 'active' : ''}" onclick="switchTab('${t.id}')"><span>${t.icon}</span><span>${t.label}</span><span class="tab-badge">${t.count}</span></button>`).join("");
     }
     function switchTab(id) { activeTab = id; renderTabs(); document.querySelectorAll(".section").forEach(s => s.classList.remove("active")); document.getElementById("section-" + id).classList.add("active"); document.getElementById("filters").style.display = id === "published" ? "flex" : "none"; document.getElementById("legend-container").innerHTML = id === "published" ? renderLegend() : "" }
@@ -1707,7 +1943,62 @@
       </div>`;
     }
 
-    renderPipeline(); renderTabs(); document.getElementById("legend-container").innerHTML = renderLegend(); renderFilters(); renderPublished(); renderEarnings(); renderInsights(); renderWip(); renderWatchlist();
+    renderPipeline(); renderTabs(); document.getElementById("legend-container").innerHTML = renderLegend(); renderFilters(); renderHero(); renderPublished(); renderEarnings(); renderInsights(); renderBTN(); renderWip(); renderWatchlist();
+
+    function renderHero() {
+      const candidates = [];
+      publishedTheses.forEach(t => { const d = latest(t); candidates.push({ type: "thesis", date: d, title: t.company + " ($" + t.ticker + ")", excerpt: t.summary, url: t.url, image: t.image, ticker: t.ticker }) });
+      insights.forEach(i => { candidates.push({ type: "insight", date: i.date, title: i.title, excerpt: i.excerpt, url: i.url, image: i.image, tag: i.tag }) });
+      behindTheNumber.forEach(b => { candidates.push({ type: "btn", date: b.date, title: b.title, excerpt: b.excerpt, url: b.url, image: b.image, tag: "#" + b.issue + " · " + b.tag }) });
+      candidates.sort((a, b) => new Date(b.date) - new Date(a.date));
+      const hero = candidates[0]; if (!hero) return;
+      const isRecent = (new Date() - new Date(hero.date)) / 864e5 <= NEW_DAYS;
+      const typeLabel = hero.type === "thesis" ? "LATEST THESIS" : hero.type === "insight" ? "LATEST INSIGHT" : hero.type === "btn" ? "BEHIND THE NUMBER" : "LATEST";
+      const hasImg = hero.image;
+      document.getElementById("hero-banner").innerHTML = `
+        <a href="${hero.url}" target="_blank" class="hero ${hasImg ? '' : 'hero-no-img'}">
+          ${hasImg ? `<img class="hero-img" src="${hero.image}" alt="" onerror="this.parentElement.classList.add('hero-no-img');this.remove()">` : ''}
+          <div class="hero-gradient"></div>
+          <div class="hero-content">
+            <div class="hero-label"><span class="hero-label-type">${typeLabel}</span>${isRecent ? `<span class="badge-new">NEW</span>` : ''}
+              
+              </div>
+            <h2 class="hero-title">${hero.title}</h2>
+            <p class="hero-excerpt">${hero.excerpt}</p>
+            <div class="badge-read">Read</div>
+          </div>
+        </a>`;
+    }
+
+    function renderBTN() {
+      if (!behindTheNumber.length) { document.getElementById("section-btn").innerHTML = `<p class="empty-text">No issues published yet.</p>`; return }
+      const sorted = [...behindTheNumber].sort((a, b) => new Date(b.date) - new Date(a.date));
+      const feat = sorted.find(i => i.featured) || sorted[0];
+      const rest = sorted.filter(i => i !== feat);
+      const isRecent = d => (new Date() - new Date(d)) / 864e5 <= NEW_DAYS;
+      const featHtml = `<a href="${feat.url}" target="_blank" class="insight-featured">
+        ${feat.image ? `<img class="insight-featured-img" src="${feat.image}" alt="" onerror="this.style.height='80px';this.style.background='var(--bg2)'">` : ''}
+        ${isRecent(feat.date) ? `<span class="badge-new insight-featured-new">NEW</span>` : ''}
+        <div class="insight-featured-body">
+          <span class="insight-featured-tag">#${feat.issue} · ${feat.tag}</span>
+          <h2 class="insight-featured-title">${feat.title}</h2>
+          <p class="insight-featured-excerpt">${feat.excerpt}</p>
+          <span class="insight-featured-meta">${fmt(feat.date)} · Read on Substack →</span>
+        </div></a>`;
+      const timelineHtml = rest.map(i => `<a href="${i.url}" target="_blank" class="insight-item">
+        ${i.image ? `<img class="insight-item-img" src="${i.image}" alt="" onerror="this.style.display='none'">` : ''}
+        <div class="insight-item-body">
+          <span class="insight-item-tag">#${i.issue} · ${i.tag}${isRecent(i.date) ? `<span class="badge-new insight-item-new">NEW</span>` : ''}</span>
+          <h3 class="insight-item-title">${i.title}</h3>
+          <p class="insight-item-excerpt">${i.excerpt}</p>
+          <span class="insight-item-meta">${fmt(i.date)} · Read on Substack →</span>
+        </div></a>`).join("");
+      document.getElementById("section-btn").innerHTML = `<div class="insights-feed">
+        <p class="watchlist-intro">A 23-issue educational series. Each issue picks one number from the financial statements and uses a real company to show you what it actually means — and how to read it like an analyst.</p>
+        ${featHtml}${rest.length ? `<div class="insight-timeline">${timelineHtml}</div>` : ''}
+        <div class="insights-cta"><p class="insights-cta-text">Don't miss the next issue — subscribe free.</p><a href="https://colubeatid.substack.com/subscribe" target="_blank" class="insights-cta-btn">Subscribe →</a></div>
+      </div>`;
+    }
   </script>
 </body>
 

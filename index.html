@@ -9,9 +9,11 @@
     content="Independent, numbers-first equity research. Track our published theses, upcoming earnings, and research pipeline. We look beyond the P&L to find structural moats.">
   <meta property="og:title" content="Colubeat Investment Desk — Research Pipeline">
   <meta property="og:description" content="Independent, numbers-first equity research by Colubeat.">
-  <link rel="icon" type="image/png" href="Logo-COLUBEAT.png">
-  <link rel="apple-touch-icon" href="Logo-COLUBEAT.png">
+  <link rel="icon" type="image/png" href="COLUBEAT-logo.webp">
+  <link rel="apple-touch-icon" href="COLUBEAT-logo.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
     rel="stylesheet">
@@ -55,6 +57,28 @@
       --s-closed-bg: rgba(106, 102, 94, .12);
       --mono: 'JetBrains Mono', 'Courier New', monospace;
       --serif: 'Newsreader', Georgia, serif;
+    }
+
+    /* newsreader-regular - latin */
+    @font-face {
+      font-display: swap;
+      /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+      font-family: 'Newsreader';
+      font-style: normal;
+      font-weight: 400;
+      src: url('/fonts/newsreader-v26-latin-regular.woff2') format('woff2');
+      /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+    }
+
+    /* jetbrains-mono-regular - latin */
+    @font-face {
+      font-display: swap;
+      /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+      font-family: 'JetBrains Mono';
+      font-style: normal;
+      font-weight: 400;
+      src: url('/fonts/jetbrains-mono-v24-latin-regular.woff2') format('woff2');
+      /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
     }
 
     *,
@@ -154,7 +178,7 @@
     .logo-mark {
       width: 62px;
       height: 62px;
-      background: url('Logo-COLUBEAT.png') center/contain no-repeat;
+      background: url('COLUBEAT-logo.webp') center/contain no-repeat;
       border-radius: 25%;
       border: 1.5px solid rgba(196, 168, 50, .15);
       box-shadow: 0 0 24px rgba(196, 168, 50, .08)

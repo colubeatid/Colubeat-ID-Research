@@ -796,16 +796,16 @@
       margin-bottom: 10px;
       padding: 5px 11px;
       border-radius: 5px;
-      font-size: 9px;
+      font-size: 9.5px;
       font-family: var(--mono);
-      font-weight: 500
+      font-weight: 700
     }
 
     .integration-done {
       background: rgba(76, 175, 106, .05);
       border: 1px solid rgba(76, 175, 106, .1);
       color: var(--green);
-      animation: tp 7s ease-in-out infinite
+      animation: tp 4s ease-in-out infinite
     }
 
     .integration-pending {
@@ -1743,11 +1743,11 @@
         priceAtPublish: null,
         targetPrice: null,
         url: "https://colubeatid.substack.com/p/tic-solutions-nyse-tic",
-        tags: ["Small Cap", "Industrial", "Data Centers", "Infrastructure"],
+        tags: ["Industrials"],
         isPaid: false,
-        status: "active",
-        updates: [{ label: "FY 2025 Results", url: "https://colubeatid.substack.com/p/update-tic-solutions-tic-fy-2025?r=392fuc", date: "2026-03-13" }],
-        earningsIntegrated: false,
+        status: "updated",
+        updates: [{ label: "FY 2025 Results", url: "https://colubeatid.substack.com/p/update-tic-solutions-tic-fy-2025?r=392fuc", date: "2026-04-08" }],
+        earningsIntegrated: true,
         closedReason: null,
         position: true,
         targetEntry: null,
@@ -1763,7 +1763,7 @@
         priceAtPublish: null,
         targetPrice: null,
         url: "https://colubeatid.substack.com/p/alexanders-inc-nyse-alx",
-        tags: ["REIT", "NYC Assets", "SOTP Play"],
+        tags: ["REIT"],
         isPaid: false,
         status: "updated",
         updates: [{ label: "FY 2025 Results", url: "https://colubeatid.substack.com/p/update-alexanders-alx-fy-2025-results?r=392fuc", date: "2026-02-09" }],
@@ -1783,9 +1783,9 @@
         priceAtPublish: null,
         targetPrice: null,
         url: "https://colubeatid.substack.com/p/buzzi-spa-bzumi",
-        tags: ["Cement", "Building Materials", "Family-Controlled"],
+        tags: [, "Materials"],
         isPaid: false,
-        status: "updated",
+        status: "active",
         updates: [{ label: "FY 2025 Results", url: "https://open.substack.com/pub/colubeatid/p/buzzi-spa-bzumi-fy-2025-results?r=392fuc&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true", date: "2026-03-31" }],
         earningsIntegrated: false,
         closedReason: null,
@@ -1892,7 +1892,7 @@
       const st = [{ l: "Updated", c: "var(--s-updated)", n: u }, { l: "Active", c: "var(--s-active)", n: a }, { l: "Watching", c: "var(--s-watching)", n: w }, { l: "Earnings", c: "var(--amber)", n: earningsAwaiting.length }, { l: "Insights", c: "var(--gold)", n: insights.length }, { l: "Behind #", c: "var(--teal)", n: behindTheNumber.length }, { l: "WIP", c: "var(--blue)", n: wipTheses.length }, { l: "Watchlist", c: "var(--purple)", n: watchlist.length }, { l: "Closed", c: "var(--s-closed)", n: c }];
       document.getElementById("pipeline-bar").innerHTML = `<span class="pipeline-label">PIPELINE</span><div class="pipeline-track">${st.map(s => `<div class="pipeline-stage"><div class="pipeline-dot" style="background:${s.c}"></div><span class="pipeline-count">${s.n}</span><span class="pipeline-stage-name">${s.l}</span></div>`).join("")}</div>`;
     }
-    function renderLegend() { return `<div class="legend"><span class="legend-title">STATUS</span><div class="legend-item"><div class="legend-bar" style="background:var(--s-active)"></div><span>Active — no earnings update yet</span></div><div class="legend-item"><div class="legend-bar" style="background:var(--s-updated)"></div><span>Updated — has earnings follow-up</span></div><div class="legend-item"><div class="legend-bar" style="background:var(--s-watching)"></div><span>Watching — waiting for entry</span></div><div class="legend-item"><div class="legend-bar" style="background:var(--s-closed)"></div><span>Closed — thesis concluded</span></div></div>` }
+    function renderLegend() { return `<div class="legend"><span class="legend-title">STATUS</span><div class="legend-item"><div class="legend-bar" style="background:var(--s-active)"></div><span>Active — no earnings integration yet</span></div><div class="legend-item"><div class="legend-bar" style="background:var(--s-updated)"></div><span>Updated — has earnings integrated</span></div><div class="legend-item"><div class="legend-bar" style="background:var(--s-watching)"></div><span>Watching — waiting for entry</span></div><div class="legend-item"><div class="legend-bar" style="background:var(--s-closed)"></div><span>Closed — thesis concluded</span></div></div>` }
     function renderTabs() {
       const tabs = [{ id: "published", label: "Published", count: publishedTheses.length, icon: "◆" }, { id: "earnings", label: "Earnings", count: earningsAwaiting.length, icon: "◷" }, { id: "insights", label: "Insights", count: insights.length, icon: "✦" }, { id: "wip", label: "WIP", count: wipTheses.length, icon: "◐" }, { id: "watchlist", label: "Watchlist", count: watchlist.length, icon: "◎" }, { id: "btn", label: "Behind the Number", count: behindTheNumber.length, icon: "§" }];
       document.getElementById("tab-row").innerHTML = tabs.map(t => `<button class="tab ${activeTab === t.id ? 'active' : ''}" onclick="switchTab('${t.id}')"><span>${t.icon}</span><span>${t.label}</span><span class="tab-badge">${t.count}</span></button>`).join("");
@@ -1918,7 +1918,7 @@
         const ci = cl && t.closedReason ? `<div class="closed-info">✓ ${t.closedReason}</div>` : "";
         let eb = ""; if (wt && t.targetEntry) eb = `<div class="entry-target"><div><div class="entry-target-label">INTERESTED BELOW</div><div class="entry-target-price">$${t.targetEntry}</div></div><div class="entry-target-note">Waiting for better entry. Subscribe to be notified.</div></div>`;
         let ur = ""; if (t.updates && t.updates.length > 0) { const ch = t.updates.map(u => `<span class="update-chip" onclick="event.preventDefault();event.stopPropagation();window.open('${u.url}','_blank')">↗ ${u.label}</span>`).join(""); ur = `<div class="update-row"><span class="update-row-label">EARNINGS</span>${ch}</div>` }
-        let ir = ""; if (t.status !== "closed" && t.updates && t.updates.length > 0) { ir = t.earningsIntegrated ? `<div class="integration-row integration-done">✓ Thesis reflects latest data</div>` : `<div class="integration-row integration-pending">⏳ Integration pending</div>` }
+        let ir = ""; if (t.status !== "closed" && t.updates && t.updates.length > 0) { ir = t.earningsIntegrated ? `<div class="integration-row integration-done">✓ Thesis reflects latest earnings data</div>` : `<div class="integration-row integration-pending">⏳ Last earnings integration pending</div>` }
         // Image section: real thumbnail or thin status bar
         const imgSection = t.image ? `<img class="card-img" src="${t.image}" alt="${t.company}" onerror="this.outerHTML='<div class=card-img-placeholder></div>'">` : `<div class="card-img-placeholder"></div>`;
         return `<a href="${t.url}" target="_blank" class="${cc}">${imgSection}<div class="card-status-bar" style="background:${sColor(t.status)}"></div><div class="card-body"><div class="card-header"><div class="ticker-block">${nw}${ib}<span class="ticker">${t.ticker}</span>${sb}${pb}</div><div><div class="card-date">${fmt(latest(t))}</div>${t.updates && t.updates.length > 0 ? `<div class="card-date-original">Thesis: ${fmt(t.datePublished)}</div>` : ''}</div></div><p class="company-name">${t.company}</p>${pt}${ci}<p class="card-summary">${t.summary}</p><div class="card-tags">${t.tags.map(tg => `<span class="tag">${tg}</span>`).join("")}</div>${ur}${ir}${eb}<div class="read-more">${cl ? "Read thesis →" : "Read full thesis →"}</div></div></a>`

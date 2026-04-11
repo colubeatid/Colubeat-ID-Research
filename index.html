@@ -1745,8 +1745,11 @@
         url: "https://colubeatid.substack.com/p/tic-solutions-nyse-tic",
         tags: ["Industrials"],
         isPaid: false,
+
         status: "updated",
         updates: [{ label: "FY 2025 Results", url: "https://colubeatid.substack.com/p/update-tic-solutions-tic-fy-2025?r=392fuc", date: "2026-04-08" }],
+        status: "active",
+        updates: [{ label: "FY 2025 Results", url: "https://colubeatid.substack.com/p/update-tic-solutions-tic-fy-2025?r=392fuc", date: "2026-03-13" }],
         earningsIntegrated: true,
         closedReason: null,
         position: true,
@@ -1787,7 +1790,7 @@
         isPaid: false,
         status: "active",
         updates: [{ label: "FY 2025 Results", url: "https://open.substack.com/pub/colubeatid/p/buzzi-spa-bzumi-fy-2025-results?r=392fuc&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true", date: "2026-03-31" }],
-        earningsIntegrated: false,
+        earningsIntegrated: true,
         closedReason: null,
         position: true,
         targetEntry: null
@@ -1817,19 +1820,41 @@
         position: true,
         targetEntry: null
       },
-      { ticker: "FRPH", company: "FRP Holdings", sector: "RE Developer", geo: "US", datePublished: "2025-12-06", image: "images/FRPH.webp", summary: "A legacy asset-heavy business that just brought a full-cycle development platform in-house to control the entire lifecycle of its projects.", priceAtPublish: null, targetPrice: null, url: "https://colubeatid.substack.com/p/frp-holdings-inc-nasdaq-frph?r=392fuc", tags: ["Development", "Industrial RE", "Residential RE"], isPaid: false, status: "active", updates: [], earningsIntegrated: false, closedReason: null, position: true, targetEntry: null },
+      {
+        ticker: "FRPH",
+        company: "FRP Holdings",
+        sector: "RE Developer",
+        geo: "US",
+        datePublished: "2025-12-06",
+        image: "images/FRPH.webp",
+        summary: "A legacy asset-heavy business that just brought a full-cycle development platform in-house to control the entire lifecycle of its projects.",
+        priceAtPublish: null,
+        targetPrice: null,
+        url: "https://colubeatid.substack.com/p/frp-holdings-inc-nasdaq-frph?r=392fuc",
+        tags: ["Development", "Industrial RE", "Residential RE"],
+        isPaid: false,
+        status: "active",
+        updates: [],
+        earningsIntegrated: false,
+        closedReason: null,
+        position: true,
+        targetEntry: null
+      },
       { ticker: "3828.HK", company: "MING FAI International", sector: "Consumer", geo: "Asia", datePublished: "2025-12-04", image: "images/3828.webp", summary: "Cash fortress and anti-tariff shield trading at panic levels. New strategic value unlocks.", priceAtPublish: null, targetPrice: null, url: "https://colubeatid.substack.com/p/ming-fai-international-holding-limited?r=392fuc", tags: ["Deep Value", "Arbitrage", "B2B"], isPaid: false, status: "active", updates: [], earningsIntegrated: false, closedReason: null, position: false, targetEntry: null },
     ];
 
     const earningsAwaiting = [
-      { ticker: "FRPH", company: "FRP Holdings", sector: "REIT", geo: "US", nextEarnings: "2026-04-01", catalyst: "Update: FRP Holdings ($FRPH) FY 2025 Results", originalThesisUrl: "https://colubeatid.substack.com/p/frp-holdings-inc-nasdaq-frph?r=392fuc" },
+      { ticker: "FRPH", company: "FRP Holdings", sector: "REIT", geo: "US", nextEarnings: "2026-04-10", catalyst: "Update: FRP Holdings ($FRPH) FY 2025 Results", originalThesisUrl: "https://colubeatid.substack.com/p/frp-holdings-inc-nasdaq-frph?r=392fuc" },
       { ticker: "ALX", company: "Alexander's", sector: "REIT", geo: "US", nextEarnings: "2026-02-09", catalyst: "Update: Alexander's ($ALX) FY 2025 Results", originalThesisUrl: "https://colubeatid.substack.com/p/update-alexanders-alx-fy-2025-results?r=392fuc" },
       { ticker: "TIC", company: "TIC Solutions", sector: "Industrials", geo: "US", nextEarnings: "2026-03-13", catalyst: "Update: TIC Solutions ($TIC) FY 2025 Results", originalThesisUrl: "https://colubeatid.substack.com/p/update-tic-solutions-tic-fy-2025?r=392fuc" },
       { ticker: "BNZL", company: "BUNZL PLC", sector: "Industrials", geo: "Europe", nextEarnings: "2026-03-02", catalyst: "Update: Bunzl plc ($BNZL.L) FY 2025 Results", originalThesisUrl: "https://colubeatid.substack.com/p/update-bunzl-plc-bnzll-fy-2025-results?r=392fuc" },
       { ticker: "POOL", company: "POOL Corporation", sector: "Industrials", geo: "US", nextEarnings: "2026-02-20", catalyst: "Update: Pool Corporation ($POOL) FY 2025 Results", originalThesisUrl: "https://colubeatid.substack.com/p/update-pool-corporation-pool-fy-2025?r=392fuc" },
       { ticker: "VRE", company: "Veris Residential", sector: "REIT", geo: "US", nextEarnings: "2026-02-23", catalyst: "Thesis Closed: $VRE Acquired at $19.00", originalThesisUrl: "https://colubeatid.substack.com/p/thesis-closed-vre-acquired-at-1900?r=392fuc" },
     ];
-    const wipTheses = [{ ticker: "???", sector: "Industrials", geo: "US", hint: "An industrial firm that connects traditional buried pipes with real-time cloud data analytics.", estimatedRelease: "Abril 2026", progress: 5 }];
+    const wipTheses = [
+      { ticker: "???", sector: "Healthcare", geo: "US", hint: "A specialized industrial technology firm that leverages proprietary water treatment solutions to transition from a project-based consulting model into a recurring-revenue operations business.", estimatedRelease: "April 2026", progress: 5 },
+      { ticker: "???", sector: "Industrials", geo: "Canada", hint: "A critical infrastructure provider for plasma collection, generating recurring revenue through proprietary hardware and software that're so deeply integrated into your daily operations that you can't switch providers without significant workflow disruption.", estimatedRelease: "April 2026", progress: 80 }
+    ];
     const watchlist = [
       { ticker: "WSO", sector: "Industrials", geo: "US", note: "HVAC distribution leader. Recurring revenue angle." },
       { ticker: "SCI", sector: "Consumer", geo: "US", note: "Funeral & cemetery services. Demographic tailwind thesis." },
@@ -1872,7 +1897,7 @@
     ];
 
     const SECTORS = ["All", "Healthcare", "Technology", "Industrials", "Consumer", "Financials", "REIT", "Materials", "Pharma", "RE Developer", "Consumer Staples"];
-    const GEOS = ["All", "US", "Europe", "Asia"];
+    const GEOS = ["All", "US", "Canada", "Europe", "Asia"];
     const STATUSES = ["All", "active", "updated", "watching", "closed"];
     const STATUS_LABELS = { "All": "All", "active": "Active", "updated": "Updated", "watching": "Watching", "closed": "Closed" };
 
@@ -2020,9 +2045,9 @@
           <span class="insight-item-meta">${fmt(i.date)} · Read on Substack →</span>
         </div></a>`).join("");
       document.getElementById("section-btn").innerHTML = `<div class="insights-feed">
-        <p class="watchlist-intro">A 23-issue educational series. Each issue picks one number from the financial statements and uses a real company to show you what it actually means — and how to read it like an analyst.</p>
+        <p class="watchlist-intro">A 23-issue educational series. Each issue picks one number from the financial statements and uses a real company to show you what it actually means and how to read it like an analyst.</p>
         ${featHtml}${rest.length ? `<div class="insight-timeline">${timelineHtml}</div>` : ''}
-        <div class="insights-cta"><p class="insights-cta-text">Don't miss the next issue — subscribe free.</p><a href="https://colubeatid.substack.com/subscribe" target="_blank" class="insights-cta-btn">Subscribe →</a></div>
+        <div class="insights-cta"><p class="insights-cta-text">Don't miss the next issue, subscribe free.</p><a href="https://colubeatid.substack.com/subscribe" target="_blank" class="insights-cta-btn">Subscribe →</a></div>
       </div>`;
     }
   </script>

@@ -2076,7 +2076,7 @@
       candidates.sort((a, b) => new Date(b.date) - new Date(a.date));
       const hero = candidates[0]; if (!hero) return;
       const isRecent = (new Date() - new Date(hero.date)) / 864e5 <= NEW_DAYS;
-      const typeLabel = hero.type === "thesis" ? "LATEST THESIS" : hero.type === "insight" ? "LATEST INSIGHT" : hero.type === "btn" ? "BEHIND THE NUMBER" : "LATEST";
+      const typeLabel = hero.type === "thesis" ? "LATEST UPDATE" : hero.type === "insight" ? "LATEST INSIGHT" : hero.type === "btn" ? "BEHIND THE NUMBER" : "LATEST";
       const hasImg = hero.image;
       document.getElementById("hero-banner").innerHTML = `
         <a href="${hero.url}" target="_blank" class="hero ${hasImg ? '' : 'hero-no-img'}">

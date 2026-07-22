@@ -246,14 +246,14 @@
       inset: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      filter: brightness(.45);
+      object-fit: contain;
+      filter: brightness(.85);
       transition: filter .6s, transform 8s cubic-bezier(.16, 1, .3, 1)
     }
 
     .hero:hover .hero-img {
-      filter: brightness(.55);
-      transform: scale(1.03)
+      filter: brightness(.95);
+      transform: scale(1.43)
     }
 
     .hero-gradient {
@@ -329,7 +329,6 @@
       max-width: 550px;
       margin-bottom: 18px;
       display: -webkit-box;
-      -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden
     }
@@ -546,7 +545,7 @@
     .card-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px
+      gap: 28px
     }
 
     .cover {
@@ -554,7 +553,7 @@
       flex-direction: column;
       background: var(--surface);
       border: 2px solid var(--border);
-      border-radius: 10px;
+      border-radius: 6px;
       overflow: hidden;
       transition: all .4s cubic-bezier(.16, 1, .3, 1)
     }
@@ -567,10 +566,10 @@
 
     .cover-img {
       width: 100%;
-      height: 140px;
+      height: 280px;
       object-fit: cover;
       display: block;
-      filter: brightness(.6) saturate(.9);
+      filter: brightness(.9) saturate(.8);
       transition: filter .4s
     }
 
@@ -628,7 +627,6 @@
       color: var(--text-sec);
       margin-bottom: 12px;
       display: -webkit-box;
-      -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
       flex: 1

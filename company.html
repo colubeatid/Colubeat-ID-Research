@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colubeat — Company Dossier</title>
+  <link rel="icon" type="image/webp" href="COLUBEAT-logo-mini.webp">
+  <style>
+    :root {
+      --bg: #141210;
+      --bg2: #1c1a17;
+      --bg3: #242220;
+      --surface: #1e1c19;
+      --border: rgba(255, 255, 255, .06);
+      --border-hover: rgba(196, 168, 50, .25);
+      --text: #e6e2d9;
+      --text-sec: #d2c8b4;
+      --text-mut: rgb(246, 239, 228);
+      --text-fnt: #b6ab96;
+      --gold: #c4a832;
+      --gold-dk: #887528;
+      --gold-bg: rgba(196, 168, 50, .1);
+      --green: #4caf6a;
+      --green-bg: rgba(76, 175, 106, .08);
+      --amber: #d4952a;
+      --amber-bg: rgba(212, 149, 42, .08);
+      --blue: #5b8fd4;
+      --teal: #47bea2;
+      --teal-bg: rgba(58, 170, 150, .08);
+      --red: #d45a52;
+      --s-active: #5b8fd4;
+      --s-watching: #d4952a;
+      --s-closed: #6a665e;
+      --mono: 'JetBrains Mono', 'Courier New', monospace;
+      --serif: 'Newsreader', Georgia, serif
+    }
+
+    @font-face {
+      font-display: swap;
+      font-family: 'Newsreader';
+      font-style: normal;
+      font-weight: 400;
+      src: url('/fonts/newsreader-v26-latin-regular.woff2') format('woff2')
+    }
+
+    @font-face {
+      font-display: swap;
+      font-family: 'JetBrains Mono';
+      font-style: normal;
+      font-weight: 400;
+      src: url('/fonts/jetbrains-mono-v24-latin-regular.woff2') format('woff2')
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    body {
+      font-family: var(--serif);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    /* ── BACK BAR (sticky) ── */
+    .back-bar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(20, 18, 16, .92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 32px;
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 20px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+      transition: all .2s;
+      cursor: pointer
+    }
+
+    .back-btn:hover {
+      background: var(--gold-bg);
+      border-color: var(--border-hover);
+      color: var(--gold)
+    }
+
+    .back-ticker {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-fnt);
+      font-family: var(--mono);
+      letter-spacing: .06em
+    }
+
+    /* ── COMPANY HERO ── */
+    .co-hero {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      overflow: hidden
+    }
+
+    .co-hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      filter: brightness(.3) saturate(.8)
+    }
+
+    .co-hero-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, var(--bg) 0%, rgba(20, 18, 16, .7) 40%, rgba(20, 18, 16, .2) 70%, transparent 100%)
+    }
+
+    .co-hero-content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 48px 40px;
+      max-width: 1100px;
+      margin: 0 auto
+    }
+
+    .co-ticker {
+      font-size: 42px;
+      font-weight: 700;
+      font-family: var(--mono);
+      color: #fff;
+      letter-spacing: .06em;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, .4)
+    }
+
+    .co-name {
+      font-size: 17px;
+      color: rgba(255, 255, 255, .65);
+      font-family: var(--mono);
+      margin-bottom: 14px
+    }
+
+    .co-meta {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap
+    }
+
+    .co-meta-tag {
+      padding: 4px 12px;
+      border-radius: 5px;
+      font-size: 10px;
+      font-weight: 600;
+      font-family: var(--mono);
+      letter-spacing: .06em
+    }
+
+    /* ── MAIN ── */
+    .co-main {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 44px 32px 60px
+    }
+
+    /* Key Question */
+    .co-question {
+      position: relative;
+      padding: 28px 32px;
+      margin-bottom: 40px;
+      border-left: 3px solid var(--gold);
+      background: linear-gradient(135deg, rgba(196, 168, 50, .04), transparent)
+    }
+
+    .co-question-label {
+      font-size: 9px;
+      letter-spacing: .15em;
+      color: var(--gold);
+      font-family: var(--mono);
+      font-weight: 700;
+      margin-bottom: 10px
+    }
+
+    .co-question-text {
+      font-size: 19px;
+      line-height: 1.5;
+      color: var(--text);
+      font-style: italic;
+      font-family: var(--serif)
+    }
+
+    /* Summary */
+    .co-summary {
+      font-size: 16px;
+      line-height: 1.85;
+      color: var(--text-sec);
+      margin-bottom: 40px
+    }
+
+    /* Key Facts */
+    .co-facts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 44px
+    }
+
+    .co-fact {
+      padding: 16px 18px;
+      background: var(--bg2)
+    }
+
+    .co-fact-label {
+      font-size: 8px;
+      letter-spacing: .14em;
+      color: var(--text-fnt);
+      font-family: var(--mono);
+      font-weight: 600;
+      margin-bottom: 6px
+    }
+
+    .co-fact-value {
+      font-size: 14px;
+      font-weight: 700;
+      font-family: var(--mono)
+    }
+
+    /* Section titles */
+    .co-section {
+      font-size: 11px;
+      letter-spacing: .15em;
+      color: var(--gold);
+      font-family: var(--mono);
+      font-weight: 700;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border)
+    }
+
+    /* Timeline */
+    .co-timeline {
+      margin-bottom: 44px
+    }
+
+    .co-tl-item {
+      display: flex;
+      gap: 0;
+      transition: all .2s;
+      border-radius: 8px;
+      margin-bottom: 2px
+    }
+
+    .co-tl-item:hover {
+      background: rgba(255, 255, 255, .02)
+    }
+
+    .co-tl-left {
+      width: 110px;
+      flex-shrink: 0;
+      padding: 18px 16px 18px 12px;
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px
+    }
+
+    .co-tl-date {
+      font-size: 11px;
+      color: var(--text-fnt);
+      font-family: var(--mono)
+    }
+
+    .co-tl-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-top: 2px
+    }
+
+    .co-tl-right {
+      flex: 1;
+      padding: 16px 18px;
+      border-left: 2px solid var(--bg3);
+      min-width: 0
+    }
+
+    .co-tl-type {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      font-family: var(--mono);
+      margin-bottom: 4px;
+      display: inline-block
+    }
+
+    .co-tl-paid {
+      font-size: 8px;
+      font-weight: 600;
+      padding: 1px 6px;
+      background: var(--gold-bg);
+      color: var(--gold);
+      border-radius: 3px;
+      margin-left: 6px;
+      font-family: var(--mono)
+    }
+
+    .co-tl-title {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--text);
+      font-family: var(--serif);
+      margin-bottom: 6px;
+      transition: color .2s
+    }
+
+    .co-tl-item:hover .co-tl-title {
+      color: var(--gold)
+    }
+
+    .co-tl-excerpt {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text-sec);
+      margin-bottom: 8px
+    }
+
+    .co-tl-link {
+      font-size: 11px;
+      color: var(--gold);
+      font-family: var(--mono);
+      font-weight: 600
+    }
+
+    /* Watching block */
+    .co-watching {
+      padding: 18px 22px;
+      background: var(--amber-bg);
+      border: 1px solid rgba(212, 149, 42, .12);
+      border-radius: 10px;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 18px
+    }
+
+    .co-watching-price {
+      font-size: 26px;
+      font-weight: 700;
+      font-family: var(--mono);
+      color: var(--amber)
+    }
+
+    .co-watching-text {
+      font-size: 12px;
+      color: var(--text-fnt);
+      font-family: var(--mono);
+      font-style: italic;
+      line-height: 1.5
+    }
+
+    .co-watching-label {
+      font-size: 9px;
+      letter-spacing: .1em;
+      color: var(--amber);
+      font-family: var(--mono);
+      font-weight: 700;
+      margin-bottom: 4px
+    }
+
+    /* Related coverage */
+    .co-related {
+      margin-bottom: 40px
+    }
+
+    .co-related-grid {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap
+    }
+
+    .co-related-card {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: all .2s;
+      cursor: pointer
+    }
+
+    .co-related-card:hover {
+      border-color: var(--border-hover);
+      background: var(--bg3)
+    }
+
+    .co-related-img {
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      object-fit: cover;
+      filter: brightness(.7)
+    }
+
+    .co-related-ticker {
+      font-size: 13px;
+      font-weight: 700;
+      font-family: var(--mono);
+      color: var(--text)
+    }
+
+    .co-related-name {
+      font-size: 10px;
+      color: var(--text-fnt);
+      font-family: var(--mono)
+    }
+
+    /* CTA */
+    .co-cta {
+      text-align: center;
+      padding: 44px 0;
+      border-top: 1px solid var(--border);
+      margin-top: 20px
+    }
+
+    .co-cta-text {
+      font-size: 15px;
+      color: var(--text-sec);
+      margin-bottom: 16px;
+      font-style: italic
+    }
+
+    .co-cta-btn {
+      display: inline-block;
+      padding: 14px 36px;
+      background: linear-gradient(135deg, var(--gold), #b09525);
+      color: var(--bg);
+      font-weight: 700;
+      font-size: 14px;
+      border-radius: 6px;
+      font-family: var(--mono);
+      letter-spacing: .04em;
+      transition: transform .2s;
+      box-shadow: 0 2px 12px rgba(196, 168, 50, .2)
+    }
+
+    .co-cta-btn:hover {
+      transform: translateY(-1px)
+    }
+
+    /* Footer */
+    .co-footer {
+      text-align: center;
+      padding: 24px 32px;
+      border-top: 1px solid var(--border)
+    }
+
+    .co-footer-link {
+      font-size: 12px;
+      color: var(--gold);
+      font-family: var(--mono);
+      font-weight: 500
+    }
+
+    .co-footer-copy {
+      font-size: 10px;
+      color: var(--text-fnt);
+      font-family: var(--mono);
+      margin-top: 8px
+    }
+
+    /* 404 */
+    .co-404 {
+      text-align: center;
+      padding: 120px 32px
+    }
+
+    .co-404-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 12px
+    }
+
+    .co-404-text {
+      font-size: 15px;
+      color: var(--text-sec);
+      margin-bottom: 24px
+    }
+
+    @media(max-width:640px) {
+      .back-bar {
+        padding: 10px 16px
+      }
+
+      .co-hero {
+        height: 280px
+      }
+
+      .co-hero-content {
+        padding: 0 20px 28px
+      }
+
+      .co-ticker {
+        font-size: 28px
+      }
+
+      .co-name {
+        font-size: 14px
+      }
+
+      .co-main {
+        padding: 28px 20px 40px
+      }
+
+      .co-question {
+        padding: 20px 22px
+      }
+
+      .co-question-text {
+        font-size: 16px
+      }
+
+      .co-facts {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .co-tl-left {
+        width: 80px;
+        padding: 14px 10px 14px 8px
+      }
+
+      .co-tl-right {
+        padding: 12px 14px
+      }
+
+      .co-watching {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script src="data.js"></script>
+  <script>
+    const ticker = new URLSearchParams(window.location.search).get("ticker");
+    const thesis = ticker ? publishedTheses.find(t => t.ticker === ticker) : null;
+
+    if (!thesis) {
+      document.getElementById("app").innerHTML = `
+    <div class="back-bar"><a href="index.html" class="back-btn">← Back to Colubeat</a></div>
+    <div class="co-404">
+      <h1 class="co-404-title">Company not found</h1>
+      <p class="co-404-text">The ticker "${ticker || '?'}" doesn't match any published thesis.</p>
+      <a href="index.html" class="back-btn">← Back to Colubeat</a>
+    </div>`;
+    } else {
+      document.title = `${thesis.ticker} — ${thesis.company} | Colubeat`;
+
+      // Build timeline
+      const timeline = [];
+      timeline.push({ type: "ORIGINAL THESIS", date: thesis.datePublished, title: `${thesis.company} ($${thesis.ticker})`, excerpt: thesis.summary, url: thesis.url, color: "var(--gold)", isPaid: thesis.isPaid });
+      if (thesis.updates) {
+        thesis.updates.forEach(u => {
+          timeline.push({ type: "EARNINGS UPDATE", date: u.date, title: u.label, excerpt: null, url: u.url, color: "var(--teal)", isPaid: false });
+        });
+      }
+      const related = insights.filter(i => i.relatedTicker === thesis.ticker);
+      related.forEach(i => {
+        timeline.push({ type: "INSIGHT", date: i.date, title: i.title, excerpt: i.excerpt, url: i.url, color: "var(--blue)", isPaid: false });
+      });
+      timeline.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      // Status
+      const statusColor = sColor(thesis.status);
+      const statusText = sLabel(thesis.status);
+      const posText = thesis.position ? "HOLDING" : "NO POSITION";
+      const posColor = thesis.position ? "var(--green)" : "var(--text-fnt)";
+      const posBg = thesis.position ? "var(--green-bg)" : "rgba(255,255,255,.04)";
+
+      // Key question
+      const question = keyQuestions[thesis.ticker] || null;
+
+      // Related companies (same sector, excluding self)
+      const sectorPeers = publishedTheses.filter(t => t.sector === thesis.sector && t.ticker !== thesis.ticker && t.status !== "closed");
+
+      // First covered
+      const firstCovered = fmt(thesis.datePublished);
+      const lastActivity = fmt(latest(thesis));
+
+      document.getElementById("app").innerHTML = `
+    <div class="back-bar">
+      <a href="index.html" class="back-btn">← Back to Colubeat</a>
+      <span class="back-ticker">${thesis.ticker}</span>
+    </div>
+
+    <div class="co-hero">
+      ${thesis.image ? `<img class="co-hero-img" src="${thesis.image}" alt="">` : ''}
+      <div class="co-hero-gradient"></div>
+      <div class="co-hero-content">
+        <div class="co-ticker">${thesis.ticker}</div>
+        <div class="co-name">${thesis.company}</div>
+        <div class="co-meta">
+          <span class="co-meta-tag" style="background:${statusColor}1a;color:${statusColor}">${statusText}</span>
+          <span class="co-meta-tag" style="background:${posBg};color:${posColor}">${thesis.position ? '◆' : '◇'} ${posText}</span>
+          <span class="co-meta-tag" style="background:rgba(255,255,255,.04);color:var(--text-fnt)">${thesis.sector} · ${thesis.geo}</span>
+          ${thesis.isPaid ? '<span class="co-meta-tag" style="background:var(--gold-bg);color:var(--gold)">PAID</span>' : ''}
+        </div>
+      </div>
+    </div>
+
+    <div class="co-main">
+      ${question ? `
+      <div class="co-question">
+        <div class="co-question-label">THE THESIS IN ONE QUESTION</div>
+        <div class="co-question-text">${question}</div>
+      </div>` : ''}
+
+      <p class="co-summary">${thesis.summary}</p>
+
+      <div class="co-facts">
+        <div class="co-fact"><div class="co-fact-label">STATUS</div><div class="co-fact-value" style="color:${statusColor}">${statusText}</div></div>
+        <div class="co-fact"><div class="co-fact-label">POSITION</div><div class="co-fact-value" style="color:${posColor}">${posText}</div></div>
+        <div class="co-fact"><div class="co-fact-label">FIRST COVERED</div><div class="co-fact-value">${firstCovered}</div></div>
+        <div class="co-fact"><div class="co-fact-label">LAST ACTIVITY</div><div class="co-fact-value">${lastActivity}</div></div>
+        <div class="co-fact"><div class="co-fact-label">PUBLICATIONS</div><div class="co-fact-value">${timeline.length}</div></div>
+        <div class="co-fact"><div class="co-fact-label">ACCESS</div><div class="co-fact-value" style="color:${thesis.isPaid ? 'var(--gold)' : 'var(--green)'}">${thesis.isPaid ? 'PAID' : 'FREE'}</div></div>
+      </div>
+
+      ${thesis.closedReason ? `<div style="padding:14px 20px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;margin-bottom:40px;font-size:13px;color:var(--s-closed);font-family:var(--mono);font-weight:500">✓ ${thesis.closedReason}</div>` : ''}
+
+      ${thesis.status === "watching" && thesis.targetEntry ? `
+      <div class="co-watching">
+        <div><div class="co-watching-label">INTERESTED BELOW</div><div class="co-watching-price">$${thesis.targetEntry}</div></div>
+        <div class="co-watching-text">I've published the thesis but I'm waiting for a better entry point. Subscribe to be notified if I open a position.</div>
+      </div>` : ''}
+
+      <div class="co-section">ALL PUBLICATIONS · ${timeline.length}</div>
+      <div class="co-timeline">
+        ${timeline.map(item => `
+          <a href="${item.url}" target="_blank" class="co-tl-item">
+            <div class="co-tl-left">
+              <span class="co-tl-date">${fmt(item.date)}</span>
+              <div class="co-tl-dot" style="background:${item.color}"></div>
+            </div>
+            <div class="co-tl-right">
+              <span class="co-tl-type" style="color:${item.color}">${item.type}</span>${item.isPaid ? '<span class="co-tl-paid">PAID</span>' : ''}
+              <h3 class="co-tl-title">${item.title}</h3>
+              ${item.excerpt ? `<p class="co-tl-excerpt">${item.excerpt}</p>` : ''}
+              <span class="co-tl-link">Read on Substack →</span>
+            </div>
+          </a>`).join("")}
+      </div>
+
+      ${sectorPeers.length > 0 ? `
+      <div class="co-section">ALSO IN ${thesis.sector.toUpperCase()}</div>
+      <div class="co-related">
+        <div class="co-related-grid">
+          ${sectorPeers.map(p => `
+            <a href="company.html?ticker=${encodeURIComponent(p.ticker)}" class="co-related-card">
+              ${p.image ? `<img class="co-related-img" src="${p.image}" alt="">` : ''}
+              <div>
+                <div class="co-related-ticker">${p.ticker}</div>
+                <div class="co-related-name">${p.company}</div>
+              </div>
+            </a>`).join("")}
+        </div>
+      </div>` : ''}
+
+      <div class="co-cta">
+        <p class="co-cta-text">Get every update on $${thesis.ticker} delivered to your inbox.</p>
+        <a href="https://colubeatid.substack.com/subscribe" target="_blank" class="co-cta-btn">Subscribe Free →</a>
+      </div>
+    </div>
+
+    <div class="co-footer">
+      <a href="index.html" class="co-footer-link">← Back to Colubeat</a>
+      <p class="co-footer-copy">© 2026 Colubeat Investment Desk. All rights reserved.</p>
+    </div>`;
+    }
+  </script>
+</body>
+
+</html>

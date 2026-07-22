@@ -6,12 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Colubeat Investment Desk — Research Pipeline</title>
   <meta name="description"
-    content="Independent, numbers-first equity research. Track our published theses, upcoming earnings, and research pipeline. We look beyond the P&L to find structural moats.">
-  <meta property="og:title" content="Colubeat Investment Desk — Research Pipeline">
-  <meta property="og:description" content="Independent, numbers-first equity research by Colubeat.">
+    content="Independent, numbers-first equity research. Track our published theses, upcoming earnings, and research pipeline.">
   <link rel="icon" type="image/webp" href="COLUBEAT-logo-mini.webp">
-  <link rel="apple-touch-icon" href="COLUBEAT-logo-mini.webp">
-  <link rel="preload" href="/fonts/newsreader-v26-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="canonical" href="https://www.colubeat.com/">
   <style>
     :root {
@@ -19,7 +15,6 @@
       --bg2: #1c1a17;
       --bg3: #242220;
       --surface: #1e1c19;
-      --surface-hover: #28261f;
       --border: rgba(255, 255, 255, .06);
       --border-hover: rgba(196, 168, 50, .25);
       --text: #e6e2d9;
@@ -30,9 +25,7 @@
       --gold-dk: #887528;
       --gold-bg: rgba(196, 168, 50, .1);
       --gold-bg-s: rgba(196, 168, 50, .16);
-      --charcoal: #e6e2d9;
       --green: #4caf6a;
-      --green-bg: rgba(76, 175, 106, .08);
       --amber: #d4952a;
       --amber-bg: rgba(212, 149, 42, .08);
       --blue: #5b8fd4;
@@ -41,8 +34,6 @@
       --purple-bg: rgba(138, 123, 200, .07);
       --teal: #47bea2;
       --teal-bg: rgba(58, 170, 150, .08);
-      --red: #d45a52;
-      --red-bg: rgba(212, 90, 82, .06);
       --s-active: #5b8fd4;
       --s-active-bg: rgba(91, 143, 212, .08);
       --s-updated: #31cf31;
@@ -52,29 +43,23 @@
       --s-closed: #6a665e;
       --s-closed-bg: rgba(106, 102, 94, .12);
       --mono: 'JetBrains Mono', 'Courier New', monospace;
-      --serif: 'Newsreader', Georgia, serif;
+      --serif: 'Newsreader', Georgia, serif
     }
 
-    /* newsreader-regular - latin */
     @font-face {
       font-display: swap;
-      /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
       font-family: 'Newsreader';
       font-style: normal;
       font-weight: 400;
-      src: url('/fonts/newsreader-v26-latin-regular.woff2') format('woff2');
-      /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+      src: url('/fonts/newsreader-v26-latin-regular.woff2') format('woff2')
     }
 
-    /* jetbrains-mono-regular - latin */
     @font-face {
       font-display: swap;
-      /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
       font-family: 'JetBrains Mono';
       font-style: normal;
       font-weight: 400;
-      src: url('/fonts/jetbrains-mono-v24-latin-regular.woff2') format('woff2');
-      /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+      src: url('/fonts/jetbrains-mono-v24-latin-regular.woff2') format('woff2')
     }
 
     *,
@@ -101,24 +86,13 @@
     .container {
       max-width: 1320px;
       margin: 0 auto;
-      padding: 20px;
+      padding: 20px
     }
 
     .container-pipeline {
       max-width: 1320px;
       margin: 0 auto;
-      padding: 0 10px;
-    }
-
-    /* ── HEADER ── */
-    .header {
-      position: relative;
-      z-index: 1;
-      padding: 44px 0 10px;
-      background: linear-gradient(180deg, #1f1d18 0%, var(--bg) 100%);
-      border-bottom: 1px solid rgba(196, 168, 50, .08);
-      text-align: center;
-      animation: fd .8s cubic-bezier(.16, 1, .3, 1) both
+      padding: 0 10px
     }
 
     @keyframes fd {
@@ -157,16 +131,14 @@
       }
     }
 
-    @keyframes tp {
-
-      0%,
-      100% {
-        box-shadow: 0 0 0 0 rgba(58, 170, 150, .4)
-      }
-
-      50% {
-        box-shadow: 0 0 0 6px rgba(58, 170, 150, 0)
-      }
+    .header {
+      position: relative;
+      z-index: 1;
+      padding: 44px 0 10px;
+      background: linear-gradient(180deg, #1f1d18 0%, var(--bg) 100%);
+      border-bottom: 1px solid rgba(196, 168, 50, .08);
+      text-align: center;
+      animation: fd .8s cubic-bezier(.16, 1, .3, 1) both
     }
 
     .logo-block {
@@ -256,7 +228,121 @@
       border-color: rgba(196, 168, 50, .5)
     }
 
-    /* ── PIPELINE ── */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 500px;
+      overflow: hidden;
+      cursor: pointer;
+      animation: fu .8s cubic-bezier(.16, 1, .3, 1) .2s both
+    }
+
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(.45);
+      transition: filter .6s, transform 8s cubic-bezier(.16, 1, .3, 1)
+    }
+
+    .hero:hover .hero-img {
+      filter: brightness(.55);
+      transform: scale(1.03)
+    }
+
+    .hero-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, var(--bg) 0%, rgba(20, 18, 16, .85) 25%, rgba(20, 18, 16, .3) 55%, transparent 75%), linear-gradient(90deg, rgba(20, 18, 16, .5) 0%, transparent 50%);
+      pointer-events: none
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 0 48px 44px;
+      max-width: 750px
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px
+    }
+
+    .hero-label-type {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      font-family: var(--mono);
+      color: var(--gold)
+    }
+
+    .badge-new {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 8px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      font-family: var(--mono);
+      border-radius: 3px;
+      background: linear-gradient(135deg, #e1e420, #ffd005);
+      color: var(--bg);
+      animation: np 2s ease-in-out infinite
+    }
+
+    .badge-read {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 25px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      font-family: var(--mono);
+      border-radius: 3px;
+      background: linear-gradient(135deg, #f4f4f3, #e1e1e1);
+      color: var(--bg)
+    }
+
+    .hero-title {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #fff;
+      font-family: var(--serif);
+      margin-bottom: 10px;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, .5)
+    }
+
+    .hero-excerpt {
+      font-size: 15px;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, .7);
+      max-width: 550px;
+      margin-bottom: 18px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden
+    }
+
+    .hero-no-img {
+      background: linear-gradient(135deg, #1f1d18, #2a2720, #1f1d18);
+      height: 400px
+    }
+
+    .hero-no-img .hero-gradient {
+      background: linear-gradient(0deg, var(--bg) 0%, transparent 100%)
+    }
+
     .pipeline-bar {
       position: relative;
       z-index: 1;
@@ -313,7 +399,6 @@
       font-family: var(--mono)
     }
 
-    /* ── MAIN ── */
     .main-content {
       position: relative;
       z-index: 1;
@@ -369,6 +454,14 @@
       color: var(--gold)
     }
 
+    .section {
+      display: none
+    }
+
+    .section.active {
+      display: block
+    }
+
     .legend {
       display: flex;
       gap: 16px;
@@ -384,7 +477,7 @@
     .legend-title {
       font-size: 9px;
       letter-spacing: .15em;
-      color: rgb(246, 239, 228);
+      color: var(--text-mut);
       font-family: var(--mono);
       font-weight: 600
     }
@@ -394,7 +487,7 @@
       align-items: center;
       gap: 6px;
       font-size: 11px;
-      color: rgb(246, 239, 228);
+      color: var(--text-mut);
       font-family: var(--mono)
     }
 
@@ -450,69 +543,348 @@
       color: var(--gold)
     }
 
-    .section {
-      display: none
-    }
-
-    .section.active {
-      display: block
-    }
-
-    /* ── CARDS: 2-column with image strip ── */
     .card-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 30px
+      gap: 24px
+    }
+
+    .cover {
+      display: flex;
+      flex-direction: column;
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: all .4s cubic-bezier(.16, 1, .3, 1)
+    }
+
+    .cover:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, .3)
+    }
+
+    .cover-img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      display: block;
+      filter: brightness(.6) saturate(.9);
+      transition: filter .4s
+    }
+
+    .cover:hover .cover-img {
+      filter: brightness(.85) saturate(1)
+    }
+
+    .cover-bar {
+      height: 3px;
+      width: 100%;
+      flex-shrink: 0
+    }
+
+    .cover-body {
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      flex: 1
+    }
+
+    .cover-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px
+    }
+
+    .cover-ticker {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      font-family: var(--mono);
+      letter-spacing: .04em
+    }
+
+    .cover-badge {
+      padding: 2px 7px;
+      font-size: 8px;
+      font-weight: 600;
+      border-radius: 3px;
+      letter-spacing: .08em;
+      font-family: var(--mono)
+    }
+
+    .cover-company {
+      font-size: 11px;
+      color: var(--text-fnt);
+      font-family: var(--mono);
+      margin-bottom: 10px
+    }
+
+    .cover-summary {
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--text-sec);
+      margin-bottom: 12px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex: 1
+    }
+
+    .cover-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center
+    }
+
+    .cover-sector {
+      font-size: 9px;
+      color: var(--text-fnt);
+      font-family: var(--mono);
+      padding: 2px 8px;
+      background: rgba(255, 255, 255, .04);
+      border-radius: 3px
+    }
+
+    .cover-arrow {
+      font-size: 11px;
+      color: var(--gold);
+      font-family: var(--mono);
+      font-weight: 600
+    }
+
+    .cover-closed {
+      opacity: .45
+    }
+
+    .cover-closed:hover {
+      opacity: .7
+    }
+
+    .cover-watching {
+      opacity: .75
+    }
+
+    .cover-watching:hover {
+      opacity: .95
+    }
+
+    .insights-feed {
+      max-width: 760px;
+      margin: 0 auto
+    }
+
+    .insight-featured {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      margin-bottom: 32px;
+      border: 1px solid var(--border);
+      transition: all .3s cubic-bezier(.16, 1, .3, 1)
+    }
+
+    .insight-featured:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, .3)
+    }
+
+    .insight-featured-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      filter: brightness(.7)
+    }
+
+    .insight-featured:hover .insight-featured-img {
+      filter: brightness(.8)
+    }
+
+    .insight-featured-body {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 28px;
+      background: linear-gradient(0deg, rgba(20, 18, 16, .95) 0%, rgba(20, 18, 16, .7) 60%, transparent 100%)
+    }
+
+    .insight-featured-tag {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      font-family: var(--mono);
+      color: var(--gold);
+      margin-bottom: 8px;
+      display: block
+    }
+
+    .insight-featured-title {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: #fff;
+      margin-bottom: 8px;
+      font-family: var(--serif)
+    }
+
+    .insight-featured-excerpt {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, .7);
+      margin-bottom: 10px
+    }
+
+    .insight-featured-meta {
+      font-size: 12px;
+      color: rgba(255, 255, 255, .69);
+      font-family: var(--mono)
+    }
+
+    .insight-featured-new {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      padding: 4px 15px
+    }
+
+    .insight-timeline {
+      display: flex;
+      flex-direction: column
+    }
+
+    .insight-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+      transition: all .2s
+    }
+
+    .insight-item:first-child {
+      padding-top: 0
+    }
+
+    .insight-item:last-child {
+      border-bottom: none
+    }
+
+    .insight-item:hover {
+      padding-left: 8px
+    }
+
+    .insight-item-img {
+      width: 110px;
+      height: 80px;
+      border-radius: 6px;
+      object-fit: cover;
+      flex-shrink: 0;
+      filter: brightness(.85);
+      transition: filter .3s
+    }
+
+    .insight-item:hover .insight-item-img {
+      filter: brightness(1)
+    }
+
+    .insight-item-body {
+      flex: 1;
+      min-width: 0
+    }
+
+    .insight-item-tag {
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      font-family: var(--mono);
+      color: var(--gold);
+      margin-bottom: 4px;
+      display: block
+    }
+
+    .insight-item-title {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--text);
+      margin-bottom: 6px;
+      font-family: var(--serif);
+      transition: color .2s
+    }
+
+    .insight-item:hover .insight-item-title {
+      color: var(--gold)
+    }
+
+    .insight-item-excerpt {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--text-sec);
+      margin-bottom: 6px
+    }
+
+    .insight-item-meta {
+      font-size: 10px;
+      color: var(--text-fnt);
+      font-family: var(--mono)
+    }
+
+    .insight-item-new {
+      margin-left: 8px;
+      vertical-align: middle
+    }
+
+    .insights-cta {
+      text-align: center;
+      padding: 32px 0 8px
+    }
+
+    .insights-cta-text {
+      font-size: 13px;
+      color: var(--text-mut);
+      font-style: italic;
+      margin-bottom: 12px
+    }
+
+    .insights-cta-btn {
+      display: inline-block;
+      padding: 10px 28px;
+      background: linear-gradient(135deg, var(--gold), #b09525);
+      color: var(--bg);
+      font-weight: 700;
+      font-size: 12px;
+      border-radius: 6px;
+      font-family: var(--mono);
+      letter-spacing: .04em;
+      transition: transform .2s
+    }
+
+    .insights-cta-btn:hover {
+      transform: translateY(-1px)
     }
 
     .card {
       display: flex;
       flex-direction: column;
-      background: linear-gradient(135deg,
-          rgba(30, 30, 30, 1) 0%,
-          /* Carbón oscuro */
-          rgba(15, 15, 17, 1) 50%,
-          /* Negro casi puro (profundidad) */
-          rgba(255, 255, 255, 0.07) 100%
-          /* El "degradado blanco" sutil al final */
-        );
+      background: var(--surface);
       border: 2px solid var(--border);
       border-radius: 10px;
       overflow: hidden;
-      transition: all 1.2s cubic-bezier(.16, 1, .3, 1)
+      transition: all .4s cubic-bezier(.16, 1, .3, 1)
     }
 
     .card:hover {
       border-color: var(--border-hover);
-      transform: translateY(-4px);
+      transform: translateY(-2px);
       box-shadow: 0 8px 32px rgba(0, 0, 0, .25)
     }
 
-    /* Image strip at top of card */
-    .card-img {
-      width: 100%;
-      height: 100px;
-      object-fit: cover;
-      display: block;
-      filter: brightness(.55) saturate(.9);
-      transition: filter .4s, height .3s
-    }
-
-    .card:hover .card-img {
-      filter: brightness(1) saturate(1)
-    }
-
-    .card-closed .card-img {
-      filter: brightness(.4) saturate(.3) grayscale(.5)
-    }
-
-    .card-img-placeholder {
-      width: 100%;
-      height: 4px;
-      display: block
-    }
-
-    /* Status color bar (thin line under image) */
     .card-status-bar {
       height: 3px;
       width: 100%
@@ -534,17 +906,10 @@
       gap: 6px
     }
 
-    .ticker-block {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      flex-wrap: wrap
-    }
-
     .ticker {
       font-size: 20px;
       font-weight: 700;
-      color: rgb(218, 218, 204);
+      color: var(--text);
       font-family: var(--mono);
       letter-spacing: .04em
     }
@@ -558,143 +923,6 @@
       opacity: .7
     }
 
-    .badge-new {
-      display: inline-flex;
-      align-items: center;
-      padding: 2px 8px;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .1em;
-      font-family: var(--mono);
-      border-radius: 3px;
-      background: linear-gradient(135deg, #e1e420, #ffd005);
-      color: var(--bg);
-      animation: np 2s ease-in-out infinite
-    }
-
-    .badge-read {
-      display: inline-flex;
-      align-items: center;
-      padding: 6px 25px;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .1em;
-      font-family: var(--mono);
-      border-radius: 3px;
-      background: linear-gradient(135deg, #f4f4f3, #e1e1e1);
-      color: var(--bg);
-      animation: np 2s ease-in-out infinite
-    }
-
-    .badge-integrated {
-      display: inline-flex;
-      align-items: center;
-      padding: 2px 8px;
-      font-size: 8px;
-      font-weight: 700;
-      letter-spacing: .1em;
-      font-family: var(--mono);
-      border-radius: 3px;
-      background: linear-gradient(135deg, #13b8f4, #18c2ab);
-      color: var(--bg);
-      animation: tp 2s ease-in-out infinite
-    }
-
-    .badge {
-      padding: 2px 7px;
-      font-size: 8px;
-      font-weight: 600;
-      border-radius: 3px;
-      letter-spacing: .08em;
-      font-family: var(--mono);
-      display: inline-block
-    }
-
-    .badge-active {
-      background: var(--s-active-bg);
-      color: var(--s-active)
-    }
-
-    .badge-updated {
-      background: var(--s-updated-bg);
-      color: var(--s-updated)
-    }
-
-    .badge-closed {
-      background: var(--s-closed-bg);
-      color: var(--s-closed)
-    }
-
-    .badge-watching {
-      background: var(--s-watching-bg);
-      color: var(--s-watching)
-    }
-
-    .badge-paid {
-      background: var(--gold-bg);
-      color: var(--gold)
-    }
-
-    .position-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 9px;
-      font-weight: 600;
-      font-family: var(--mono);
-      letter-spacing: .05em;
-      padding: 2px 9px;
-      border-radius: 3px;
-      margin-bottom: 8px
-    }
-
-    .position-holding {
-      background: rgba(76, 175, 106, .08);
-      border: 1px solid rgba(76, 175, 106, .18);
-      color: var(--green);
-    }
-
-    .position-none {
-      background: rgba(255, 255, 255, .02);
-      border: 1px solid var(--border);
-      color: var(--text-fnt)
-    }
-
-    .entry-target {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 10px 12px;
-      background: var(--amber-bg);
-      border: 1px solid rgba(212, 149, 42, .12);
-      border-radius: 6px;
-      margin-bottom: 10px
-    }
-
-    .entry-target-label {
-      font-size: 9px;
-      letter-spacing: .08em;
-      color: var(--amber);
-      font-family: var(--mono);
-      font-weight: 600;
-      white-space: nowrap
-    }
-
-    .entry-target-price {
-      font-size: 17px;
-      font-weight: 700;
-      font-family: var(--mono);
-      color: var(--amber)
-    }
-
-    .entry-target-note {
-      font-size: 10px;
-      color: var(--text-mut);
-      font-family: var(--mono);
-      font-style: italic;
-      line-height: 1.4
-    }
-
     .card-date {
       font-size: 11px;
       color: var(--text-mut);
@@ -702,41 +930,16 @@
       text-align: right
     }
 
-    .card-date-original {
-      font-size: 9px;
-      color: var(--text-fnt);
-      font-family: var(--mono);
-      margin-top: 1px;
-      text-align: right
-    }
-
-    .company-name {
-      font-size: 12px;
-      color: var(--text-sec);
-      margin-bottom: 8px;
-      font-family: var(--mono)
-    }
-
     .card-summary {
       font-size: 13.5px;
       line-height: 1.7;
       color: var(--text);
-      margin-bottom: 12px;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      overflow: hidden
-    }
-
-    .card-tags {
-      display: flex;
-      gap: 4px;
-      flex-wrap: wrap;
-      margin-bottom: 10px
+      margin-bottom: 12px
     }
 
     .tag {
       padding: 2px 8px;
-      background: rgba(255, 255, 255, 0.144);
+      background: rgba(255, 255, 255, .14);
       border-radius: 3px;
       font-size: 9px;
       color: var(--text-mut);
@@ -748,128 +951,11 @@
       color: var(--blue)
     }
 
-    .update-row {
+    .card-tags {
       display: flex;
-      align-items: center;
-      gap: 7px;
+      gap: 4px;
       flex-wrap: wrap;
-      margin-bottom: 8px;
-      padding: 7px 11px;
-      background: rgba(58, 170, 150, .04);
-      border: 1px solid rgba(58, 170, 150, .08);
-      border-radius: 5px
-    }
-
-    .update-row-label {
-      font-size: 9px;
-      letter-spacing: .06em;
-      color: var(--teal);
-      font-family: var(--mono);
-      font-weight: 600;
-      white-space: nowrap
-    }
-
-    .update-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 3px;
-      font-size: 10px;
-      color: var(--teal);
-      font-family: var(--mono);
-      font-weight: bold;
-      padding: 2px 7px;
-      background: var(--teal-bg);
-      border-radius: 3px;
-      transition: all .15s;
-      cursor: pointer
-    }
-
-    .update-chip:hover {
-      background: #2cc4a8;
-      color: rgba(7, 7, 7, 0.913);
-    }
-
-    .integration-row {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      margin-bottom: 10px;
-      padding: 5px 11px;
-      border-radius: 5px;
-      font-size: 9.5px;
-      font-family: var(--mono);
-      font-weight: 700
-    }
-
-    .integration-done {
-      background: rgba(76, 175, 106, .05);
-      border: 1px solid rgba(76, 175, 106, .1);
-      color: var(--green);
-      animation: tp 4s ease-in-out infinite
-    }
-
-    .integration-pending {
-      background: rgba(212, 149, 42, .04);
-      border: 1px solid rgba(212, 149, 42, .08);
-      color: var(--amber)
-    }
-
-    .card-closed {
-      opacity: .5
-    }
-
-    .card-closed:hover {
-      opacity: .75
-    }
-
-    .card-watching {
-      opacity: .8
-    }
-
-    .card-watching:hover {
-      opacity: .95
-    }
-
-    .closed-info {
-      font-size: 10px;
-      color: var(--s-closed);
-      font-family: var(--mono);
-      margin-bottom: 6px;
-      font-weight: 500
-    }
-
-    .read-more {
-      font-size: 11px;
-      color: var(--gold);
-      font-family: var(--mono);
-      font-weight: 600;
-      letter-spacing: .02em;
-      margin-top: auto;
-      padding-top: 10px
-    }
-
-    .card-closed .read-more {
-      color: var(--text-fnt)
-    }
-
-    .price-row {
-      display: none
-    }
-
-    .earnings-date {
-      display: flex;
-      align-items: center;
-      gap: 8px
-    }
-
-    .earnings-countdown {
-      padding: 3px 8px;
-      background: var(--amber-bg);
-      color: var(--amber);
-      border-radius: 4px;
-      font-size: 10px;
-      font-weight: 700;
-      font-family: var(--mono)
+      margin-bottom: 10px
     }
 
     .note-box {
@@ -974,6 +1060,23 @@
       font-size: 12px;
       color: var(--text-sec);
       line-height: 1.55
+    }
+
+    .read-more {
+      font-size: 11px;
+      color: var(--gold);
+      font-family: var(--mono);
+      font-weight: 600;
+      margin-top: auto;
+      padding-top: 10px
+    }
+
+    .empty-text {
+      font-size: 14px;
+      color: var(--text-fnt);
+      text-align: center;
+      padding: 40px 0;
+      font-style: italic
     }
 
     .cta-section {
@@ -1105,7 +1208,7 @@
 
     .footer-link-x {
       font-size: 22px;
-      color: rgb(255, 255, 255);
+      color: #fff;
       font-family: var(--mono);
       font-weight: 500
     }
@@ -1124,437 +1227,35 @@
       font-family: var(--mono)
     }
 
-    .empty-text {
-      font-size: 14px;
-      color: var(--text-fnt);
-      text-align: center;
-      padding: 40px 0;
-      font-style: italic
-    }
-
-    /* ── INSIGHTS: Editorial feed layout ── */
-    .insights-feed {
-      max-width: 760px;
-      margin: 0 auto
-    }
-
-    /* Featured (first) article */
-    .insight-featured {
-      display: block;
-      position: relative;
-      overflow: hidden;
-      border-radius: 12px;
-      margin-bottom: 32px;
-      border: 1px solid var(--border);
-      transition: all .3s cubic-bezier(.16, 1, .3, 1)
-    }
-
-    .insight-featured:hover {
-      border-color: var(--border-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, .3)
-    }
-
-    .insight-featured-img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      display: block;
-      filter: brightness(.7)
-    }
-
-    .insight-featured:hover .insight-featured-img {
-      filter: brightness(.8)
-    }
-
-    .insight-featured-body {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 28px 28px 24px;
-      background: linear-gradient(0deg, rgba(20, 18, 16, .95) 0%, rgba(20, 18, 16, .7) 60%, transparent 100%)
-    }
-
-    .insight-featured-tag {
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: .12em;
-      font-family: var(--mono);
-      color: var(--gold);
-      margin-bottom: 8px;
-      display: block
-    }
-
-    .insight-featured-title {
-      font-size: 22px;
-      font-weight: 700;
-      line-height: 1.3;
-      color: #fff;
-      margin-bottom: 8px;
-      font-family: var(--serif)
-    }
-
-    .insight-featured-excerpt {
-      font-size: 14px;
-      line-height: 1.6;
-      color: rgba(255, 255, 255, .7);
-      margin-bottom: 10px;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      overflow: hidden
-    }
-
-    .insight-featured-meta {
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.693);
-      font-family: var(--mono)
-    }
-
-    .insight-featured-new {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      padding: 4px 15px
-    }
-
-    /* Timeline articles */
-    .insight-timeline {
-      display: flex;
-      flex-direction: column;
-      gap: 0
-    }
-
-    .insight-item {
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-      padding: 24px 0;
-      border-bottom: 1px solid var(--border);
-      transition: all .2s
-    }
-
-    .insight-item:first-child {
-      padding-top: 0
-    }
-
-    .insight-item:last-child {
-      border-bottom: none
-    }
-
-    .insight-item:hover {
-      padding-left: 8px
-    }
-
-    .insight-item-img {
-      width: 110px;
-      height: 80px;
-      border-radius: 6px;
-      object-fit: cover;
-      flex-shrink: 0;
-      filter: brightness(.85);
-      transition: filter .3s
-    }
-
-    .insight-item:hover .insight-item-img {
-      filter: brightness(1)
-    }
-
-    .insight-item-body {
-      flex: 1;
-      min-width: 0
-    }
-
-    .insight-item-tag {
-      font-size: 8px;
-      font-weight: 700;
-      letter-spacing: .1em;
-      font-family: var(--mono);
-      color: var(--gold);
-      margin-bottom: 4px;
-      display: block
-    }
-
-    .insight-item-title {
-      font-size: 16px;
-      font-weight: 600;
-      line-height: 1.35;
-      color: var(--text);
-      margin-bottom: 6px;
-      font-family: var(--serif);
-      transition: color .2s
-    }
-
-    .insight-item:hover .insight-item-title {
-      color: var(--gold)
-    }
-
-    .insight-item-excerpt {
-      font-size: 13px;
-      line-height: 1.55;
-      color: var(--text-sec);
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      margin-bottom: 6px
-    }
-
-    .insight-item-meta {
-      font-size: 10px;
-      color: var(--text-fnt);
-      font-family: var(--mono)
-    }
-
-    .insight-item-new {
-      margin-left: 8px;
-      vertical-align: middle
-    }
-
-    .insights-cta {
-      text-align: center;
-      padding: 32px 0 8px
-    }
-
-    .insights-cta-text {
-      font-size: 13px;
-      color: var(--text-mut);
-      font-style: italic;
-      margin-bottom: 12px
-    }
-
-    .insights-cta-btn {
-      display: inline-block;
-      padding: 10px 28px;
-      background: linear-gradient(135deg, var(--gold), #b09525);
-      color: var(--bg);
-      font-weight: 700;
-      font-size: 12px;
-      border-radius: 6px;
-      font-family: var(--mono);
-      letter-spacing: .04em;
-      transition: transform .2s
-    }
-
-    .insights-cta-btn:hover {
-      transform: translateY(-1px)
-    }
-
-    /* ── NETFLIX HERO BANNER ── */
-    .hero {
-      display: block;
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      height: 400px;
-      overflow: hidden;
-      cursor: pointer;
-      animation: fu .8s cubic-bezier(.16, 1, .3, 1) .2s both;
-      padding: 20px;
-    }
-
-    .hero-img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(.55);
-      transition: filter .6s, transform 8s cubic-bezier(.16, 1, .3, 1)
-    }
-
-    .hero:hover .hero-img {
-      filter: brightness(.65);
-      transform: scale(1.03)
-    }
-
-    .hero-gradient {
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(0deg, var(--bg) 0%, rgba(20, 18, 16, .7) 35%, transparent 60%),
-        linear-gradient(90deg, rgba(20, 18, 16, .6) 0%, transparent 50%);
-      pointer-events: none
-    }
-
-    .hero-content {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 20px 50px 20px 20px;
-      max-width: 1320px;
-      margin: 0 auto;
-    }
-
-    .hero-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 14px
-    }
-
-    .hero-label-type {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .14em;
-      font-family: var(--mono);
-      color: var(--gold)
-    }
-
-    .hero-label-badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 3px 10px;
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: .1em;
-      font-family: var(--mono);
-      border-radius: 3px;
-      background: linear-gradient(135deg, var(--gold), #b09525);
-      color: var(--bg);
-      animation: np 2s ease-in-out infinite
-    }
-
-    .hero-title {
-      font-size: 34px;
-      font-weight: 700;
-      line-height: 1.2;
-      color: #fff;
-      font-family: var(--serif);
-      margin-bottom: 12px;
-      max-width: 650px;
-      text-shadow: 0 2px 20px rgba(0, 0, 0, .4)
-    }
-
-    .hero-excerpt {
-      font-size: 15px;
-      line-height: 1.6;
-      color: rgba(255, 255, 255, .7);
-      max-width: 550px;
-      margin-bottom: 20px;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      overflow: hidden
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .hero-btn-read {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 28px;
-      background: #fff;
-      color: var(--bg);
-      font-weight: 700;
-      font-size: 14px;
-      border-radius: 6px;
-      font-family: var(--mono);
-      letter-spacing: .02em;
-      transition: transform .2s, box-shadow .2s;
-      box-shadow: 0 2px 16px rgba(0, 0, 0, .3);
-    }
-
-    .hero-btn-read:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 24px rgba(0, 0, 0, .4)
-    }
-
-    .hero-btn-subscribe {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 12px 24px;
-      background: rgba(255, 255, 255, .1);
-      backdrop-filter: blur(8px);
-      color: rgba(255, 255, 255, .9);
-      font-weight: 600;
-      font-size: 13px;
-      border-radius: 6px;
-      font-family: var(--mono);
-      border: 1px solid rgba(255, 255, 255, .12);
-      transition: background .2s, border-color .2s
-    }
-
-    .hero-btn-subscribe:hover {
-      background: rgba(255, 255, 255, .18);
-      border-color: rgba(255, 255, 255, .25)
-    }
-
-    .hero-meta {
-      font-size: 11px;
-      color: rgba(255, 255, 255, .35);
-      font-family: var(--mono);
-      margin-top: 14px
-    }
-
-    .hero-no-img {
-      background: linear-gradient(135deg, #1f1d18, #2a2720, #1f1d18);
-      height: 320px
-    }
-
-    .hero-no-img .hero-gradient {
-      background: linear-gradient(0deg, var(--bg) 0%, transparent 100%)
-    }
-
-    @media(max-width:860px) {
+    @media(max-width:960px) {
       .card-grid {
-        grid-template-columns: 1fr
-      }
-
-      .card-img {
-        height: 80px
-      }
-
-      .hero {
-        height: 340px
-      }
-
-      .hero-title {
-        font-size: 26px
-      }
-
-      .hero-content {
-        padding: 0 32px 32px
-      }
-
-      .insight-featured-title {
-        font-size: 18px
-      }
-
-      .insight-featured-img {
-        height: 180px
+        grid-template-columns: repeat(2, 1fr)
       }
     }
 
     @media(max-width:640px) {
-      .tab {
-        padding: 9px 10px;
-        font-size: 10px
+      .card-grid {
+        grid-template-columns: 1fr
       }
 
-      .pipeline-track {
-        gap: 12px
+      .hero {
+        height: 380px
       }
 
-      .card-body {
-        padding: 14px 16px
+      .hero-title {
+        font-size: 22px
+      }
+
+      .hero-content {
+        padding: 0 20px 28px
       }
 
       .logo-text {
         font-size: 22px
       }
 
-      .cta-grid {
-        grid-template-columns: 1fr
-      }
-
       .container {
-        padding: 0 16px
+        padding: 10px 16px
       }
 
       .logo-mark {
@@ -1562,35 +1263,17 @@
         height: 48px
       }
 
-      .card-img {
-        height: 60px
+      .tab {
+        padding: 9px 10px;
+        font-size: 10px
       }
 
-      .hero {
-        height: 280px
+      .cta-grid {
+        grid-template-columns: 1fr
       }
 
-      .hero-title {
-        font-size: 20px;
-        max-width: 100%
-      }
-
-      .hero-excerpt {
-        font-size: 13px;
-      }
-
-      .hero-content {
-        padding: 0 20px 24px
-      }
-
-      .hero-btn-read {
-        padding: 10px 20px;
-        font-size: 12px
-      }
-
-      .hero-btn-subscribe {
-        padding: 10px 16px;
-        font-size: 11px
+      .cover-img {
+        height: 100px
       }
 
       .insight-item {
@@ -1603,16 +1286,16 @@
         height: 120px
       }
 
-      .insight-featured-body {
-        padding: 20px 18px 18px
-      }
-
       .insight-featured-title {
         font-size: 16px
       }
 
       .insight-featured-img {
         height: 160px
+      }
+
+      .insight-featured-body {
+        padding: 20px 18px 18px
       }
     }
   </style>
@@ -1630,14 +1313,11 @@
       </div>
       <p class="philosophy">Independent, numbers-first research on high-quality companies. I break down how these
         businesses actually operate, keeping the analysis clear and honest. No hype, just real moats.</p>
-      <div class="header-actions">
-        <a href="https://colubeatid.substack.com/subscribe" target="_blank" class="btn-subscribe">Subscribe →</a>
-        <a href="https://colubeatid.substack.com/" target="_blank" class="btn-outline">My Substack Website</a>
-      </div>
+      <div class="header-actions"><a href="https://colubeatid.substack.com/subscribe" target="_blank"
+          class="btn-subscribe">Subscribe →</a><a href="https://colubeatid.substack.com/" target="_blank"
+          class="btn-outline">My Substack Website</a></div>
     </div>
   </header>
-
-  <!-- ── NETFLIX HERO: Latest publication ── -->
   <div id="hero-banner"></div>
   <main class="main-content">
     <div class="container">
@@ -1645,10 +1325,7 @@
       <div id="legend-container"></div>
       <div class="filters" id="filters" style="display:none"></div>
       <div id="section-published" class="section active"></div>
-      <div id="section-earnings" class="section"></div>
       <div id="section-insights" class="section"></div>
-      <div id="section-wip" class="section"></div>
-      <div id="section-watchlist" class="section"></div>
       <div id="section-btn" class="section"></div>
     </div>
     <div class="pipeline-bar">
@@ -1695,567 +1372,43 @@
         target="_blank" class="footer-link-x">𝕏</a></div>
     <p class="footer-copy">© 2026 Colubeat Investment Desk. All rights reserved.</p>
   </footer>
+  <script src="data.js"></script>
   <script>
-    /* ═══════════════════════════════════════
-       ✏️  EDIT DATA HERE
-       ═══════════════════════════════════════
-       STATUS: "active" | "updated" | "watching" | "closed"
-       earningsIntegrated: true/false (only matters when status="updated")
-       dateIntegrated: "2026-03-23" — date you integrated earnings into thesis.
-                       Shows "UPDATED" badge for 14 days, then disappears auto.
-                       Set null if not integrated yet.
-       NEW badge: auto — shows 14 days from datePublished
-       image: "images/TICKER.jpg" — shows as visible thumbnail on card
-       ═══════════════════════════════════════ */
-    const SUBSTACK = "https://colubeatid.substack.com/";
-    const showPrices = false;
-    const NEW_DAYS = 14;
-
-    const publishedTheses = [
-      {
-        ticker: "HOM.U",
-        company: "BSR Real Estate Investment trust",
-        sector: "REIT",
-        geo: "Canada",
-        datePublished: "2026-07-16",
-        image: "images/BSR.webp",
-        summary: "Small Toronto-listed REIT that owns zero property in Canada. Just apts across TX, OK & AR, managed by people who've leased those submarkets for years A strategic buyer paid almost book value for part of this REIT. The rest still trades nearly 30% below NAV. The market prices it at a 6.5%+ cap rate. Buyer paid 5%. Same assets. Two very different prices. Another REIT. Different puzzle.",
-        priceAtPublish: null,
-        targetPrice: null,
-        url: "https://colubeatid.substack.com/p/bsr-reit-tsx-homu-the-29-gap-avalonbay?r=392fuc",
-        tags: ["REIT"],
-        isPaid: true,
-        status: "watching",
-        updates: [],
-        earningsIntegrated: false,
-        closedReason: null,
-        position: false,
-        targetEntry: "??",
-      },
-      {
-        ticker: "RYN",
-        company: "Rayonier Inc",
-        sector: "REIT",
-        geo: "US",
-        datePublished: "2026-06-16",
-        image: "images/RYN.webp",
-        summary: "Four Million Acres at the Bottom of the Cycle. Rayonier trades at a steep discount to private timberland value (44x vs. ~15x implied public EBITDA), with four undervalued segments and early-stage optionality in land-based solutions like solar and carbon capture. The market is pricing the trees, not the land.",
-        priceAtPublish: null,
-        targetPrice: null,
-        url: "https://colubeatid.substack.com/p/rayonier-inc-nyse-ryn",
-        tags: ["REIT"],
-        isPaid: true,
-        status: "active",
-        updates: [],
-        earningsIntegrated: false,
-        closedReason: null,
-        position: true,
-        targetEntry: "??",
-      },
-      {
-        ticker: "USLM",
-        company: "United States Minerals & Lime",
-        sector: "Materials",
-        geo: "US",
-        datePublished: "2026-05-28",
-        image: "images/USLM.webp",
-        summary: "A debt-free regional lime monopoly with exceptional, temporary margins driven by cheap Permian gas and sticky local electric-arc steel demand.",
-        priceAtPublish: null,
-        targetPrice: null,
-        url: "https://colubeatid.substack.com/p/united-states-lime-and-minerals-inc",
-        tags: ["Industrials"],
-        isPaid: true,
-        status: "watching",
-        updates: [],
-        earningsIntegrated: false,
-        closedReason: null,
-        position: false,
-        targetEntry: "??",
-      },
-      {
-        ticker: "BQE",
-        company: "BQE Waters",
-        sector: "Industrial",
-        geo: "Canada",
-        datePublished: "2026-05-06",
-        image: "images/bqe.webp",
-        summary: "The core of the business is currently transitioning from a project-based consulting model into a long-term operator of water treatment plants. This shift is anchored by long-term, recurring revenue contracts at major sites such as the Britannia Mine, Raglan, and Canadian Royalties.",
-        priceAtPublish: null,
-        targetPrice: null,
-        url: "https://colubeatid.substack.com/p/bqe-water-inc-tsx-v-bqe",
-        tags: ["Industrials"],
-        isPaid: false,
-        status: "watching",
-        updates: [],
-        earningsIntegrated: false,
-        closedReason: null,
-        position: false,
-        targetEntry: "??",
-      },
-      {
-        ticker: "HAE",
-        company: "HAEMONETICS Corp",
-        sector: "Healthcare",
-        geo: "US",
-        datePublished: "2026-04-22",
-        image: "images/HAE.webp",
-        summary: "A medical technology leader with high software-driven switching costs. It's trading at 12x because the market's mistaking reported revenue declines for actual organic growth.",
-        priceAtPublish: null,
-        targetPrice: null,
-        url: "https://colubeatid.substack.com/p/haemonetics-nyse-hae",
-        tags: ["Medtech"],
-        isPaid: false,
-        status: "watching",
-        updates: [],
-        earningsIntegrated: false,
-        closedReason: null,
-        position: false,
-        targetEntry: "55",
-      },
-      {
-        ticker: "CHE",
-        company: "CHEMED Corporation",
-        sector: "Healthcare",
-        geo: "US",
-        datePublished: "2026-03-23",
-        image: "images/CHE.webp",
-        summary: "A debt-free holding company that leverages dominant, route-based market positions in hospice and plumbing to generate high-margin free cash flow for aggressive share repurchases",
-        priceAtPublish: null,
-        targetPrice: null,
-        url: "https://colubeatid.substack.com/p/chemed-corporation-nyse-che?r=392fuc",
-        tags: ["Healthcare Services", "Industrial", "Compounder", "Business Services"],
-        isPaid: false,
-        status: "watching",
-        updates: [],
-        earningsIntegrated: false,
-        closedReason: null,
-        position: false,
-        targetEntry: "???",
-      },
-      {
-        ticker: "TIC",
-        company: "TIC Solutions",
-        sector: "Industrials",
-        geo: "US",
-        datePublished: "2026-02-20",
-        image: "images/TIC.webp",
-        summary: "Co-investing with Martin Franklin in an asymmetric bet. How to buy a Data Center infrastructure play at industrial distress prices. A 3-5 year roadmap.",
-        priceAtPublish: null,
-        targetPrice: null,
-        url: "https://colubeatid.substack.com/p/tic-solutions-nyse-tic",
-        tags: ["Industrials"],
-        isPaid: false,
-        status: "updated",
-        updates: [{ label: "FY 2025 Results", url: "https://colubeatid.substack.com/p/update-tic-solutions-tic-fy-2025?r=392fuc", date: "2026-04-08" }, { label: "Q1 2026 Results", url: "https://colubeatid.substack.com/p/update-tic-solutions-tic-q1-2026", date: "2026-05-07" }, { label: "Investor Day 2026", url: "https://colubeatid.substack.com/p/tics-new-31885-framework-growth-over", date: "2026-05-20" }],
-        earningsIntegrated: false,
-        closedReason: null,
-        position: true,
-        targetEntry: null,
-      },
-      {
-        ticker: "ALX",
-        company: "Alexander's",
-        sector: "REIT",
-        geo: "US",
-        datePublished: "2025-12-29",
-        image: "images/ALX.webp",
-        summary: "The Rego Park Sale Changes Everything: Updated NAV, A Likely Special Dividend, and Why the Bear Case Just Collapsed",
-        priceAtPublish: null,
-        targetPrice: null,
-        url: "https://colubeatid.substack.com/p/alexanders-inc-nyse-alx",
-        tags: ["REIT"],
-        isPaid: false,
-        status: "updated",
-        updates: [{ label: "FY 2025 Results", url: "https://colubeatid.substack.com/p/update-alexanders-alx-fy-2025-results?r=392fuc", date: "2026-02-09" }],
-        earningsIntegrated: true,
-        closedReason: null,
-        position: true,
-        targetEntry: null
-      },
-      {
-        ticker: "BZU",
-        company: "Buzzi SpA",
-        sector: "Materials",
-        geo: "Europe",
-        datePublished: "2026-2-18",
-        image: "images/BZU.webp",
-        summary: "Highly cash-generative cement producer controlled by the founding family, and right now they're using their strong balance sheet to buy back their own shares.",
-        priceAtPublish: null,
-        targetPrice: null,
-        url: "https://colubeatid.substack.com/p/buzzi-spa-bzumi",
-        tags: [, "Materials"],
-        isPaid: false,
-        status: "active",
-        updates: [{ label: "FY 2025 Results", url: "https://open.substack.com/pub/colubeatid/p/buzzi-spa-bzumi-fy-2025-results?r=392fuc&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true", date: "2026-03-31" }],
-        earningsIntegrated: false,
-        closedReason: null,
-        position: true,
-        targetEntry: null
-      },
-      { ticker: "MSA", company: "MSA Safety Incorporated", sector: "Industrials", geo: "US", datePublished: "2026-3-3", image: "images/MSA.webp", summary: "An elite 'regulatory tax' on safety with 45% recurring revenue, but right now it's a great business at a very difficult price.", priceAtPublish: null, targetPrice: null, url: "https://colubeatid.substack.com/p/msa-safety-incorporated-nyse-msa", tags: ["Compounder", "Regulatory", "Defensive"], isPaid: false, status: "watching", updates: [], earningsIntegrated: false, closedReason: null, position: false, targetEntry: 155 },
-      { ticker: "BNZL", company: "BUNZL plc", sector: "Industrials", geo: "Europe", datePublished: "2026-02-04", image: "images/BNZL.webp", summary: "An M&A machine that scales by buying smaller distributors, currently busy fixing a centralization mess in the US.", priceAtPublish: null, targetPrice: null, url: "https://colubeatid.substack.com/p/bunzl-plc-lon-bnzl?r=392fuc", tags: ["UK", "Defensive", "Distribution"], isPaid: false, status: "active", updates: [{ label: "FY 2025 Results", url: "https://colubeatid.substack.com/p/update-bunzl-plc-bnzll-fy-2025-results?r=392fuc", date: "2026-03-02" }], earningsIntegrated: false, closedReason: null, position: true, targetEntry: null },
-      { ticker: "VRE", company: "Veris Residential", sector: "REIT", geo: "US", datePublished: "2025-12-11", image: "images/VRE.webp", summary: "Irreplaceable luxury, mercenary management, and a 35% discount: Veris Residential's master stroke.", priceAtPublish: null, targetPrice: null, url: "https://colubeatid.substack.com/p/veris-residential-nyse-vre-the-deep?r=392fuc", tags: ["REIT"], isPaid: false, status: "closed", updates: [{ label: "Acquired at $19.00", url: "https://colubeatid.substack.com/p/thesis-closed-vre-acquired-at-1900?r=392fuc", date: "2026-02-23" }], earningsIntegrated: false, closedReason: "Acquired at $19.00", position: false, targetEntry: null },
-      {
-        ticker: "ERF",
-        company: "Eurofins Scientific",
-        sector: "Pharma",
-        geo: "Europe",
-        datePublished: "2026-01-08",
-        image: "images/ERF.webp",
-        summary: "Global laboratory leader that's finished its heavy investment cycle and is now turning its massive network into a high-cash-flow operation.",
-        priceAtPublish: null,
-        targetPrice: null,
-        url: "https://colubeatid.substack.com/p/eurofins-scientific-erfpa?r=392fuc",
-        tags: ["BioPharma", "Life Sciences", "Testing"],
-        isPaid: false,
-        status: "updated",
-        updates: [{ label: "FY 2025 Results", url: "https://colubeatid.substack.com/p/update-eurofins-scientific-erf-fy?r=392fuc", date: "2026-02-10" }, { label: "Q1 2026 Results", url: "https://colubeatid.substack.com/p/update-eurofins-scientific-erf-q1", date: "2026-04-23" }], earningsIntegrated: true, closedReason: null, position: true, targetEntry: null
-      },
-      {
-        ticker: "POOL",
-        company: "POOL Corporation",
-        sector: "Industrials",
-        geo: "US",
-        datePublished: "2025-12-19",
-        image: "images/POOL.webp",
-        summary: "A massive distribution machine where 64% of the revenue is locked in by mandatory maintenance, making it a resilient compounder just waiting for the construction cycle to turn.",
-        priceAtPublish: "$236",
-        targetPrice: null,
-        url: "https://colubeatid.substack.com/p/pool-corporation-nasdaq-pool?r=392fuc",
-        tags: ["B2B Distribution", "Recurring Revenue", "Compounder"],
-        isPaid: false,
-        status: "updated",
-        updates: [{ label: "FY 2025 Results", url: "https://colubeatid.substack.com/p/update-pool-corporation-pool-fy-2025?r=392fuc", date: "2026-03-23" }, { label: "Q1 2026 Results", url: "https://colubeatid.substack.com/p/update-pool-corporation-pool-q1-2026?r=392fuc", date: "2026-04-28" }],
-        earningsIntegrated: true,
-        dateIntegrated: "2026-03-23",
-        closedReason: null,
-        position: true,
-        targetEntry: null
-      },
-      {
-        ticker: "FRPH",
-        company: "FRP Holdings",
-        sector: "RE Developer",
-        geo: "US",
-        datePublished: "2025-12-06",
-        image: "images/FRPH.webp",
-        summary: "A legacy asset-heavy business that just brought a full-cycle development platform in-house to control the entire lifecycle of its projects.",
-        priceAtPublish: null,
-        targetPrice: null,
-        url: "https://colubeatid.substack.com/p/frp-holdings-inc-nasdaq-frph?r=392fuc",
-        tags: ["Development", "Industrial RE", "Residential RE"],
-        isPaid: false,
-        status: "updated",
-        updates: [{ label: "FY 2025 Results", url: "https://colubeatid.substack.com/p/update-frp-holdings-inc-frph-fy-2025?r=392fuc", date: "2026-04-13" }, { label: "Q1 2026 Results", url: "https://colubeatid.substack.com/p/update-frp-holdings-inc-frph-q1-2026", date: "2026-05-13" }],
-        earningsIntegrated: false,
-        closedReason: null,
-        position: true,
-        targetEntry: null
-      },
-      { ticker: "3828.HK", company: "MING FAI International", sector: "Consumer", geo: "Asia", datePublished: "2025-12-04", image: "images/3828.webp", summary: "Cash fortress and anti-tariff shield trading at panic levels. New strategic value unlocks.", priceAtPublish: null, targetPrice: null, url: "https://colubeatid.substack.com/p/ming-fai-international-holding-limited?r=392fuc", tags: ["Deep Value", "Arbitrage", "B2B"], isPaid: false, status: "active", updates: [], earningsIntegrated: false, closedReason: null, position: false, targetEntry: null },
-    ];
-
-    const earningsAwaiting = [
-
-    ];
-    const wipTheses = [{ ticker: "???", sector: "Industrials", geo: "US", hint: "An industrial firm that connects traditional buried pipes with real-time cloud data analytics.", estimatedRelease: "Abril 2026", progress: 5 }];
-    const watchlist = [
-      { ticker: "WSO", sector: "Industrials", geo: "US", note: "HVAC distribution leader. Recurring revenue angle." },
-      { ticker: "SCI", sector: "Consumer", geo: "US", note: "Funeral & cemetery services. Demographic tailwind thesis." },
-      { ticker: "MWA", sector: "Industrials", geo: "US", note: "It is one of the largest manufacturers and distributors of fire hydrants, gate valves, and other water infrastructure products in North America." },
-      { ticker: "SSD", sector: "Industrials", geo: "US", note: "Is a leading building materials manufacturer in the United States that produces structural connectors, fasteners, anchors, and products for new construction and retrofitting." },
-      { ticker: "HLMA.L", sector: "Industrials", geo: "Europe", note: "UK tech firm's provided specialized safety, environmental, and medical solutions, focusing on fire protection, monitoring, and diagnostics through its three main business segments." },
-    ];
-
-    // ── INSIGHTS ──────────────────────────────────────────────────
-    // Short-form articles, market thoughts, portfolio notes.
-    // tag: category label (e.g. "Market View", "Portfolio Note", "Deep Dive")
-    // image: optional cover image. Set null for no image.
-    // featured: true → first item renders as hero card. Only set ONE to true.
-    const insights = [
-      {
-        title: "$TIC's €197 Million Ceiling, and the €375 Million Deal That Broke It",
-        tag: "TIC insight",
-        date: "2026-07-21",
-        excerpt: "A signal I said to watch in June had already happened by the time I published it.",
-        url: "https://colubeatid.substack.com/p/tics-197-million-ceiling-and-the",
-        image: "images/TIC.webp",
-        featured: true,
-      },
-      {
-        title: "Alexander's Inc.: Read the 8-K Before You Read the 10-Q",
-        tag: "Alexander's insight",
-        date: "2026-07-07",
-        excerpt: "The Bloomberg abatement mechanism, a $40 data error in the March NAV, and the return case from $272 before the Q2 print arrives.",
-        url: "https://colubeatid.substack.com/p/alexanders-inc-read-the-8-k-before",
-        image: "images/ALX.webp",
-        featured: true,
-      },
-      {
-        title: "Is Buzzi's buyback real capital allocation, or window dressing?",
-        tag: "BUZZI insight",
-        date: "2026-06-29",
-        excerpt: "The buying pattern says more than the total does, and it answers a question holders keep asking.",
-        url: "https://colubeatid.substack.com/p/is-buzzis-buyback-real-capital-allocation",
-        image: "images/BZU.webp",
-        featured: true,
-      },
-      {
-        title: "TIC's Data Center Business, Region by Region",
-        tag: "TIC insight",
-        date: "2026-06-26",
-        excerpt: "A region-by-region look at TIC Solutions' data center exposure: where the US, India/Indonesia, China, and Europe/Middle East stories actually differ, and what each one means for the thesis.",
-        url: "https://colubeatid.substack.com/p/tics-data-center-business-region",
-        image: "images/TIC.webp",
-        featured: true,
-      },
-      {
-        title: "Lime, Data Centers, and Steel: Tracing How the AI Build-Out Reaches U.S. Lime & Minerals",
-        tag: "USLM insight",
-        date: "2026-06-02",
-        excerpt: "A documented investigation into what the data center and semiconductor build-out actually means for a Texas lime monopoly, and what happens when you trace the thesis all the way to the co",
-        url: "https://colubeatid.substack.com/p/lime-data-centers-and-steel-tracing",
-        image: "images/USLM.webp",
-        featured: true,
-      },
-      {
-        title: "GEO Agent: The Part of TIC Solutions Nobody Is Pricing",
-        tag: "TIC insight",
-        date: "2026-03-26",
-        excerpt: "GEO Agent is the asset nobody is pricing. The CEO transition may be the reason it gets built.",
-        url: "https://colubeatid.substack.com/p/insight-geo-agent-the-part-of-tic?r=392fuc",
-        image: "images/TIC.webp",
-        featured: true,
-      },
-      {
-        title: "The Hidden Details in TIC 10-K/A Filing",
-        tag: "TIC insight",
-        date: "2026-04-30",
-        excerpt: "Five disclosures from the 10-K/A. Three confirm what we already knew. Two deserve attention.",
-        url: "https://colubeatid.substack.com/p/insight-2-the-hidden-details-in-tic",
-        image: "images/TIC2.webp",
-        featured: true,
-      },
-      {
-        title: "The Mississippi: Buzzi’s Structural Dominance in American Cement",
-        tag: "BUZZI insight",
-        date: "2026-05-11",
-        excerpt: "How thermodynamics, environmental regulation, and geography built an irreplicable logistics advantage that doubles European margins.",
-        url: "https://colubeatid.substack.com/p/the-mississippi-buzzis-structural",
-        image: "images/BUZZI2.webp",
-        featured: true,
-      },
-      {
-        title: "Eurofins: What 10,000 Bad Reviews Tell Us About the IT Rollout",
-        tag: "Eurfofins insight",
-        date: "2026-05-26",
-        excerpt: "Inside eLIMS-NG, the shadow period, and what it means for the 2027 margin case",
-        url: "https://colubeatid.substack.com/p/eurofins-what-10000-bad-reviews-tell",
-        image: "images/ERF.webp",
-        featured: true,
-      },
-    ];
-
-    // ── BEHIND THE NUMBER ─────────────────────────────────────────
-    // Educational series. tag: "P&L"|"BALANCE SHEET"|"CASH FLOW"|"BEHAVIOR"
-    // issue: number. featured: true on ONE only.
-    const behindTheNumber = [
-      {
-        title: "Behind the Number #04 - Negative Working Capital",
-        tag: "P&L",
-        issue: 4,
-        date: "2026-07-09",
-        excerpt: "The line on the balance sheet that scares off investors who never check what's underneath it",
-        url: "https://colubeatid.substack.com/p/behind-the-number-04-negative-working",
-        image: "images/behindthescenes.webp",
-        featured: true,
-      },
-      {
-        title: "Behind the Number #03 - Depreciation Is a Guess",
-        tag: "P&L",
-        issue: 3,
-        date: "2026-06-08",
-        excerpt: "Three tests to find out whether a company's depreciation is hiding a cost or hiding a quality",
-        url: "https://colubeatid.substack.com/p/behind-the-number-03-depreciation",
-        image: "images/behindthescenes.webp",
-        featured: true,
-      },
-      {
-        title: "Behind the Number #01 - Not All Revenue Is Created Equal",
-        tag: "P&L",
-        issue: 1,
-        date: "2026-04-07",
-        excerpt: "The difference between revenue a company owns and revenue it just rents, and why the income statement won't tell you.",
-        url: "https://colubeatid.substack.com/p/behind-the-number-01-not-all-revenue",
-        image: "images/behindthescenes.webp",
-        featured: true,
-      },
-      {
-        title: "Behind the Number #02 - Revenue went up. Did the business get better?",
-        tag: "P&L",
-        issue: 2,
-        date: "2026-05-04",
-        excerpt: "A framework to help you distinguish between real scaling and capital-intensive replication using three functional tests.",
-        url: "https://colubeatid.substack.com/p/behind-the-number-02-revenue-went",
-        image: "images/behindthescenes.webp",
-        featured: true,
-      },
-    ];
-
-    const SECTORS = ["All", "Healthcare", "Technology", "Industrials", "Consumer", "Financials", "REIT", "Materials", "Pharma", "RE Developer", "Consumer Staples"];
-    const GEOS = ["All", "US", "Europe", "Asia", "Canada"];
-    const STATUSES = ["All", "active", "updated", "watching", "closed"];
-    const STATUS_LABELS = { "All": "All", "active": "Active", "updated": "Updated", "watching": "Watching", "closed": "Closed" };
-
-    /* ═══ ENGINE ═══ */
     let activeTab = "published", sectorFilter = "All", geoFilter = "All", statusFilter = "All";
-    const fmt = d => { if (!d) return "—"; return new Date(d).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) };
-    const daysUntil = d => { const x = Math.ceil((new Date(d) - new Date()) / 864e5); return x < 0 ? "Past" : x === 0 ? "Today" : x + "d" };
-    const latest = t => { let d = [t.datePublished]; if (t.updates) t.updates.forEach(u => { if (u.date) d.push(u.date) }); return d.sort((a, b) => new Date(b) - new Date(a))[0] };
-    const isNew = t => (new Date() - new Date(t.datePublished)) / 864e5 <= NEW_DAYS;
-    const isRecentlyIntegrated = t => t.earningsIntegrated && t.dateIntegrated && (new Date() - new Date(t.dateIntegrated)) / 864e5 <= NEW_DAYS;
-    const sColor = s => s === "active" ? "var(--s-active)" : s === "updated" ? "var(--s-updated)" : s === "watching" ? "var(--s-watching)" : "var(--s-closed)";
-    const sBadge = s => "badge-" + s;
-    const sLabel = s => ({ active: "ACTIVE", updated: "UPDATED", watching: "WATCHING", closed: "CLOSED" })[s];
-
-    function renderPipeline() {
-      const a = publishedTheses.filter(t => t.status === "active").length, u = publishedTheses.filter(t => t.status === "updated").length, w = publishedTheses.filter(t => t.status === "watching").length, c = publishedTheses.filter(t => t.status === "closed").length;
-      const st = [{ l: "Updated", c: "var(--s-updated)", n: u }, { l: "Active", c: "var(--s-active)", n: a }, { l: "Watching", c: "var(--s-watching)", n: w }, { l: "Earnings", c: "var(--amber)", n: earningsAwaiting.length }, { l: "Insights", c: "var(--gold)", n: insights.length }, { l: "Behind #", c: "var(--teal)", n: behindTheNumber.length }, { l: "WIP", c: "var(--blue)", n: wipTheses.length }, { l: "Watchlist", c: "var(--purple)", n: watchlist.length }, { l: "Closed", c: "var(--s-closed)", n: c }];
-      document.getElementById("pipeline-bar").innerHTML = `<span class="pipeline-label">PIPELINE</span><div class="pipeline-track">${st.map(s => `<div class="pipeline-stage"><div class="pipeline-dot" style="background:${s.c}"></div><span class="pipeline-count">${s.n}</span><span class="pipeline-stage-name">${s.l}</span></div>`).join("")}</div>`;
-    }
-    function renderLegend() { return `<div class="legend"><span class="legend-title">STATUS</span><div class="legend-item"><div class="legend-bar" style="background:var(--s-active)"></div><span>Active — no earnings integration yet</span></div><div class="legend-item"><div class="legend-bar" style="background:var(--s-updated)"></div><span>Updated — has earnings integrated</span></div><div class="legend-item"><div class="legend-bar" style="background:var(--s-watching)"></div><span>Watching — waiting for entry</span></div><div class="legend-item"><div class="legend-bar" style="background:var(--s-closed)"></div><span>Closed — thesis concluded</span></div></div>` }
-    function renderTabs() {
-      const tabs = [{ id: "published", label: "Published", count: publishedTheses.length, icon: "◆" }, { id: "earnings", label: "Earnings", count: earningsAwaiting.length, icon: "◷" }, { id: "insights", label: "Insights", count: insights.length, icon: "✦" }, { id: "wip", label: "WIP", count: wipTheses.length, icon: "◐" }, { id: "watchlist", label: "Watchlist", count: watchlist.length, icon: "◎" }, { id: "btn", label: "Behind the Number", count: behindTheNumber.length, icon: "§" }];
-      document.getElementById("tab-row").innerHTML = tabs.map(t => `<button class="tab ${activeTab === t.id ? 'active' : ''}" onclick="switchTab('${t.id}')"><span>${t.icon}</span><span>${t.label}</span><span class="tab-badge">${t.count}</span></button>`).join("");
-    }
+    function renderPipeline() { const a = publishedTheses.filter(t => t.status === "active").length, u = publishedTheses.filter(t => t.status === "updated").length, w = publishedTheses.filter(t => t.status === "watching").length, c = publishedTheses.filter(t => t.status === "closed").length; const st = [{ l: "Active", c: "var(--s-active)", n: a }, { l: "Watching", c: "var(--s-watching)", n: w }, { l: "Insights", c: "var(--gold)", n: insights.length }, { l: "BTN", c: "var(--teal)", n: behindTheNumber.length }, { l: "Closed", c: "var(--s-closed)", n: c }]; document.getElementById("pipeline-bar").innerHTML = `<span class="pipeline-label">PIPELINE</span><div class="pipeline-track">${st.map(s => `<div class="pipeline-stage"><div class="pipeline-dot" style="background:${s.c}"></div><span class="pipeline-count">${s.n}</span><span class="pipeline-stage-name">${s.l}</span></div>`).join("")}</div>` }
+    function renderLegend() { return `<div class="legend"><span class="legend-title">STATUS</span><div class="legend-item"><div class="legend-bar" style="background:var(--s-active)"></div><span>Active</span></div><div class="legend-item"><div class="legend-bar" style="background:var(--s-watching)"></div><span>Watching</span></div><div class="legend-item"><div class="legend-bar" style="background:var(--s-closed)"></div><span>Closed</span></div></div>` }
+    function renderTabs() { const tabs = [{ id: "published", label: "Theses", count: publishedTheses.length, icon: "◆" }, { id: "insights", label: "Insights", count: insights.length, icon: "✦" }, { id: "btn", label: "Behind the Number", count: behindTheNumber.length, icon: "§" }]; document.getElementById("tab-row").innerHTML = tabs.map(t => `<button class="tab ${activeTab === t.id ? 'active' : ''}" onclick="switchTab('${t.id}')"><span>${t.icon}</span><span>${t.label}</span><span class="tab-badge">${t.count}</span></button>`).join("") }
     function switchTab(id) { activeTab = id; renderTabs(); document.querySelectorAll(".section").forEach(s => s.classList.remove("active")); document.getElementById("section-" + id).classList.add("active"); document.getElementById("filters").style.display = id === "published" ? "flex" : "none"; document.getElementById("legend-container").innerHTML = id === "published" ? renderLegend() : "" }
     function renderFilters() { document.getElementById("filters").innerHTML = `<div class="filter-group"><span class="filter-label">Status</span>${STATUSES.map(s => `<button class="filter-btn ${statusFilter === s ? 'active' : ''}" onclick="setStatus('${s}')">${STATUS_LABELS[s]}</button>`).join("")}</div><div class="filter-group"><span class="filter-label">Sector</span>${SECTORS.map(s => `<button class="filter-btn ${sectorFilter === s ? 'active' : ''}" onclick="setSector('${s}')">${s}</button>`).join("")}</div><div class="filter-group"><span class="filter-label">Geo</span>${GEOS.map(g => `<button class="filter-btn ${geoFilter === g ? 'active' : ''}" onclick="setGeo('${g}')">${g}</button>`).join("")}</div>` }
     function setSector(s) { sectorFilter = s; renderFilters(); renderPublished() }
     function setGeo(g) { geoFilter = g; renderFilters(); renderPublished() }
     function setStatus(s) { statusFilter = s; renderFilters(); renderPublished() }
-
     function renderPublished() {
-      const filtered = publishedTheses.filter(t => { if (statusFilter !== "All" && t.status !== statusFilter) return false; if (sectorFilter !== "All" && t.sector !== sectorFilter) return false; if (geoFilter !== "All" && t.geo !== geoFilter) return false; return true });
-      filtered.sort((a, b) => new Date(latest(b)) - new Date(latest(a)));
-      if (!filtered.length) { document.getElementById("section-published").innerHTML = `<p class="empty-text">No theses match the current filters.</p>`; return }
+      const filtered = publishedTheses.filter(t => { if (statusFilter !== "All" && t.status !== statusFilter) return false; if (sectorFilter !== "All" && t.sector !== sectorFilter) return false; if (geoFilter !== "All" && t.geo !== geoFilter) return false; return true }); filtered.sort((a, b) => new Date(latest(b)) - new Date(latest(a))); if (!filtered.length) { document.getElementById("section-published").innerHTML = `<p class="empty-text">No theses match the current filters.</p>`; return }
       document.getElementById("section-published").innerHTML = `<div class="card-grid">${filtered.map(t => {
-        const cl = t.status === "closed", wt = t.status === "watching";
-        let cc = cl ? "card card-closed" : wt ? "card card-watching" : "card";
-        const nw = isNew(t) ? `<span class="badge-new">NEW</span>` : "";
-        const ib = isRecentlyIntegrated(t) ? `<span class="badge-integrated">UPDATED</span>` : "";
-        const sb = `<span class="badge ${sBadge(t.status)}">${sLabel(t.status)}</span>`;
-        const pb = t.isPaid ? `<span class="badge badge-paid">PAID</span>` : "";
-        let pt = ""; if (t.position === true) pt = `<div class="position-tag position-holding">◆ HOLDING</div>`; else if (t.position === false && !cl) pt = `<div class="position-tag position-none">◇ NO POSITION</div>`;
-        const ci = cl && t.closedReason ? `<div class="closed-info">✓ ${t.closedReason}</div>` : "";
-        let eb = ""; if (wt && t.targetEntry) eb = `<div class="entry-target"><div><div class="entry-target-label">INTERESTED BELOW</div><div class="entry-target-price">$${t.targetEntry}</div></div><div class="entry-target-note">Waiting for better entry. Subscribe to be notified.</div></div>`;
-        let ur = ""; if (t.updates && t.updates.length > 0) { const ch = t.updates.map(u => `<span class="update-chip" onclick="event.preventDefault();event.stopPropagation();window.open('${u.url}','_blank')">↗ ${u.label}</span>`).join(""); ur = `<div class="update-row"><span class="update-row-label">EARNINGS</span>${ch}</div>` }
-        let ir = ""; if (t.status !== "closed" && t.updates && t.updates.length > 0) { ir = t.earningsIntegrated ? `<div class="integration-row integration-done">✓ Thesis reflects latest earnings data</div>` : `<div class="integration-row integration-pending">⏳ Last earnings integration pending</div>` }
-        // Image section: real thumbnail or thin status bar
-        const imgSection = t.image ? `<img class="card-img" src="${t.image}" alt="${t.company}" onerror="this.outerHTML='<div class=card-img-placeholder></div>'">` : `<div class="card-img-placeholder"></div>`;
-        return `<a href="${t.url}" target="_blank" class="${cc}">${imgSection}<div class="card-status-bar" style="background:${sColor(t.status)}"></div><div class="card-body"><div class="card-header"><div class="ticker-block">${nw}${ib}<span class="ticker">${t.ticker}</span>${sb}${pb}</div><div><div class="card-date">${fmt(latest(t))}</div>${t.updates && t.updates.length > 0 ? `<div class="card-date-original">Thesis: ${fmt(t.datePublished)}</div>` : ''}</div></div><p class="company-name">${t.company}</p>${pt}${ci}<p class="card-summary">${t.summary}</p><div class="card-tags">${t.tags.map(tg => `<span class="tag">${tg}</span>`).join("")}</div>${ur}${ir}${eb}<div class="read-more">${cl ? "Read thesis →" : "Read full thesis →"}</div></div></a>`
-      }).join("")}</div>`;
+        const cl = t.status === "closed", wt = t.status === "watching"; const cc = cl ? "cover cover-closed" : wt ? "cover cover-watching" : "cover"; const nw = isNew(t) ? `<span class="badge-new" style="font-size:7px;padding:1px 6px">NEW</span> ` : ""; return `<a href="company.html?ticker=${encodeURIComponent(t.ticker)}" class="${cc}">${t.image ? `<img class="cover-img" src="${t.image}" alt="${t.company}" onerror="this.style.display='none'">` : ''}
+<div class="cover-bar" style="background:${sColor(t.status)}"></div>
+<div class="cover-body"><div class="cover-head"><span class="cover-ticker">${nw}${t.ticker}</span><span class="cover-badge" style="background:${sColor(t.status)}1a;color:${sColor(t.status)}">${sLabel(t.status)}</span></div>
+<div class="cover-company">${t.company}</div>
+<div class="cover-summary">${t.summary}</div>
+<div class="cover-foot"><span class="cover-sector">${t.sector} · ${t.geo}</span><span class="cover-arrow">View →</span></div></div></a>`
+      }).join("")}</div>`
     }
-
-    function renderEarnings() { if (!earningsAwaiting.length) { document.getElementById("section-earnings").innerHTML = `<p class="empty-text">No pending earnings right now.</p>`; return } document.getElementById("section-earnings").innerHTML = `<div class="card-grid">${earningsAwaiting.map(e => `<div class="card"><div class="card-status-bar" style="background:var(--amber)"></div><div class="card-body"><div class="card-header"><span class="ticker">${e.ticker}</span><div class="earnings-date"><span class="earnings-countdown">${daysUntil(e.nextEarnings)}</span><span class="card-date">${fmt(e.nextEarnings)}</span></div></div><p class="company-name">${e.company}</p><p class="card-summary">${e.catalyst}</p><a href="${e.originalThesisUrl}" target="_blank" class="read-more" style="display:inline-block;margin-bottom:4px">Read update →</a><div class="note-box"><span>🔔</span><span>Subscribe to get the earnings update as soon as it drops.</span></div></div></div>`).join("")}</div>` }
-
-    function renderWip() { document.getElementById("section-wip").innerHTML = `<div class="card-grid">${wipTheses.map(w => `<div class="card"><div class="card-status-bar" style="background:var(--blue)"></div><div class="card-body"><div class="card-header"><span class="ticker-mystery">${w.ticker}</span><span class="card-date">ETA: ${w.estimatedRelease}</span></div><div class="card-tags" style="margin-top:8px"><span class="tag tag-blue">${w.sector}</span><span class="tag tag-blue">${w.geo}</span></div><p class="card-summary">${w.hint}</p><div class="progress-outer"><div class="progress-label"><span>Research Progress</span><span>${w.progress}%</span></div><div class="progress-track"><div class="progress-fill" style="width:${w.progress}%"></div></div></div><div class="note-box"><span>📬</span><span>Subscribe to be first to read this thesis.</span></div></div></div>`).join("")}</div>` }
-
-    function renderWatchlist() { document.getElementById("section-watchlist").innerHTML = `<p class="watchlist-intro">Companies on my radar. Not yet modeled — just interesting enough to track. If you want me to prioritize one, let me know on Substack.</p><div class="watchlist-grid">${watchlist.map(w => `<div class="watchlist-item"><div class="watchlist-header"><span class="watchlist-ticker">${w.ticker}</span><div class="watchlist-tags"><span class="tag-small">${w.sector}</span><span class="tag-small">${w.geo}</span></div></div><p class="watchlist-note">${w.note}</p></div>`).join("")}</div>` }
-
-    function renderInsights() {
-      if (!insights.length) { document.getElementById("section-insights").innerHTML = `<p class="empty-text">No insights published yet. Subscribe to be notified.</p>`; return }
-      const sorted = [...insights].sort((a, b) => new Date(b.date) - new Date(a.date));
-      const feat = sorted.find(i => i.featured) || sorted[0];
-      const rest = sorted.filter(i => i !== feat);
-      const isRecent = d => (new Date() - new Date(d)) / 864e5 <= NEW_DAYS;
-
-      const featHtml = `<a href="${feat.url}" target="_blank" class="insight-featured">
-        ${feat.image ? `<img class="insight-featured-img" src="${feat.image}" alt="" onerror="this.style.height='80px';this.style.background='var(--bg2)'">` : ''}
-        ${isRecent(feat.date) ? `<span class="badge-new insight-featured-new">NEW</span>` : ''}
-        <div class="insight-featured-body">
-          <span class="insight-featured-tag">${feat.tag}</span>
-          <h2 class="insight-featured-title">${feat.title}</h2>
-          <p class="insight-featured-excerpt">${feat.excerpt}</p>
-          <span class="insight-featured-meta">${fmt(feat.date)} · Read on Substack →</span>
-        </div>
-      </a>`;
-
-      const timelineHtml = rest.map(i => `<a href="${i.url}" target="_blank" class="insight-item">
-        ${i.image ? `<img class="insight-item-img" src="${i.image}" alt="" onerror="this.style.display='none'">` : ''}
-        <div class="insight-item-body">
-          <span class="insight-item-tag">${i.tag}${isRecent(i.date) ? `<span class="badge-new insight-item-new">NEW</span>` : ''}</span>
-          <h3 class="insight-item-title">${i.title}</h3>
-          <p class="insight-item-excerpt">${i.excerpt}</p>
-          <span class="insight-item-meta">${fmt(i.date)} · Read on Substack →</span>
-        </div>
-      </a>`).join("");
-
-      document.getElementById("section-insights").innerHTML = `<div class="insights-feed">
-        ${featHtml}
-        ${rest.length ? `<div class="insight-timeline">${timelineHtml}</div>` : ''}
-        <div class="insights-cta">
-          <p class="insights-cta-text">Get every insight delivered to your inbox — free.</p>
-          <a href="https://colubeatid.substack.com/subscribe" target="_blank" class="insights-cta-btn">Subscribe →</a>
-        </div>
-      </div>`;
-    }
-
-    renderPipeline(); renderTabs(); document.getElementById("legend-container").innerHTML = renderLegend(); renderFilters(); renderHero(); renderPublished(); renderEarnings(); renderInsights(); renderBTN(); renderWip(); renderWatchlist();
-
     function renderHero() {
-      const candidates = [];
-      publishedTheses.forEach(t => { const d = latest(t); candidates.push({ type: "thesis", date: d, title: t.company + " ($" + t.ticker + ")", excerpt: t.summary, url: t.url, image: t.image, ticker: t.ticker }) });
-      insights.forEach(i => { candidates.push({ type: "insight", date: i.date, title: i.title, excerpt: i.excerpt, url: i.url, image: i.image, tag: i.tag }) });
-      behindTheNumber.forEach(b => { candidates.push({ type: "btn", date: b.date, title: b.title, excerpt: b.excerpt, url: b.url, image: b.image, tag: "#" + b.issue + " · " + b.tag }) });
-      candidates.sort((a, b) => new Date(b.date) - new Date(a.date));
-      const hero = candidates[0]; if (!hero) return;
-      const isRecent = (new Date() - new Date(hero.date)) / 864e5 <= NEW_DAYS;
-      const typeLabel = hero.type === "thesis" ? "LATEST UPDATE" : hero.type === "insight" ? "LATEST INSIGHT" : hero.type === "btn" ? "BEHIND THE NUMBER" : "LATEST";
-      const hasImg = hero.image;
-      document.getElementById("hero-banner").innerHTML = `
-        <a href="${hero.url}" target="_blank" class="hero ${hasImg ? '' : 'hero-no-img'}">
-          ${hasImg ? `<img class="hero-img" src="${hero.image}" alt="" onerror="this.parentElement.classList.add('hero-no-img');this.remove()">` : ''}
-          <div class="hero-gradient"></div>
-          <div class="hero-content">
-            <div class="hero-label"><span class="hero-label-type">${typeLabel}</span>${isRecent ? `<span class="badge-new">NEW</span>` : ''}
-              
-              </div>
-            <h2 class="hero-title">${hero.title}</h2>
-            <p class="hero-excerpt">${hero.excerpt}</p>
-            <div class="badge-read">Read full thesis</div>
-          </div>
-        </a>`;
+      const candidates = []; publishedTheses.forEach(t => { candidates.push({ type: "thesis", date: latest(t), title: t.company + " ($" + t.ticker + ")", excerpt: t.summary, url: "company.html?ticker=" + encodeURIComponent(t.ticker), image: t.image, ticker: t.ticker }) }); insights.forEach(i => { candidates.push({ type: "insight", date: i.date, title: i.title, excerpt: i.excerpt, url: i.url, image: i.image, tag: i.tag }) }); behindTheNumber.forEach(b => { candidates.push({ type: "btn", date: b.date, title: b.title, excerpt: b.excerpt, url: b.url, image: b.image, tag: "#" + b.issue + " · " + b.tag }) }); candidates.sort((a, b) => new Date(b.date) - new Date(a.date)); const hero = candidates[0]; if (!hero) return; const isRecent = (new Date() - new Date(hero.date)) / 864e5 <= NEW_DAYS; const typeLabel = hero.type === "thesis" ? "LATEST THESIS" : hero.type === "insight" ? "LATEST INSIGHT" : "BEHIND THE NUMBER"; const hasImg = hero.image; const hUrl = hero.url; const hTarget = hero.type === "thesis" ? "" : 'target="_blank"'; document.getElementById("hero-banner").innerHTML = `<a href="${hUrl}" ${hTarget} class="hero ${hasImg ? '' : 'hero-no-img'}">${hasImg ? `<img class="hero-img" src="${hero.image}" alt="" onerror="this.parentElement.classList.add('hero-no-img');this.remove()">` : ''}
+<div class="hero-gradient"></div><div class="hero-content"><div class="hero-label"><span class="hero-label-type">${typeLabel}</span>${isRecent ? `<span class="badge-new">NEW</span>` : ''}</div><h2 class="hero-title">${hero.title}</h2><p class="hero-excerpt">${hero.excerpt}</p><div class="badge-read">Read full thesis</div></div></a>`
     }
-
+    function renderInsights() {
+      if (!insights.length) { document.getElementById("section-insights").innerHTML = `<p class="empty-text">No insights yet.</p>`; return } const sorted = [...insights].sort((a, b) => new Date(b.date) - new Date(a.date)); const feat = sorted[0]; const rest = sorted.slice(1); const isR = d => (new Date() - new Date(d)) / 864e5 <= NEW_DAYS; document.getElementById("section-insights").innerHTML = `<div class="insights-feed"><a href="${feat.url}" target="_blank" class="insight-featured">${feat.image ? `<img class="insight-featured-img" src="${feat.image}" alt="">` : ''}${isR(feat.date) ? `<span class="badge-new insight-featured-new">NEW</span>` : ''}<div class="insight-featured-body"><span class="insight-featured-tag">${feat.tag}</span><h2 class="insight-featured-title">${feat.title}</h2><p class="insight-featured-excerpt">${feat.excerpt}</p><span class="insight-featured-meta">${fmt(feat.date)} · Read on Substack →</span></div></a>${rest.length ? `<div class="insight-timeline">${rest.map(i => `<a href="${i.url}" target="_blank" class="insight-item">${i.image ? `<img class="insight-item-img" src="${i.image}" alt="">` : ''}
+<div class="insight-item-body"><span class="insight-item-tag">${i.tag}${isR(i.date) ? `<span class="badge-new insight-item-new">NEW</span>` : ''}</span><h3 class="insight-item-title">${i.title}</h3><p class="insight-item-excerpt">${i.excerpt}</p><span class="insight-item-meta">${fmt(i.date)} · Read on Substack →</span></div></a>`).join("")}</div>` : ''}<div class="insights-cta"><p class="insights-cta-text">Get every insight delivered — free.</p><a href="https://colubeatid.substack.com/subscribe" target="_blank" class="insights-cta-btn">Subscribe →</a></div></div>`
+    }
+    function renderWip() { document.getElementById("section-wip").innerHTML = `<div class="card-grid">${wipTheses.map(w => `<div class="card"><div class="card-status-bar" style="background:var(--blue)"></div><div class="card-body"><div class="card-header"><span class="ticker-mystery">${w.ticker}</span><span class="card-date">ETA: ${w.estimatedRelease}</span></div><div class="card-tags" style="margin-top:8px"><span class="tag tag-blue">${w.sector}</span><span class="tag tag-blue">${w.geo}</span></div><p class="card-summary">${w.hint}</p><div class="progress-outer"><div class="progress-label"><span>Research Progress</span><span>${w.progress}%</span></div><div class="progress-track"><div class="progress-fill" style="width:${w.progress}%"></div></div></div><div class="note-box"><span>📬</span><span>Subscribe to be first to read this thesis.</span></div></div></div>`).join("")}</div>` }
+    function renderWatchlist() { document.getElementById("section-watchlist").innerHTML = `<p class="watchlist-intro">Companies on my radar. Not yet modeled — just interesting enough to track.</p><div class="watchlist-grid">${watchlist.map(w => `<div class="watchlist-item"><div class="watchlist-header"><span class="watchlist-ticker">${w.ticker}</span><div class="watchlist-tags"><span class="tag-small">${w.sector}</span><span class="tag-small">${w.geo}</span></div></div><p class="watchlist-note">${w.note}</p></div>`).join("")}</div>` }
     function renderBTN() {
-      if (!behindTheNumber.length) { document.getElementById("section-btn").innerHTML = `<p class="empty-text">No issues published yet.</p>`; return }
-      const sorted = [...behindTheNumber].sort((a, b) => new Date(b.date) - new Date(a.date));
-      const feat = sorted.find(i => i.featured) || sorted[0];
-      const rest = sorted.filter(i => i !== feat);
-      const isRecent = d => (new Date() - new Date(d)) / 864e5 <= NEW_DAYS;
-      const featHtml = `<a href="${feat.url}" target="_blank" class="insight-featured">
-        ${feat.image ? `<img class="insight-featured-img" src="${feat.image}" alt="" onerror="this.style.height='80px';this.style.background='var(--bg2)'">` : ''}
-        ${isRecent(feat.date) ? `<span class="badge-new insight-featured-new">NEW</span>` : ''}
-        <div class="insight-featured-body">
-          <span class="insight-featured-tag">#${feat.issue} · ${feat.tag}</span>
-          <h2 class="insight-featured-title">${feat.title}</h2>
-          <p class="insight-featured-excerpt">${feat.excerpt}</p>
-          <span class="insight-featured-meta">${fmt(feat.date)} · Read on Substack →</span>
-        </div></a>`;
-      const timelineHtml = rest.map(i => `<a href="${i.url}" target="_blank" class="insight-item">
-        ${i.image ? `<img class="insight-item-img" src="${i.image}" alt="" onerror="this.style.display='none'">` : ''}
-        <div class="insight-item-body">
-          <span class="insight-item-tag">#${i.issue} · ${i.tag}${isRecent(i.date) ? `<span class="badge-new insight-item-new">NEW</span>` : ''}</span>
-          <h3 class="insight-item-title">${i.title}</h3>
-          <p class="insight-item-excerpt">${i.excerpt}</p>
-          <span class="insight-item-meta">${fmt(i.date)} · Read on Substack →</span>
-        </div></a>`).join("");
-      document.getElementById("section-btn").innerHTML = `<div class="insights-feed">
-        <p class="watchlist-intro">A 23-issue educational series. Each issue picks one number from the financial statements and uses a real company to show you what it actually means — and how to read it like an analyst.</p>
-        ${featHtml}${rest.length ? `<div class="insight-timeline">${timelineHtml}</div>` : ''}
-        <div class="insights-cta"><p class="insights-cta-text">Don't miss the next issue — subscribe free.</p><a href="https://colubeatid.substack.com/subscribe" target="_blank" class="insights-cta-btn">Subscribe →</a></div>
-      </div>`;
+      if (!behindTheNumber.length) { document.getElementById("section-btn").innerHTML = `<p class="empty-text">No issues yet.</p>`; return } const sorted = [...behindTheNumber].sort((a, b) => new Date(b.date) - new Date(a.date)); const feat = sorted[0]; const rest = sorted.slice(1); const isR = d => (new Date() - new Date(d)) / 864e5 <= NEW_DAYS; document.getElementById("section-btn").innerHTML = `<div class="insights-feed"><p class="watchlist-intro">A 23-issue educational series. Each issue picks one number from the financial statements and uses a real company to show you what it actually means.</p><a href="${feat.url}" target="_blank" class="insight-featured">${feat.image ? `<img class="insight-featured-img" src="${feat.image}" alt="">` : ''}${isR(feat.date) ? `<span class="badge-new insight-featured-new">NEW</span>` : ''}<div class="insight-featured-body"><span class="insight-featured-tag">#${feat.issue} · ${feat.tag}</span><h2 class="insight-featured-title">${feat.title}</h2><p class="insight-featured-excerpt">${feat.excerpt}</p><span class="insight-featured-meta">${fmt(feat.date)} · Read on Substack →</span></div></a>${rest.length ? `<div class="insight-timeline">${rest.map(i => `<a href="${i.url}" target="_blank" class="insight-item">${i.image ? `<img class="insight-item-img" src="${i.image}" alt="">` : ''}
+<div class="insight-item-body"><span class="insight-item-tag">#${i.issue} · ${i.tag}${isR(i.date) ? `<span class="badge-new insight-item-new">NEW</span>` : ''}</span><h3 class="insight-item-title">${i.title}</h3><p class="insight-item-excerpt">${i.excerpt}</p><span class="insight-item-meta">${fmt(i.date)} · Read on Substack →</span></div></a>`).join("")}</div>` : ''}<div class="insights-cta"><p class="insights-cta-text">Don't miss the next issue — subscribe free.</p><a href="https://colubeatid.substack.com/subscribe" target="_blank" class="insights-cta-btn">Subscribe →</a></div></div>`
     }
+    renderPipeline(); renderTabs(); document.getElementById("legend-container").innerHTML = renderLegend(); renderFilters(); renderHero(); renderPublished(); renderInsights(); renderBTN();
   </script>
 </body>
 

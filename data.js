@@ -304,6 +304,11 @@ const publishedTheses = [
         url: "https://colubeatid.substack.com/p/update-eurofins-scientific-erf-q1",
         date: "2026-04-23",
       },
+      {
+        label: "H1 2026 Results",
+        url: "https://colubeatid.substack.com/p/update-eurofins-scientific-erf-h1?r=392fuc",
+        date: "2026-07-24",
+      },
     ],
     earningsIntegrated: true,
     closedReason: null,

@@ -339,6 +339,11 @@ const publishedTheses = [
         url: "https://colubeatid.substack.com/p/update-pool-corporation-pool-q1-2026?r=392fuc",
         date: "2026-04-28",
       },
+      {
+        label: "Q2 2026 Results",
+        url: "https://colubeatid.substack.com/p/update-pool-corporation-pool-q2-2026?r=392fuc",
+        date: "2026-07-30",
+      },
     ],
     earningsIntegrated: true,
     dateIntegrated: "2026-03-23",

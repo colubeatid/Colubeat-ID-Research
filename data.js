@@ -383,6 +383,11 @@ const publishedTheses = [
         url: "https://colubeatid.substack.com/p/update-frp-holdings-inc-frph-q1-2026",
         date: "2026-05-13",
       },
+      {
+        label: "Q2 2026 Results",
+        url: "https://colubeatid.substack.com/p/update-frp-holdings-inc-frph-q2-2026",
+        date: "2026-08-12",
+      },
     ],
     earningsIntegrated: false,
     closedReason: null,

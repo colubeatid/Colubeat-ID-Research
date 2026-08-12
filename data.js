@@ -155,6 +155,11 @@ const publishedTheses = [
         url: "https://colubeatid.substack.com/p/tics-new-31885-framework-growth-over",
         date: "2026-05-20",
       },
+      {
+        label: "Q2 2026 Results",
+        url: "https://colubeatid.substack.com/p/update-tic-solutions-tic-q2-2026",
+        date: "2026-08-10",
+      },
     ],
     earningsIntegrated: false,
     closedReason: null,

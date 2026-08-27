@@ -39,7 +39,13 @@ const publishedTheses = [
     tags: ["REIT"],
     isPaid: true,
     status: "active",
-    updates: [],
+    updates: [
+      {
+        label: "Q2 2026 Results",
+        url: "https://colubeatid.substack.com/p/update-rayonier-inc-ryn-q2-2026-results?r=392fuc",
+        date: "2026-08-17",
+      },
+    ],
     earningsIntegrated: false,
     closedReason: null,
     position: true,
@@ -212,6 +218,11 @@ const publishedTheses = [
         label: "FY 2025 Results",
         url: "https://open.substack.com/pub/colubeatid/p/buzzi-spa-bzumi-fy-2025-results?r=392fuc&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true",
         date: "2026-03-31",
+      },
+      {
+        label: "H1 2026 Results",
+        url: "https://colubeatid.substack.com/p/buzzi-spa-bzumi-h1-2026-results?r=392fuc",
+        date: "2026-08-20",
       },
     ],
     earningsIntegrated: false,
@@ -462,6 +473,16 @@ const watchlist = [
 ];
 
 const insights = [
+  {
+    title: "Buzzi, Quikrete and the Mississippi",
+    tag: "Buzzi insight",
+    date: "2026-08-26",
+    excerpt:
+      "What the map misses about cement plants, terminals and captive demand along the Mississippi.",
+    url: "https://colubeatid.substack.com/p/buzzi-quikrete-and-the-mississippi",
+    image: "images/BZU.webp",
+    relatedTicker: "BZU",
+  },
   {
     title:
       "$TIC's €197 Million Ceiling, and the €375 Million Deal That Broke It",

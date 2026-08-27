@@ -480,7 +480,7 @@ const insights = [
     excerpt:
       "What the map misses about cement plants, terminals and captive demand along the Mississippi.",
     url: "https://colubeatid.substack.com/p/buzzi-quikrete-and-the-mississippi",
-    image: "images/BZU.webp",
+    image: "images/BZUQUIK.webp",
     relatedTicker: "BZU",
   },
   {

@@ -763,7 +763,7 @@ const startHere = [
   },
   {
     articleSlug: "FRPH",
-    displayTitle: "Buying the Land Twice: A Developer Hiding Inside a Landlord",
+    displayTitle: "Why I Think the Assets Are Worth Much More Than the Stock",
     // displaySubtitle: "optional one-liner if the title can't carry the hook alone",
   },
 ];

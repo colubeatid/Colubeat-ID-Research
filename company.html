@@ -523,6 +523,188 @@
       margin-bottom: 24px
     }
 
+    /* ── THESIS + MY POSITION ROW ── */
+    .co-thesis-row {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(240px, 1fr);
+      gap: 24px;
+      align-items: stretch;
+      margin-bottom: 40px
+    }
+
+    .co-thesis-row--nopos {
+      grid-template-columns: 1fr
+    }
+
+    .co-thesis-row .co-question {
+      margin-bottom: 0
+    }
+
+    .co-pos {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 22px;
+      display: flex;
+      flex-direction: column
+    }
+
+    .co-pos-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      color: var(--text-fnt);
+      margin-bottom: 12px
+    }
+
+    .co-pos-status {
+      font-family: var(--mono);
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      margin-bottom: 16px
+    }
+
+    .co-pos-field {
+      margin-bottom: 16px
+    }
+
+    .co-pos-field-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .1em;
+      color: var(--text-fnt);
+      margin-bottom: 5px
+    }
+
+    .co-pos-field-value {
+      font-family: var(--mono);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text)
+    }
+
+    .co-pos-none {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--text-fnt);
+      font-style: italic;
+      margin-bottom: 16px
+    }
+
+    .co-pos-perf {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 10px
+    }
+
+    .co-pos-perf-value {
+      font-family: var(--mono);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: .01em
+    }
+
+    .co-pos-perf-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-sec)
+    }
+
+    .co-pos-ref {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-fnt);
+      margin-bottom: 4px
+    }
+
+    .co-pos-updated {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-fnt);
+      margin-top: auto;
+      padding-top: 8px
+    }
+
+
+    @media(max-width:900px) {
+
+      /* thesis first, position underneath — research stays primary */
+      .co-thesis-row {
+        grid-template-columns: 1fr;
+        gap: 16px
+      }
+
+      .co-pos {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 8px 28px
+      }
+
+      .co-pos-label {
+        width: 100%;
+        margin-bottom: 4px
+      }
+
+      .co-pos-status,
+      .co-pos-field,
+      .co-pos-none {
+        margin-bottom: 0
+      }
+
+      .co-pos-perf,
+      .co-pos-ref {
+        width: 100%;
+        margin-bottom: 0
+      }
+
+      .co-pos-perf-value {
+        font-size: 19px
+      }
+
+      .co-pos-field-value {
+        font-size: 18px
+      }
+
+      .co-pos-perf {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 10px
+    }
+
+    .co-pos-perf-value {
+      font-family: var(--mono);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: .01em
+    }
+
+    .co-pos-perf-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-sec)
+    }
+
+    .co-pos-ref {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-fnt);
+      margin-bottom: 4px
+    }
+
+    .co-pos-updated {
+        width: 100%;
+        margin-top: 4px;
+        padding-top: 0
+      }
+    }
+
     @media(max-width:640px) {
       .back-bar {
         padding: 10px 16px
@@ -582,7 +764,56 @@
   <div id="app"></div>
   <script src="data.js"></script>
   <script>
-    const ticker = new URLSearchParams(window.location.search).get("ticker");
+    /* ── MY POSITION panel ──
+   Renders only when position.visible is true. Shows status, one optional
+   price (average paid when holding, level of interest when watching) and
+   the date that information was last reviewed. Never size, weight or P&L. */
+function renderPosition(p) {
+  const label = posLabel(p.status);
+  const colour = posColor(p.status);
+
+  let detail = "";
+  if (p.status === "holding") {
+    const avg = money(p.averagePrice, p.currency);
+    if (avg) detail = `<div class="co-pos-field"><div class="co-pos-field-label">Average price</div><div class="co-pos-field-value">${avg}</div></div>`;
+  } else if (p.status === "watching") {
+    const below = money(p.interestedBelow, p.currency);
+    detail = below
+      ? `<div class="co-pos-field"><div class="co-pos-field-label">Interested below</div><div class="co-pos-field-value">${below}</div></div>`
+      : `<div class="co-pos-none">No entry price set</div>`;
+  }
+
+  /* Performance vs average price. Derived, never stored. Rendered only when
+     both prices are usable, and always paired with "vs avg. price" so the
+     number cannot be misread as a portfolio or YTD return. */
+  let performance = "";
+  let reference = "";
+  if (p.status === "holding") {
+    const pct = positionPerformance(p.averagePrice, p.referencePrice);
+    if (pct !== null) {
+      const tone =
+        pct > 0.05 ? "var(--green)" : pct < -0.05 ? "var(--red)" : "var(--text-sec)";
+      performance = `<div class="co-pos-perf">
+        <span class="co-pos-perf-value" style="color:${tone}">${formatSignedPercent(pct)}</span>
+        <span class="co-pos-perf-label">vs avg. price</span>
+      </div>`;
+    }
+    const ref = money(p.referencePrice, p.currency);
+    if (ref)
+      reference = `<div class="co-pos-ref">Price ${ref}${p.referencePriceDate ? ` · ${fmt(p.referencePriceDate)}` : ""}</div>`;
+  }
+
+  return `<aside class="co-pos" aria-label="My position">
+    <div class="co-pos-label">MY POSITION</div>
+    <div class="co-pos-status" style="color:${colour}">${posMark(p.status)} ${label}</div>
+    ${detail}
+    ${performance}
+    ${reference}
+    ${p.updatedAt ? `<div class="co-pos-updated">Updated ${fmt(p.updatedAt)}</div>` : ''}
+  </aside>`;
+}
+
+const ticker = new URLSearchParams(window.location.search).get("ticker");
     const thesis = ticker ? publishedTheses.find(t => t.ticker === ticker) : null;
 
     if (!thesis) {
@@ -610,12 +841,13 @@
       });
       timeline.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-      // Status
+      // COVERAGE status (am I still following the company?)
       const statusColor = sColor(thesis.status);
       const statusText = sLabel(thesis.status);
-      const posText = thesis.position ? "HOLDING" : "NO POSITION";
-      const posColor = thesis.position ? "var(--green)" : "var(--text-fnt)";
-      const posBg = thesis.position ? "var(--green-bg)" : "rgba(255,255,255,.04)";
+
+      // MY POSITION — a separate concept, never inferred from coverage
+      const pos = thesis.position;
+      const showPos = posVisible(thesis);
 
       // Key question
       const question = keyQuestions[thesis.ticker] || null;
@@ -625,7 +857,7 @@
 
       // First covered
       const firstCovered = fmt(thesis.datePublished);
-      const lastActivity = fmt(latest(thesis));
+      const lastActivityText = fmt(lastActivity(thesis));
 
       document.getElementById("app").innerHTML = `
     <div class="back-bar">
@@ -641,7 +873,6 @@
         <div class="co-name">${thesis.company}</div>
         <div class="co-meta">
           <span class="co-meta-tag" style="background:${statusColor}1a;color:${statusColor}">${statusText}</span>
-          <span class="co-meta-tag" style="background:${posBg};color:${posColor}">${thesis.position ? '◆' : '◇'} ${posText}</span>
           <span class="co-meta-tag" style="background:rgba(255,255,255,.04);color:var(--text-fnt)">${thesis.sector} · ${thesis.geo}</span>
           ${thesis.isPaid ? '<span class="co-meta-tag" style="background:var(--gold-bg);color:var(--gold)">PAID</span>' : ''}
         </div>
@@ -649,30 +880,25 @@
     </div>
 
     <div class="co-main">
-      ${question ? `
-      <div class="co-question">
-        <div class="co-question-label">THE THESIS IN ONE QUESTION</div>
-        <div class="co-question-text">${question}</div>
-      </div>` : ''}
+      <div class="co-thesis-row${showPos ? '' : ' co-thesis-row--nopos'}">
+        ${question ? `
+        <div class="co-question">
+          <div class="co-question-label">THE THESIS IN ONE QUESTION</div>
+          <div class="co-question-text">${question}</div>
+        </div>` : '<div></div>'}
+        ${showPos ? renderPosition(pos) : ''}
+      </div>
 
       <p class="co-summary">${thesis.summary}</p>
 
       <div class="co-facts">
-        <div class="co-fact"><div class="co-fact-label">STATUS</div><div class="co-fact-value" style="color:${statusColor}">${statusText}</div></div>
-        <div class="co-fact"><div class="co-fact-label">POSITION</div><div class="co-fact-value" style="color:${posColor}">${posText}</div></div>
         <div class="co-fact"><div class="co-fact-label">FIRST COVERED</div><div class="co-fact-value">${firstCovered}</div></div>
-        <div class="co-fact"><div class="co-fact-label">LAST ACTIVITY</div><div class="co-fact-value">${lastActivity}</div></div>
-        <div class="co-fact"><div class="co-fact-label">PUBLICATIONS</div><div class="co-fact-value">${timeline.length}</div></div>
+        <div class="co-fact"><div class="co-fact-label">LAST ACTIVITY</div><div class="co-fact-value">${lastActivityText}</div></div>
+        <div class="co-fact"><div class="co-fact-label">PUBLICATIONS</div><div class="co-fact-value">${publicationCount(thesis)}</div></div>
         <div class="co-fact"><div class="co-fact-label">ACCESS</div><div class="co-fact-value" style="color:${thesis.isPaid ? 'var(--gold)' : 'var(--green)'}">${thesis.isPaid ? 'PAID' : 'FREE'}</div></div>
       </div>
 
       ${thesis.closedReason ? `<div style="padding:14px 20px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;margin-bottom:40px;font-size:13px;color:var(--s-closed);font-family:var(--mono);font-weight:500">✓ ${thesis.closedReason}</div>` : ''}
-
-      ${thesis.status === "watching" && thesis.targetEntry ? `
-      <div class="co-watching">
-        <div><div class="co-watching-label">INTERESTED BELOW</div><div class="co-watching-price">$${thesis.targetEntry}</div></div>
-        <div class="co-watching-text">I've published the thesis but I'm waiting for a better entry point. Subscribe to be notified if I open a position.</div>
-      </div>` : ''}
 
       <div class="co-section">ALL PUBLICATIONS · ${timeline.length}</div>
       <div class="co-timeline">

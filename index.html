@@ -135,9 +135,8 @@
     .header {
       position: relative;
       z-index: 1;
-      padding: 44px 0 10px;
+      padding: 40px 0 4px;
       background: linear-gradient(180deg, #1f1d18 0%, var(--bg) 100%);
-      border-bottom: 1px solid rgba(196, 168, 50, .08);
       text-align: center;
       animation: fd .8s cubic-bezier(.16, 1, .3, 1) both
     }
@@ -147,7 +146,23 @@
       align-items: center;
       justify-content: center;
       gap: 16px;
-      margin-bottom: 16px
+      margin-bottom: 4px;
+      border-radius: 8px
+    }
+
+    .logo-block:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 6px
+    }
+
+    .btn-subscribe:focus-visible,
+    .tab:focus-visible,
+    .filter-btn:focus-visible,
+    .cover:focus-visible,
+    .insight-featured:focus-visible,
+    .insight-item:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px
     }
 
     .logo-mark {
@@ -177,20 +192,298 @@
       margin-top: 3px
     }
 
-    .philosophy {
-      font-size: 15px;
-      color: var(--text-sec);
-      max-width: 520px;
-      margin: 0 auto 22px;
-      line-height: 1.7;
-      font-style: italic
+    /* ── HERO INTRO ── */
+    .hero-intro {
+      text-align: center;
+      padding: 8px 0 44px
     }
 
-    .header-actions {
+    .hero-lead {
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 500;
+      line-height: 1.3;
+      color: var(--text);
+      max-width: 730px;
+      margin: 0 auto 16px;
+      text-wrap: balance
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--text-sec);
+      max-width: 660px;
+      margin: 0 auto 26px
+    }
+
+    .hero-cta {
       display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap
+      justify-content: center
+    }
+
+    /* ── SHARED BLOCK TITLE ── */
+    .block-title {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding-bottom: 12px;
+      margin-bottom: 22px;
+      border-bottom: 1px solid var(--border)
+    }
+
+    /* ── START HERE ── */
+    .start-here {
+      padding: 0 0 48px
+    }
+
+    .start-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: stretch;
+      gap: 22px
+    }
+
+    /* the <article> wrapper is the grid item — let it stretch */
+    .start-grid>article {
+      display: flex
+    }
+
+    .start-card {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: border-color .15s ease, transform .15s ease
+    }
+
+    .start-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-1px)
+    }
+
+    .start-card:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+      border-color: var(--border-hover)
+    }
+
+    /* image container clips the hover scale */
+    .start-card-media {
+      width: 100%;
+      overflow: hidden;
+      flex-shrink: 0
+    }
+
+    .start-card-img {
+      width: 100%;
+      aspect-ratio: 21 / 10;
+      object-fit: cover;
+      display: block;
+      filter: brightness(.62) saturate(.9);
+      transition: filter .3s ease, transform .3s ease
+    }
+
+    .start-card:hover .start-card-img {
+      filter: brightness(.8) saturate(1);
+      transform: scale(1.02)
+    }
+
+    .start-card-body {
+      padding: 18px 18px 16px;
+      display: flex;
+      flex-direction: column;
+      flex: 1
+    }
+
+    .start-card-ticker {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      color: var(--text-fnt);
+      margin-bottom: 10px
+    }
+
+    .start-card-title {
+      font-family: var(--serif);
+      font-size: 19px;
+      font-weight: 600;
+      line-height: 1.32;
+      color: var(--text);
+      margin-bottom: 10px;
+      text-wrap: pretty;
+      transition: color .15s ease
+    }
+
+    .start-card:hover .start-card-title {
+      color: var(--gold)
+    }
+
+    .start-card-sub {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--text-sec);
+      margin-bottom: 12px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden
+    }
+
+    .start-card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      color: var(--gold);
+      margin-top: auto;
+      align-self: flex-start;
+      padding-top: 6px
+    }
+
+    .start-card-cta span {
+      transition: transform .15s ease
+    }
+
+    .start-card:hover .start-card-cta span {
+      transform: translateX(3px)
+    }
+
+    /* ── LATEST RESEARCH ── */
+    .latest-research {
+      padding: 0 0 48px
+    }
+
+    .latest-card {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 28px;
+      align-items: center;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: border-color .2s
+    }
+
+    .latest-card:hover {
+      border-color: var(--border-hover)
+    }
+
+    .latest-card:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px
+    }
+
+    .latest-body {
+      padding: 22px 8px 22px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center
+    }
+
+    .latest-meta {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      color: var(--text-fnt);
+      margin-bottom: 10px
+    }
+
+    .latest-title {
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--text);
+      margin-bottom: 10px;
+      transition: color .2s
+    }
+
+    .latest-card:hover .latest-title {
+      color: var(--gold)
+    }
+
+    .latest-excerpt {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-sec);
+      margin-bottom: 14px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden
+    }
+
+    .latest-link {
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gold)
+    }
+
+    .latest-img {
+      width: 100%;
+      height: 100%;
+      min-height: 210px;
+      object-fit: cover;
+      display: block;
+      filter: brightness(.62) saturate(.9);
+      transition: filter .3s
+    }
+
+    .latest-card:hover .latest-img {
+      filter: brightness(.78) saturate(1)
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .cover,
+      .cover-img,
+      .cover-cta span,
+      .start-card,
+      .start-card-img,
+      .start-card-title,
+      .start-card-cta span,
+      .latest-card,
+      .latest-img,
+      .latest-title {
+        transition: none !important
+      }
+
+      .start-card:hover {
+        transform: none
+      }
+
+      .start-card:hover .start-card-img {
+        transform: none
+      }
+
+      .start-card:hover .start-card-cta span {
+        transform: none
+      }
+
+      .cover:hover {
+        transform: none
+      }
+
+      .cover:hover .cover-img {
+        transform: none
+      }
+
+      .cover:hover .cover-cta span {
+        transform: none
+      }
     }
 
     .btn-subscribe {
@@ -212,79 +505,13 @@
       box-shadow: 0 4px 20px rgba(196, 168, 50, .3)
     }
 
-    .btn-outline {
-      display: inline-block;
-      padding: 10px 28px;
-      border: 1px solid rgba(196, 168, 50, .2);
-      color: var(--gold);
-      font-size: 13px;
-      border-radius: 6px;
-      font-family: var(--mono);
-      font-weight: 500;
-      letter-spacing: .04em;
-      transition: border-color .2s
-    }
 
-    .btn-outline:hover {
-      border-color: rgba(196, 168, 50, .5)
-    }
 
-    .hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      height: 500px;
-      overflow: hidden;
-      cursor: pointer;
-      animation: fu .8s cubic-bezier(.16, 1, .3, 1) .2s both
-    }
 
-    .hero-img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      filter: brightness(.85);
-      transition: filter .6s, transform 8s cubic-bezier(.16, 1, .3, 1)
-    }
 
-    .hero:hover .hero-img {
-      filter: brightness(.95);
-      transform: scale(1.43)
-    }
 
-    .hero-gradient {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(0deg, var(--bg) 0%, rgba(20, 18, 16, .85) 25%, rgba(20, 18, 16, .3) 55%, transparent 75%), linear-gradient(90deg, rgba(20, 18, 16, .5) 0%, transparent 50%);
-      pointer-events: none
-    }
 
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      padding: 0 48px 44px;
-      max-width: 750px
-    }
 
-    .hero-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 12px
-    }
-
-    .hero-label-type {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .14em;
-      font-family: var(--mono);
-      color: var(--gold)
-    }
 
     .badge-new {
       display: inline-flex;
@@ -300,48 +527,10 @@
       animation: np 2s ease-in-out infinite
     }
 
-    .badge-read {
-      display: inline-flex;
-      align-items: center;
-      padding: 6px 25px;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .1em;
-      font-family: var(--mono);
-      border-radius: 3px;
-      background: linear-gradient(135deg, #f4f4f3, #e1e1e1);
-      color: var(--bg)
-    }
 
-    .hero-title {
-      font-size: 32px;
-      font-weight: 700;
-      line-height: 1.2;
-      color: #fff;
-      font-family: var(--serif);
-      margin-bottom: 10px;
-      text-shadow: 0 2px 20px rgba(0, 0, 0, .5)
-    }
 
-    .hero-excerpt {
-      font-size: 15px;
-      line-height: 1.55;
-      color: rgba(255, 255, 255, .7);
-      max-width: 550px;
-      margin-bottom: 18px;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      overflow: hidden
-    }
 
-    .hero-no-img {
-      background: linear-gradient(135deg, #1f1d18, #2a2720, #1f1d18);
-      height: 400px
-    }
 
-    .hero-no-img .hero-gradient {
-      background: linear-gradient(0deg, var(--bg) 0%, transparent 100%)
-    }
 
     .pipeline-bar {
       position: relative;
@@ -545,24 +734,44 @@
 
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: stretch;
       gap: 28px
     }
 
+    .card-grid>article {
+      display: flex
+    }
+
     .cover {
+      height: 100%;
+      width: 100%;
       display: flex;
       flex-direction: column;
       background: var(--surface);
       border: 2px solid var(--border);
       border-radius: 6px;
       overflow: hidden;
-      transition: all .4s cubic-bezier(.16, 1, .3, 1)
+      cursor: pointer;
+      transition: border-color .15s ease, transform .15s ease, box-shadow .2s ease
     }
 
     .cover:hover {
       border-color: var(--border-hover);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, .3)
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(0, 0, 0, .28)
+    }
+
+    .cover:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+      border-color: var(--border-hover)
+    }
+
+    .cover-media {
+      width: 100%;
+      overflow: hidden;
+      flex-shrink: 0
     }
 
     .cover-img {
@@ -571,11 +780,12 @@
       object-fit: cover;
       display: block;
       filter: brightness(.9) saturate(.8);
-      transition: filter .4s
+      transition: filter .3s ease, transform .3s ease
     }
 
     .cover:hover .cover-img {
-      filter: brightness(.85) saturate(1)
+      filter: brightness(.85) saturate(1);
+      transform: scale(1.02)
     }
 
     .cover-bar {
@@ -595,6 +805,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 10px;
       margin-bottom: 6px
     }
 
@@ -606,13 +817,19 @@
       letter-spacing: .04em
     }
 
-    .cover-badge {
-      padding: 2px 7px;
-      font-size: 8px;
-      font-weight: 600;
+    /* position badge — NOT coverage status */
+    .cover-pos {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 9px;
+      font-size: 9px;
+      font-weight: 700;
       border-radius: 3px;
       letter-spacing: .08em;
-      font-family: var(--mono)
+      font-family: var(--mono);
+      white-space: nowrap;
+      flex-shrink: 0
     }
 
     .cover-company {
@@ -626,17 +843,27 @@
       font-size: 13px;
       line-height: 1.65;
       color: var(--text-sec);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       display: -webkit-box;
       -webkit-box-orient: vertical;
-      overflow: hidden;
-      flex: 1
+      overflow: hidden
     }
 
     .cover-foot {
+      margin-top: auto;
       display: flex;
+      flex-direction: column;
+      align-items: flex-start
+    }
+
+    /* sector/geo left, research freshness right */
+    .cover-meta-row {
+      width: 100%;
+      display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: center
+      flex-wrap: wrap;
+      gap: 6px 12px
     }
 
     .cover-sector {
@@ -648,11 +875,32 @@
       border-radius: 3px
     }
 
-    .cover-arrow {
-      font-size: 11px;
+    .cover-updated {
+      font-size: 10px;
+      color: var(--text-fnt);
+      font-family: var(--mono);
+      letter-spacing: .02em;
+      white-space: nowrap
+    }
+
+    .cover-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 18px;
+      font-size: 13px;
       color: var(--gold);
       font-family: var(--mono);
-      font-weight: 600
+      font-weight: 700;
+      letter-spacing: .03em
+    }
+
+    .cover-cta span {
+      transition: transform .15s ease
+    }
+
+    .cover:hover .cover-cta span {
+      transform: translateX(3px)
     }
 
     .cover-closed {
@@ -1230,6 +1478,40 @@
       .card-grid {
         grid-template-columns: repeat(2, 1fr)
       }
+
+      .hero-lead {
+        font-size: 25px
+      }
+
+      .start-grid {
+        gap: 16px
+      }
+
+      .start-card-title {
+        font-size: 16px
+      }
+
+      .latest-card {
+        grid-template-columns: 1fr;
+        gap: 0
+      }
+
+      .latest-body {
+        padding: 24px 22px;
+        order: 2
+      }
+
+      .latest-img {
+        min-height: 0;
+        aspect-ratio: 16 / 9;
+        order: 1
+      }
+    }
+
+    @media(max-width:700px) {
+      .start-grid {
+        grid-template-columns: 1fr
+      }
     }
 
     @media(max-width:640px) {
@@ -1237,16 +1519,16 @@
         grid-template-columns: 1fr
       }
 
-      .hero {
-        height: 380px
-      }
-
-      .hero-title {
+      .hero-lead {
         font-size: 22px
       }
 
-      .hero-content {
-        padding: 0 20px 28px
+      .hero-sub {
+        font-size: 14px
+      }
+
+      .hero-intro {
+        padding: 4px 0 32px
       }
 
       .logo-text {
@@ -1303,35 +1585,63 @@
 <body>
   <header class="header">
     <div class="container">
-      <div class="logo-block">
-        <div class="logo-mark"></div>
+      <a class="logo-block" href="index.html" aria-label="Colubeat Investment Desk — home">
+        <div class="logo-mark" role="presentation"></div>
         <div>
-          <h1 class="logo-text">COLUBEAT</h1>
+          <p class="logo-text">COLUBEAT</p>
           <p class="logo-sub">INVESTMENT DESK</p>
         </div>
-      </div>
-      <p class="philosophy">Independent, numbers-first research on high-quality companies. I break down how these
-        businesses actually operate, keeping the analysis clear and honest. No hype, just real moats.</p>
-      <div class="header-actions"><a href="https://colubeatid.substack.com/subscribe" target="_blank"
-          class="btn-subscribe">Subscribe →</a><a href="https://colubeatid.substack.com/" target="_blank"
-          class="btn-outline">My Substack Website</a></div>
+      </a>
     </div>
   </header>
-  <div id="hero-banner"></div>
-  <main class="main-content">
-    <div class="container">
-      <div class="tab-row" id="tab-row"></div>
-      <div id="legend-container"></div>
-      <div class="filters" id="filters" style="display:none"></div>
-      <div id="section-published" class="section active"></div>
-      <div id="section-insights" class="section"></div>
-      <div id="section-btn" class="section"></div>
-    </div>
-    <div class="pipeline-bar">
-      <div class="container-pipeline">
-        <div class="pipeline-inner" id="pipeline-bar"></div>
+
+  <main>
+    <!-- ── HERO ── -->
+    <section class="hero-intro">
+      <div class="container">
+        <h1 class="hero-lead">I research companies where you often need to understand the assets, markets and customers
+          to understand the numbers.</h1>
+        <p class="hero-sub">I write the thesis, then keep following the company when there's something worth digging
+          into.</p>
+        <div class="hero-cta">
+          <a href="https://colubeatid.substack.com/subscribe" target="_blank" rel="noopener" class="btn-subscribe"
+            data-analytics="home_hero_subscribe_click">Subscribe →</a>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <!-- ── START HERE ── -->
+    <section class="start-here" aria-labelledby="start-here-title">
+      <div class="container">
+        <h2 class="block-title" id="start-here-title">Start here</h2>
+        <div class="start-grid" id="start-here-grid"></div>
+      </div>
+    </section>
+
+    <!-- ── LATEST RESEARCH ── -->
+    <section class="latest-research" aria-labelledby="latest-research-title">
+      <div class="container">
+        <h2 class="block-title" id="latest-research-title">Latest research</h2>
+        <div id="latest-research"></div>
+      </div>
+    </section>
+
+    <!-- ── ARCHIVE ── -->
+    <section class="main-content" aria-label="Research archive">
+      <div class="container">
+        <div class="tab-row" id="tab-row"></div>
+        <div id="legend-container"></div>
+        <div class="filters" id="filters" style="display:none"></div>
+        <div id="section-published" class="section active"></div>
+        <div id="section-insights" class="section"></div>
+        <div id="section-btn" class="section"></div>
+      </div>
+      <div class="pipeline-bar">
+        <div class="container-pipeline">
+          <div class="pipeline-inner" id="pipeline-bar"></div>
+        </div>
+      </div>
+    </section>
   </main>
   <section class="cta-section">
     <div class="container">
@@ -1385,20 +1695,154 @@
     function setGeo(g) { geoFilter = g; renderFilters(); renderPublished() }
     function setStatus(s) { statusFilter = s; renderFilters(); renderPublished() }
     function renderPublished() {
-      const filtered = publishedTheses.filter(t => { if (statusFilter !== "All" && t.status !== statusFilter) return false; if (sectorFilter !== "All" && t.sector !== sectorFilter) return false; if (geoFilter !== "All" && t.geo !== geoFilter) return false; return true }); filtered.sort((a, b) => new Date(latest(b)) - new Date(latest(a))); if (!filtered.length) { document.getElementById("section-published").innerHTML = `<p class="empty-text">No theses match the current filters.</p>`; return }
-      document.getElementById("section-published").innerHTML = `<div class="card-grid">${filtered.map(t => {
-        const cl = t.status === "closed", wt = t.status === "watching"; const cc = cl ? "cover cover-closed" : wt ? "cover cover-watching" : "cover"; const nw = isNew(t) ? `<span class="badge-new" style="font-size:7px;padding:1px 6px">NEW</span> ` : ""; return `<a href="company.html?ticker=${encodeURIComponent(t.ticker)}" class="${cc}">${t.image ? `<img class="cover-img" src="${t.image}" alt="${t.company}" onerror="this.style.display='none'">` : ''}
-<div class="cover-bar" style="background:${sColor(t.status)}"></div>
-<div class="cover-body"><div class="cover-head"><span class="cover-ticker">${nw}${t.ticker}</span><span class="cover-badge" style="background:${sColor(t.status)}1a;color:${sColor(t.status)}">${sLabel(t.status)}</span></div>
-<div class="cover-company">${t.company}</div>
-<div class="cover-summary">${t.summary}</div>
-<div class="cover-foot"><span class="cover-sector">${t.sector} · ${t.geo}</span><span class="cover-arrow">View →</span></div></div></a>`
-      }).join("")}</div>`
+      const filtered = publishedTheses.filter(t => {
+        if (statusFilter !== "All" && t.status !== statusFilter) return false;
+        if (sectorFilter !== "All" && t.sector !== sectorFilter) return false;
+        if (geoFilter !== "All" && t.geo !== geoFilter) return false;
+        return true;
+      });
+      filtered.sort((a, b) => new Date(lastActivity(b)) - new Date(lastActivity(a)));
+      if (!filtered.length) {
+        document.getElementById("section-published").innerHTML = `<p class="empty-text">No theses match the current filters.</p>`;
+        return;
+      }
+
+      document.getElementById("section-published").innerHTML =
+        `<div class="card-grid">${filtered.map(t => {
+          const cl = t.status === "closed", wt = t.status === "watching";
+          const cc = cl ? "cover cover-closed" : wt ? "cover cover-watching" : "cover";
+          const nw = isNew(t) ? `<span class="badge-new" style="font-size:7px;padding:1px 6px">NEW</span> ` : "";
+
+          // POSITION badge — separate concept from coverage status.
+          // Hidden when disclosure is off, or when there is no position.
+          const p = t.position;
+          const showPos = posVisible(t) && p.status !== "no_position";
+          const posBadge = showPos
+            ? `<span class="cover-pos" style="background:${posColor(p.status)}1a;color:${posColor(p.status)}">${posMark(p.status)} ${posLabel(p.status)}</span>`
+            : "";
+
+          // editorial homepage angle, falling back to the research-page summary
+          const description = t.cardDescription ?? t.summary;
+
+          // research depth, derived from actual published items
+          const count = publicationCount(t);
+          const updated = `Updated ${new Date(lastActivity(t)).toLocaleDateString("en-US", { month: "short", day: "numeric" })}`;
+
+          const props = JSON.stringify({
+            ticker: t.ticker,
+            company_slug: t.ticker,
+            position_status: posVisible(t) ? p.status : "private",
+            publication_count: count
+          }).replace(/"/g, "&quot;");
+
+          return `<article>
+            <a href="company.html?ticker=${encodeURIComponent(t.ticker)}" class="${cc}"
+               data-analytics="company_research_card_click" data-analytics-props="${props}">
+              ${t.image ? `<span class="cover-media"><img class="cover-img" src="${t.image}" alt="${t.company}" loading="lazy" decoding="async" onerror="this.style.display='none'"></span>` : ''}
+              <span class="cover-bar" style="background:${sColor(t.status)}"></span>
+              <span class="cover-body">
+                <span class="cover-head">
+                  <span class="cover-ticker">${nw}${t.ticker}</span>
+                  ${posBadge}
+                </span>
+                <span class="cover-company">${t.company}</span>
+                <span class="cover-summary">${description}</span>
+                <span class="cover-foot">
+                  <span class="cover-meta-row">
+                    <span class="cover-sector">${t.sector} · ${t.geo}</span>
+                    <span class="cover-updated">${updated}</span>
+                  </span>
+                  <span class="cover-cta">${publicationCta(count)} <span aria-hidden="true">→</span></span>
+                </span>
+              </span>
+            </a>
+          </article>`;
+        }).join("")}</div>`;
     }
-    function renderHero() {
-      const candidates = []; publishedTheses.forEach(t => { candidates.push({ type: "thesis", date: latest(t), title: t.company + " ($" + t.ticker + ")", excerpt: t.summary, url: "company.html?ticker=" + encodeURIComponent(t.ticker), image: t.image, ticker: t.ticker }) }); insights.forEach(i => { candidates.push({ type: "insight", date: i.date, title: i.title, excerpt: i.excerpt, url: i.url, image: i.image, tag: i.tag }) }); behindTheNumber.forEach(b => { candidates.push({ type: "btn", date: b.date, title: b.title, excerpt: b.excerpt, url: b.url, image: b.image, tag: "#" + b.issue + " · " + b.tag }) }); candidates.sort((a, b) => new Date(b.date) - new Date(a.date)); const hero = candidates[0]; if (!hero) return; const isRecent = (new Date() - new Date(hero.date)) / 864e5 <= NEW_DAYS; const typeLabel = hero.type === "thesis" ? "LATEST THESIS" : hero.type === "insight" ? "LATEST INSIGHT" : "BEHIND THE NUMBER"; const hasImg = hero.image; const hUrl = hero.url; const hTarget = hero.type === "thesis" ? "" : 'target="_blank"'; document.getElementById("hero-banner").innerHTML = `<a href="${hUrl}" ${hTarget} class="hero ${hasImg ? '' : 'hero-no-img'}">${hasImg ? `<img class="hero-img" src="${hero.image}" alt="" onerror="this.parentElement.classList.add('hero-no-img');this.remove()">` : ''}
-<div class="hero-gradient"></div><div class="hero-content"><div class="hero-label"><span class="hero-label-type">${typeLabel}</span>${isRecent ? `<span class="badge-new">NEW</span>` : ''}</div><h2 class="hero-title">${hero.title}</h2><p class="hero-excerpt">${hero.excerpt}</p><div class="badge-read">Read full thesis</div></div></a>`
+
+    /* ── ANALYTICS ──
+       Delegated tracker. Fires window.gtag / window.plausible if present,
+       otherwise no-ops silently. Swap the body for your provider. */
+    function track(event, props) {
+      try {
+        if (typeof window.gtag === "function") window.gtag("event", event, props || {});
+        else if (typeof window.plausible === "function") window.plausible(event, { props: props || {} });
+        else if (window.dataLayer) window.dataLayer.push(Object.assign({ event: event }, props || {}));
+      } catch (e) { /* analytics must never break the page */ }
     }
+    document.addEventListener("click", function (e) {
+      const el = e.target.closest("[data-analytics]");
+      if (!el) return;
+      let props = {};
+      try { props = JSON.parse(el.dataset.analyticsProps || "{}"); } catch (err) { }
+      track(el.dataset.analytics, props);
+    });
+
+    /* ── START HERE (curated, from data.js `startHere`) ── */
+    function renderStartHere() {
+      const grid = document.getElementById("start-here-grid");
+      if (!grid || typeof startHere === "undefined") return;
+
+      const items = startHere
+        .map(pick => {
+          const key = pick.articleSlug || pick.ticker;
+          return { pick, article: publishedTheses.find(t => t.ticker === key) };
+        })
+        .filter(x => x.article);
+
+      if (!items.length) { grid.innerHTML = ""; return; }
+
+      grid.innerHTML = items.map((x, idx) => {
+        const a = x.article, p = x.pick;
+        // editorial override; falls back to the article's own title
+        const title = p.displayTitle ?? (a.title || a.company);
+        const subtitle = p.displaySubtitle;
+        const props = JSON.stringify({
+          article_slug: a.url, ticker: a.ticker, position: idx + 1
+        }).replace(/"/g, "&quot;");
+
+        return `<article>
+          <a class="start-card" href="company.html?ticker=${encodeURIComponent(a.ticker)}"
+             data-analytics="home_start_here_click" data-analytics-props="${props}">
+            ${a.image ? `<span class="start-card-media"><img class="start-card-img" src="${a.image}" width="640" height="305" ${idx === 0 ? '' : 'loading="lazy"'} decoding="async" alt="${a.company}"></span>` : ''}
+            <span class="start-card-body">
+              <span class="start-card-ticker">${a.ticker} · ${a.company}</span>
+              <h3 class="start-card-title">${title}</h3>
+              ${subtitle ? `<span class="start-card-sub">${subtitle}</span>` : ''}
+              <span class="start-card-cta">Read <span aria-hidden="true">→</span></span>
+            </span>
+          </a>
+        </article>`;
+      }).join("");
+    }
+
+    /* ── LATEST RESEARCH (dynamic, newest across all content types) ── */
+    function renderLatestResearch() {
+      const el = document.getElementById("latest-research");
+      if (!el) return;
+      const c = [];
+      publishedTheses.forEach(t => c.push({ type: "THESIS", date: latest(t), title: t.company + " ($" + t.ticker + ")", excerpt: t.summary, url: "company.html?ticker=" + encodeURIComponent(t.ticker), image: t.image, external: false }));
+      insights.forEach(i => c.push({ type: "INSIGHT", date: i.date, title: i.title, excerpt: i.excerpt, url: i.url, image: i.image, external: true }));
+      behindTheNumber.forEach(b => c.push({ type: "BEHIND THE NUMBER", date: b.date, title: b.title, excerpt: b.excerpt, url: b.url, image: b.image, external: true }));
+      const pub = c.filter(x => x.date && new Date(x.date) <= new Date());
+      pub.sort((a, b) => new Date(b.date) - new Date(a.date));
+      const l = pub[0];
+      if (!l) { el.innerHTML = ''; return; }
+      const props = JSON.stringify({ article_slug: l.url, article_type: l.type }).replace(/"/g, "&quot;");
+      el.innerHTML = `<article>
+        <a class="latest-card" href="${l.url}" ${l.external ? 'target="_blank" rel="noopener"' : ''}
+           data-analytics="home_latest_research_click" data-analytics-props="${props}">
+          <div class="latest-body">
+            <p class="latest-meta">${l.type} · ${fmt(l.date).toUpperCase()}</p>
+            <h3 class="latest-title">${l.title}</h3>
+            <p class="latest-excerpt">${l.excerpt}</p>
+            <span class="latest-link">Read article →</span>
+          </div>
+          ${l.image ? `<img class="latest-img" src="${l.image}" width="720" height="480" loading="lazy" decoding="async" alt="">` : ''}
+        </a>
+      </article>`;
+    }
+
     function renderInsights() {
       if (!insights.length) { document.getElementById("section-insights").innerHTML = `<p class="empty-text">No insights yet.</p>`; return } const sorted = [...insights].sort((a, b) => new Date(b.date) - new Date(a.date)); const feat = sorted[0]; const rest = sorted.slice(1); const isR = d => (new Date() - new Date(d)) / 864e5 <= NEW_DAYS; document.getElementById("section-insights").innerHTML = `<div class="insights-feed"><a href="${feat.url}" target="_blank" class="insight-featured">${feat.image ? `<img class="insight-featured-img" src="${feat.image}" alt="">` : ''}${isR(feat.date) ? `<span class="badge-new insight-featured-new">NEW</span>` : ''}<div class="insight-featured-body"><span class="insight-featured-tag">${feat.tag}</span><h2 class="insight-featured-title">${feat.title}</h2><p class="insight-featured-excerpt">${feat.excerpt}</p><span class="insight-featured-meta">${fmt(feat.date)} · Read on Substack →</span></div></a>${rest.length ? `<div class="insight-timeline">${rest.map(i => `<a href="${i.url}" target="_blank" class="insight-item">${i.image ? `<img class="insight-item-img" src="${i.image}" alt="">` : ''}
 <div class="insight-item-body"><span class="insight-item-tag">${i.tag}${isR(i.date) ? `<span class="badge-new insight-item-new">NEW</span>` : ''}</span><h3 class="insight-item-title">${i.title}</h3><p class="insight-item-excerpt">${i.excerpt}</p><span class="insight-item-meta">${fmt(i.date)} · Read on Substack →</span></div></a>`).join("")}</div>` : ''}<div class="insights-cta"><p class="insights-cta-text">Get every insight delivered — free.</p><a href="https://colubeatid.substack.com/subscribe" target="_blank" class="insights-cta-btn">Subscribe →</a></div></div>`
@@ -1409,7 +1853,7 @@
       if (!behindTheNumber.length) { document.getElementById("section-btn").innerHTML = `<p class="empty-text">No issues yet.</p>`; return } const sorted = [...behindTheNumber].sort((a, b) => new Date(b.date) - new Date(a.date)); const feat = sorted[0]; const rest = sorted.slice(1); const isR = d => (new Date() - new Date(d)) / 864e5 <= NEW_DAYS; document.getElementById("section-btn").innerHTML = `<div class="insights-feed"><p class="watchlist-intro">A 23-issue educational series. Each issue picks one number from the financial statements and uses a real company to show you what it actually means.</p><a href="${feat.url}" target="_blank" class="insight-featured">${feat.image ? `<img class="insight-featured-img" src="${feat.image}" alt="">` : ''}${isR(feat.date) ? `<span class="badge-new insight-featured-new">NEW</span>` : ''}<div class="insight-featured-body"><span class="insight-featured-tag">#${feat.issue} · ${feat.tag}</span><h2 class="insight-featured-title">${feat.title}</h2><p class="insight-featured-excerpt">${feat.excerpt}</p><span class="insight-featured-meta">${fmt(feat.date)} · Read on Substack →</span></div></a>${rest.length ? `<div class="insight-timeline">${rest.map(i => `<a href="${i.url}" target="_blank" class="insight-item">${i.image ? `<img class="insight-item-img" src="${i.image}" alt="">` : ''}
 <div class="insight-item-body"><span class="insight-item-tag">#${i.issue} · ${i.tag}${isR(i.date) ? `<span class="badge-new insight-item-new">NEW</span>` : ''}</span><h3 class="insight-item-title">${i.title}</h3><p class="insight-item-excerpt">${i.excerpt}</p><span class="insight-item-meta">${fmt(i.date)} · Read on Substack →</span></div></a>`).join("")}</div>` : ''}<div class="insights-cta"><p class="insights-cta-text">Don't miss the next issue — subscribe free.</p><a href="https://colubeatid.substack.com/subscribe" target="_blank" class="insights-cta-btn">Subscribe →</a></div></div>`
     }
-    renderPipeline(); renderTabs(); document.getElementById("legend-container").innerHTML = renderLegend(); renderFilters(); renderHero(); renderPublished(); renderInsights(); renderBTN();
+    renderPipeline(); renderTabs(); document.getElementById("legend-container").innerHTML = renderLegend(); renderFilters(); renderStartHere(); renderLatestResearch(); renderPublished(); renderInsights(); renderBTN();
   </script>
 </body>
 

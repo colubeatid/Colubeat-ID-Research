@@ -6,6 +6,28 @@
 const SUBSTACK = "https://colubeatid.substack.com/";
 const NEW_DAYS = 14;
 
+/* ── TWO INDEPENDENT CONCEPTS — never infer one from the other ──
+   `status`   = COVERAGE status. Am I still following this company?
+                "active" | "watching" | "closed"
+   `position` = MY POSITION. Do I personally own the stock?
+                {
+                  visible: true|false   // false → nothing is rendered anywhere
+                  status: "holding" | "watching" | "no_position"
+                  currency: "USD"|"EUR"|"GBP"|"CHF"|"CAD"|"HKD"...
+                  averagePrice?: 42.5    // holding only, OPTIONAL. Omit to keep private.
+                  interestedBelow?: 42   // watching only, OPTIONAL.
+                  referencePrice?: 39.16      // OPTIONAL, manually refreshed. NOT live.
+                  referencePriceDate?: "2026-08-28" // date of that reference price
+                  updatedAt: "2026-08-28" // REQUIRED whenever visible is true
+                }
+   To refresh the displayed performance you only ever edit referencePrice
+   and referencePriceDate — the percentage is always derived, never stored.
+   Prices are stored as numbers; the UI formats them by currency.
+   Never add portfolio weight, size, shares or P&L here.
+   ─────────────────────────────────────────────────────────────── */
+
+/* Optional per-company `cardDescription`: short homepage-only research angle.
+   Falls back to `summary` when absent. The research page always uses `summary`. */
 const publishedTheses = [
   {
     ticker: "HOM.U",
@@ -23,8 +45,13 @@ const publishedTheses = [
     updates: [],
     earningsIntegrated: false,
     closedReason: null,
-    position: false,
-    targetEntry: "??",
+    position: {
+      visible: true,
+      status: "watching",
+      currency: "CAD",
+      // interestedBelow: 00,   // ← add when you have a level in mind
+      updatedAt: "2026-08-28",
+    },
   },
   {
     ticker: "RYN",
@@ -48,8 +75,14 @@ const publishedTheses = [
     ],
     earningsIntegrated: false,
     closedReason: null,
-    position: true,
-    targetEntry: "??",
+    position: {
+      visible: true,
+      status: "holding",
+      currency: "USD",
+      averagePrice: 21.1, // ← add only when you want to disclose it
+      updatedAt: "2026-08-28",
+      referencePrice: 20.9,
+    },
   },
   {
     ticker: "USLM",
@@ -66,9 +99,14 @@ const publishedTheses = [
     status: "watching",
     updates: [],
     earningsIntegrated: false,
-    closedReason: null,
-    position: false,
-    targetEntry: "??",
+    closedReason: "Bought $98.25 sold at $118",
+    position: {
+      visible: true,
+      status: "watching",
+      currency: "USD",
+      interestedBelow: 100, // ← add when you have a level in mind
+      updatedAt: "2026-08-28",
+    },
   },
   {
     ticker: "BQE",
@@ -86,8 +124,13 @@ const publishedTheses = [
     updates: [],
     earningsIntegrated: false,
     closedReason: null,
-    position: false,
-    targetEntry: "??",
+    position: {
+      visible: true,
+      status: "watching",
+      currency: "CAD",
+      interestedBelow: 60, // ← add when you have a level in mind
+      updatedAt: "2026-08-28",
+    },
   },
   {
     ticker: "HAE",
@@ -104,9 +147,14 @@ const publishedTheses = [
     status: "watching",
     updates: [],
     earningsIntegrated: false,
-    closedReason: null,
-    position: false,
-    targetEntry: "55",
+    closedReason: "Bought $55.67 sold at $88",
+    position: {
+      visible: true,
+      status: "watching",
+      currency: "USD",
+      interestedBelow: 55,
+      updatedAt: "2026-08-28",
+    },
   },
   {
     ticker: "CHE",
@@ -129,8 +177,13 @@ const publishedTheses = [
     updates: [],
     earningsIntegrated: false,
     closedReason: null,
-    position: false,
-    targetEntry: "???",
+    position: {
+      visible: true,
+      status: "watching",
+      currency: "USD",
+      // interestedBelow: 00,   // ← add when you have a level in mind
+      updatedAt: "2026-08-28",
+    },
   },
   {
     ticker: "TIC",
@@ -169,8 +222,14 @@ const publishedTheses = [
     ],
     earningsIntegrated: false,
     closedReason: null,
-    position: true,
-    targetEntry: null,
+    position: {
+      visible: true,
+      status: "holding",
+      currency: "USD",
+      averagePrice: 8.32, // ← add only when you want to disclose it
+      updatedAt: "2026-08-28",
+      referencePrice: 9.85,
+    },
   },
   {
     ticker: "ALX",
@@ -196,9 +255,15 @@ const publishedTheses = [
       },
     ],
     earningsIntegrated: true,
-    closedReason: null,
-    position: true,
-    targetEntry: null,
+    closedReason: "Sold 60% position at $281",
+    position: {
+      visible: true,
+      status: "holding",
+      currency: "USD",
+      averagePrice: 221.02, // ← add only when you want to disclose it
+      updatedAt: "2026-08-28",
+      referencePrice: 270,
+    },
   },
   {
     ticker: "BZU",
@@ -227,8 +292,14 @@ const publishedTheses = [
     ],
     earningsIntegrated: false,
     closedReason: null,
-    position: true,
-    targetEntry: null,
+    position: {
+      visible: true,
+      status: "holding",
+      currency: "EUR",
+      averagePrice: 43.83, // ← add only when you want to disclose it
+      updatedAt: "2026-08-28",
+      referencePrice: 41,
+    },
   },
   {
     ticker: "MSA",
@@ -246,8 +317,13 @@ const publishedTheses = [
     updates: [],
     earningsIntegrated: false,
     closedReason: null,
-    position: false,
-    targetEntry: 155,
+    position: {
+      visible: true,
+      status: "watching",
+      currency: "USD",
+      interestedBelow: 155,
+      updatedAt: "2026-08-28",
+    },
   },
   {
     ticker: "BNZL",
@@ -261,7 +337,7 @@ const publishedTheses = [
     url: "https://colubeatid.substack.com/p/bunzl-plc-lon-bnzl?r=392fuc",
     tags: ["UK", "Defensive", "Distribution"],
     isPaid: false,
-    status: "active",
+    status: "watching",
     updates: [
       {
         label: "FY 2025 Results",
@@ -270,9 +346,14 @@ const publishedTheses = [
       },
     ],
     earningsIntegrated: false,
-    closedReason: null,
-    position: true,
-    targetEntry: null,
+    closedReason: "Sold at $28",
+    position: {
+      visible: true,
+      status: "holding",
+      currency: "GBP",
+      averagePrice: 22.07, // ← add only when you want to disclose it
+      updatedAt: "2026-08-28",
+    },
   },
   {
     ticker: "VRE",
@@ -295,9 +376,13 @@ const publishedTheses = [
       },
     ],
     earningsIntegrated: false,
-    closedReason: "Acquired at $19.00",
-    position: false,
-    targetEntry: null,
+    closedReason: "Sold at $19.00",
+    position: {
+      visible: true,
+      status: "no_position",
+      currency: "USD",
+      updatedAt: "2026-08-28",
+    },
   },
   {
     ticker: "ERF",
@@ -331,8 +416,14 @@ const publishedTheses = [
     ],
     earningsIntegrated: true,
     closedReason: null,
-    position: true,
-    targetEntry: null,
+    position: {
+      visible: true,
+      status: "holding",
+      currency: "EUR",
+      averagePrice: 61.22, // ← add only when you want to disclose it
+      updatedAt: "2026-08-28",
+      referencePrice: 72,
+    },
   },
   {
     ticker: "POOL",
@@ -367,8 +458,14 @@ const publishedTheses = [
     earningsIntegrated: true,
     dateIntegrated: "2026-03-23",
     closedReason: null,
-    position: true,
-    targetEntry: null,
+    position: {
+      visible: true,
+      status: "holding",
+      currency: "USD",
+      averagePrice: 201.0, // ← add only when you want to disclose it
+      updatedAt: "2026-08-28",
+      referencePrice: 186,
+    },
   },
   {
     ticker: "FRPH",
@@ -402,8 +499,14 @@ const publishedTheses = [
     ],
     earningsIntegrated: false,
     closedReason: null,
-    position: true,
-    targetEntry: null,
+    position: {
+      visible: true,
+      status: "holding",
+      currency: "USD",
+      averagePrice: 25.1, // ← add only when you want to disclose it
+      updatedAt: "2026-08-28",
+      referencePrice: 22.15,
+    },
   },
   {
     ticker: "3828.HK",
@@ -417,12 +520,16 @@ const publishedTheses = [
     url: "https://colubeatid.substack.com/p/ming-fai-international-holding-limited?r=392fuc",
     tags: ["Deep Value", "Arbitrage", "B2B"],
     isPaid: false,
-    status: "active",
+    status: "watching",
     updates: [],
     earningsIntegrated: false,
     closedReason: null,
-    position: false,
-    targetEntry: null,
+    position: {
+      visible: true,
+      status: "no_position",
+      currency: "HKD",
+      updatedAt: "2026-08-28",
+    },
   },
 ];
 
@@ -441,10 +548,10 @@ const wipTheses = [
 
 const watchlist = [
   {
-    ticker: "WSO",
+    ticker: "AMRZ",
     sector: "Industrials",
     geo: "US",
-    note: "HVAC distribution leader. Recurring revenue angle.",
+    note: "",
   },
   {
     ticker: "SCI",
@@ -457,18 +564,6 @@ const watchlist = [
     sector: "Industrials",
     geo: "US",
     note: "It is one of the largest manufacturers and distributors of fire hydrants, gate valves, and other water infrastructure products in North America.",
-  },
-  {
-    ticker: "SSD",
-    sector: "Industrials",
-    geo: "US",
-    note: "Is a leading building materials manufacturer in the United States that produces structural connectors, fasteners, anchors, and products for new construction and retrofitting.",
-  },
-  {
-    ticker: "HLMA.L",
-    sector: "Industrials",
-    geo: "Europe",
-    note: "UK tech firm's provided specialized safety, environmental, and medical solutions, focusing on fire protection, monitoring, and diagnostics through its three main business segments.",
   },
 ];
 
@@ -642,6 +737,36 @@ const keyQuestions = {
   "3828.HK":
     "Is this a genuine cash fortress at panic prices, or is there a governance discount the market is correctly pricing?",
 };
+/* ═══════════════════════════════════════════════════════════
+   START HERE — curated editorial entry points.
+   NOT calculated by date or views. Edit this array to swap pieces.
+
+   articleSlug     → matches a `ticker` in publishedTheses. That article
+                     stays the canonical source for url, ticker, company,
+                     image and publication metadata.
+   displayTitle    → OPTIONAL homepage-only hook. Overrides the article
+                     title on this card ONLY. Does not rename the article,
+                     change its URL, its SEO metadata, or its title on the
+                     company page. Omit it to fall back to the real title.
+   displaySubtitle → OPTIONAL single short line under the title. Omit it
+                     and no space is reserved.
+   ═══════════════════════════════════════════════════════════ */
+const startHere = [
+  {
+    articleSlug: "USLM",
+    displayTitle: "A Local Monopoly Priced Like a Commodity Stock",
+  },
+  {
+    articleSlug: "RYN",
+    displayTitle: "Why I'm Paying for Trees to Get the Land for Free",
+  },
+  {
+    articleSlug: "FRPH",
+    displayTitle: "Buying the Land Twice: A Developer Hiding Inside a Landlord",
+    // displaySubtitle: "optional one-liner if the title can't carry the hook alone",
+  },
+];
+
 const SECTORS = [
   "All",
   "Healthcare",
@@ -706,3 +831,84 @@ const sLabel = (s) =>
     watching: "WATCHING",
     closed: "CLOSED",
   })[s];
+
+/* ── RESEARCH DEPTH ──
+   One source of truth for both the homepage card ("Updated ...") and the
+   research page ("Last activity"). Counts thesis + earnings updates +
+   related insights, ignoring anything dated in the future. */
+const researchItems = (t) => {
+  const now = new Date();
+  const out = [{ date: t.datePublished }];
+  if (t.updates) t.updates.forEach((u) => u.date && out.push({ date: u.date }));
+  if (typeof insights !== "undefined")
+    insights
+      .filter((i) => i.relatedTicker === t.ticker)
+      .forEach((i) => i.date && out.push({ date: i.date }));
+  return out.filter((x) => new Date(x.date) <= now);
+};
+const publicationCount = (t) => researchItems(t).length;
+const lastActivity = (t) =>
+  researchItems(t).sort((a, b) => new Date(b.date) - new Date(a.date))[0]
+    ?.date || t.datePublished;
+
+/* ── POSITION HELPERS ── */
+const posVisible = (t) => !!(t.position && t.position.visible);
+const posLabel = (s) =>
+  ({ holding: "HOLDING", watching: "WATCHING", no_position: "NO POSITION" })[s];
+const posColor = (s) =>
+  s === "holding"
+    ? "var(--green)"
+    : s === "watching"
+      ? "var(--s-watching)"
+      : "var(--text-fnt)";
+const posMark = (s) =>
+  s === "holding" ? "\u25C6" : s === "watching" ? "\u25C7" : "";
+const money = (value, currency) => {
+  if (value === undefined || value === null || value === "") return null;
+  const n = Number(value);
+  if (!isFinite(n)) return null;
+  try {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: currency || "USD",
+      minimumFractionDigits: Number.isInteger(n) ? 0 : 2,
+      maximumFractionDigits: 2,
+    }).format(n);
+  } catch (e) {
+    return (currency ? currency + " " : "") + n;
+  }
+};
+
+/* CTA copy for the homepage card: "View 6 publications →" */
+const publicationCta = (count) =>
+  `View ${count} publication${count === 1 ? "" : "s"}`;
+
+/* Performance vs average price. Returns null unless both prices are usable,
+   so the UI can simply skip the block instead of printing NaN/Infinity. */
+const positionPerformance = (averagePrice, referencePrice) => {
+  if (
+    typeof averagePrice !== "number" ||
+    typeof referencePrice !== "number" ||
+    !isFinite(averagePrice) ||
+    !isFinite(referencePrice) ||
+    averagePrice <= 0 ||
+    referencePrice <= 0
+  )
+    return null;
+  return (referencePrice / averagePrice - 1) * 100;
+};
+
+/* Presentation is kept separate from the calculation above. */
+const formatSignedPercent = (value) => {
+  if (value > 0) return `+${value.toFixed(1)}%`;
+  if (value < 0) return `\u2212${Math.abs(value).toFixed(1)}%`;
+  return "0.0%";
+};
+
+/* Public position data must always carry a date. Warn loudly in dev. */
+publishedTheses.forEach((t) => {
+  if (t.position && t.position.visible && !t.position.updatedAt)
+    console.warn(
+      `[colubeat] ${t.ticker}: public position information requires an updatedAt date`,
+    );
+});

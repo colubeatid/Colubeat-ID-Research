@@ -617,14 +617,14 @@
     .co-pos-ref {
       font-family: var(--mono);
       font-size: 11px;
-      color: var(--text-fnt);
+      color: rgb(22, 183, 211);
       margin-bottom: 4px
     }
 
     .co-pos-updated {
       font-family: var(--mono);
       font-size: 10px;
-      color: var(--text-fnt);
+      color: rgb(244, 243, 241);
       margin-top: auto;
       padding-top: 8px
     }
@@ -639,10 +639,9 @@
       }
 
       .co-pos {
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: baseline;
-        gap: 8px 28px
+        flex-direction: column;
+        align-items: center;
+        gap: 12px 28px
       }
 
       .co-pos-label {
@@ -658,8 +657,7 @@
 
       .co-pos-perf,
       .co-pos-ref {
-        width: 100%;
-        margin-bottom: 0
+        margin-bottom: 0;
       }
 
       .co-pos-perf-value {
@@ -671,34 +669,34 @@
       }
 
       .co-pos-perf {
-      display: flex;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-bottom: 10px
-    }
+        display: flex;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin-bottom: 10px
+      }
 
-    .co-pos-perf-value {
-      font-family: var(--mono);
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: .01em
-    }
+      .co-pos-perf-value {
+        font-family: var(--mono);
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: .01em
+      }
 
-    .co-pos-perf-label {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--text-sec)
-    }
+      .co-pos-perf-label {
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--text-sec)
+      }
 
-    .co-pos-ref {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--text-fnt);
-      margin-bottom: 4px
-    }
+      .co-pos-ref {
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--text-fnt);
+        margin-bottom: 4px
+      }
 
-    .co-pos-updated {
+      .co-pos-updated {
         width: 100%;
         margin-top: 4px;
         padding-top: 0
@@ -768,42 +766,42 @@
    Renders only when position.visible is true. Shows status, one optional
    price (average paid when holding, level of interest when watching) and
    the date that information was last reviewed. Never size, weight or P&L. */
-function renderPosition(p) {
-  const label = posLabel(p.status);
-  const colour = posColor(p.status);
+    function renderPosition(p) {
+      const label = posLabel(p.status);
+      const colour = posColor(p.status);
 
-  let detail = "";
-  if (p.status === "holding") {
-    const avg = money(p.averagePrice, p.currency);
-    if (avg) detail = `<div class="co-pos-field"><div class="co-pos-field-label">Average price</div><div class="co-pos-field-value">${avg}</div></div>`;
-  } else if (p.status === "watching") {
-    const below = money(p.interestedBelow, p.currency);
-    detail = below
-      ? `<div class="co-pos-field"><div class="co-pos-field-label">Interested below</div><div class="co-pos-field-value">${below}</div></div>`
-      : `<div class="co-pos-none">No entry price set</div>`;
-  }
+      let detail = "";
+      if (p.status === "holding") {
+        const avg = money(p.averagePrice, p.currency);
+        if (avg) detail = `<div class="co-pos-field"><div class="co-pos-field-label">Average price</div><div class="co-pos-field-value">${avg}</div></div>`;
+      } else if (p.status === "watching") {
+        const below = money(p.interestedBelow, p.currency);
+        detail = below
+          ? `<div class="co-pos-field"><div class="co-pos-field-label">Interested below</div><div class="co-pos-field-value">${below}</div></div>`
+          : `<div class="co-pos-none">No entry price set</div>`;
+      }
 
-  /* Performance vs average price. Derived, never stored. Rendered only when
-     both prices are usable, and always paired with "vs avg. price" so the
-     number cannot be misread as a portfolio or YTD return. */
-  let performance = "";
-  let reference = "";
-  if (p.status === "holding") {
-    const pct = positionPerformance(p.averagePrice, p.referencePrice);
-    if (pct !== null) {
-      const tone =
-        pct > 0.05 ? "var(--green)" : pct < -0.05 ? "var(--red)" : "var(--text-sec)";
-      performance = `<div class="co-pos-perf">
+      /* Performance vs average price. Derived, never stored. Rendered only when
+         both prices are usable, and always paired with "vs avg. price" so the
+         number cannot be misread as a portfolio or YTD return. */
+      let performance = "";
+      let reference = "";
+      if (p.status === "holding") {
+        const pct = positionPerformance(p.averagePrice, p.referencePrice);
+        if (pct !== null) {
+          const tone =
+            pct > 0.05 ? "var(--green)" : pct < -0.05 ? "var(--red)" : "var(--text-sec)";
+          performance = `<div class="co-pos-perf">
         <span class="co-pos-perf-value" style="color:${tone}">${formatSignedPercent(pct)}</span>
         <span class="co-pos-perf-label">vs avg. price</span>
       </div>`;
-    }
-    const ref = money(p.referencePrice, p.currency);
-    if (ref)
-      reference = `<div class="co-pos-ref">Price ${ref}${p.referencePriceDate ? ` · ${fmt(p.referencePriceDate)}` : ""}</div>`;
-  }
+        }
+        const ref = money(p.referencePrice, p.currency);
+        if (ref)
+          reference = `<div class="co-pos-ref">Price ${ref}${p.referencePriceDate ? ` · ${fmt(p.referencePriceDate)}` : ""}</div>`;
+      }
 
-  return `<aside class="co-pos" aria-label="My position">
+      return `<aside class="co-pos" aria-label="My position">
     <div class="co-pos-label">MY POSITION</div>
     <div class="co-pos-status" style="color:${colour}">${posMark(p.status)} ${label}</div>
     ${detail}
@@ -811,9 +809,9 @@ function renderPosition(p) {
     ${reference}
     ${p.updatedAt ? `<div class="co-pos-updated">Updated ${fmt(p.updatedAt)}</div>` : ''}
   </aside>`;
-}
+    }
 
-const ticker = new URLSearchParams(window.location.search).get("ticker");
+    const ticker = new URLSearchParams(window.location.search).get("ticker");
     const thesis = ticker ? publishedTheses.find(t => t.ticker === ticker) : null;
 
     if (!thesis) {

@@ -569,7 +569,8 @@ const watchlist = [
 
 const insights = [
   {
-    title: "Buzzi, Quikrete and the Mississippi",
+    title:
+      "What Happens When Buzzi’s Biggest Customer Starts Making More of Its Own Cement?",
     tag: "Buzzi insight",
     date: "2026-08-26",
     excerpt:

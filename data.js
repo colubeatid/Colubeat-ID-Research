@@ -709,7 +709,7 @@ const insights = [
 
 const behindTheNumber = [
   {
-    title: "Behind the Number #04 - Negative Working Capital",
+    title: "Accounting Required #04 - Negative Working Capital",
     tag: "P&L",
     issue: 4,
     date: "2026-07-09",
@@ -719,7 +719,7 @@ const behindTheNumber = [
     image: "images/behindthescenes.webp",
   },
   {
-    title: "Behind the Number #03 - Depreciation Is a Guess",
+    title: "Accounting Required #03 - Depreciation Is a Guess",
     tag: "P&L",
     issue: 3,
     date: "2026-06-08",
@@ -730,7 +730,7 @@ const behindTheNumber = [
   },
   {
     title:
-      "Behind the Number #02 - Revenue went up. Did the business get better?",
+      "Accounting Required #02 - Revenue went up. Did the business get better?",
     tag: "P&L",
     issue: 2,
     date: "2026-05-04",
@@ -740,7 +740,7 @@ const behindTheNumber = [
     image: "images/behindthescenes.webp",
   },
   {
-    title: "Behind the Number #01 - Not All Revenue Is Created Equal",
+    title: "Accounting Required #01 - Not All Revenue Is Created Equal",
     tag: "P&L",
     issue: 1,
     date: "2026-04-07",

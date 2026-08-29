@@ -836,7 +836,7 @@
       timeline.push({ type: "ORIGINAL THESIS", date: thesis.datePublished, title: `${thesis.company} ($${thesis.ticker})`, excerpt: thesis.summary, url: thesis.url, color: "var(--gold)", isPaid: thesis.isPaid });
       if (thesis.updates) {
         thesis.updates.forEach(u => {
-          timeline.push({ type: "EARNINGS UPDATE", date: u.date, title: u.label, excerpt: null, url: u.url, color: "var(--teal)", isPaid: false });
+          timeline.push({ type: "EARNINGS UPDATE", date: u.date, title: u.label, excerpt: u.excerpt, url: u.url, color: "var(--teal)", isPaid: false });
         });
       }
       const related = insights.filter(i => i.relatedTicker === thesis.ticker);

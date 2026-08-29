@@ -68,9 +68,11 @@ const publishedTheses = [
     status: "active",
     updates: [
       {
-        label: "Q2 2026 Results",
+        label: "Rayonier Inc: I Gave the Buyback Too Much Credit",
         url: "https://colubeatid.substack.com/p/update-rayonier-inc-ryn-q2-2026-results?r=392fuc",
         date: "2026-08-17",
+        excerpt:
+          "Q2 2026. The land side still works for me, but there’s more debt and less room for buybacks than I expected.",
       },
     ],
     earningsIntegrated: false,
@@ -215,9 +217,11 @@ const publishedTheses = [
         date: "2026-05-20",
       },
       {
-        label: "Q2 2026 Results",
+        label: "TIC Solutions: Slower, but I Still See 18% Margins",
         url: "https://colubeatid.substack.com/p/update-tic-solutions-tic-q2-2026",
         date: "2026-08-10",
+        excerpt:
+          "Q2 2026. The gross margin was better. Organic growth was still 2.5%, and debt went up again.",
       },
     ],
     earningsIntegrated: false,
@@ -249,9 +253,13 @@ const publishedTheses = [
         label: "FY 2025 Results",
         url: "https://colubeatid.substack.com/p/update-alexanders-alx-fy-2025-results?r=392fuc",
         date: "2026-02-09",
-        label: "Q2 2026 Results",
+      },
+      {
+        label: "Alexander's: The Discount Is Mostly Gone",
         url: "https://colubeatid.substack.com/p/update-alexanders-alx-q2-2026?r=392fuc",
         date: "2026-08-04",
+        excerpt:
+          "Q2 2026. The stock is much closer to my NAV now, so I'm paying more attention to the distributions and what gets sold next.",
       },
     ],
     earningsIntegrated: true,
@@ -285,9 +293,11 @@ const publishedTheses = [
         date: "2026-03-31",
       },
       {
-        label: "H1 2026 Results",
+        label: "Buzzi: The US Pressure Is Mostly in Texas",
         url: "https://colubeatid.substack.com/p/buzzi-spa-bzumi-h1-2026-results?r=392fuc",
         date: "2026-08-20",
+        excerpt:
+          "H1 2026. The US margin fell, but not for the same reason in every market.",
       },
     ],
     earningsIntegrated: false,
@@ -409,9 +419,11 @@ const publishedTheses = [
         date: "2026-04-23",
       },
       {
-        label: "H1 2026 Results",
+        label: "Eurofins Scientific: Margins Are Fine, Waiting for Growth",
         url: "https://colubeatid.substack.com/p/update-eurofins-scientific-erf-h1?r=392fuc",
         date: "2026-07-24",
+        excerpt:
+          "H1 2026. The margin was already above what I needed in my model. I went back through the valuation to see what slower growth does to it.",
       },
     ],
     earningsIntegrated: true,
@@ -450,9 +462,10 @@ const publishedTheses = [
         date: "2026-04-28",
       },
       {
-        label: "Q2 2026 Results",
+        label: "POOL Corporation: The Problem Wasn't Maintenance Demand",
         url: "https://colubeatid.substack.com/p/update-pool-corporation-pool-q2-2026?r=392fuc",
         date: "2026-07-30",
+        excerpt: "Q2 2026: freight, customer mix, POOL360 and the buyback.",
       },
     ],
     earningsIntegrated: true,
@@ -492,9 +505,12 @@ const publishedTheses = [
         date: "2026-05-13",
       },
       {
-        label: "Q2 2026 Results",
+        label:
+          "FRP Holdings Inc: Chelsea Is Still Empty and Problems Continue in DC",
         url: "https://colubeatid.substack.com/p/update-frp-holdings-inc-frph-q2-2026",
         date: "2026-08-12",
+        excerpt:
+          "Q2 2026. The asset values haven’t changed. I still have some doubts about the execution, and a few things I expected to improve this year haven’t. There was also an interesting debate about capital allocation on the call.",
       },
     ],
     earningsIntegrated: false,
@@ -551,19 +567,37 @@ const watchlist = [
     ticker: "AMRZ",
     sector: "Industrials",
     geo: "US",
-    note: "",
+    note: "North American building materials company with cement, aggregates and roofing businesses after the Holcim spin-off.",
   },
   {
-    ticker: "SCI",
-    sector: "Consumer",
+    ticker: "RGLD",
+    sector: "Materials",
     geo: "US",
-    note: "Funeral & cemetery services. Demographic tailwind thesis.",
+    note: "Gold royalty and streaming company with no direct mine operating costs.",
   },
   {
-    ticker: "MWA",
+    ticker: "SITE",
     sector: "Industrials",
     geo: "US",
-    note: "It is one of the largest manufacturers and distributors of fire hydrants, gate valves, and other water infrastructure products in North America.",
+    note: "Largest wholesale distributor of landscaping products in the US.",
+  },
+  {
+    ticker: "GATX",
+    sector: "Industrials",
+    geo: "US",
+    note: "Owns and leases railcars, with a large North American fleet and long asset lives.",
+  },
+  {
+    ticker: "FTDR",
+    sector: "Consumer",
+    geo: "US",
+    note: "Home service plans and repair network, mainly through the American Home Shield brand.",
+  },
+  {
+    ticker: "EVI",
+    sector: "Industrials",
+    geo: "US",
+    note: "Distributor of commercial laundry equipment that has grown through a long series of acquisitions.",
   },
 ];
 

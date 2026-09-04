@@ -30,6 +30,31 @@ const NEW_DAYS = 14;
    Falls back to `summary` when absent. The research page always uses `summary`. */
 const publishedTheses = [
   {
+    ticker: "AMRZ",
+    company: "Amrize Ltd",
+    sector: "Industrial",
+    geo: "US",
+    datePublished: "2026-09-03",
+    image: "images/AMRZ.webp",
+    summary:
+      "Amrize has a strong Building Materials network and some very good local positions, but Building Envelope still needs to prove more. I like the business more than the valuation at today's price.",
+    url: "https://colubeatid.substack.com/p/amrize-ltd-nyse-amrz-building-materials?r=392fuc",
+    tags: ["Industrial"],
+    isPaid: false,
+    status: "holding",
+    updates: [],
+    earningsIntegrated: false,
+    closedReason: null,
+    position: {
+      visible: true,
+      status: "holding",
+      currency: "USD",
+      // interestedBelow: 00,   // ← add when you have a level in mind
+      updatedAt: "2026-09-03",
+      referencePrice: 43,
+    },
+  },
+  {
     ticker: "HOM.U",
     company: "BSR Real Estate Investment Trust",
     sector: "REIT",
@@ -551,16 +576,7 @@ const publishedTheses = [
 
 const earningsAwaiting = [];
 
-const wipTheses = [
-  {
-    ticker: "???",
-    sector: "Industrials",
-    geo: "US",
-    hint: "An industrial firm that connects traditional buried pipes with real-time cloud data analytics.",
-    estimatedRelease: "Abril 2026",
-    progress: 5,
-  },
-];
+const wipTheses = [{}];
 
 const watchlist = [
   {

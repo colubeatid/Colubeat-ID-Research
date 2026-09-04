@@ -769,6 +769,7 @@ const behindTheNumber = [
 
 // Key thesis questions - one per company
 const keyQuestions = {
+  AMRZ: "Does Amrize really have one network, or a collection of very different local businesses?",
   "HOM.U":
     "Can a 30% NAV discount close when the strategic buyer already validated the assets at book value?",
   RYN: "Is the market pricing only the trees while ignoring four million acres of optionality in solar, carbon, and real estate?",
@@ -812,8 +813,9 @@ const startHere = [
     displayTitle: "Why I'm Paying for Trees to Get the Land for Free",
   },
   {
-    articleSlug: "FRPH",
-    displayTitle: "Why I Think the Assets Are Worth Much More Than the Stock",
+    articleSlug: "AMRZ",
+    displayTitle:
+      "A Strong Asset Network, With More to Prove in Building Envelope",
     // displaySubtitle: "optional one-liner if the title can't carry the hook alone",
   },
 ];

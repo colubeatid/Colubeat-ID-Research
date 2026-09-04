@@ -39,9 +39,9 @@ const publishedTheses = [
     summary:
       "Amrize has a strong Building Materials network and some very good local positions, but Building Envelope still needs to prove more. I like the business more than the valuation at today's price.",
     url: "https://colubeatid.substack.com/p/amrize-ltd-nyse-amrz-building-materials?r=392fuc",
-    tags: ["Industrial"],
+    tags: ["Industrials", "Materials"],
     isPaid: false,
-    status: "holding",
+    status: "active",
     updates: [],
     earningsIntegrated: false,
     closedReason: null,

@@ -49,6 +49,7 @@ const publishedTheses = [
       visible: true,
       status: "holding",
       currency: "USD",
+      averagePrice: 42.93,
       // interestedBelow: 00,   // ← add when you have a level in mind
       updatedAt: "2026-09-03",
       referencePrice: 43,

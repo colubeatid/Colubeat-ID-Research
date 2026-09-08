@@ -902,7 +902,7 @@
         <div class="co-fact"><div class="co-fact-label">ACCESS</div><div class="co-fact-value" style="color:${thesis.isPaid ? 'var(--gold)' : 'var(--green)'}">${thesis.isPaid ? 'PAID' : 'FREE'}</div></div>
       </div>
 
-      ${thesis.closedReason ? `<div style="padding:14px 20px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;margin-bottom:40px;font-size:13px;color:var(--s-closed);font-family:var(--mono);font-weight:500">✓ ${thesis.closedReason}</div>` : ''}
+      ${thesis.closedReason ? `<div style="padding:14px 20px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;margin-bottom:40px;font-size:13px;color:var(--gold);font-family:var(--mono);font-weight:700">✓ ${thesis.closedReason}</div>` : ''}
 
       <div class="co-section">ALL PUBLICATIONS · ${timeline.length}</div>
       <div class="co-timeline">

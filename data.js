@@ -726,6 +726,15 @@ const insights = [
 
 const behindTheNumber = [
   {
+    title: "Accounting Required #05 - Channel Inventory",
+    tag: "P&L",
+    issue: 5,
+    date: "2026-09-14",
+    excerpt: "Why a manufacturer's sales can fall much faster than demand.",
+    url: "https://colubeatid.substack.com/p/accounting-required-05-channel-inventory?r=392fuc",
+    image: "images/behindthescenes.webp",
+  },
+  {
     title: "Accounting Required #04 - Negative Working Capital",
     tag: "P&L",
     issue: 4,

@@ -620,8 +620,18 @@ const watchlist = [
 
 const insights = [
   {
+    title: "I Mapped the Materials Around 25 Texas Data Centers",
+    tag: "Cement sector",
+    date: "2026-09-23",
+    excerpt:
+      "What the map misses about cement plants, terminals and captive demand along the Mississippi.",
+    url: "https://colubeatid.substack.com/p/i-mapped-the-materials-around-25?r=392fuc",
+    image: "images/Mapped.webp",
+    relatedTicker: "BZU, AMRZ",
+  },
+  {
     title:
-      "What Happens When Buzzi’s Biggest Customer Starts Making More of Its Own Cement?",
+      "What Happens When Buzzi's Biggest Customer Starts Making More of Its Own Cement?",
     tag: "Buzzi insight",
     date: "2026-08-26",
     excerpt:

@@ -94,11 +94,18 @@ const publishedTheses = [
     status: "active",
     updates: [
       {
+        label: "Let's talk about Rayonier",
+        url: "https://colubeatid.substack.com/p/lets-talk-about-rayonier",
+        date: "2026-10-06",
+        excerpt:
+          "I published my Rayonier thesis at about $21. The stock is now $18, so I went back through the thesis to see what the private-market NAV means for shareholders and what return I can get from here.",
+      },
+      {
         label: "Rayonier Inc: I Gave the Buyback Too Much Credit",
         url: "https://colubeatid.substack.com/p/update-rayonier-inc-ryn-q2-2026-results?r=392fuc",
         date: "2026-08-17",
         excerpt:
-          "Q2 2026. The land side still works for me, but there’s more debt and less room for buybacks than I expected.",
+          "Q2 2026. The land side still works for me, but there's more debt and less room for buybacks than I expected.",
       },
     ],
     earningsIntegrated: false,

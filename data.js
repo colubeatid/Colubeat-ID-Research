@@ -521,6 +521,11 @@ const publishedTheses = [
     status: "active",
     updates: [
       {
+        label: "Let's talk about",
+        url: "https://colubeatid.substack.com/p/lets-talk-about-frp-holdings?r=392fuc",
+        date: "2026-10-17",
+      },
+      {
         label: "FY 2025 Results",
         url: "https://colubeatid.substack.com/p/update-frp-holdings-inc-frph-fy-2025?r=392fuc",
         date: "2026-04-13",

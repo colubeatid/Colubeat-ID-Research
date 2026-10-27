@@ -558,6 +558,42 @@
       }
     }
 
+    /* phones: the photo is wide and the logo sits on its right, so show the logo as a mark
+       above the headline instead of cropping it away */
+    @media (max-width: 760px), (max-aspect-ratio: 1/1) {
+      .hero-media {
+        background: #16100b
+      }
+
+      /* the logo sits at ~79% of the photo's width: line that point up with the screen centre */
+      .hero-media img,
+      .hero-media video {
+        position: relative;
+        left: 50%;
+        translate: -79% 0;
+        width: auto;
+        max-width: none;
+        height: 40%;
+        margin-top: 4vh;
+        transform-origin: 79% 48%
+      }
+    }
+
+    @media (max-width: 760px) {
+      .hero-body {
+        justify-content: flex-end
+      }
+    }
+
+    @media (min-width: 761px) and (max-aspect-ratio: 1/1) {
+
+      .hero-media img,
+      .hero-media video {
+        height: 34%;
+        margin-top: 8vh
+      }
+    }
+
     @media (max-height: 700px) and (max-width: 760px) {
       .hero h1 {
         font-size: 28px !important

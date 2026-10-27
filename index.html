@@ -1046,6 +1046,31 @@
       aspect-ratio: 3 / 2
     }
 
+    /* square artwork (Accounting Required covers): show the whole image, never crop it */
+    .sq .feat-media,
+    .sq .row-media,
+    .sq .latest-media {
+      aspect-ratio: 1 / 1
+    }
+
+    .sq .feat-media::after,
+    .sq .row-media::after,
+    .sq .latest-media::after {
+      background: none
+    }
+
+    .feat.sq {
+      grid-template-columns: minmax(0, 40fr) minmax(0, 52fr)
+    }
+
+    .latest.sq {
+      grid-template-columns: minmax(0, 52fr) minmax(0, 36fr)
+    }
+
+    .row.sq {
+      grid-template-columns: 130px minmax(0, 1fr) 132px
+    }
+
     /* SUBSCRIBE */
     .subs {
       position: relative;
@@ -1394,6 +1419,20 @@
         grid-row: 1 / span 2
       }
 
+      .row.sq {
+        grid-template-columns: 1fr 96px
+      }
+
+      .feat.sq,
+      .latest.sq {
+        grid-template-columns: 1fr
+      }
+
+      .feat.sq .feat-media,
+      .latest.sq .latest-media {
+        max-width: 420px
+      }
+
       .row-title {
         font-size: 23px
       }
@@ -1675,11 +1714,11 @@
       const c = [];
       publishedTheses.forEach((t) => c.push({ type: "Company update", date: latest(t), title: `${t.company} ($${t.ticker})`, excerpt: t.summary, url: companyUrl(t), image: t.image, external: false }));
       insights.forEach((i) => c.push({ type: "Insight", date: i.date, title: i.title, excerpt: i.excerpt, url: i.url, image: i.image, external: true }));
-      behindTheNumber.forEach((b) => c.push({ type: "Accounting Required", date: b.date, title: b.title, excerpt: b.excerpt, url: b.url, image: b.image, external: true }));
+      behindTheNumber.forEach((b) => c.push({ type: "Accounting Required", date: b.date, title: b.title, excerpt: b.excerpt, url: b.url, image: b.image, external: true, square: true }));
       const l = c.filter((x) => x.date && new Date(x.date) <= new Date()).sort((a, b) => new Date(b.date) - new Date(a.date))[0];
       if (!l) return;
       document.getElementById("latest").innerHTML = `<article>
-        <a class="latest rv" href="${esc(l.url)}" ${l.external ? 'target="_blank" rel="noopener"' : ""}
+        <a class="latest rv${l.square ? " sq" : ""}" href="${esc(l.url)}" ${l.external ? 'target="_blank" rel="noopener"' : ""}
            data-analytics="home_latest_research_click" data-analytics-props="${aj({ article_slug: l.url, article_type: l.type })}">
           <div>
             <p class="latest-meta eyebrow"><span>${l.type}</span><span>${fmt(l.date)}</span></p>
@@ -1779,7 +1818,7 @@
       const recent = (d) => (new Date() - new Date(d)) / 864e5 <= NEW_DAYS;
       box.innerHTML = `
         ${opts.intro ? `<p class="feed-intro">${esc(opts.intro)}</p>` : ""}
-        <a class="feat rv" href="${esc(f.url)}" target="_blank" rel="noopener" data-analytics="${opts.event}" data-analytics-props="${aj({ article_slug: f.url, position: 1 })}">
+        <a class="feat rv${opts.square ? " sq" : ""}" href="${esc(f.url)}" target="_blank" rel="noopener" data-analytics="${opts.event}" data-analytics-props="${aj({ article_slug: f.url, position: 1 })}">
           ${f.image ? `<span class="feat-media"><img ${imgAttrs(f.image, "(max-width: 760px) 100vw, 620px", 1600)} alt="" loading="lazy" decoding="async"></span>` : ""}
           <div>
             <p class="eyebrow">${recent(f.date) ? '<span class="new">New</span>' : ""}${esc(tag(f))} · ${fmt(f.date)}</p>
@@ -1789,7 +1828,7 @@
           </div>
         </a>
         ${rest.map((i, k) => `
-        <a class="row rv" href="${esc(i.url)}" target="_blank" rel="noopener" data-analytics="${opts.event}" data-analytics-props="${aj({ article_slug: i.url, position: k + 2 })}">
+        <a class="row rv${opts.square ? " sq" : ""}" href="${esc(i.url)}" target="_blank" rel="noopener" data-analytics="${opts.event}" data-analytics-props="${aj({ article_slug: i.url, position: k + 2 })}">
           <span class="row-date">${fmt(i.date)}</span>
           <div>
             <span class="row-tag">${esc(tag(i))}</span>
@@ -1833,7 +1872,7 @@
     renderFilters();
     renderPublished();
     renderFeed("panel-insights", insights, { event: "home_insight_click" });
-    renderFeed("panel-btn", behindTheNumber, { event: "home_btn_click", issue: true, intro: "An educational series. Each issue picks one number from the financial statements and uses a real company to show what it actually means." });
+    renderFeed("panel-btn", behindTheNumber, { event: "home_btn_click", issue: true, square: true, intro: "An educational series. Each issue picks one number from the financial statements and uses a real company to show what it actually means." });
     revealNow();
   </script>
 </body>

@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://colubeat.com/sitemap.xml
+
+Sitemap: https://www.colubeat.com/sitemap.xml

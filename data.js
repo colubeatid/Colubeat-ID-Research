@@ -37,7 +37,7 @@ const publishedTheses = [
     datePublished: "2026-09-03",
     image: "images/AMRZ.webp",
     summary:
-      "Amrize has a strong Building Materials network and some very good local positions, but Building Envelope still needs to prove more. I like the business more than the valuation at today's price.",
+      "Amrize has a strong Building Materials network and some very good local positions, but Building Envelope still needs to prove more.",
     url: "https://colubeatid.substack.com/p/amrize-ltd-nyse-amrz-building-materials?r=392fuc",
     tags: ["Industrials", "Materials"],
     isPaid: false,
@@ -49,10 +49,10 @@ const publishedTheses = [
       visible: true,
       status: "holding",
       currency: "USD",
-      averagePrice: 42.93,
+      averagePrice: 41.71,
       // interestedBelow: 00,   // ← add when you have a level in mind
-      updatedAt: "2026-09-03",
-      referencePrice: 43,
+      updatedAt: "2026-10-23",
+      referencePrice: 39,
     },
   },
   {
@@ -312,7 +312,7 @@ const publishedTheses = [
     sector: "Materials",
     geo: "Europe",
     datePublished: "2026-2-18",
-    image: "images/BZU.webp",
+    image: "images/bzu/BZU.webp",
     summary:
       "Highly cash-generative cement producer controlled by the founding family, and right now they're using their strong balance sheet to buy back their own shares.",
     url: "https://colubeatid.substack.com/p/buzzi-spa-bzumi",
@@ -500,6 +500,13 @@ const publishedTheses = [
         date: "2026-07-30",
         excerpt: "Q2 2026: freight, customer mix, POOL360 and the buyback.",
       },
+      {
+        label: "POOL: It Didn't Need a Great Quarter",
+        url: "https://colubeatid.substack.com/p/pool-it-didnt-need-a-great-quarter?r=392fuc",
+        date: "2026-10-26",
+        excerpt:
+          "Q3 gave investors some reasons to be less pessimistic. I'm giving Watwood more credit, although I still have questions about how much margin POOL can recover.",
+      },
     ],
     earningsIntegrated: true,
     dateIntegrated: "2026-03-23",
@@ -519,7 +526,7 @@ const publishedTheses = [
     sector: "RE Developer",
     geo: "US",
     datePublished: "2025-12-06",
-    image: "images/FRPH.webp",
+    image: "images/FRPHportada.webp",
     summary:
       "A legacy asset-heavy business that just brought a full-cycle development platform in-house to control the entire lifecycle of its projects.",
     url: "https://colubeatid.substack.com/p/frp-holdings-inc-nasdaq-frph?r=392fuc",
@@ -822,6 +829,576 @@ const keyQuestions = {
     "Is this a genuine cash fortress at panic prices, or is there a governance discount the market is correctly pricing?",
 };
 /* ═══════════════════════════════════════════════════════════
+   COMPANY PAGES — optional extra content for company.html
+   Keyed by ticker. EVERYTHING here is optional: a company with no
+   entry (or a missing field) still renders; that section just hides.
+
+   hook       → one line under the company name in the hero.
+   hero       → { image, video, poster, caption }
+                video: short muted .mp4/.webm (< 3 MB). poster is shown
+                while it loads and to anyone with reduced motion on.
+   metrics[]  → { label, value, note, asOf }   number tiles
+   segments   → { title, unit, asOf, source, items:[{label, value, highlight}] }
+   assets     → { title, intro, plants[], terminals[], elsewhere[], source }
+                plants/terminals: { name, lat, lon, note }
+   watchingReviewed → date you last reviewed the statuses below
+   watching[] → { label, status: "ok"|"watch"|"broken", current, note,
+                  range?: { min, max, limit, value, unit, limitLabel } }
+                ⚠ "status" is YOUR call, not a calculation. Review it
+                every time you publish an update.
+   sources[]  → { label, url }   shown at the bottom of the business block
+
+   Figures: always company-reported, always dated (asOf). Never live.
+   ═══════════════════════════════════════════════════════════ */
+const companyPages = {
+  BZU: {
+    // ✎ EDITORIAL — rewrite in your own words
+    hook: "An Italian cement maker that earns most of its money in America.",
+    metrics: [
+      {
+        label: "Net sales",
+        value: "€4.5bn",
+        note: "FY 2025",
+        asOf: "2025-12-31",
+      },
+      { label: "EBITDA", value: "€1.2bn", note: "FY 2025", asOf: "2025-12-31" },
+      {
+        label: "Net cash",
+        value: "€896m",
+        note: "Jun 30, 2026 · €1.11bn at YE 2025",
+        asOf: "2026-06-30",
+      },
+      {
+        label: "EBITDA margin",
+        value: "22.1%",
+        note: "H1 2026 · −190 bps YoY",
+        asOf: "2026-06-30",
+      },
+      {
+        label: "FY 2026 guidance",
+        value: "€1.10–1.20bn",
+        note: "Recurring EBITDA",
+        asOf: "2026-08-04",
+      },
+      {
+        label: "Family ownership",
+        value: "~59%",
+        note: "Buzzi family",
+        asOf: "2025-12-31",
+      },
+    ],
+    segments: {
+      title: "Where H1 2026 sales came from",
+      unit: "€m",
+      asOf: "2026-06-30",
+      source: "Buzzi H1 2026 report · S&P Global",
+      total: 2188.5,
+      items: [
+        { label: "United States", value: 733.0, highlight: true },
+        { label: "Brazil", value: 204.0 },
+        { label: "Czech Rep. & Slovakia", value: 116.3 },
+        { label: "UAE", value: 75.8 },
+        { label: "Italy, Germany, Poland & rest", value: 1059.4 },
+      ],
+      note: "Mexico (50% JV) is equity-accounted and not in consolidated sales.",
+    },
+    assets: {
+      title: "The US network",
+      intro:
+        "Eight cement plants and a chain of river terminals. Festus and Cape Girardeau sit on the Mississippi itself, where barges move cement far beyond the usual trucking radius.",
+      plants: [
+        {
+          name: "Festus, MO",
+          lat: 38.2,
+          lon: -90.37,
+          note: "Largest plant (the Selma plant) · ~2.5 Mt clinker · anchors the St. Louis market",
+          featured: true,
+        },
+        {
+          name: "Cape Girardeau, MO",
+          lat: 37.26,
+          lon: -89.52,
+          note: "Mississippi river plant",
+        },
+        {
+          name: "Greencastle, IN",
+          lat: 39.64,
+          lon: -86.86,
+          note: "Indiana plant",
+        },
+        {
+          name: "Chattanooga, TN",
+          lat: 35.08,
+          lon: -85.36,
+          note: "Signal Mountain · Tennessee market",
+        },
+        {
+          name: "Stockertown, PA",
+          lat: 40.75,
+          lon: -75.26,
+          note: "Lehigh Valley · Northeast market",
+        },
+        { name: "Pryor, OK", lat: 36.28, lon: -95.31, note: "Oklahoma plant" },
+        {
+          name: "Maryneal, TX",
+          lat: 32.23,
+          lon: -100.45,
+          note: "15–20 mi from the Abilene / Sweetwater data-center cluster",
+          featured: true,
+        },
+        {
+          name: "San Antonio, TX",
+          lat: 29.63,
+          lon: -98.5,
+          note: "Alamo Cement",
+        },
+      ],
+      terminals: [
+        {
+          name: "St. Louis, MO",
+          lat: 38.63,
+          lon: -90.19,
+          note: "River terminal",
+        },
+        {
+          name: "Memphis, TN",
+          lat: 35.11,
+          lon: -90.06,
+          note: "River terminal",
+        },
+        {
+          name: "Bonner Springs, KS",
+          lat: 39.06,
+          lon: -94.88,
+          note: "Missouri river terminal",
+        },
+        {
+          name: "Oglesby, IL",
+          lat: 41.29,
+          lon: -89.06,
+          note: "Illinois river terminal",
+        },
+      ],
+      elsewhere: [
+        "Italy",
+        "Germany",
+        "Luxembourg",
+        "Netherlands",
+        "Poland",
+        "Czech Republic & Slovakia",
+        "Ukraine",
+        "Brazil",
+        "Mexico (JV)",
+        "UAE",
+      ],
+      // Other points the story needs on the map
+      others: [
+        {
+          name: "Hannibal, MO",
+          lat: 39.65,
+          lon: -91.32,
+          note: "Cement plant owned by Quikrete since it bought Summit Materials (Feb 2025)",
+          group: "quikrete",
+        },
+        {
+          name: "Davenport, IA",
+          lat: 41.46,
+          lon: -90.72,
+          note: "Cement plant owned by Quikrete since it bought Summit Materials (Feb 2025)",
+          group: "quikrete",
+        },
+        {
+          name: "Abilene / Sweetwater",
+          lat: 32.46,
+          lon: -100.05,
+          note: "Data-center cluster",
+          group: "dc",
+        },
+      ],
+      source: "Buzzi Unicem USA · company filings. River paths are schematic.",
+    },
+
+    mapViews: {
+      us: [
+        [-104, 28.5],
+        [-73.5, 45],
+      ],
+      corridor: [
+        [-97, 34],
+        [-84, 43],
+      ],
+      festus: [
+        [-92.6, 36.6],
+        [-88.4, 39.6],
+      ],
+      texas: [
+        [-103, 28.8],
+        [-96.5, 33.6],
+      ],
+      upriver: [
+        [-93.2, 37.4],
+        [-88.4, 42.2],
+      ],
+    },
+
+    /* ── THE PAGE: hero + one chapter per publication ─────────────
+       Read top to bottom. Each chapter is matched to an article by `ref`
+       (any piece of its URL; the longest match wins). Publications with
+       no chapter still appear, with their own image.
+
+       layout:
+         "split"     → text on one side, moving image on the other (side: "left"|"right")
+         "fullbleed" → photo fills the screen, title over it, cards float on it
+         "numbers"   → big counting figures, no image
+         "dark"      → deep-green band with animated bars (balance-sheet style)
+       Common fields:
+         title, more (behind "+"), image, video, motion ("zoom-in" | "zoom-out" | "pan-left" | "pan-right" | "rise")
+         cards  → floating cards on the image: { x, y, value, label } (x/y in % of the image;
+                  find them with company.html?ticker=BZU&edit=1)
+         explore → optional tabs under a chapter: [{ label, image, caption, cards }]
+         inside  → 2–3 short teasers shown as "In the full piece" (the hook to click)
+         readMin → optional reading time in minutes, shown on the button
+       ✎ EDITORIAL — every line of copy is a first draft. Rewrite freely.
+       ──────────────────────────────────────────────────────────── */
+    hero: {
+      image: "images/bzu/hero-silo.webp",
+      video: null, // e.g. "video/bzu-hero.mp4" (short muted loop)
+      title: "An Italian cement maker that earns most of its money in America.",
+      cards: [
+        {
+          x: 16,
+          y: 30,
+          value: "58%",
+          label: "of EBITDA from the United States",
+        },
+        { x: 80, y: 66, value: "€1.13bn", label: "net cash, not debt" },
+      ],
+    },
+    chapters: [
+      {
+        ref: "buzzi-spa-bzumi",
+        layout: "split",
+        inside: [
+          "Why 58% of EBITDA is American but the stock is priced like a European",
+          "The three reasons behind the 'Italian discount'",
+          "Bear, base and bull cases to 2028",
+        ],
+        side: "right",
+        image: "images/bzu/plant-dawn.webp",
+        motion: "zoom-out",
+        title: "Buy for the floor, not the ceiling.",
+        lead: "A family-controlled cement group from Italy, running plants in 14 countries, priced at around 6x EBITDA like a European cement company.",
+        more: "The thesis found three reasons for the discount: a family that hoards cash (€1.13bn net), exposure to Russia (~€303m of 2025 sales treated as stranded) and decarbonisation capex of €350m+ a year. Not a growth story. A balance sheet and a set of assets that protect you in a bad market.",
+        cards: [
+          { x: 22, y: 20, value: "14", label: "countries" },
+          { x: 74, y: 82, value: "~6x", label: "EBITDA, a European multiple" },
+        ],
+      },
+      {
+        ref: "buzzi-spa-bzumi-fy-2025-results",
+        layout: "numbers",
+        inside: [
+          "Where the 240 basis points of margin went",
+          "Region by region, from Texas to Poland",
+        ],
+        title: "Top of guidance, with thinner margins.",
+        lead: "The year landed where management said it would. The US carried the pressure: lower volumes on a heavy fixed-cost base.",
+        items: [
+          {
+            value: "€1.23bn",
+            label: "Recurring EBITDA, FY 2025, top of guidance",
+          },
+          { value: "−240bps", label: "Group EBITDA margin" },
+          { value: "−7.0%", label: "US sales in 2025" },
+        ],
+      },
+      {
+        ref: "the-mississippi-buzzis-structural",
+        layout: "fullbleed",
+        inside: [
+          "How thermodynamics, regulation and geography built the moat",
+          "Why the river roughly doubles European margins",
+          "The petcoke loop: cement down, fuel back up",
+        ],
+        image: "images/bzu/barge.webp",
+        motion: "pan-left",
+        title:
+          "On the Mississippi, cement travels further than any truck can take it.",
+        lead: "Cement is heavy and cheap, so it rarely goes far by road. A plant on the river reaches markets hundreds of miles away by barge.",
+        more: "Festus is the largest plant in the US network, with about 2.5 Mt of clinker. Barges carry cement down to the Gulf and come back with petcoke for the kilns. Explore the network and the loop below.",
+        explore: [
+          {
+            label: "The network",
+            image: "images/bzu/river-map.webp",
+            caption:
+              "Buzzi's US cement plants on the Mississippi river system. Base map: Shannon1, Wikimedia Commons (CC BY-SA 4.0).",
+            cards: [
+              {
+                x: 64,
+                y: 49,
+                value: "Festus",
+                label:
+                  "Largest plant, ~2.5 Mt clinker, on the river next to St. Louis",
+              },
+              {
+                x: 65,
+                y: 52.5,
+                value: "Cape Girardeau",
+                label: "Second Mississippi river plant",
+              },
+              { x: 66.5, y: 63.8, value: "Memphis", label: "River terminal" },
+              {
+                x: 53.4,
+                y: 47.8,
+                value: "Kansas City",
+                label: "Bonner Springs terminal on the Missouri",
+              },
+              { x: 52.8, y: 58.8, value: "Pryor", label: "Oklahoma plant" },
+              {
+                x: 72.5,
+                y: 42.6,
+                value: "Greencastle",
+                label: "Indiana plant",
+              },
+              {
+                x: 78.2,
+                y: 63,
+                value: "Chattanooga",
+                label: "Tennessee plant",
+              },
+              {
+                x: 39.8,
+                y: 79.8,
+                value: "Maryneal",
+                label: "West Texas plant, 15–20 mi from a data-center cluster",
+              },
+            ],
+          },
+          {
+            label: "The petcoke loop",
+            image: "images/bzu/petcoke-loop.webp",
+            caption:
+              "Cement goes down the river; petcoke for the kilns comes back up.",
+            cards: [],
+          },
+        ],
+      },
+      {
+        ref: "is-buzzis-buyback-real-capital-allocation",
+        layout: "split",
+        inside: [
+          "What the buying pattern reveals that the total hides",
+          "The question holders keep asking, answered",
+        ],
+        title:
+          "The family is buying back stock. The pattern says more than the total.",
+        image: "images/bzu/Buybacks.png",
+        lead: "With net cash on the balance sheet, Buzzi can always afford a buyback. The question is whether the way it buys shows conviction about the price.",
+      },
+      {
+        ref: "buzzi-spa-bzumi-h1-2026-results",
+        layout: "split",
+        inside: [
+          "Why the US margin fell for different reasons in different markets",
+          "Where the Texas pressure is coming from",
+        ],
+        side: "left",
+        image: "images/bzu/hero-silo.webp", // ✎ needs a Texas image: e.g. "images/bzu/texas.webp"
+        motion: "pan-right",
+        title: "The US pressure is mostly in Texas.",
+        lead: "In H1 2026, US net sales fell 6.9%. Competition, fuel costs and a weaker dollar, but not equally across the network.",
+        more: "New supply, including imports ground in Texas, has kept prices flat there. Brazil, now fully consolidated, grew 23.8% in the same half.",
+        cards: [
+          { x: 24, y: 24, value: "−6.9%", label: "US net sales, H1 2026" },
+          { x: 76, y: 78, value: "+23.8%", label: "Brazil net sales" },
+        ],
+      },
+      {
+        ref: "buzzi-quikrete-and-the-mississippi",
+        layout: "fullbleed",
+        inside: [
+          "What the map misses about plants, terminals and captive demand",
+          "Where Festus's river volumes could go",
+        ],
+        image: "images/bzu/quikrete-river.webp",
+        motion: "zoom-in",
+        title:
+          "What happens when your biggest customer starts making its own cement?",
+        lead: "Quikrete bought Summit Materials in 2025, and with it cement plants on the same river system as Festus.",
+        more: "Every tonne Quikrete makes itself is a tonne it may not buy from Buzzi. The piece looks at where those river volumes could go.",
+        cards: [
+          {
+            x: 17,
+            y: 36,
+            value: "~6%",
+            label: "of Buzzi's US sales go to Quikrete",
+          },
+          {
+            x: 86,
+            y: 42,
+            value: "2 plants",
+            label: "Hannibal, MO and Davenport, IA, now Quikrete's",
+          },
+        ],
+      },
+      {
+        ref: "i-mapped-the-materials-around-25",
+        layout: "split",
+        inside: [
+          "The materials map around 25 Texas data-center sites",
+          "Who actually supplies the tonnes",
+        ],
+        side: "right",
+        image: null, // uses the article image until you add one
+        motion: "zoom-in",
+        title: "A data-center boom, 15 miles from a Buzzi plant.",
+        lead: "Maryneal, Texas, sits next to the Abilene and Sweetwater cluster. Management ties roughly a tenth of H1 US cement volumes to data-center projects.",
+        more: "I mapped the materials suppliers around 25 Texas data-center sites to see who actually gets the tonnes.",
+        cards: [
+          {
+            x: 24,
+            y: 26,
+            value: "~10%",
+            label: "of H1 US volumes tied to data centers",
+          },
+          { x: 74, y: 76, value: "25", label: "Texas sites mapped" },
+        ],
+      },
+    ],
+
+    // ✎ EDITORIAL — status is your judgement; current values are reported figures
+    watchingReviewed: "2026-08-20",
+    watching: [
+      {
+        label: "US pricing in Texas",
+        status: "watch",
+        current: "US net sales −6.9% in H1 2026",
+        note: "Competition, fuel costs and a weaker dollar. The pressure is mostly in Texas, not across the network.",
+      },
+      {
+        label: "Balance sheet behind the buyback",
+        status: "ok",
+        current: "Net cash €896m",
+        note: "Leverage ceiling set by management: net debt / EBITDA below 1.5x.",
+        range: {
+          min: -1.5,
+          max: 2.5,
+          limit: 1.5,
+          value: -0.75,
+          unit: "x",
+          limitLabel: "1.5x ceiling",
+          valueLabel: "−0.75x (net cash / FY25 EBITDA)",
+        },
+      },
+      {
+        label: "Data-center demand at Maryneal",
+        status: "ok",
+        current: "~10% of H1 US cement volumes",
+        note: "Management attributes roughly a tenth of US volumes to data-center projects.",
+      },
+      {
+        label: "Quikrete making its own cement",
+        status: "watch",
+        current: "Open question",
+        note: "If Buzzi's biggest customer self-supplies more, river volumes need a new home.",
+      },
+      {
+        label: "FY 2026 EBITDA vs guidance",
+        status: "ok",
+        current: "€1.10–1.20bn guided",
+        note: "FY 2025 was €1.2bn. The top of the range means a flat year.",
+      },
+    ],
+    sources: [
+      {
+        label: "Buzzi — investor relations",
+        url: "https://www.buzzi.com/en/investors",
+      },
+      {
+        label: "S&P Global — H1 2026 volumes",
+        url: "https://www.spglobal.com/energy/en/news-research/latest-news/metals/080526-buzzi-cement-volumes-rise-on-brazil-strength-despite-weaker-europe",
+      },
+    ],
+  },
+
+  /* ═══════════════════════════════════════════════════════════
+     POOL — example of the pattern to follow for every company
+     1. hero      → cover photo + your headline (+ optional cards)
+     2. chapters  → one block per publication you want to customise.
+                    ref = any piece of the article URL.
+                    Only write what you want to change: anything missing
+                    (title, text, image) comes from the article itself.
+                    Publications without a block still appear automatically.
+     Photos: put them in images/pool/ and point `image` at them.
+     ✎ EDITORIAL — copy below is a first draft from your summaries.
+     ═══════════════════════════════════════════════════════════ */
+  POOL: {
+    hero: {
+      image: "images/POOL.webp", // ✎ swap for images/pool/hero.webp when you have it
+      title: "A distribution machine where most of the revenue comes back every year.",
+      cards: [
+        { x: 18, y: 32, value: "64%", label: "of revenue tied to mandatory maintenance" },
+      ],
+    },
+    chapters: [
+      {
+        // 01 · Original thesis (Dec 19, 2025)
+        ref: "pool-corporation-nasdaq-pool",
+        layout: "split",
+        side: "right",
+        image: null, // ✎ e.g. "images/pool/thesis.webp" (null = thesis image)
+        title: "Pools need chemicals and repairs whether or not anyone builds a new one.",
+        lead: "A massive distribution machine where 64% of the revenue is locked in by mandatory maintenance, waiting for the construction cycle to turn.",
+        inside: [
+          "Why maintenance makes the revenue so resilient",
+          "What has to happen for the construction cycle to turn",
+          "Bear, base and bull cases",
+        ],
+        cards: [{ x: 74, y: 80, value: "64%", label: "maintenance revenue" }],
+      },
+      // 02 · FY 2025 Results and 03 · Q1 2026 Results have no block:
+      //      they appear automatically. To change only their photo:
+      //      { ref: "pool-corporation-pool-fy-2025", image: "images/pool/fy2025.webp" },
+      {
+        // 04 · Q2 2026 (Jul 30, 2026)
+        ref: "update-pool-corporation-pool-q2-2026",
+        layout: "split",
+        side: "left",
+        image: null, // ✎ e.g. "images/pool/q2-2026.webp"
+        title: "The problem wasn't maintenance demand.",
+        lead: "Q2 2026. Maintenance held up. What moved the numbers was elsewhere.",
+        inside: [
+          "Freight and customer mix",
+          "Where POOL360 fits in",
+          "What the buyback tells you",
+        ],
+      },
+      {
+        // 05 · Q3 2026 (Oct 26, 2026)
+        ref: "pool-it-didnt-need-a-great-quarter",
+        layout: "fullbleed",
+        image: null, // ✎ a wide, dramatic photo works best here, e.g. "images/pool/q3-2026.webp"
+        title: "It didn't need a great quarter.",
+        lead: "Q3 gave investors some reasons to be less pessimistic.",
+        inside: [
+          "Why the quarter was enough",
+          "Why I'm giving Watwood more credit",
+          "How much margin POOL can still recover",
+        ],
+      },
+    ],
+  },
+};
+
+/* ═══ HOMEPAGE HERO ═══
+   Full-bleed picture (or short muted video) behind the homepage headline.
+   Warm, golden-hour, no text or logos. Swap freely. */
+const homeHero = {
+  image: "images/home-hero.webp",
+  video: null, // e.g. "video/home.mp4" (5–8 s loop, muted, < 3 MB)
+};
+
+/* ═══════════════════════════════════════════════════════════
    START HERE — curated editorial entry points.
    NOT calculated by date or views. Edit this array to swap pieces.
 
@@ -917,6 +1494,14 @@ const sLabel = (s) =>
     closed: "CLOSED",
   })[s];
 
+/* An insight can belong to several companies: relatedTicker: "BZU, AMRZ".
+   Split on commas so the piece shows up on every company page it names. */
+const relatesTo = (item, ticker) =>
+  String(item.relatedTicker || "")
+    .split(",")
+    .map((s) => s.trim())
+    .includes(ticker);
+
 /* ── RESEARCH DEPTH ──
    One source of truth for both the homepage card ("Updated ...") and the
    research page ("Last activity"). Counts thesis + earnings updates +
@@ -927,7 +1512,7 @@ const researchItems = (t) => {
   if (t.updates) t.updates.forEach((u) => u.date && out.push({ date: u.date }));
   if (typeof insights !== "undefined")
     insights
-      .filter((i) => i.relatedTicker === t.ticker)
+      .filter((i) => relatesTo(i, t.ticker))
       .forEach((i) => i.date && out.push({ date: i.date }));
   return out.filter((x) => new Date(x.date) <= now);
 };
@@ -997,3 +1582,81 @@ publishedTheses.forEach((t) => {
       `[colubeat] ${t.ticker}: public position information requires an updatedAt date`,
     );
 });
+
+/* ═══════════════════════════════════════════════════════════
+   SITE HELPERS — clean URLs and optimised images
+   ───────────────────────────────────────────────────────────
+   companyUrl(t)  → /companies/buzzi-style link for a company.
+                    On the live site: /companies/bzu
+                    In VS Code (Live Server): /companies/bzu.html
+                    The pages are generated by scripts/build.mjs.
+   imgAttrs(src, sizes, maxWidth)
+                  → on the live site, asks Vercel for a resized copy
+                    of each image (480–2400 px wide, WebP/AVIF), so
+                    a phone never downloads the 2400 px original.
+                    Locally it just returns the original file.
+   If an optimised copy ever fails, the page falls back to the
+   original image automatically.
+   ═══════════════════════════════════════════════════════════ */
+const SITE_URL = "https://www.colubeat.com";
+const ON_VERCEL =
+  typeof location !== "undefined" &&
+  /(^|\.)colubeat\.com$|\.vercel\.app$/.test(location.hostname);
+const slugOf = (ticker) =>
+  String(ticker).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+// Live site: /companies/bzu. Local preview (Live Server): company.html?ticker=BZU, works without running the build.
+const companyUrl = (t) => {
+  const tk = t && t.ticker ? t.ticker : t;
+  return ON_VERCEL ? `/companies/${slugOf(tk)}` : `company.html?ticker=${encodeURIComponent(tk)}`;
+};
+const IMG_WIDTHS = [480, 800, 1200, 1600, 2400];
+const canOptimise = (src) =>
+  ON_VERCEL && src && !/^(https?:|data:)/.test(src) && !/\.(svg|gif)$/i.test(src);
+const imgUrl = (src, w) =>
+  canOptimise(src)
+    ? `/_vercel/image?url=${encodeURIComponent("/" + String(src).replace(/^\//, ""))}&w=${w}&q=75`
+    : src;
+const imgAttrs = (src, sizes = "100vw", maxWidth = 2400) => {
+  if (!src) return "";
+  if (!canOptimise(src)) return `src="${src}"`;
+  const ws = IMG_WIDTHS.filter((w) => w <= maxWidth);
+  const mid = ws[Math.min(2, ws.length - 1)];
+  return `src="${imgUrl(src, mid)}" srcset="${ws.map((w) => `${imgUrl(src, w)} ${w}w`).join(", ")}" sizes="${sizes}" data-orig="${src}"`;
+};
+// optimised copy failed → use the original; original failed too → hide if marked data-rm
+if (typeof document !== "undefined")
+  document.addEventListener(
+    "error",
+    (e) => {
+      const i = e.target;
+      if (!i || i.tagName !== "IMG") return;
+      if (i.dataset.orig && !i.dataset.fell) {
+        i.dataset.fell = "1";
+        i.removeAttribute("srcset");
+        i.src = i.dataset.orig;
+      } else if (i.hasAttribute("data-rm")) i.remove();
+    },
+    true,
+  );
+
+/* ── SEO text for each company page (used by the page AND by the build) ──
+   title: ~60 characters, description: ~155. Override per company with
+   companyPages.TICKER.seo = { title: "...", description: "..." } */
+const clip = (s, n) => {
+  s = String(s || "").replace(/\s+/g, " ").trim();
+  return s.length <= n ? s : s.slice(0, n - 1).replace(/\s+\S*$/, "") + "…";
+};
+const companyMeta = (t) => {
+  const page = (typeof companyPages !== "undefined" && companyPages[t.ticker]) || {};
+  const seo = page.seo || {};
+  const n = publicationCount(t);
+  const hookText = (page.hero && page.hero.title) || page.hook || t.summary;
+  return {
+    title: seo.title || [`${t.company} (${t.ticker}): thesis and updates | Colubeat`, `${t.company} (${t.ticker}) research | Colubeat`, `${t.company} (${t.ticker}) | Colubeat`].find((x) => x.length <= 60) || clip(`${t.company} (${t.ticker})`, 60),
+    description:
+      seo.description ||
+      clip(`${hookText} ${n} publication${n === 1 ? "" : "s"} since ${fmt(t.datePublished)}, in order.`, 158),
+    image: (page.hero && page.hero.image) || t.image,
+    path: `/companies/${slugOf(t.ticker)}`,
+  };
+};

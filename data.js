@@ -87,7 +87,7 @@ const publishedTheses = [
     datePublished: "2026-06-16",
     image: "images/RYN.webp",
     summary:
-      "Four Million Acres at the Bottom of the Cycle. Rayonier trades at a steep discount to private timberland value, with four undervalued segments and early-stage optionality in land-based solutions like solar and carbon capture.",
+      "Four Million Acres at the Bottom of the Cycle. Rayonier trades at a steep discount to private timberland value.",
     url: "https://colubeatid.substack.com/p/rayonier-inc-nyse-ryn",
     tags: ["REIT"],
     isPaid: true,
@@ -526,7 +526,7 @@ const publishedTheses = [
     sector: "RE Developer",
     geo: "US",
     datePublished: "2025-12-06",
-    image: "images/FRPHportada.webp",
+    image: "images/FRPH.webp",
     summary:
       "A legacy asset-heavy business that just brought a full-cycle development platform in-house to control the entire lifecycle of its projects.",
     url: "https://colubeatid.substack.com/p/frp-holdings-inc-nasdaq-frph?r=392fuc",
@@ -1332,12 +1332,56 @@ const companyPages = {
      Photos: put them in images/pool/ and point `image` at them.
      ✎ EDITORIAL — copy below is a first draft from your summaries.
      ═══════════════════════════════════════════════════════════ */
+  FRPH: {
+    chapters: [
+      {
+        ref: "lets-talk-about-frp-holdings",
+        image: "images/frp/FRPHportada.webp",
+      },
+      {
+        ref: "update-frp-holdings-inc-frph-fy-2025",
+        image: "images/frp/FRPHfy25.webp",
+      },
+      {
+        ref: "update-frp-holdings-inc-frph-q1-2026",
+        image: "images/frp/FRPHQ1.webp",
+      },
+      {
+        ref: "update-frp-holdings-inc-frph-q2-2026",
+        image: "images/frp/FRPHQ2.webp",
+      },
+      // 02 · FY 2025 Results and 03 · Q1 2026 Results have no block:
+      //      they appear automatically. To change only their photo:
+      //      { ref: "pool-corporation-pool-fy-2025", image: "images/pool/fy2025.webp" },
+    ],
+  },
+  RYN: {
+    chapters: [
+      {
+        ref: "lets-talk-about-rayonier",
+        image: "images/ryn/RYNtalk.webp",
+      },
+      {
+        ref: "update-rayonier-inc-ryn-q2-2026-results",
+        image: "images/ryn/RYNQ2.webp",
+      },
+      // 02 · FY 2025 Results and 03 · Q1 2026 Results have no block:
+      //      they appear automatically. To change only their photo:
+      //      { ref: "pool-corporation-pool-fy-2025", image: "images/pool/fy2025.webp" },
+    ],
+  },
   POOL: {
     hero: {
       image: "images/POOL.webp", // ✎ swap for images/pool/hero.webp when you have it
-      title: "A distribution machine where most of the revenue comes back every year.",
+      title:
+        "A distribution machine where most of the revenue comes back every year.",
       cards: [
-        { x: 18, y: 32, value: "64%", label: "of revenue tied to mandatory maintenance" },
+        {
+          x: 18,
+          y: 32,
+          value: "64%",
+          label: "of revenue tied to mandatory maintenance",
+        },
       ],
     },
     chapters: [
@@ -1347,7 +1391,8 @@ const companyPages = {
         layout: "split",
         side: "right",
         image: null, // ✎ e.g. "images/pool/thesis.webp" (null = thesis image)
-        title: "Pools need chemicals and repairs whether or not anyone builds a new one.",
+        title:
+          "Pools need chemicals and repairs whether or not anyone builds a new one.",
         lead: "A massive distribution machine where 64% of the revenue is locked in by mandatory maintenance, waiting for the construction cycle to turn.",
         inside: [
           "Why maintenance makes the revenue so resilient",
@@ -1360,11 +1405,21 @@ const companyPages = {
       //      they appear automatically. To change only their photo:
       //      { ref: "pool-corporation-pool-fy-2025", image: "images/pool/fy2025.webp" },
       {
+        // 05 · FY 2026 (Oct 26, 2026)
+        ref: "update-pool-corporation-pool-fy-2025",
+        image: "images/pool/Poolfy25.webp", // ✎ a wide, dramatic photo works best here, e.g. "images/pool/q3-2026.webp"
+      },
+      {
+        // 05 · FY 2026 (Oct 26, 2026)
+        ref: "update-pool-corporation-pool-q1-2026",
+        image: "images/pool/POOLQ1.webp", // ✎ a wide, dramatic photo works best here, e.g. "images/pool/q3-2026.webp"
+      },
+      {
         // 04 · Q2 2026 (Jul 30, 2026)
         ref: "update-pool-corporation-pool-q2-2026",
         layout: "split",
         side: "left",
-        image: null, // ✎ e.g. "images/pool/q2-2026.webp"
+        image: "images/pool/POOLQ2.webp", // ✎ e.g. "images/pool/q2-2026.webp"
         title: "The problem wasn't maintenance demand.",
         lead: "Q2 2026. Maintenance held up. What moved the numbers was elsewhere.",
         inside: [
@@ -1377,7 +1432,7 @@ const companyPages = {
         // 05 · Q3 2026 (Oct 26, 2026)
         ref: "pool-it-didnt-need-a-great-quarter",
         layout: "fullbleed",
-        image: null, // ✎ a wide, dramatic photo works best here, e.g. "images/pool/q3-2026.webp"
+        image: "images/pool/POOLQ3.webp", // ✎ a wide, dramatic photo works best here, e.g. "images/pool/q3-2026.webp"
         title: "It didn't need a great quarter.",
         lead: "Q3 gave investors some reasons to be less pessimistic.",
         inside: [
@@ -1603,15 +1658,23 @@ const ON_VERCEL =
   typeof location !== "undefined" &&
   /(^|\.)colubeat\.com$|\.vercel\.app$/.test(location.hostname);
 const slugOf = (ticker) =>
-  String(ticker).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  String(ticker)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
 // Live site: /companies/bzu. Local preview (Live Server): company.html?ticker=BZU, works without running the build.
 const companyUrl = (t) => {
   const tk = t && t.ticker ? t.ticker : t;
-  return ON_VERCEL ? `/companies/${slugOf(tk)}` : `company.html?ticker=${encodeURIComponent(tk)}`;
+  return ON_VERCEL
+    ? `/companies/${slugOf(tk)}`
+    : `company.html?ticker=${encodeURIComponent(tk)}`;
 };
 const IMG_WIDTHS = [480, 800, 1200, 1600, 2400];
 const canOptimise = (src) =>
-  ON_VERCEL && src && !/^(https?:|data:)/.test(src) && !/\.(svg|gif)$/i.test(src);
+  ON_VERCEL &&
+  src &&
+  !/^(https?:|data:)/.test(src) &&
+  !/\.(svg|gif)$/i.test(src);
 const imgUrl = (src, w) =>
   canOptimise(src)
     ? `/_vercel/image?url=${encodeURIComponent("/" + String(src).replace(/^\//, ""))}&w=${w}&q=75`
@@ -1643,19 +1706,32 @@ if (typeof document !== "undefined")
    title: ~60 characters, description: ~155. Override per company with
    companyPages.TICKER.seo = { title: "...", description: "..." } */
 const clip = (s, n) => {
-  s = String(s || "").replace(/\s+/g, " ").trim();
+  s = String(s || "")
+    .replace(/\s+/g, " ")
+    .trim();
   return s.length <= n ? s : s.slice(0, n - 1).replace(/\s+\S*$/, "") + "…";
 };
 const companyMeta = (t) => {
-  const page = (typeof companyPages !== "undefined" && companyPages[t.ticker]) || {};
+  const page =
+    (typeof companyPages !== "undefined" && companyPages[t.ticker]) || {};
   const seo = page.seo || {};
   const n = publicationCount(t);
   const hookText = (page.hero && page.hero.title) || page.hook || t.summary;
   return {
-    title: seo.title || [`${t.company} (${t.ticker}): thesis and updates | Colubeat`, `${t.company} (${t.ticker}) research | Colubeat`, `${t.company} (${t.ticker}) | Colubeat`].find((x) => x.length <= 60) || clip(`${t.company} (${t.ticker})`, 60),
+    title:
+      seo.title ||
+      [
+        `${t.company} (${t.ticker}): thesis and updates | Colubeat`,
+        `${t.company} (${t.ticker}) research | Colubeat`,
+        `${t.company} (${t.ticker}) | Colubeat`,
+      ].find((x) => x.length <= 60) ||
+      clip(`${t.company} (${t.ticker})`, 60),
     description:
       seo.description ||
-      clip(`${hookText} ${n} publication${n === 1 ? "" : "s"} since ${fmt(t.datePublished)}, in order.`, 158),
+      clip(
+        `${hookText} ${n} publication${n === 1 ? "" : "s"} since ${fmt(t.datePublished)}, in order.`,
+        158,
+      ),
     image: (page.hero && page.hero.image) || t.image,
     path: `/companies/${slugOf(t.ticker)}`,
   };

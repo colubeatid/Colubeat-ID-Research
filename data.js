@@ -12,9 +12,15 @@ const NEW_DAYS = 14;
    `position` = MY POSITION. Do I personally own the stock?
                 {
                   visible: true|false   // false → nothing is rendered anywhere
-                  status: "holding" | "watching" | "no_position"
+                  status: "holding" | "watching" | "sold" | "no_position"
                   currency: "USD"|"EUR"|"GBP"|"CHF"|"CAD"|"HKD"...
-                  averagePrice?: 42.5    // holding only, OPTIONAL. Omit to keep private.
+                  averagePrice?: 42.5    // holding or sold, OPTIONAL. Omit to keep private.
+                  soldPrice?: 27.9       // sold only: price I sold at
+                  soldDate?: "2026-07-29" // sold only: day I sold
+                     → with both averagePrice and soldPrice the page shows the result in %,
+                       always derived, never stored.
+                  trims?: [{ date: "2026-05-12", price: 281 }] // holding only: partial sales.
+                     Shown as "Trimmed · date · price". Never write how much was sold.
                   interestedBelow?: 42   // watching only, OPTIONAL.
                   referencePrice?: 39.16      // OPTIONAL, manually refreshed. NOT live.
                   referencePriceDate?: "2026-08-28" // date of that reference price
@@ -137,9 +143,12 @@ const publishedTheses = [
     closedReason: "Bought $98.25 sold at $118",
     position: {
       visible: true,
-      status: "watching",
+      status: "sold",
       currency: "USD",
-      interestedBelow: 100, // ← add when you have a level in mind
+      averagePrice: 98.25,
+      soldPrice: 118,
+      soldDate: null, // ✎ day you sold, e.g. "2026-05-20" (adds the SOLD mark to the timeline)
+      interestedBelow: 100, // still shown: the price where I'd look again
       updatedAt: "2026-08-28",
     },
   },
@@ -185,9 +194,12 @@ const publishedTheses = [
     closedReason: "Bought $55.67 sold at $88",
     position: {
       visible: true,
-      status: "watching",
+      status: "sold",
       currency: "USD",
-      interestedBelow: 55,
+      averagePrice: 55.67,
+      soldPrice: 88,
+      soldDate: null, // ✎ day you sold, e.g. "2026-05-20"
+      interestedBelow: 55, // still shown: the price where I'd look again
       updatedAt: "2026-08-28",
     },
   },
@@ -304,6 +316,7 @@ const publishedTheses = [
       averagePrice: 221.02, // ← add only when you want to disclose it
       updatedAt: "2026-08-28",
       referencePrice: 270,
+      trims: [{ date: null, price: 281 }], // ✎ add the date: "2026-MM-DD"
     },
   },
   {
@@ -389,13 +402,15 @@ const publishedTheses = [
       },
     ],
     earningsIntegrated: false,
-    closedReason: "Sold at $28",
+    closedReason: "Sold at £27.90",
     position: {
       visible: true,
-      status: "holding",
+      status: "sold",
       currency: "GBP",
       averagePrice: 22.07, // ← add only when you want to disclose it
-      updatedAt: "2026-08-28",
+      soldPrice: 27.9,
+      soldDate: "2026-07-29",
+      updatedAt: "2026-07-29",
     },
   },
   {
@@ -422,8 +437,10 @@ const publishedTheses = [
     closedReason: "Sold at $19.00",
     position: {
       visible: true,
-      status: "no_position",
+      status: "sold", // acquired: the shares were paid out at the deal price
       currency: "USD",
+      soldPrice: 19,
+      soldDate: "2026-02-23", // ✎ date of the "Acquired at $19.00" update; change if the deal closed another day
       updatedAt: "2026-08-28",
     },
   },
@@ -1602,7 +1619,7 @@ const lastActivity = (t) =>
 /* ── POSITION HELPERS ── */
 const posVisible = (t) => !!(t.position && t.position.visible);
 const posLabel = (s) =>
-  ({ holding: "HOLDING", watching: "WATCHING", no_position: "NO POSITION" })[s];
+  ({ holding: "HOLDING", watching: "WATCHING", sold: "SOLD", no_position: "NO POSITION" })[s];
 const posColor = (s) =>
   s === "holding"
     ? "var(--green)"
@@ -1610,7 +1627,17 @@ const posColor = (s) =>
       ? "var(--s-watching)"
       : "var(--text-fnt)";
 const posMark = (s) =>
-  s === "holding" ? "\u25C6" : s === "watching" ? "\u25C7" : "";
+  s === "holding" ? "\u25C6" : s === "watching" ? "\u25C7" : s === "sold" ? "\u25CB" : "";
+
+/* Result of a closed position, in % vs average price (derived, never stored). */
+const soldResult = (p) =>
+  p && p.status === "sold" ? positionPerformance(p.averagePrice, p.soldPrice) : null;
+
+/* Short badge text for the homepage cover: "◆ HOLDING", "○ SOLD · +26.4%" */
+const posBadge = (p) => {
+  const r = soldResult(p);
+  return `${posMark(p.status)} ${posLabel(p.status)}${r !== null ? " \u00B7 " + formatSignedPercent(r) : ""}`;
+};
 const money = (value, currency) => {
   if (value === undefined || value === null || value === "") return null;
   const n = Number(value);

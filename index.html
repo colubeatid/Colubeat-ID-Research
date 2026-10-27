@@ -325,6 +325,35 @@
       font-size: 14px
     }
 
+    /* a slow, quiet glint across the subscribe button: once every few seconds */
+    .cta.glint::after {
+      animation: glint 7s ease-in-out 2.5s infinite
+    }
+
+    .cta.glint {
+      animation: glow 7s ease-in-out 2.5s infinite
+    }
+
+    @keyframes glint {
+      0%, 78% {
+        transform: translateX(-120%)
+      }
+
+      92%, 100% {
+        transform: translateX(120%)
+      }
+    }
+
+    @keyframes glow {
+      0%, 74%, 100% {
+        box-shadow: 0 14px 40px -12px var(--ember-glow), inset 0 1px 0 rgba(255, 255, 255, .35)
+      }
+
+      86% {
+        box-shadow: 0 10px 34px -6px rgba(238, 125, 88, .55), inset 0 1px 0 rgba(255, 255, 255, .45)
+      }
+    }
+
     /* ══ NAV ══ */
     .nav {
       position: sticky;
@@ -477,7 +506,7 @@
       font-size: 18px;
       line-height: 1.55;
       opacity: .88;
-      margin: 26px auto 38px
+      margin: 26px auto 0
     }
 
     .hero .btn {
@@ -499,7 +528,7 @@
 
       .hero-sub {
         font-size: 16px;
-        margin: 16px auto 22px
+        margin: 16px auto 0
       }
 
       .hero .cta {
@@ -541,7 +570,7 @@
 
       .hero-sub {
         font-size: 15px;
-        margin: 12px auto 18px
+        margin: 12px auto 0
       }
 
       .hero .cta {
@@ -1502,7 +1531,7 @@
       <a class="brand" href="index.html" aria-label="Colubeat Investment Desk — home">
         <img src="COLUBEAT-logo-mini.webp" alt="" width="26" height="26"><span>Colubeat</span>
       </a>
-      <a class="cta sm" href="https://colubeatid.substack.com/subscribe" target="_blank" rel="noopener"
+      <a class="cta sm glint" href="https://colubeatid.substack.com/subscribe" target="_blank" rel="noopener"
         data-analytics="home_nav_subscribe_click">
         <span class="cta-main">Subscribe</span><span class="cta-arrow" aria-hidden="true">→</span>
       </a>
@@ -1519,12 +1548,6 @@
           understand the numbers.</h1>
         <p class="hero-sub">I write the thesis, then keep following the company when there's something worth digging
           into.</p>
-        <a class="cta shine" href="https://colubeatid.substack.com/subscribe" target="_blank" rel="noopener"
-          data-analytics="home_hero_subscribe_click">
-          <span class="cta-txt"><span class="cta-main">Subscribe free</span><span class="cta-sub">on Substack · Every
-              update in your inbox</span></span>
-          <span class="cta-arrow" aria-hidden="true">→</span>
-        </a>
       </div>
       <div class="hero-foot" aria-label="Research in numbers">
         <div class="wrap" id="heroStats"></div>
@@ -1790,7 +1813,7 @@
              data-analytics="company_research_card_click" data-analytics-props="${aj(props)}">
             <span class="cover-media">
               ${t.image ? `<img ${imgAttrs(t.image, "(max-width: 760px) 100vw, (max-width: 980px) 50vw, 380px", 1200)} alt="${esc(t.company)}" loading="lazy" decoding="async" data-rm>` : ""}
-              ${showPos ? `<span class="cover-pos">${posMark(p.status)} ${posLabel(p.status)}</span>` : ""}
+              ${showPos ? `<span class="cover-pos">${posBadge(p)}</span>` : ""}
             </span>
             <span class="cover-head">
               <span class="cover-tk">${isNew(t) ? '<span class="new">New</span>' : ""}${t.ticker}</span>

@@ -235,9 +235,89 @@
       margin-left: 6px
     }
 
-    .nav .btn {
-      justify-self: end;
-      padding: 11px 22px
+    /* subscribe button: same as the homepage nav */
+    .cta {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 8px 8px 18px;
+      border-radius: var(--r);
+      background: linear-gradient(135deg, #f39a76, var(--ember) 45%, var(--ember-deep));
+      color: var(--bg-0);
+      overflow: hidden;
+      box-shadow: 0 14px 40px -12px var(--ember-glow), inset 0 1px 0 rgba(255, 255, 255, .35);
+      transition: box-shadow .25s, transform .25s cubic-bezier(.2, .7, .2, 1)
+    }
+
+    .cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 50px -10px rgba(238, 125, 88, .5), inset 0 1px 0 rgba(255, 255, 255, .35)
+    }
+
+    .cta::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, .45) 50%, transparent 65%);
+      transform: translateX(-120%);
+      pointer-events: none
+    }
+
+    .cta .cta-main {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase
+    }
+
+    .cta .cta-arrow {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(13, 9, 7, .16);
+      font-size: 14px;
+      transition: transform .25s
+    }
+
+    .cta:hover .cta-arrow {
+      transform: translateX(3px)
+    }
+
+    .nav .cta {
+      justify-self: end
+    }
+
+    /* a slow, quiet glint across the subscribe button: once every few seconds */
+    .cta.glint::after {
+      animation: glint 7s ease-in-out 2.5s infinite
+    }
+
+    .cta.glint {
+      animation: glow 7s ease-in-out 2.5s infinite
+    }
+
+    @keyframes glint {
+      0%, 78% {
+        transform: translateX(-120%)
+      }
+
+      92%, 100% {
+        transform: translateX(120%)
+      }
+    }
+
+    @keyframes glow {
+      0%, 74%, 100% {
+        box-shadow: 0 14px 40px -12px var(--ember-glow), inset 0 1px 0 rgba(255, 255, 255, .35)
+      }
+
+      86% {
+        box-shadow: 0 10px 34px -6px rgba(238, 125, 88, .55), inset 0 1px 0 rgba(255, 255, 255, .45)
+      }
     }
 
     .mini {
@@ -760,6 +840,44 @@
         transform: scale(3);
         opacity: 0
       }
+    }
+
+    .sold-mk {
+      position: absolute;
+      top: 230px;
+      transform: translate(-50%, -50%);
+      z-index: 2
+    }
+
+    .sold-mk i {
+      display: block;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--text-2)
+    }
+
+    .sold-mk span {
+      position: absolute;
+      left: 50%;
+      top: 18px;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      color: var(--text-2);
+      padding: 2px 6px;
+      border-radius: var(--r);
+      background: var(--bg);
+      border: 1px solid var(--line-strong)
+    }
+
+    .sold-mk.trim i {
+      width: 9px;
+      height: 9px;
+      border-style: dashed
     }
 
     .today span {
@@ -2086,6 +2204,19 @@
         if (pct !== null) rows += `<span>vs avg. price</span><b style="color:${pct > 0.05 ? "var(--up)" : pct < -0.05 ? "var(--down)" : "inherit"}">${formatSignedPercent(pct)}</b>`;
         const ref = money(p.referencePrice, p.currency);
         if (ref) rows += `<span>Price${p.referencePriceDate ? " · " + fmt(p.referencePriceDate) : ""}</span><b>${ref}</b>`;
+        (p.trims || []).forEach((tr) => {
+          const tp = money(tr.price, p.currency);
+          if (tp) rows += `<span>Trimmed${tr.date ? " · " + fmt(tr.date) : ""}</span><b>${tp}</b>`;
+        });
+      } else if (p.status === "sold") {
+        const avg = money(p.averagePrice, p.currency);
+        if (avg) rows += `<span>Average price</span><b>${avg}</b>`;
+        const sold = money(p.soldPrice, p.currency);
+        if (sold) rows += `<span>Sold${p.soldDate ? " · " + fmt(p.soldDate) : ""}</span><b>${sold}</b>`;
+        const res = soldResult(p);
+        if (res !== null) rows += `<span>Result vs avg. price</span><b style="color:${res > 0.05 ? "var(--up)" : res < -0.05 ? "var(--down)" : "inherit"}">${formatSignedPercent(res)}</b>`;
+        const again = money(p.interestedBelow, p.currency);
+        if (again) rows += `<span>Interested below</span><b>${again}</b>`;
       } else if (p.status === "watching") {
         const below = money(p.interestedBelow, p.currency);
         rows += `<span>Interested below</span><b>${below || "Not set"}</b>`;
@@ -2226,11 +2357,26 @@
                 <span class="tl-title">${esc(c.pub.title)}</span>
                 ${i % 2 ? thumb(c, i) : ""}
               </a>`).join("")}
+            ${soldMarker(t, at, start, end)}
             <div class="today" style="left:${at(Date.now())}%"><i></i><span>TODAY</span></div>
           </div>
         </div>
         <p class="tl-hint">Hover to preview, click to jump to that chapter. The spacing is real time between publications.</p>
       </section>`;
+    }
+    /* the days I sold or trimmed, as their own marks on the time axis (only when dated) */
+    function soldMarker(t, at, start, end) {
+      const p = posVisible(t) ? t.position : null;
+      if (!p) return "";
+      const evs = [];
+      if (p.status === "sold" && p.soldDate) evs.push({ date: p.soldDate, word: "Sold", price: p.soldPrice });
+      if (p.status === "holding") (p.trims || []).forEach((tr) => tr.date && evs.push({ date: tr.date, word: "Trimmed", price: tr.price, trim: true }));
+      return evs.map((e) => {
+        const d = new Date(e.date).getTime();
+        if (!(d >= start && d <= end)) return "";
+        const price = money(e.price, p.currency);
+        return `<div class="sold-mk${e.trim ? " trim" : ""}" style="left:${at(e.date)}%" title="${e.word} ${fmt(e.date)}${price ? " at " + price : ""}"><i></i><span>${e.word.toUpperCase()}${price ? " " + price : ""}</span></div>`;
+      }).join("");
     }
     const thumb = (c, i) => c.thumb
       ? `<span class="tl-thumb"><img ${imgAttrs(c.thumb, "176px", 480)} alt="" loading="lazy" decoding="async"></span>`
@@ -2277,7 +2423,7 @@
         <div class="wrap nav-row">
           <a class="brand" href="index.html" aria-label="Colubeat home"><img src="COLUBEAT-logo-mini.webp" alt="" width="24" height="24"><span>Colubeat</span><small>/ ${t.ticker}</small></a>
           <div class="mini" aria-label="Publications">${'<div class="mini-axis"></div><div class="mini-fill" data-mini-fill></div>' + miniDots}</div>
-          <a class="btn" href="${SUB}" target="_blank" rel="noopener" data-analytics="company_subscribe_click" data-analytics-props="${aj({ ticker: t.ticker, location: "nav" })}">Subscribe</a>
+          <a class="cta sm glint" href="${SUB}" target="_blank" rel="noopener" data-analytics="company_subscribe_click" data-analytics-props="${aj({ ticker: t.ticker, location: "nav" })}"><span class="cta-main">Subscribe</span><span class="cta-arrow" aria-hidden="true">→</span></a>
         </div>
         <div class="mini-row"><div class="mini" aria-label="Publications">${'<div class="mini-axis"></div><div class="mini-fill" data-mini-fill></div>' + miniDots}</div></div>
         <div class="nav-progress" id="progress"></div>

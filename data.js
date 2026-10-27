@@ -226,7 +226,7 @@ const publishedTheses = [
     sector: "Industrials",
     geo: "US",
     datePublished: "2026-02-20",
-    image: "images/TIC.webp",
+    image: "images/tic/TICQ1.webp",
     summary:
       "Co-investing with Martin Franklin in an asymmetric bet. How to buy a Data Center infrastructure play at industrial distress prices. A 3-5 year roadmap.",
     url: "https://colubeatid.substack.com/p/tic-solutions-nyse-tic",
@@ -656,7 +656,7 @@ const insights = [
     excerpt:
       "What the map misses about cement plants, terminals and captive demand along the Mississippi.",
     url: "https://colubeatid.substack.com/p/buzzi-quikrete-and-the-mississippi",
-    image: "images/BZUQUIK.webp",
+    image: "images/bzu/quikrete-river.webp",
     relatedTicker: "BZU",
   },
   {
@@ -687,7 +687,7 @@ const insights = [
     excerpt:
       "The buying pattern says more than the total does, and it answers a question holders keep asking.",
     url: "https://colubeatid.substack.com/p/is-buzzis-buyback-real-capital-allocation",
-    image: "images/BZU.webp",
+    image: "images/bzu/Buybacks.webp",
     relatedTicker: "BZU",
   },
   {
@@ -718,7 +718,7 @@ const insights = [
     excerpt:
       "How thermodynamics, environmental regulation, and geography built an irreplicable logistics advantage that doubles European margins.",
     url: "https://colubeatid.substack.com/p/the-mississippi-buzzis-structural",
-    image: "images/BUZZI2.webp",
+    image: "images/bzu/BUZZI2.webp",
     relatedTicker: "BZU",
   },
   {
@@ -728,7 +728,7 @@ const insights = [
     excerpt:
       "Five disclosures from the 10-K/A. Three confirm what we already knew. Two deserve attention.",
     url: "https://colubeatid.substack.com/p/insight-2-the-hidden-details-in-tic",
-    image: "images/TIC2.webp",
+    image: "images/tic/TIC10K.webp",
     relatedTicker: "TIC",
   },
   {
@@ -738,7 +738,7 @@ const insights = [
     excerpt:
       "GEO Agent is the asset nobody is pricing. The CEO transition may be the reason it gets built.",
     url: "https://colubeatid.substack.com/p/insight-geo-agent-the-part-of-tic?r=392fuc",
-    image: "images/TIC.webp",
+    image: "images/tic/TICgeo.webp",
     relatedTicker: "TIC",
   },
   {
@@ -1332,6 +1332,29 @@ const companyPages = {
      Photos: put them in images/pool/ and point `image` at them.
      ✎ EDITORIAL — copy below is a first draft from your summaries.
      ═══════════════════════════════════════════════════════════ */
+  TIC: {
+    chapters: [
+      {
+        ref: "update-tic-solutions-tic-fy-2025",
+        image: "images/tic/TICfy25.webp",
+      },
+      {
+        ref: "update-tic-solutions-tic-q1-2026",
+        image: "images/tic/TICQ1.webp",
+      },
+      {
+        ref: "tics-new-31885-framework-growth-over",
+        image: "images/tic/TICpres.webp",
+      },
+      {
+        ref: "update-tic-solutions-tic-q2-2026",
+        image: "images/tic/TICQ2.webp",
+      },
+      // 02 · FY 2025 Results and 03 · Q1 2026 Results have no block:
+      //      they appear automatically. To change only their photo:
+      //      { ref: "pool-corporation-pool-fy-2025", image: "images/pool/fy2025.webp" },
+    ],
+  },
   FRPH: {
     chapters: [
       {

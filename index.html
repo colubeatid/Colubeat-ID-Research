@@ -226,6 +226,105 @@
       transform: none
     }
 
+    /* solid ember call to action: the one button that always says "subscribe" */
+    .cta {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      padding: 14px 16px 14px 24px;
+      border-radius: var(--r);
+      background: linear-gradient(135deg, #f39a76, var(--ember) 45%, var(--ember-deep));
+      color: var(--bg-0);
+      text-align: left;
+      overflow: hidden;
+      box-shadow: 0 14px 40px -12px var(--ember-glow), inset 0 1px 0 rgba(255, 255, 255, .35);
+      transition: box-shadow .25s, transform .25s cubic-bezier(.2, .7, .2, 1)
+    }
+
+    .cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 50px -10px rgba(238, 125, 88, .5), inset 0 1px 0 rgba(255, 255, 255, .35)
+    }
+
+    .cta::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, .45) 50%, transparent 65%);
+      transform: translateX(-120%);
+      pointer-events: none
+    }
+
+    .cta.shine::after {
+      animation: shine 1.4s ease .2s
+    }
+
+    @keyframes shine {
+      to {
+        transform: translateX(120%)
+      }
+    }
+
+    .cta-txt {
+      display: flex;
+      flex-direction: column;
+      gap: 2px
+    }
+
+    .cta-main {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase
+    }
+
+    .cta-sub {
+      font-size: 12px;
+      letter-spacing: .03em;
+      opacity: .78
+    }
+
+    .cta-arrow {
+      width: 34px;
+      height: 34px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(13, 9, 7, .16);
+      font-size: 16px;
+      transition: transform .25s
+    }
+
+    .cta:hover .cta-arrow {
+      transform: translateX(3px)
+    }
+
+    .cta.sm {
+      gap: 12px;
+      padding: 8px 8px 8px 18px
+    }
+
+    .cta.sm .cta-main {
+      font-size: 12px
+    }
+
+    .cta.sm .cta-arrow {
+      width: 28px;
+      height: 28px;
+      font-size: 14px
+    }
+
+    .hero .cta {
+      padding: 16px 18px 16px 28px;
+      box-shadow: 0 18px 60px -12px rgba(238, 125, 88, .45), inset 0 1px 0 rgba(255, 255, 255, .35)
+    }
+
+    .hero .cta-main {
+      font-size: 14px
+    }
+
     /* ══ NAV ══ */
     .nav {
       position: sticky;
@@ -295,9 +394,8 @@
       color: var(--ember)
     }
 
-    .nav .btn {
-      justify-self: end;
-      padding: 12px 24px
+    .nav .cta {
+      justify-self: end
     }
 
     /* ══ HERO ══ */
@@ -307,7 +405,7 @@
       min-height: 600px;
       overflow: hidden;
       background: var(--bg-0);
-      color: var(--text)
+      color: var(--text);
     }
 
     .hero-media {
@@ -888,9 +986,9 @@
     .subs {
       position: relative;
       background:
-        radial-gradient(50% 70% at 20% 0%, rgba(164, 157, 255, .16), transparent 70%),
-        radial-gradient(45% 60% at 90% 100%, rgba(238, 125, 88, .14), transparent 70%),
-        var(--plum);
+        radial-gradient(50% 80% at 80% 50%, rgba(238, 125, 88, .14), transparent 70%),
+        radial-gradient(40% 70% at 10% 100%, rgba(164, 157, 255, .1), transparent 70%),
+        var(--bg-2);
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line)
     }
@@ -903,7 +1001,7 @@
 
     .subs-head .display {
       font-size: clamp(36px, 4vw, 47px);
-      color: var(--iris);
+      color: var(--text);
       margin: 26px 0 18px
     }
 
@@ -1161,8 +1259,8 @@
         justify-self: start
       }
 
-      .nav .btn {
-        padding: 10px 16px
+      .nav .cta {
+        padding: 6px 6px 6px 14px
       }
 
       .hero h1 {
@@ -1301,8 +1399,10 @@
       <a class="brand" href="index.html" aria-label="Colubeat Investment Desk — home">
         <img src="COLUBEAT-logo-mini.webp" alt="" width="26" height="26"><span>Colubeat</span>
       </a>
-      <a class="btn" href="https://colubeatid.substack.com/subscribe" target="_blank" rel="noopener"
-        data-analytics="home_nav_subscribe_click">Subscribe</a>
+      <a class="cta sm" href="https://colubeatid.substack.com/subscribe" target="_blank" rel="noopener"
+        data-analytics="home_nav_subscribe_click">
+        <span class="cta-main">Subscribe</span><span class="cta-arrow" aria-hidden="true">→</span>
+      </a>
     </div>
   </header>
 
@@ -1316,8 +1416,12 @@
           understand the numbers.</h1>
         <p class="hero-sub">I write the thesis, then keep following the company when there's something worth digging
           into.</p>
-        <a class="btn" href="https://colubeatid.substack.com/subscribe" target="_blank" rel="noopener"
-          data-analytics="home_hero_subscribe_click">Subscribe <span aria-hidden="true">→</span></a>
+        <a class="cta shine" href="https://colubeatid.substack.com/subscribe" target="_blank" rel="noopener"
+          data-analytics="home_hero_subscribe_click">
+          <span class="cta-txt"><span class="cta-main">Subscribe free</span><span class="cta-sub">on Substack · Every
+              update in your inbox</span></span>
+          <span class="cta-arrow" aria-hidden="true">→</span>
+        </a>
       </div>
       <div class="hero-foot" aria-label="Research in numbers">
         <div class="wrap" id="heroStats"></div>

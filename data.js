@@ -1435,14 +1435,14 @@ const companyPages = {
       {
         // 05 · FY 2026 (Oct 26, 2026)
         ref: "update-pool-corporation-pool-q1-2026",
-        image: "images/pool/POOLQ1.webp", // ✎ a wide, dramatic photo works best here, e.g. "images/pool/q3-2026.webp"
+        image: "images/pool/PoolQ1.webp", // ✎ a wide, dramatic photo works best here, e.g. "images/pool/q3-2026.webp"
       },
       {
         // 04 · Q2 2026 (Jul 30, 2026)
         ref: "update-pool-corporation-pool-q2-2026",
         layout: "split",
         side: "left",
-        image: "images/pool/POOLQ2.webp", // ✎ e.g. "images/pool/q2-2026.webp"
+        image: "images/pool/PoolQ2.webp", // ✎ e.g. "images/pool/q2-2026.webp"
         title: "The problem wasn't maintenance demand.",
         lead: "Q2 2026. Maintenance held up. What moved the numbers was elsewhere.",
         inside: [
@@ -1455,7 +1455,7 @@ const companyPages = {
         // 05 · Q3 2026 (Oct 26, 2026)
         ref: "pool-it-didnt-need-a-great-quarter",
         layout: "fullbleed",
-        image: "images/pool/POOLQ3.webp", // ✎ a wide, dramatic photo works best here, e.g. "images/pool/q3-2026.webp"
+        image: "images/pool/PoolQ3.webp", // ✎ a wide, dramatic photo works best here, e.g. "images/pool/q3-2026.webp"
         title: "It didn't need a great quarter.",
         lead: "Q3 gave investors some reasons to be less pessimistic.",
         inside: [

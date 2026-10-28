@@ -502,7 +502,7 @@ const publishedTheses = [
     datePublished: "2025-12-19",
     image: "images/POOL.webp",
     summary:
-      "A massive distribution machine where 64% of the revenue is locked in by mandatory maintenance, making it a resilient compounder just waiting for the construction cycle to turn.",
+      "POOL supplies contractors who build and maintain swimming pools. Its large distribution network is hard to match, and maintenance keeps sales relatively stable. But when new pool construction slows, margins and profits can suffer much more than revenue.",
     url: "https://colubeatid.substack.com/p/pool-corporation-nasdaq-pool?r=392fuc",
     tags: ["B2B Distribution", "Recurring Revenue", "Compounder"],
     isPaid: false,
@@ -1697,21 +1697,21 @@ const companyPages = {
   BQE: {
     // ✎ about: 50–80 words. What the company does and why it caught your eye.
     about:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "BQE Water helps mining companies treat contaminated water before it can be released into the environment. It develops treatment processes for things like cyanide, selenium and dissolved metals, and often stays to operate the plants. The interesting part is that BQE doesn't usually own those plants, so it can grow without investing much capital. Some customers sign contracts lasting years, while others start with emergency work paid month to month. Turning those temporary jobs into longer contracts can take quite a while.",
     chapters: [
       {
         // 01 · Original thesis (2026-05-06)
         ref: "bqe-water-inc-tsx-v-bqe",
         // ✎ title: a short headline with an opinion, like POOL ("Pools need chemicals and repairs whether or not anyone builds a new one.")
         title:
-          "The core of the business is currently transitioning from a project-based consulting model into a long-term operator of water treatment plants.",
+          "BQE Water: A Small Water Treatment Business with High Returns on Capital",
         // ✎ lead: 25–40 words that tell the reader what the thesis argues
-        lead: "Can a project-based consulting firm successfully transition to recurring water treatment contracts at scale?",
+        lead: "BQE operates water treatment plants for mines without having to own them. It has just signed three multi-year contracts, including a 20-year agreement with the British Columbia government, while the market still seems to value it like a consulting business. Eagle Mine is the next test, and at over CAD $80, I'm interested in how much of that future recurring revenue is already priced in.",
         // ✎ inside: 3 short lines on what the reader finds in the full piece. "Lorem ipsum" lines never show on the live site.
         inside: [
-          "Lorem ipsum dolor sit amet, consectetur adipiscing",
-          "Lorem ipsum sed do eiusmod tempor incididunt",
-          "Lorem ipsum ut labore et dolore magna aliqua",
+          "How BQE earns such high returns on capital without owning the treatment plants it operates.",
+          "What the new contracts with Britannia, Canadian Royalties and Quebec mean for recurring revenue, and why Eagle Mine is still important.",
+          "How I value BQE across different scenarios, including the risks around Eagle, the China JV and margin recovery.",
         ],
       },
     ],

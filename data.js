@@ -836,7 +836,7 @@ const keyQuestions = {
   "HOM.U":
     "Can a 30% NAV discount close when the strategic buyer already validated the assets at book value?",
   RYN: "Is the market pricing only the trees while ignoring four million acres of optionality in solar, carbon, and real estate?",
-  USLM: "How long can a regional lime monopoly sustain margins driven by cheap Permian gas before the cost advantage normalizes?",
+  USLM: "Gross margins went from 30% to almost 49% in just three years. How much of that comes from real pricing power, how much from cheap gas, and is the stock still worth buying?",
   BQE: "Can a project-based consulting firm successfully transition to recurring water treatment contracts at scale?",
   HAE: "Is the market confusing a one-time revenue reclassification with actual organic decline?",
   CHE: "Can a debt-free holding company compound at 10%+ returns through buybacks alone, without acquisitions?",
@@ -1360,6 +1360,21 @@ const companyPages = {
   ERF: {
     chapters: [
       {
+        // 01 · Original thesis (2026-01-08)
+        ref: "eurofins-scientific-erfpa",
+        // ✎ title: a short headline with an opinion, like POOL ("Pools need chemicals and repairs whether or not anyone builds a new one.")
+        title:
+          "Global laboratory leader that's finished its heavy investment cycle and is now turning its massive network into a high-cash-flow operation.",
+        // ✎ lead: 25–40 words that tell the reader what the thesis argues
+        lead: "Is the heavy capex cycle truly over, and will FCF conversion reach the levels management projects?",
+        // ✎ inside: 3 short lines on what the reader finds in the full piece. "Lorem ipsum" lines never show on the live site.
+        inside: [
+          "Lorem ipsum dolor sit amet, consectetur adipiscing",
+          "Lorem ipsum sed do eiusmod tempor incididunt",
+          "Lorem ipsum ut labore et dolore magna aliqua",
+        ],
+      },
+      {
         ref: "update-eurofins-scientific-erf-fy",
         image: "images/erf/erffy25.webp",
       },
@@ -1383,6 +1398,21 @@ const companyPages = {
   ALX: {
     chapters: [
       {
+        // 01 · Original thesis (2025-12-29)
+        ref: "alexanders-inc-nyse-alx",
+        // ✎ title: a short headline with an opinion, like POOL ("Pools need chemicals and repairs whether or not anyone builds a new one.")
+        title:
+          "The Rego Park Sale Changes Everything: Updated NAV, A Likely Special Dividend, and Why the Bear Case Just Collapsed",
+        // ✎ lead: 25–40 words that tell the reader what the thesis argues
+        lead: "With the Rego Park sale done and a special dividend likely, what is the remaining portfolio actually worth?",
+        // ✎ inside: 3 short lines on what the reader finds in the full piece. "Lorem ipsum" lines never show on the live site.
+        inside: [
+          "Lorem ipsum dolor sit amet, consectetur adipiscing",
+          "Lorem ipsum sed do eiusmod tempor incididunt",
+          "Lorem ipsum ut labore et dolore magna aliqua",
+        ],
+      },
+      {
         ref: "update-alexanders-alx-fy-2025-results",
         image: "images/alx/alxfy25.webp",
       },
@@ -1401,6 +1431,21 @@ const companyPages = {
   },
   TIC: {
     chapters: [
+      {
+        // 01 · Original thesis (2026-02-20)
+        ref: "tic-solutions-nyse-tic",
+        // ✎ title: a short headline with an opinion, like POOL ("Pools need chemicals and repairs whether or not anyone builds a new one.")
+        title:
+          "Co-investing with Martin Franklin in an asymmetric bet. How to buy a Data Center infrastructure play at industrial distress prices. A 3-5 year roadmap.",
+        // ✎ lead: 25–40 words that tell the reader what the thesis argues
+        lead: "Is Martin Franklin building a data center infrastructure play inside what the market still prices as a distressed industrial?",
+        // ✎ inside: 3 short lines on what the reader finds in the full piece. "Lorem ipsum" lines never show on the live site.
+        inside: [
+          "Lorem ipsum dolor sit amet, consectetur adipiscing",
+          "Lorem ipsum sed do eiusmod tempor incididunt",
+          "Lorem ipsum ut labore et dolore magna aliqua",
+        ],
+      },
       {
         ref: "update-tic-solutions-tic-fy-2025",
         image: "images/tic/TICfy25.webp",
@@ -1425,6 +1470,20 @@ const companyPages = {
   FRPH: {
     chapters: [
       {
+        // 01 · Original thesis (2025-12-06)
+        ref: "frp-holdings-inc-nasdaq-frph",
+        // ✎ title: a short headline with an opinion, like POOL ("Pools need chemicals and repairs whether or not anyone builds a new one.")
+        title: "FRP Holdings ($FRPH): What Are Its Properties Really Worth?",
+        // ✎ lead: 25–40 words that tell the reader what the thesis argues
+        lead: "A company collecting mining royalties while owning waterfront apartments, warehouses and development land. My valuation suggests the assets are worth considerably more than the share price, but realizing that value isn't so simple.",
+        // ✎ inside: 3 short lines on what the reader finds in the full piece. "Lorem ipsum" lines never show on the live site.
+        inside: [
+          "At $22.50 per share, I valued cash and mining at $19.50. That left roughly $3 for the rest of the business.",
+          "FRP owns 4,280 acres in Brooksville with entitlements for 5,800 homes, alongside valuable waterfront properties in Washington, D.C.",
+          "Bringing industrial development in-house could improve returns, but vacant warehouses and rising corporate costs are putting the strategy to the test.",
+        ],
+      },
+      {
         ref: "lets-talk-about-frp-holdings",
         image: "images/frp/FRPH.webp",
       },
@@ -1447,6 +1506,21 @@ const companyPages = {
   },
   RYN: {
     chapters: [
+      {
+        // 01 · Original thesis (2026-06-16)
+        ref: "rayonier-inc-nyse-ryn",
+        // ✎ title: a short headline with an opinion, like POOL ("Pools need chemicals and repairs whether or not anyone builds a new one.")
+        title:
+          "Rayonier ($RYN): Why I'm Paying for Trees to Get the Land for Free.",
+        // ✎ lead: 25–40 words that tell the reader what the thesis argues
+        lead: "Private buyers have paid far more for Rayonier's land than the stock market seems to value it. Is the market missing something, or is the discount justified?",
+        // ✎ inside: 3 short lines on what the reader finds in the full piece. "Lorem ipsum" lines never show on the live site.
+        inside: [
+          "44x vs. 18x: Why Rayonier sold timberland at 44x three-year EBITDA while its shares implied a multiple closer to 18x.",
+          "More than just timber: How real estate development, solar projects and carbon storage could make some of its land much more valuable.",
+          "A recovery that may take years: Why Southern timber oversupply and the PotlatchDeltic merger make the investment more complicated than simply waiting for housing to recover.",
+        ],
+      },
       {
         ref: "lets-talk-about-rayonier",
         image: "images/ryn/RYNtalk.webp",
@@ -1483,11 +1557,11 @@ const companyPages = {
         image: null, // ✎ e.g. "images/pool/thesis.webp" (null = thesis image)
         title:
           "Pools need chemicals and repairs whether or not anyone builds a new one.",
-        lead: "A massive distribution machine where 64% of the revenue is locked in by mandatory maintenance, waiting for the construction cycle to turn.",
+        lead: "Maintenance accounts for 64% of sales, but weak construction is still hurting profits. The question is how much POOL can earn when volumes recover.",
         inside: [
-          "Why maintenance makes the revenue so resilient",
-          "What has to happen for the construction cycle to turn",
-          "Bear, base and bull cases",
+          "Why small contractors depend on POOL's local inventory, fast delivery and credit",
+          "How 50+ new distribution centers are weighing on margins",
+          "What the bear, base and bull cases imply for the stock",
         ],
         cards: [{ x: 74, y: 80, value: "64%", label: "maintenance revenue" }],
       },
@@ -1529,6 +1603,195 @@ const companyPages = {
           "Why the quarter was enough",
           "Why I'm giving Watwood more credit",
           "How much margin POOL can still recover",
+        ],
+      },
+    ],
+  },
+  AMRZ: {
+    chapters: [
+      {
+        // 01 · Original thesis (2026-09-03)
+        ref: "amrize-ltd-nyse-amrz-building-materials",
+        // ✎ title: a short headline with an opinion, like POOL ("Pools need chemicals and repairs whether or not anyone builds a new one.")
+        title:
+          "Amriz ($AMRZ): Strong in Cement and Aggregates, Less Convincing in Roofing",
+        // ✎ lead: 25–40 words that tell the reader what the thesis argues
+        lead: "I like its cement and aggregates business, but I'm less convinced by the roofing acquisitions. After going through the assets, management and valuation, I found a few reasons to be cautious.",
+        // ✎ inside: 3 short lines on what the reader finds in the full piece. "Lorem ipsum" lines never show on the live site.
+        inside: [
+          "A closer look at the cement and aggregates network, including where Amrize has strong local positions and where competitors like Buzzi have an advantage.",
+          "Holcim spent over $6.3 billion building the roofing business. I looked at the returns so far, and I'm not particularly impressed.",
+          "My Base case showed a 13.8% annual return at the publication price. Why I still started with a small position, and what would make me buy more.",
+        ],
+      },
+    ],
+  },
+  "HOM.U": {
+    chapters: [
+      {
+        // 01 · Original thesis (2026-07-16)
+        ref: "bsr-reit-tsx-homu-the-29-gap-avalonbay",
+        // ✎ title: a short headline with an opinion, like POOL ("Pools need chemicals and repairs whether or not anyone builds a new one.")
+        title:
+          "Small Toronto-listed REIT that owns zero property in Canada. Just apts across TX, OK & AR, managed by people who've leased those submarkets for years. A strategic buyer paid almost book value for part of this REIT. The rest still trades nearly 30% below NAV.",
+        // ✎ lead: 25–40 words that tell the reader what the thesis argues
+        lead: "Can a 30% NAV discount close when the strategic buyer already validated the assets at book value?",
+        // ✎ inside: 3 short lines on what the reader finds in the full piece. "Lorem ipsum" lines never show on the live site.
+        inside: [
+          "Lorem ipsum dolor sit amet, consectetur adipiscing",
+          "Lorem ipsum sed do eiusmod tempor incididunt",
+          "Lorem ipsum ut labore et dolore magna aliqua",
+        ],
+      },
+    ],
+  },
+  USLM: {
+    chapters: [
+      {
+        // 01 · Original thesis (2026-05-28)
+        ref: "united-states-lime-and-minerals-inc",
+        // ✎ title: a short headline with an opinion, like POOL ("Pools need chemicals and repairs whether or not anyone builds a new one.")
+        title: "USLM: A Local Monopoly Priced Like a Commodity Stock",
+        // ✎ lead: 25–40 words that tell the reader what the thesis argues
+        lead: "Gross margins went from 30% to almost 49% in just three years. How much of that comes from real pricing power, how much from cheap gas, and is the stock still worth buying?",
+        // ✎ inside: 3 short lines on what the reader finds in the full piece. "Lorem ipsum" lines never show on the live site.
+        inside: [
+          "Why high-quality limestone reserves, transport costs and strict permitting make it so difficult to compete with USLM around Dallas–Fort Worth.",
+          "How much of USLM's margins depend on unusually cheap Permian gas, and what happens if that advantage starts to disappear.",
+          "What the new kiln, nearly $400 million in cash and family control mean for my valuation, including the price I'd be willing to pay.",
+        ],
+      },
+    ],
+  },
+  BQE: {
+    chapters: [
+      {
+        // 01 · Original thesis (2026-05-06)
+        ref: "bqe-water-inc-tsx-v-bqe",
+        // ✎ title: a short headline with an opinion, like POOL ("Pools need chemicals and repairs whether or not anyone builds a new one.")
+        title:
+          "The core of the business is currently transitioning from a project-based consulting model into a long-term operator of water treatment plants.",
+        // ✎ lead: 25–40 words that tell the reader what the thesis argues
+        lead: "Can a project-based consulting firm successfully transition to recurring water treatment contracts at scale?",
+        // ✎ inside: 3 short lines on what the reader finds in the full piece. "Lorem ipsum" lines never show on the live site.
+        inside: [
+          "Lorem ipsum dolor sit amet, consectetur adipiscing",
+          "Lorem ipsum sed do eiusmod tempor incididunt",
+          "Lorem ipsum ut labore et dolore magna aliqua",
+        ],
+      },
+    ],
+  },
+  HAE: {
+    chapters: [
+      {
+        // 01 · Original thesis (2026-04-22)
+        ref: "haemonetics-nyse-hae",
+        // ✎ title: a short headline with an opinion, like POOL ("Pools need chemicals and repairs whether or not anyone builds a new one.")
+        title:
+          "A medical technology leader with high software-driven switching costs. It's trading at 12x because the market's mistaking reported revenue declines for actual organic growth.",
+        // ✎ lead: 25–40 words that tell the reader what the thesis argues
+        lead: "Is the market confusing a one-time revenue reclassification with actual organic decline?",
+        // ✎ inside: 3 short lines on what the reader finds in the full piece. "Lorem ipsum" lines never show on the live site.
+        inside: [
+          "Lorem ipsum dolor sit amet, consectetur adipiscing",
+          "Lorem ipsum sed do eiusmod tempor incididunt",
+          "Lorem ipsum ut labore et dolore magna aliqua",
+        ],
+      },
+    ],
+  },
+  CHE: {
+    chapters: [
+      {
+        // 01 · Original thesis (2026-03-23)
+        ref: "chemed-corporation-nyse-che",
+        // ✎ title: a short headline with an opinion, like POOL ("Pools need chemicals and repairs whether or not anyone builds a new one.")
+        title:
+          "A debt-free holding company that leverages dominant, route-based market positions in hospice and plumbing to generate high-margin free cash flow for aggressive share repurchases",
+        // ✎ lead: 25–40 words that tell the reader what the thesis argues
+        lead: "Can a debt-free holding company compound at 10%+ returns through buybacks alone, without acquisitions?",
+        // ✎ inside: 3 short lines on what the reader finds in the full piece. "Lorem ipsum" lines never show on the live site.
+        inside: [
+          "Lorem ipsum dolor sit amet, consectetur adipiscing",
+          "Lorem ipsum sed do eiusmod tempor incididunt",
+          "Lorem ipsum ut labore et dolore magna aliqua",
+        ],
+      },
+    ],
+  },
+  MSA: {
+    chapters: [
+      {
+        // 01 · Original thesis (2026-3-3)
+        ref: "msa-safety-incorporated-nyse-msa",
+        // ✎ title: a short headline with an opinion, like POOL ("Pools need chemicals and repairs whether or not anyone builds a new one.")
+        title:
+          "An elite 'regulatory tax' on safety with 45% recurring revenue, but right now it's a great business at a very difficult price.",
+        // ✎ lead: 25–40 words that tell the reader what the thesis argues
+        lead: "At what price does a 45% recurring revenue safety business become a buy despite its premium multiple?",
+        // ✎ inside: 3 short lines on what the reader finds in the full piece. "Lorem ipsum" lines never show on the live site.
+        inside: [
+          "Lorem ipsum dolor sit amet, consectetur adipiscing",
+          "Lorem ipsum sed do eiusmod tempor incididunt",
+          "Lorem ipsum ut labore et dolore magna aliqua",
+        ],
+      },
+    ],
+  },
+  BNZL: {
+    chapters: [
+      {
+        // 01 · Original thesis (2026-02-04)
+        ref: "bunzl-plc-lon-bnzl",
+        // ✎ title: a short headline with an opinion, like POOL ("Pools need chemicals and repairs whether or not anyone builds a new one.")
+        title:
+          "An M&A machine that scales by buying smaller distributors, currently busy fixing a centralization mess in the US.",
+        // ✎ lead: 25–40 words that tell the reader what the thesis argues
+        lead: "Can Bunzl fix its US centralization problems while maintaining its acquisition flywheel?",
+        // ✎ inside: 3 short lines on what the reader finds in the full piece. "Lorem ipsum" lines never show on the live site.
+        inside: [
+          "Lorem ipsum dolor sit amet, consectetur adipiscing",
+          "Lorem ipsum sed do eiusmod tempor incididunt",
+          "Lorem ipsum ut labore et dolore magna aliqua",
+        ],
+      },
+    ],
+  },
+  VRE: {
+    chapters: [
+      {
+        // 01 · Original thesis (2025-12-11)
+        ref: "veris-residential-nyse-vre-the-deep",
+        // ✎ title: a short headline with an opinion, like POOL ("Pools need chemicals and repairs whether or not anyone builds a new one.")
+        title:
+          "Irreplaceable luxury, mercenary management, and a 35% discount: Veris Residential's master stroke.",
+        // ✎ lead: 25–40 words that tell the reader what the thesis argues
+        lead: "Was the 35% NAV discount justified by operational risk, or was the market simply wrong?",
+        // ✎ inside: 3 short lines on what the reader finds in the full piece. "Lorem ipsum" lines never show on the live site.
+        inside: [
+          "Lorem ipsum dolor sit amet, consectetur adipiscing",
+          "Lorem ipsum sed do eiusmod tempor incididunt",
+          "Lorem ipsum ut labore et dolore magna aliqua",
+        ],
+      },
+    ],
+  },
+  "3828.HK": {
+    chapters: [
+      {
+        // 01 · Original thesis (2025-12-04)
+        ref: "ming-fai-international-holding-limited",
+        // ✎ title: a short headline with an opinion, like POOL ("Pools need chemicals and repairs whether or not anyone builds a new one.")
+        title:
+          "Cash fortress and anti-tariff shield trading at panic levels. New strategic value unlocks.",
+        // ✎ lead: 25–40 words that tell the reader what the thesis argues
+        lead: "Is this a genuine cash fortress at panic prices, or is there a governance discount the market is correctly pricing?",
+        // ✎ inside: 3 short lines on what the reader finds in the full piece. "Lorem ipsum" lines never show on the live site.
+        inside: [
+          "Lorem ipsum dolor sit amet, consectetur adipiscing",
+          "Lorem ipsum sed do eiusmod tempor incididunt",
+          "Lorem ipsum ut labore et dolore magna aliqua",
         ],
       },
     ],

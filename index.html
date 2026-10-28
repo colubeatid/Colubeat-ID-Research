@@ -59,10 +59,10 @@
       /* meta, captions (AA on --bg) */
       --line: rgba(241, 232, 219, .10);
       --line-strong: rgba(241, 232, 219, .2);
-      --ember: #ee7d58;
+      --ember: #e0b05c;
       /* the single accent: actions, active states */
-      --ember-deep: #b8502f;
-      --ember-glow: rgba(238, 125, 88, .22);
+      --ember-deep: #9c6d26;
+      --ember-glow: rgba(224, 176, 92, .22);
       --amber: #e9b872;
       /* tiny highlights only: "New" */
       --iris: #a49dff;
@@ -92,7 +92,7 @@
       line-height: 1.55;
       letter-spacing: .03em;
       background:
-        radial-gradient(70% 50% at 12% 0%, rgba(238, 125, 88, .07), transparent 70%),
+        radial-gradient(70% 50% at 12% 0%, rgba(224, 176, 92, .07), transparent 70%),
         radial-gradient(60% 45% at 100% 55%, rgba(120, 90, 160, .07), transparent 70%),
         radial-gradient(80% 60% at 30% 100%, rgba(233, 184, 114, .05), transparent 70%),
         var(--bg);
@@ -234,7 +234,7 @@
       gap: 18px;
       padding: 14px 16px 14px 24px;
       border-radius: var(--r);
-      background: linear-gradient(135deg, #f39a76, var(--ember) 45%, var(--ember-deep));
+      background: linear-gradient(135deg, #f3d48e, var(--ember) 45%, var(--ember-deep));
       color: var(--bg-0);
       text-align: left;
       overflow: hidden;
@@ -244,7 +244,7 @@
 
     .cta:hover {
       transform: translateY(-1px);
-      box-shadow: 0 20px 50px -10px rgba(238, 125, 88, .5), inset 0 1px 0 rgba(255, 255, 255, .35)
+      box-shadow: 0 20px 50px -10px rgba(224, 176, 92, .5), inset 0 1px 0 rgba(255, 255, 255, .35)
     }
 
     .cta::after {
@@ -318,7 +318,7 @@
 
     .hero .cta {
       padding: 16px 18px 16px 28px;
-      box-shadow: 0 18px 60px -12px rgba(238, 125, 88, .45), inset 0 1px 0 rgba(255, 255, 255, .35)
+      box-shadow: 0 18px 60px -12px rgba(224, 176, 92, .45), inset 0 1px 0 rgba(255, 255, 255, .35)
     }
 
     .hero .cta-main {
@@ -327,11 +327,11 @@
 
     /* a slow, quiet glint across the subscribe button: once every few seconds */
     .cta.glint::after {
-      animation: glint 7s ease-in-out 2.5s infinite
+      animation: glint 4s ease-in-out 2.5s infinite
     }
 
     .cta.glint {
-      animation: glow 7s ease-in-out 2.5s infinite
+      animation: glow 4s ease-in-out 2.5s infinite
     }
 
     @keyframes glint {
@@ -356,7 +356,7 @@
       }
 
       86% {
-        box-shadow: 0 10px 34px -6px rgba(238, 125, 88, .55), inset 0 1px 0 rgba(255, 255, 255, .45)
+        box-shadow: 0 10px 34px -6px rgba(224, 176, 92, .55), inset 0 1px 0 rgba(255, 255, 255, .45)
       }
     }
 
@@ -378,7 +378,7 @@
       right: 0;
       bottom: 0;
       height: 1px;
-      background: linear-gradient(90deg, transparent, var(--line-strong) 20%, rgba(238, 125, 88, .45) 50%, var(--line-strong) 80%, transparent)
+      background: linear-gradient(90deg, transparent, var(--line-strong) 20%, rgba(224, 176, 92, .45) 50%, var(--line-strong) 80%, transparent)
     }
 
     .nav .wrap {
@@ -517,7 +517,7 @@
 
     .hero .btn {
       color: var(--text);
-      background: rgba(238, 125, 88, .08);
+      background: rgba(224, 176, 92, .08);
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px)
     }
@@ -1146,7 +1146,7 @@
     .subs {
       position: relative;
       background:
-        radial-gradient(50% 80% at 80% 50%, rgba(238, 125, 88, .14), transparent 70%),
+        radial-gradient(50% 80% at 80% 50%, rgba(224, 176, 92, .14), transparent 70%),
         radial-gradient(40% 70% at 10% 100%, rgba(164, 157, 255, .1), transparent 70%),
         var(--bg-2);
       border-top: 1px solid var(--line);
@@ -1231,7 +1231,7 @@
     /* FOOTER */
     footer {
       position: relative;
-      background: radial-gradient(60% 120% at 50% 0%, rgba(238, 125, 88, .08), transparent 60%), var(--bg-0);
+      background: radial-gradient(60% 120% at 50% 0%, rgba(224, 176, 92, .08), transparent 60%), var(--bg-0);
       color: var(--text);
       padding: 68px 0 40px
     }
@@ -1347,7 +1347,7 @@
       border-radius: 6px;
       opacity: 0;
       transition: opacity .4s;
-      background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 30%), rgba(238, 125, 88, .10), transparent 60%);
+      background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 30%), rgba(224, 176, 92, .10), transparent 60%);
       border: 1px solid rgba(241, 232, 219, .06)
     }
 
@@ -1371,7 +1371,7 @@
     }
 
     .row:hover {
-      background: linear-gradient(90deg, rgba(238, 125, 88, .06), transparent 70%)
+      background: linear-gradient(90deg, rgba(224, 176, 92, .06), transparent 70%)
     }
 
     .chip:hover {
@@ -1380,7 +1380,7 @@
 
     .start-num,
     .stat b {
-      background: linear-gradient(180deg, #ffb08f, var(--ember));
+      background: linear-gradient(180deg, #f6dca0, var(--ember));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent

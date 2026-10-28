@@ -26,9 +26,9 @@
       --muted: #9a8a7b;
       --line: rgba(241, 232, 219, .10);
       --line-strong: rgba(241, 232, 219, .2);
-      --ember: #ee7d58;
-      --ember-deep: #b8502f;
-      --ember-glow: rgba(238, 125, 88, .22);
+      --ember: #e0b05c;
+      --ember-deep: #9c6d26;
+      --ember-glow: rgba(224, 176, 92, .22);
       --amber: #e9b872;
       --iris: #a49dff;
       --plum: #1c1420;
@@ -57,7 +57,7 @@
       line-height: 1.55;
       letter-spacing: .03em;
       background:
-        radial-gradient(70% 40% at 12% 0%, rgba(238, 125, 88, .07), transparent 70%),
+        radial-gradient(70% 40% at 12% 0%, rgba(224, 176, 92, .07), transparent 70%),
         radial-gradient(60% 35% at 100% 40%, rgba(120, 90, 160, .06), transparent 70%),
         var(--bg);
       color: var(--text);
@@ -135,7 +135,7 @@
       font-weight: 500;
       letter-spacing: .07em;
       text-transform: uppercase;
-      background: rgba(238, 125, 88, .08);
+      background: rgba(224, 176, 92, .08);
       transition: background .25s, color .25s, box-shadow .25s
     }
 
@@ -197,7 +197,7 @@
       right: 0;
       bottom: 0;
       height: 1px;
-      background: linear-gradient(90deg, transparent, var(--line-strong) 20%, rgba(238, 125, 88, .45) 50%, var(--line-strong) 80%, transparent)
+      background: linear-gradient(90deg, transparent, var(--line-strong) 20%, rgba(224, 176, 92, .45) 50%, var(--line-strong) 80%, transparent)
     }
 
     .nav-row {
@@ -243,7 +243,7 @@
       gap: 12px;
       padding: 8px 8px 8px 18px;
       border-radius: var(--r);
-      background: linear-gradient(135deg, #f39a76, var(--ember) 45%, var(--ember-deep));
+      background: linear-gradient(135deg, #f3d48e, var(--ember) 45%, var(--ember-deep));
       color: var(--bg-0);
       overflow: hidden;
       box-shadow: 0 14px 40px -12px var(--ember-glow), inset 0 1px 0 rgba(255, 255, 255, .35);
@@ -252,7 +252,7 @@
 
     .cta:hover {
       transform: translateY(-1px);
-      box-shadow: 0 20px 50px -10px rgba(238, 125, 88, .5), inset 0 1px 0 rgba(255, 255, 255, .35)
+      box-shadow: 0 20px 50px -10px rgba(224, 176, 92, .5), inset 0 1px 0 rgba(255, 255, 255, .35)
     }
 
     .cta::after {
@@ -316,7 +316,7 @@
       }
 
       86% {
-        box-shadow: 0 10px 34px -6px rgba(238, 125, 88, .55), inset 0 1px 0 rgba(255, 255, 255, .45)
+        box-shadow: 0 10px 34px -6px rgba(224, 176, 92, .55), inset 0 1px 0 rgba(255, 255, 255, .45)
       }
     }
 
@@ -656,7 +656,7 @@
     .tl-filters button[aria-pressed="true"] {
       border-color: var(--ember);
       color: var(--text);
-      background: rgba(238, 125, 88, .1)
+      background: rgba(224, 176, 92, .1)
     }
 
     /* type marks (shape + tone, never colour alone) */
@@ -728,7 +728,7 @@
       width: 0;
       height: 3px;
       margin-top: -1px;
-      background: linear-gradient(90deg, rgba(238, 125, 88, 0), var(--ember));
+      background: linear-gradient(90deg, rgba(224, 176, 92, 0), var(--ember));
       box-shadow: 0 0 18px var(--ember-glow);
       transition: width .7s cubic-bezier(.2, .7, .2, 1)
     }
@@ -1018,7 +1018,7 @@
       font-weight: 300;
       font-size: 24px;
       letter-spacing: .02em;
-      background: linear-gradient(180deg, #ffb08f, var(--ember));
+      background: linear-gradient(180deg, #f6dca0, var(--ember));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent
@@ -1140,7 +1140,7 @@
       margin-top: 26px;
       padding: 14px 18px 14px 22px;
       border-radius: var(--r);
-      background: linear-gradient(135deg, #f39a76, var(--ember) 45%, var(--ember-deep));
+      background: linear-gradient(135deg, #f3d48e, var(--ember) 45%, var(--ember-deep));
       color: var(--bg-0);
       overflow: hidden;
       box-shadow: 0 14px 40px -12px var(--ember-glow), inset 0 1px 0 rgba(255, 255, 255, .35);
@@ -1148,7 +1148,7 @@
     }
 
     .cta-read:hover {
-      box-shadow: 0 20px 50px -10px rgba(238, 125, 88, .45), inset 0 1px 0 rgba(255, 255, 255, .35)
+      box-shadow: 0 20px 50px -10px rgba(224, 176, 92, .45), inset 0 1px 0 rgba(255, 255, 255, .35)
     }
 
     .cta-read::after {
@@ -1276,7 +1276,7 @@
       letter-spacing: .01em;
       margin-right: 10px;
       vertical-align: -6px;
-      background: linear-gradient(180deg, #ffb08f, var(--ember));
+      background: linear-gradient(180deg, #f6dca0, var(--ember));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -1531,7 +1531,7 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background: radial-gradient(60% 80% at 20% 0%, rgba(238, 125, 88, .07), transparent 70%)
+      background: radial-gradient(60% 80% at 20% 0%, rgba(224, 176, 92, .07), transparent 70%)
     }
 
     .num-v {
@@ -1708,7 +1708,7 @@
       padding: 120px 0;
       background:
         radial-gradient(50% 70% at 15% 20%, rgba(164, 157, 255, .14), transparent 70%),
-        radial-gradient(45% 60% at 95% 100%, rgba(238, 125, 88, .14), transparent 70%),
+        radial-gradient(45% 60% at 95% 100%, rgba(224, 176, 92, .14), transparent 70%),
         var(--plum);
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line)
@@ -1739,7 +1739,7 @@
     }
 
     .bar:nth-child(1) .bar-fill {
-      background: linear-gradient(90deg, rgba(238, 125, 88, .15), rgba(238, 125, 88, .5))
+      background: linear-gradient(90deg, rgba(224, 176, 92, .15), rgba(224, 176, 92, .5))
     }
 
     .bar:nth-child(2) .bar-fill {
@@ -1793,7 +1793,7 @@
       margin-top: 160px;
       padding: 110px 0;
       background:
-        radial-gradient(50% 80% at 80% 50%, rgba(238, 125, 88, .14), transparent 70%),
+        radial-gradient(50% 80% at 80% 50%, rgba(224, 176, 92, .14), transparent 70%),
         radial-gradient(40% 70% at 10% 100%, rgba(164, 157, 255, .1), transparent 70%),
         var(--bg-2);
       border-top: 1px solid var(--line);
@@ -1844,7 +1844,7 @@
     }
 
     .arch a:hover {
-      background: linear-gradient(90deg, rgba(238, 125, 88, .06), transparent 70%)
+      background: linear-gradient(90deg, rgba(224, 176, 92, .06), transparent 70%)
     }
 
     .arch-d {
@@ -1875,7 +1875,7 @@
     }
 
     footer {
-      background: radial-gradient(60% 120% at 50% 0%, rgba(238, 125, 88, .08), transparent 60%), var(--bg-0);
+      background: radial-gradient(60% 120% at 50% 0%, rgba(224, 176, 92, .08), transparent 60%), var(--bg-0);
       padding: 68px 0 40px
     }
 
@@ -2170,6 +2170,8 @@
       return out.filter((x) => new Date(x.date) <= now).sort((a, b) => new Date(a.date) - new Date(b.date));
     }
 
+    const isDraft = (x) => typeof x === "string" && /^\s*lorem ipsum/i.test(x);
+
     /* each publication gets a chapter; the LONGEST matching ref wins */
     function buildChapters(t, page, pubs) {
       const defs = page.chapters || [];
@@ -2183,6 +2185,11 @@
         // a chapter in companyPages only needs what you want to change; the rest comes from the article
         const merged = { ...auto };
         Object.keys(d).forEach((k) => { if (d[k] !== undefined && d[k] !== null) merged[k] = d[k]; });
+        // "Lorem ipsum" placeholders show in your local preview only, never on the live site
+        if (ON_VERCEL) {
+          ["title", "lead", "more"].forEach((k) => { if (isDraft(merged[k])) merged[k] = auto[k] || ""; });
+          if (Array.isArray(merged.inside)) merged.inside = merged.inside.filter((x) => !isDraft(x));
+        }
         return { ...merged, pub: p, thumb, image: d.image || p.image || t.image, cards: d.cards || [] };
       });
     }

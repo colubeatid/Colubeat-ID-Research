@@ -212,7 +212,7 @@ const publishedTheses = [
     image: "images/CHE.webp",
     summary:
       "A debt-free holding company that leverages dominant, route-based market positions in hospice and plumbing to generate high-margin free cash flow for aggressive share repurchases",
-    url: "https://colubeatid.substack.com/p/chemed-corporation-nyse-che?r=392fuc",
+    url: "https://colubeatid.substack.com/p/chemed-corporation-nyse-che-163",
     tags: [
       "Healthcare Services",
       "Industrial",
@@ -1740,21 +1740,21 @@ const companyPages = {
   CHE: {
     // ✎ about: 50–80 words. What the company does and why it caught your eye.
     about:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "Chemed is an unusual company. It owns VITAS, the largest hospice provider in the US, and Roto-Rooter, the plumbing and drain-cleaning business. VITAS cares for patients near the end of life, mostly paid by Medicare. Roto-Rooter handles blocked drains, plumbing emergencies and water damage. Both rely on having people available locally, often at short notice. Chemed has no long-term debt and has spent years using its cash to buy back shares, although margins are under pressure in both businesses.",
     chapters: [
       {
         // 01 · Original thesis (2026-03-23)
         ref: "chemed-corporation-nyse-che",
         // ✎ title: a short headline with an opinion, like POOL ("Pools need chemicals and repairs whether or not anyone builds a new one.")
         title:
-          "A debt-free holding company that leverages dominant, route-based market positions in hospice and plumbing to generate high-margin free cash flow for aggressive share repurchases",
+          "Cheme ($CHE): Two Market Leaders, No Debt, and a Stock Near Three-Year Lows",
         // ✎ lead: 25–40 words that tell the reader what the thesis argues
-        lead: "Can a debt-free holding company compound at 10%+ returns through buybacks alone, without acquisitions?",
+        lead: "Chemed generates around $325M in annual free cash flow, but both businesses are having problems. VITAS is dealing with Medicare reimbursement limits, while Roto-Rooter's margins have fallen as customer acquisition costs rise. At around $393, I'm trying to work out how much recovery is needed to make the valuation interesting.",
         // ✎ inside: 3 short lines on what the reader finds in the full piece. "Lorem ipsum" lines never show on the live site.
         inside: [
-          "Lorem ipsum dolor sit amet, consectetur adipiscing",
-          "Lorem ipsum sed do eiusmod tempor incididunt",
-          "Lorem ipsum ut labore et dolore magna aliqua",
+          "Why VITAS keeps growing its patient numbers while margins suffer, and whether the Medicare Cap problem can improve.",
+          "How rising Google advertising costs and insurance claim reductions are affecting Roto-Rooter's profitability.",
+          "What Chemed's long history of buybacks means for future returns",
         ],
       },
     ],

@@ -13,10 +13,10 @@ const ctx = { console, URLSearchParams };
 vm.createContext(ctx);
 vm.runInContext(
   read("data.js") +
-    "\n;globalThis.__d = { publishedTheses, companyMeta, slugOf, SITE_URL, insights: typeof insights !== 'undefined' ? insights : [], relatesTo };",
+    "\n;globalThis.__d = { publishedTheses, companyMeta, slugOf, SITE_URL, insights: typeof insights !== 'undefined' ? insights : [], relatesTo, companyPages: typeof companyPages !== 'undefined' ? companyPages : {} };",
   ctx
 );
-const { publishedTheses, companyMeta, slugOf, SITE_URL, insights, relatesTo } = ctx.__d;
+const { publishedTheses, companyMeta, slugOf, SITE_URL, insights, relatesTo, companyPages } = ctx.__d;
 
 // Every published piece about one company, oldest first (future-dated items skipped).
 const publications = (t) => {
@@ -88,10 +88,13 @@ for (const t of publishedTheses) {
   <script>window.__TICKER = ${JSON.stringify(t.ticker)};</script>`;
 
   // Readable text for crawlers and no-JS visitors; the app replaces it on load.
+  const about = (companyPages[t.ticker] || {}).about;
+  const aboutHtml = about && !/^\s*lorem ipsum/i.test(about) ? `<p>${esc(about)}</p>` : "";
   const fallback = `
       <article class="seo-fallback">
         <h1>${esc(t.company)} (${esc(t.ticker)})</h1>
         <p>${esc(m.description)}</p>
+        ${aboutHtml}
         ${items.length ? `<ol>${items.map((i) => `<li>${i.url ? `<a href="${esc(i.url)}">${esc(i.title)}</a>` : esc(i.title)}${iso(i.date) ? ` · <time datetime="${iso(i.date)}">${iso(i.date)}</time>` : ""}</li>`).join("")}</ol>` : ""}
         <p><a href="/">Colubeat home</a></p>
       </article>`;

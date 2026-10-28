@@ -857,6 +857,9 @@ const keyQuestions = {
    Keyed by ticker. EVERYTHING here is optional: a company with no
    entry (or a missing field) still renders; that section just hides.
 
+   about      → 50–80 words before the timeline, in your own voice: what the
+                company does and why you wrote the thesis. A text that starts
+                with "Lorem ipsum" shows only in your local preview.
    hook       → one line under the company name in the hero.
    hero       → { image, video, poster, caption }
                 video: short muted .mp4/.webm (< 3 MB). poster is shown
@@ -876,6 +879,9 @@ const keyQuestions = {
    ═══════════════════════════════════════════════════════════ */
 const companyPages = {
   BZU: {
+    // ✎ about: 50–80 words. What the company does and why it caught your eye.
+    about:
+      "Buzzi is an Italian cement producer still controlled by the founding family. A large part of its profits actually comes from the US, where it owns some very well-positioned plants. That's important in cement, because transporting it is expensive and opening a new plant is far from easy. It also has a significant stake in Mexico. The Buzzi family has generally been conservative with debt, although its capital allocation is more debatable. It's a good collection of assets, but some markets are much better than others.",
     // ✎ EDITORIAL — rewrite in your own words
     hook: "An Italian cement maker that earns most of its money in America.",
     metrics: [
@@ -1103,15 +1109,15 @@ const companyPages = {
         ref: "buzzi-spa-bzumi",
         layout: "split",
         inside: [
-          "Why 58% of EBITDA is American but the stock is priced like a European",
-          "The three reasons behind the 'Italian discount'",
-          "Bear, base and bull cases to 2028",
+          "How Buzzi's Mississippi network gives it an advantage in the US cement market.",
+          "Why having €1.1 billion in net cash isn't necessarily good news for shareholders.",
+          "How Russia, family control and future CO₂ costs affect the valuation, with bear, base and bull cases through 2028.",
         ],
         side: "right",
         image: "images/bzu/plant-dawn.webp",
         motion: "zoom-out",
-        title: "Buy for the floor, not the ceiling.",
-        lead: "A family-controlled cement group from Italy, running plants in 14 countries, priced at around 6x EBITDA like a European cement company.",
+        title: "Buzzi: Is 6x EBITDA Really Cheap?",
+        lead: "Most of Buzzi's profits come from the US, yet the stock was trading at around 6x EBITDA. I wanted to understand why the discount was there and whether it was actually an opportunity.",
         more: "The thesis found three reasons for the discount: a family that hoards cash (€1.13bn net), exposure to Russia (~€303m of 2025 sales treated as stranded) and decarbonisation capex of €350m+ a year. Not a growth story. A balance sheet and a set of assets that protect you in a bad market.",
         cards: [
           { x: 22, y: 20, value: "14", label: "countries" },
@@ -1358,20 +1364,22 @@ const companyPages = {
      ✎ EDITORIAL — copy below is a first draft from your summaries.
      ═══════════════════════════════════════════════════════════ */
   ERF: {
+    // ✎ about: 50–80 words. What the company does and why it caught your eye.
+    about:
+      "Eurofins runs a large network of labs, testing food, water, medicines and clinical samples for other companies. It's a business where size helps, since large labs can process more samples using the same expensive equipment, bringing down the cost per test. Gilles Martin has spent nearly 40 years building this network, mostly through acquisitions and new sites. I like the economics of the business, although integrating so many labs and IT systems has been a lot harder than it sounds.",
     chapters: [
       {
         // 01 · Original thesis (2026-01-08)
         ref: "eurofins-scientific-erfpa",
         // ✎ title: a short headline with an opinion, like POOL ("Pools need chemicals and repairs whether or not anyone builds a new one.")
-        title:
-          "Global laboratory leader that's finished its heavy investment cycle and is now turning its massive network into a high-cash-flow operation.",
+        title: "Eurofins Scientific: What Can Its Labs Earn?",
         // ✎ lead: 25–40 words that tell the reader what the thesis argues
-        lead: "Is the heavy capex cycle truly over, and will FCF conversion reach the levels management projects?",
+        lead: "Eurofins has spent years buying, building and reorganising laboratories. I wanted to understand how much of that investment could start showing up in margins and cash flow, and what could still delay it.",
         // ✎ inside: 3 short lines on what the reader finds in the full piece. "Lorem ipsum" lines never show on the live site.
         inside: [
-          "Lorem ipsum dolor sit amet, consectetur adipiscing",
-          "Lorem ipsum sed do eiusmod tempor incididunt",
-          "Lorem ipsum ut labore et dolore magna aliqua",
+          "Why smaller laboratories struggle to match Eurofins' cost per test, and how its network gives it an advantage.",
+          "Mature labs were already at 24.1% EBITDA margins in H1 2025, compared with 22.4% for the group. What's holding the rest back?",
+          "Gilles sold MET Labs at around 14x EBITDA while Eurofins shares traded below 10x. I look at his buybacks and capital allocation decisions.",
         ],
       },
       {
@@ -1396,20 +1404,22 @@ const companyPages = {
     ],
   },
   ALX: {
+    // ✎ about: 50–80 words. What the company does and why it caught your eye.
+    about:
+      "Alexander's is a small REIT with just four properties in New York. Most of its rental income comes from Bloomberg’s offices at 731 Lexington Avenue, with the rest mainly tied to retail and apartments in Queens. It’s not a business where you need to follow dozens of buildings. A single tenant, vacancy or property sale can change the numbers quite a bit. That makes it interesting to value asset by asset, although the concentration and its relationship with Vornado are real drawbacks.",
     chapters: [
       {
         // 01 · Original thesis (2025-12-29)
         ref: "alexanders-inc-nyse-alx",
         // ✎ title: a short headline with an opinion, like POOL ("Pools need chemicals and repairs whether or not anyone builds a new one.")
-        title:
-          "The Rego Park Sale Changes Everything: Updated NAV, A Likely Special Dividend, and Why the Bear Case Just Collapsed",
+        title: "Alexander's ($ALX): A Vacant Building Sold for $235.5 Million",
         // ✎ lead: 25–40 words that tell the reader what the thesis argues
-        lead: "With the Rego Park sale done and a special dividend likely, what is the remaining portfolio actually worth?",
+        lead: "[UPDATED: MAR 2026] I had valued Rego Park I at $100-130M. The sale came in well above my estimate, but the bigger question is what the rest of Alexander’s properties are actually worth.",
         // ✎ inside: 3 short lines on what the reader finds in the full piece. "Lorem ipsum" lines never show on the live site.
         inside: [
-          "Lorem ipsum dolor sit amet, consectetur adipiscing",
-          "Lorem ipsum sed do eiusmod tempor incididunt",
-          "Lorem ipsum ut labore et dolore magna aliqua",
+          "Rego Park I: Why a vacant property sold for almost twice my original estimate.",
+          "731 Lexington: Bloomberg is staying until 2040, but 83,000 sq ft of retail space is still empty.",
+          "Dividends and valuation: The potential special dividend, the remaining portfolio and the risks the market is still pricing in.",
         ],
       },
       {
@@ -1430,18 +1440,21 @@ const companyPages = {
     ],
   },
   TIC: {
+    // ✎ about: 50–80 words. What the company does and why it caught your eye.
+    about:
+      "TIC Solutions spent years inspecting pipelines, refineries and other industrial infrastructure, a business with quite a lot of recurring work. With the NV5 acquisition, Martin Franklin has added engineering, geospatial services and data center projects, which generally have better margins and make TIC a very different company from what it was a few years ago. I like the direction he's taking it, although the acquisition came with a lot of debt, and how quickly they can bring that down will matter quite a bit.",
     chapters: [
       {
         // 01 · Original thesis (2026-02-20)
         ref: "tic-solutions-nyse-tic",
         // ✎ title: a short headline with an opinion, like POOL ("Pools need chemicals and repairs whether or not anyone builds a new one.")
         title:
-          "Co-investing with Martin Franklin in an asymmetric bet. How to buy a Data Center infrastructure play at industrial distress prices. A 3-5 year roadmap.",
+          "TIC Solutions: Buying Into Martin Franklin's Next Transformation",
         // ✎ lead: 25–40 words that tell the reader what the thesis argues
-        lead: "Is Martin Franklin building a data center infrastructure play inside what the market still prices as a distressed industrial?",
+        lead: "Martin Franklin has added higher-margin engineering, geospatial services and data center exposure. Can he reduce the debt enough for the market to recognize what TIC has become?",
         // ✎ inside: 3 short lines on what the reader finds in the full piece. "Lorem ipsum" lines never show on the live site.
         inside: [
-          "Lorem ipsum dolor sit amet, consectetur adipiscing",
+          "A different business after NV5. Engineering and geospatial services now account for almost half of revenue, with much higher gross margins than traditional inspection.",
           "Lorem ipsum sed do eiusmod tempor incididunt",
           "Lorem ipsum ut labore et dolore magna aliqua",
         ],
@@ -1468,6 +1481,9 @@ const companyPages = {
     ],
   },
   FRPH: {
+    // ✎ about: 50–80 words. What the company does and why it caught your eye.
+    about:
+      "FRP Holdings is a small, family-controlled real estate company with a pretty unusual portfolio. It collects royalties from mining operations, owns apartments in Washington, D.C., and has warehouses, land and development projects across the U.S. Mining generates cash without requiring much investment from FRP. Developing properties is a different business, with more money tied up and returns that take years to show up. I find the assets interesting, but what matters most is how much value the company can actually create for shareholders.",
     chapters: [
       {
         // 01 · Original thesis (2025-12-06)
@@ -1505,6 +1521,9 @@ const companyPages = {
     ],
   },
   RYN: {
+    // ✎ about: 50–80 words. What the company does and why it caught your eye.
+    about:
+      "Rayonier owns around four million acres of timberland across the US. Most of its business is pretty simple: grow trees, harvest them and sell the wood. But some of that land can be worth much more for housing, solar projects or other uses. The merger with PotlatchDeltic also added sawmills to the business. What interests me most is the difference between what these assets are worth in private transactions and what investors are paying for the shares. The question is how much of that value shareholders will actually see.",
     chapters: [
       {
         // 01 · Original thesis (2026-06-16)
@@ -1535,6 +1554,9 @@ const companyPages = {
     ],
   },
   POOL: {
+    // ✎ about: 50–80 words. What the company does and why it caught your eye.
+    about:
+      "POOL supplies the contractors who build and maintain swimming pools. Most sales come from existing pools, which still need chemicals, equipment and repairs even when construction slows. What I find interesting is its distribution network: local inventory, fast delivery and a broad product range that's hard for smaller competitors to match. But running that network isn't cheap. When new pool construction falls, revenue can hold up reasonably well while margins and profits take a much bigger hit.",
     hero: {
       image: "images/POOL.webp", // ✎ swap for images/pool/hero.webp when you have it
       title:
@@ -1608,6 +1630,9 @@ const companyPages = {
     ],
   },
   AMRZ: {
+    // ✎ about: 50–80 words. What the company does and why it caught your eye.
+    about:
+      "Amrize is Holcim's former North American business, spun off in 2025. It produces cement, aggregates and ready-mix concrete, and also owns a large roofing business built through acquisitions. What interests me most is Building Materials. These are very local markets, where having the right quarries, plants and distribution network can make a big difference. Building Envelope is a different story. It's an attractive business, but I'm less convinced by the returns Amrize has earned on the money spent acquiring companies.",
     chapters: [
       {
         // 01 · Original thesis (2026-09-03)
@@ -1627,25 +1652,31 @@ const companyPages = {
     ],
   },
   "HOM.U": {
+    // ✎ about: 50–80 words. What the company does and why it caught your eye.
+    about:
+      "BSR is a small apartment REIT listed in Toronto, even though it doesn't own a single property in Canada. It has 26 apartment communities across Texas, Oklahoma and Arkansas, mostly around Houston, Dallas and Austin. Think low-rise apartments with pools, gyms and covered parking. Two Arkansas families built the business over several decades, and the people running it know these local rental markets well. Almost 90% of its income comes from Texas, so what happens in those markets matters quite a bit.",
     chapters: [
       {
         // 01 · Original thesis (2026-07-16)
         ref: "bsr-reit-tsx-homu-the-29-gap-avalonbay",
         // ✎ title: a short headline with an opinion, like POOL ("Pools need chemicals and repairs whether or not anyone builds a new one.")
         title:
-          "Small Toronto-listed REIT that owns zero property in Canada. Just apts across TX, OK & AR, managed by people who've leased those submarkets for years. A strategic buyer paid almost book value for part of this REIT. The rest still trades nearly 30% below NAV.",
+          "BSR REIT ($BSRT): A 29% Discount After AvalonBay Paid Book Value.",
         // ✎ lead: 25–40 words that tell the reader what the thesis argues
-        lead: "Can a 30% NAV discount close when the strategic buyer already validated the assets at book value?",
+        lead: "BSR trades around 29% below its reported NAV, even though AvalonBay paid close to book value for a third of its apartments. The recent acquisitions are still leasing up, cash earnings have fallen and there's more debt to deal with. I'm trying to work out how much of that discount makes sense.",
         // ✎ inside: 3 short lines on what the reader finds in the full piece. "Lorem ipsum" lines never show on the live site.
         inside: [
-          "Lorem ipsum dolor sit amet, consectetur adipiscing",
-          "Lorem ipsum sed do eiusmod tempor incididunt",
-          "Lorem ipsum ut labore et dolore magna aliqua",
+          "What AvalonBay paid for a third of the portfolio, and how I value the properties BSR still owns.",
+          "How the apartments are performing across Houston, Dallas and Austin, including the newer properties still leasing up.",
+          "The debt maturities, distribution coverage and what could keep the 29% NAV discount from closing.",
         ],
       },
     ],
   },
   USLM: {
+    // ✎ about: 50–80 words. What the company does and why it caught your eye.
+    about:
+      "USLM is a regional lime producer, with most of its profits coming from Texas. It mines high-quality limestone and sells products used in road construction, steelmaking, water treatment and other industrial processes. It looks like a fairly simple commodity business, but location matters a lot here. Transport costs, limestone reserves and strict permitting make it difficult for competitors to enter its markets, especially around Dallas–Fort Worth. That's what makes USLM interesting to me, although cheap Permian gas has also helped its recent profitability.",
     chapters: [
       {
         // 01 · Original thesis (2026-05-28)
@@ -1664,6 +1695,9 @@ const companyPages = {
     ],
   },
   BQE: {
+    // ✎ about: 50–80 words. What the company does and why it caught your eye.
+    about:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     chapters: [
       {
         // 01 · Original thesis (2026-05-06)
@@ -1683,25 +1717,30 @@ const companyPages = {
     ],
   },
   HAE: {
+    // ✎ about: 50–80 words. What the company does and why it caught your eye.
+    about:
+      "Haemonetics makes medical devices used in plasma donation centers and hospitals. In Plasma, customers buy its collection machines and then keep buying disposable kits for every donation. That gives it recurring sales and high margins, although a few large customers account for a lot of the business. It also sells blood-clotting tests and devices that close blood vessels after medical procedures. The Hospital business is more competitive, and some acquisitions haven't worked as management expected.",
     chapters: [
       {
         // 01 · Original thesis (2026-04-22)
         ref: "haemonetics-nyse-hae",
         // ✎ title: a short headline with an opinion, like POOL ("Pools need chemicals and repairs whether or not anyone builds a new one.")
-        title:
-          "A medical technology leader with high software-driven switching costs. It's trading at 12x because the market's mistaking reported revenue declines for actual organic growth.",
+        title: "Haemonetics: What is the market missing at $60?",
         // ✎ lead: 25–40 words that tell the reader what the thesis argues
-        lead: "Is the market confusing a one-time revenue reclassification with actual organic decline?",
+        lead: "Haemonetics trades at around 12x earnings after losing a major Plasma customer. Reported revenue is down 2.7%, but organic growth excluding CSL is 7.5%, and Plasma still earns 36% operating margins. Is the market being too pessimistic about the rest of the business?",
         // ✎ inside: 3 short lines on what the reader finds in the full piece. "Lorem ipsum" lines never show on the live site.
         inside: [
-          "Lorem ipsum dolor sit amet, consectetur adipiscing",
-          "Lorem ipsum sed do eiusmod tempor incididunt",
-          "Lorem ipsum ut labore et dolore magna aliqua",
+          "Why reported revenue is falling while the underlying business continues to grow.",
+          "How Haemonetics keeps customers in its Plasma business, and what the loss of CSL tells us about those switching costs.",
+          "Where my base case comes from, including the risks around acquisitions and customer concentration.",
         ],
       },
     ],
   },
   CHE: {
+    // ✎ about: 50–80 words. What the company does and why it caught your eye.
+    about:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     chapters: [
       {
         // 01 · Original thesis (2026-03-23)
@@ -1721,6 +1760,9 @@ const companyPages = {
     ],
   },
   MSA: {
+    // ✎ about: 50–80 words. What the company does and why it caught your eye.
+    about:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     chapters: [
       {
         // 01 · Original thesis (2026-3-3)
@@ -1740,44 +1782,61 @@ const companyPages = {
     ],
   },
   BNZL: {
+    // ✎ about: 50–80 words. What the company does and why it caught your eye.
+    about:
+      "Bunzl supplies the everyday products that businesses need but don't want to spend much time buying: food packaging, gloves, cleaning supplies and safety equipment. A large customer might deal with dozens of suppliers, while Bunzl can handle most of that through one ordering and delivery system. Over time, this makes customer relationships harder to replace, especially when their purchasing systems are connected. Bunzl also generates plenty of cash, which it regularly uses to buy smaller distributors and expand into new markets.",
     chapters: [
       {
         // 01 · Original thesis (2026-02-04)
         ref: "bunzl-plc-lon-bnzl",
         // ✎ title: a short headline with an opinion, like POOL ("Pools need chemicals and repairs whether or not anyone builds a new one.")
         title:
-          "An M&A machine that scales by buying smaller distributors, currently busy fixing a centralization mess in the US.",
+          "Bunzl ($BNZL.L): A Cash-Generating Distributor at a Historical Discount",
         // ✎ lead: 25–40 words that tell the reader what the thesis argues
-        lead: "Can Bunzl fix its US centralization problems while maintaining its acquisition flywheel?",
+        lead: "Bunzl is trading at a historical discount after problems with its US centralization hurt margins and customer service. The business has a long record of acquisitions and strong cash generation, but how much of that US profit can realistically come back?",
         // ✎ inside: 3 short lines on what the reader finds in the full piece. "Lorem ipsum" lines never show on the live site.
         inside: [
-          "Lorem ipsum dolor sit amet, consectetur adipiscing",
-          "Lorem ipsum sed do eiusmod tempor incididunt",
-          "Lorem ipsum ut labore et dolore magna aliqua",
+          "What went wrong with the US centralization and how much of the margin decline Bunzl can recover.",
+          "How Bunzl has grown by buying smaller distributors, and whether those acquisitions can keep delivering good returns.",
+          "What the business could be worth at around £20.50, including the risks if the US recovery takes longer than expected.",
         ],
+      },
+      {
+        ref: "update-bunzl-plc-bnzll-fy-2025-results",
+        image: "images/bunzl/bunzlfy25.webp",
       },
     ],
   },
   VRE: {
+    // ✎ about: 50–80 words. What the company does and why it caught your eye.
+    about:
+      "Veris Residential owns high-end rental apartments, mostly around Jersey City and other parts of the Northeast. It used to be Mack-Cali, an office-heavy REIT, but has spent years selling those properties and focusing on residential buildings. Its portfolio is relatively young, with many apartments close to Manhattan and tenants earning well above average incomes. That helps with rental demand and keeps maintenance costs lower than at older properties. The company still carries quite a lot of debt, though, so management's decisions matter here.",
     chapters: [
       {
         // 01 · Original thesis (2025-12-11)
         ref: "veris-residential-nyse-vre-the-deep",
         // ✎ title: a short headline with an opinion, like POOL ("Pools need chemicals and repairs whether or not anyone builds a new one.")
         title:
-          "Irreplaceable luxury, mercenary management, and a 35% discount: Veris Residential's master stroke.",
+          "Veris Residential ($VRE): Luxury Apartments at a 35% Discount to NAV",
         // ✎ lead: 25–40 words that tell the reader what the thesis argues
-        lead: "Was the 35% NAV discount justified by operational risk, or was the market simply wrong?",
+        lead: "Veris owns relatively new apartments in some expensive markets around New York, with wealthy tenants and lower maintenance costs than many older buildings. Yet the stock trades around 35% below my estimate of what those properties are worth. The debt is certainly part of the explanation, but does it justify such a large discount?",
         // ✎ inside: 3 short lines on what the reader finds in the full piece. "Lorem ipsum" lines never show on the live site.
         inside: [
-          "Lorem ipsum dolor sit amet, consectetur adipiscing",
-          "Lorem ipsum sed do eiusmod tempor incididunt",
-          "Lorem ipsum ut labore et dolore magna aliqua",
+          "Why Veris's locations, younger buildings and wealthy tenants make its portfolio interesting.",
+          "How I value the properties and where that 35% discount to NAV comes from.",
+          "Whether management can close the gap through asset sales, debt reduction or a potential sale of the company.",
         ],
+      },
+      {
+        ref: "thesis-closed-vre-acquired-at-1900",
+        image: "images/vre/vresold.webp",
       },
     ],
   },
   "3828.HK": {
+    // ✎ about: 50–80 words. What the company does and why it caught your eye.
+    about:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     chapters: [
       {
         // 01 · Original thesis (2025-12-04)

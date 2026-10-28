@@ -301,17 +301,23 @@
     }
 
     @keyframes glint {
-      0%, 78% {
+
+      0%,
+      78% {
         transform: translateX(-120%)
       }
 
-      92%, 100% {
+      92%,
+      100% {
         transform: translateX(120%)
       }
     }
 
     @keyframes glow {
-      0%, 74%, 100% {
+
+      0%,
+      74%,
+      100% {
         box-shadow: 0 14px 40px -12px var(--ember-glow), inset 0 1px 0 rgba(255, 255, 255, .35)
       }
 
@@ -623,7 +629,7 @@
     }
 
     .h-sec {
-      font-size: clamp(24px, 2.6vw, 32px);
+      font-size: clamp(24px, 2.6vw, 26px);
       font-weight: 500;
       line-height: 1.27;
       letter-spacing: .07em;
@@ -992,6 +998,79 @@
       letter-spacing: .04em;
       color: var(--muted);
       margin-top: 12px
+    }
+
+    /* ══ ABOUT: who the company is, before the research ══ */
+    .about {
+      padding-top: 110px
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(0, .75fr);
+      gap: 72px;
+      align-items: start
+    }
+
+    .about-txt {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(15px, 2vw, 20px);
+      line-height: 1.42;
+      letter-spacing: .01em;
+      color: var(--text);
+    }
+
+    .about-by {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 26px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted)
+    }
+
+    .about-by img {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%
+    }
+
+    .about-facts {
+      border-top: 1px solid var(--line)
+    }
+
+    .about-facts div {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px
+    }
+
+    .about-facts dt {
+      color: var(--muted);
+      letter-spacing: .06em
+    }
+
+    .about-facts dd {
+      text-align: right;
+      font-weight: 500
+    }
+
+    @media (max-width: 860px) {
+      .about {
+        padding-top: 80px
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px
+      }
     }
 
     /* ══ CHAPTERS ══ */
@@ -2406,6 +2485,30 @@
       </div>`;
     }
 
+    /* ABOUT: your own words on the company, before the timeline (companyPages.about) */
+    function renderAbout(t, page, short) {
+      const txt = page.about;
+      if (!txt || (ON_VERCEL && isDraft(txt))) return "";
+      const facts = [
+        ["Ticker", t.ticker],
+        ["Sector", t.sector],
+        ["Region", t.geo],
+        ["Thesis published", fmt(t.datePublished)],
+        ["Coverage", (typeof STATUS_LABELS !== "undefined" && STATUS_LABELS[t.status]) || t.status],
+      ].filter(([, v]) => v);
+      return `
+      <section class="about wrap" aria-labelledby="about-title">
+        <div class="sec-head rv"><div><p class="eyebrow">Before the research</p><h2 class="h-sec" id="about-title">About ${esc(short)}</h2></div></div>
+        <div class="about-grid">
+          <div class="rv">
+            <p class="about-txt">${esc(txt)}</p>
+            <p class="about-by"><img src="COLUBEAT-logo-mini.webp" alt="" width="20" height="20">Colubeat Investment Desk</p>
+          </div>
+          <dl class="about-facts rv">${facts.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>
+        </div>
+      </section>`;
+    }
+
     function buildPage(t) {
       const page = (typeof companyPages !== "undefined" && companyPages[t.ticker]) || {};
       const pubs = publications(t);
@@ -2450,6 +2553,8 @@
           </div>
           ${pos ? positionCard(pos) : ""}
         </section>
+
+        ${renderAbout(t, page, short)}
 
         <div id="chrono">${renderChrono(t, chapters)}</div>
 

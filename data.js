@@ -131,9 +131,9 @@ const publishedTheses = [
     sector: "Materials",
     geo: "US",
     datePublished: "2026-05-28",
-    image: "images/USLM.webp",
+    image: "images/uslm/uslm.webp",
     summary:
-      "A debt-free regional lime monopoly with exceptional, temporary margins driven by cheap Permian gas and sticky local electric-arc steel demand.",
+      "How limestone reserves, transport costs and permitting barriers give USLM strong pricing power in Texas.",
     url: "https://colubeatid.substack.com/p/united-states-lime-and-minerals-inc",
     tags: ["Industrials"],
     isPaid: true,
@@ -475,6 +475,13 @@ const publishedTheses = [
         excerpt:
           "H1 2026. The margin was already above what I needed in my model. I went back through the valuation to see what slower growth does to it.",
       },
+      {
+        label: "Eurofins: Still Interesting at €81?",
+        url: "https://colubeatid.substack.com/p/eurofins-still-interesting-at-81?r=392fuc",
+        date: "2026-10-22",
+        excerpt:
+          "Eurofins' Q3 results. BioPharma is recovering, margins are improving, and I'm revisiting what I expect from the business.",
+      },
     ],
     earningsIntegrated: true,
     closedReason: null,
@@ -543,7 +550,7 @@ const publishedTheses = [
     sector: "RE Developer",
     geo: "US",
     datePublished: "2025-12-06",
-    image: "images/FRPH.webp",
+    image: "images/frp/FRPHportada.webp",
     summary:
       "A legacy asset-heavy business that just brought a full-cycle development platform in-house to control the entire lifecycle of its projects.",
     url: "https://colubeatid.substack.com/p/frp-holdings-inc-nasdaq-frph?r=392fuc",
@@ -581,9 +588,9 @@ const publishedTheses = [
       visible: true,
       status: "holding",
       currency: "USD",
-      averagePrice: 25.1, // ← add only when you want to disclose it
-      updatedAt: "2026-08-28",
-      referencePrice: 22.15,
+      averagePrice: 24.54, // ← add only when you want to disclose it
+      updatedAt: "2026-10-28",
+      referencePrice: 18.9,
     },
   },
   {
@@ -725,7 +732,7 @@ const insights = [
     excerpt:
       "A documented investigation into what the data center and semiconductor build-out actually means for a Texas lime monopoly.",
     url: "https://colubeatid.substack.com/p/lime-data-centers-and-steel-tracing",
-    image: "images/USLM.webp",
+    image: "images/uslm/uslmdc.webp",
     relatedTicker: "USLM",
   },
   {
@@ -765,7 +772,7 @@ const insights = [
     excerpt:
       "Inside eLIMS-NG, the shadow period, and what it means for the 2027 margin case",
     url: "https://colubeatid.substack.com/p/eurofins-what-10000-bad-reviews-tell",
-    image: "images/ERF.webp",
+    image: "images/erf/erflims.webp",
     relatedTicker: "ERF",
   },
 ];
@@ -1114,6 +1121,7 @@ const companyPages = {
       {
         ref: "buzzi-spa-bzumi-fy-2025-results",
         layout: "numbers",
+        image: "images/bzu/Terminalcement.webp",
         inside: [
           "Where the 240 basis points of margin went",
           "Region by region, from Texas to Poland",
@@ -1209,7 +1217,7 @@ const companyPages = {
         ],
         title:
           "The family is buying back stock. The pattern says more than the total.",
-        image: "images/bzu/Buybacks.png",
+        image: "images/bzu/Buybacks.webp",
         lead: "With net cash on the balance sheet, Buzzi can always afford a buyback. The question is whether the way it buys shows conviction about the price.",
       },
       {
@@ -1349,6 +1357,48 @@ const companyPages = {
      Photos: put them in images/pool/ and point `image` at them.
      ✎ EDITORIAL — copy below is a first draft from your summaries.
      ═══════════════════════════════════════════════════════════ */
+  ERF: {
+    chapters: [
+      {
+        ref: "update-eurofins-scientific-erf-fy",
+        image: "images/erf/erffy25.webp",
+      },
+      {
+        ref: "update-eurofins-scientific-erf-q1",
+        image: "images/erf/erfQ1.webp",
+      },
+      {
+        ref: "update-eurofins-scientific-erf-h1",
+        image: "images/erf/erfQ2.webp",
+      },
+      {
+        ref: "eurofins-still-interesting-at-81",
+        image: "images/erf/erfQ3.webp",
+      },
+      // 02 · FY 2025 Results and 03 · Q1 2026 Results have no block:
+      //      they appear automatically. To change only their photo:
+      //      { ref: "pool-corporation-pool-fy-2025", image: "images/pool/fy2025.webp" },
+    ],
+  },
+  ALX: {
+    chapters: [
+      {
+        ref: "update-alexanders-alx-fy-2025-results",
+        image: "images/alx/alxfy25.webp",
+      },
+      {
+        ref: "alexanders-inc-read-the-8-k-before",
+        image: "images/alx/alx8k.webp",
+      },
+      {
+        ref: "update-alexanders-alx-q2-2026",
+        image: "images/alx/alxQ2.webp",
+      },
+      // 02 · FY 2025 Results and 03 · Q1 2026 Results have no block:
+      //      they appear automatically. To change only their photo:
+      //      { ref: "pool-corporation-pool-fy-2025", image: "images/pool/fy2025.webp" },
+    ],
+  },
   TIC: {
     chapters: [
       {
@@ -1376,7 +1426,7 @@ const companyPages = {
     chapters: [
       {
         ref: "lets-talk-about-frp-holdings",
-        image: "images/frp/FRPHportada.webp",
+        image: "images/frp/FRPH.webp",
       },
       {
         ref: "update-frp-holdings-inc-frph-fy-2025",
@@ -1619,7 +1669,12 @@ const lastActivity = (t) =>
 /* ── POSITION HELPERS ── */
 const posVisible = (t) => !!(t.position && t.position.visible);
 const posLabel = (s) =>
-  ({ holding: "HOLDING", watching: "WATCHING", sold: "SOLD", no_position: "NO POSITION" })[s];
+  ({
+    holding: "HOLDING",
+    watching: "WATCHING",
+    sold: "SOLD",
+    no_position: "NO POSITION",
+  })[s];
 const posColor = (s) =>
   s === "holding"
     ? "var(--green)"
@@ -1627,11 +1682,19 @@ const posColor = (s) =>
       ? "var(--s-watching)"
       : "var(--text-fnt)";
 const posMark = (s) =>
-  s === "holding" ? "\u25C6" : s === "watching" ? "\u25C7" : s === "sold" ? "\u25CB" : "";
+  s === "holding"
+    ? "\u25C6"
+    : s === "watching"
+      ? "\u25C7"
+      : s === "sold"
+        ? "\u25CB"
+        : "";
 
 /* Result of a closed position, in % vs average price (derived, never stored). */
 const soldResult = (p) =>
-  p && p.status === "sold" ? positionPerformance(p.averagePrice, p.soldPrice) : null;
+  p && p.status === "sold"
+    ? positionPerformance(p.averagePrice, p.soldPrice)
+    : null;
 
 /* Short badge text for the homepage cover: "◆ HOLDING", "○ SOLD · +26.4%" */
 const posBadge = (p) => {

@@ -335,17 +335,23 @@
     }
 
     @keyframes glint {
-      0%, 78% {
+
+      0%,
+      78% {
         transform: translateX(-120%)
       }
 
-      92%, 100% {
+      92%,
+      100% {
         transform: translateX(120%)
       }
     }
 
     @keyframes glow {
-      0%, 74%, 100% {
+
+      0%,
+      74%,
+      100% {
         box-shadow: 0 14px 40px -12px var(--ember-glow), inset 0 1px 0 rgba(255, 255, 255, .35)
       }
 
@@ -560,7 +566,8 @@
 
     /* phones: the photo is wide and the logo sits on its right, so show the logo as a mark
        above the headline instead of cropping it away */
-    @media (max-width: 760px), (max-aspect-ratio: 1/1) {
+    @media (max-width: 760px),
+    (max-aspect-ratio: 1/1) {
       .hero-media {
         background: #16100b
       }
@@ -918,13 +925,12 @@
       font-weight: 600;
       letter-spacing: .1em;
       text-transform: uppercase;
-      padding: 5px 9px;
+      padding: 2px 8px;
       border-radius: var(--r);
-      background: rgba(13, 9, 7, .62);
-      border: 1px solid var(--line-strong);
-      backdrop-filter: blur(8px);
+      background: rgba(13, 9, 7, .42);
+      backdrop-filter: blur(9px);
       -webkit-backdrop-filter: blur(8px);
-      color: var(--text)
+      color: rgba(44, 245, 58, 0.873);
     }
 
     .cover-head {
@@ -960,11 +966,11 @@
     }
 
     .s-active i {
-      background: var(--ember)
+      background: rgb(81, 155, 253);
     }
 
     .s-watching i {
-      border: 1.5px solid var(--ember)
+      border: 1.8px solid rgb(246, 159, 78);
     }
 
     .s-closed i {

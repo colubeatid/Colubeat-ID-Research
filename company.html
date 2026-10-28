@@ -7,7 +7,9 @@
   <title>Colubeat — Company</title>
   <meta name="description" content="Colubeat company research.">
   <meta name="robots" content="noindex, follow">
-  <link rel="icon" type="image/webp" href="COLUBEAT-logo-mini.webp">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="brand/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -215,8 +217,8 @@
     }
 
     .brand img {
-      width: 24px;
-      height: 24px
+      width: 30px;
+      height: 30px
     }
 
     .brand span {
@@ -2502,7 +2504,7 @@
         <div class="about-grid">
           <div class="rv">
             <p class="about-txt">${esc(txt)}</p>
-            <p class="about-by"><img src="COLUBEAT-logo-mini.webp" alt="" width="20" height="20">Colubeat Investment Desk</p>
+            <p class="about-by"><img src="brand/icon-light.svg" alt="" width="20" height="20">Colubeat Investment Desk</p>
           </div>
           <dl class="about-facts rv">${facts.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>
         </div>
@@ -2531,7 +2533,7 @@
       app.innerHTML = `
       <header class="nav" id="nav">
         <div class="wrap nav-row">
-          <a class="brand" href="index.html" aria-label="Colubeat home"><img src="COLUBEAT-logo-mini.webp" alt="" width="24" height="24"><span>Colubeat</span><small>/ ${t.ticker}</small></a>
+          <a class="brand" href="index.html" aria-label="Colubeat home"><img src="brand/icon-light.svg" alt="" width="24" height="24"><span>Colubeat</span><small>/ ${t.ticker}</small></a>
           <div class="mini" aria-label="Publications">${'<div class="mini-axis"></div><div class="mini-fill" data-mini-fill></div>' + miniDots}</div>
           <a class="cta sm glint" href="${SUB}" target="_blank" rel="noopener" data-analytics="company_subscribe_click" data-analytics-props="${aj({ ticker: t.ticker, location: "nav" })}"><span class="cta-main">Subscribe</span><span class="cta-arrow" aria-hidden="true">→</span></a>
         </div>
@@ -2587,7 +2589,7 @@
       <footer>
         <div class="wrap">
           <div class="foot">
-            <div><a class="brand" href="index.html"><img src="COLUBEAT-logo-mini.webp" alt="" width="24" height="24"><span>Colubeat</span></a>
+            <div><a class="brand" href="index.html"><img src="brand/icon-light.svg" alt="" width="24" height="24"><span>Colubeat</span></a>
               <p>Independent research on companies where you need to understand the assets to understand the numbers. Educational purposes only; nothing here is investment advice.</p></div>
             <div><h3>Colubeat</h3><a class="fl" href="index.html">All companies</a><a class="fl" href="${SUB}" target="_blank" rel="noopener">Subscribe</a></div>
             <div><h3>Also in ${esc(t.sector)}</h3>${peers.map((p) => `<a class="fl" href="${companyUrl(p)}" data-analytics="company_peer_click" data-analytics-props="${aj({ from: t.ticker, to: p.ticker })}">${p.ticker} · ${esc(p.company)}</a>`).join("")}</div>

@@ -316,7 +316,7 @@ const publishedTheses = [
       averagePrice: 221.02, // ← add only when you want to disclose it
       updatedAt: "2026-08-28",
       referencePrice: 270,
-      trims: [{ date: null, price: 281 }], // ✎ add the date: "2026-MM-DD"
+      trims: [{ date: "2026-08-05", price: 274 }], // ✎ add the date: "2026-MM-DD"
     },
   },
   {

@@ -1163,7 +1163,7 @@
     }
 
     .inside-h {
-      font-size: 10px;
+      font-size: 15px;
       font-weight: 600;
       letter-spacing: .14em;
       text-transform: uppercase;
@@ -2318,7 +2318,7 @@
       const after = i ? days(first, c.pub.date) : 0;
       const sub = ["on Substack", c.pub.isPaid ? "Paid" : "Free", c.readMin ? `${c.readMin} min read` : ""].filter(Boolean).join(" · ");
       const hook = c.inside && c.inside.length
-        ? `<ul class="inside rv" data-inside><li class="inside-h" style="padding:0;opacity:1;transform:none">In the full piece</li>${c.inside.map((x, k) => `<li style="transition-delay:${150 + k * 120}ms">${esc(x)}</li>`).join("")}</ul>`
+        ? `<ul class="inside rv" data-inside><p class="inside-h" style="opacity:1;transform:none">In the full piece</p>${c.inside.map((x, k) => `<li style="transition-delay:${150 + k * 120}ms">${esc(x)}</li>`).join("")}</ul>`
         : c.more ? `<p class="preview rv">${esc(c.more)}</p>` : "";
       return `
         <div class="kick rv"><b>${pad2(i + 1)}</b><span>/ ${pad2(n)}</span>${mark(c.pub.type)}<span>${c.pub.type}</span><span>· ${fmt(c.pub.date)}</span>${i ? `<em>${after} days after the thesis</em>` : ""}</div>

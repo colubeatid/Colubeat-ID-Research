@@ -48,7 +48,15 @@ const publishedTheses = [
     tags: ["Industrials", "Materials"],
     isPaid: false,
     status: "active",
-    updates: [],
+    updates: [
+      {
+        label: "I Expected More from Amrize, but I'm Still Holding",
+        url: "https://colubeatid.substack.com/p/i-expected-more-from-amrize-but-im?r=392fuc",
+        date: "2026-11-02",
+        excerpt:
+          "Quick update. Building Materials still supports my thesis, but roofing margins and cash generation are falling behind what I expected in September.",
+      },
+    ],
     earningsIntegrated: false,
     closedReason: null,
     position: {
@@ -623,12 +631,6 @@ const earningsAwaiting = [];
 const wipTheses = [{}];
 
 const watchlist = [
-  {
-    ticker: "AMRZ",
-    sector: "Industrials",
-    geo: "US",
-    note: "North American building materials company with cement, aggregates and roofing businesses after the Holcim spin-off.",
-  },
   {
     ticker: "RGLD",
     sector: "Materials",
@@ -1647,6 +1649,19 @@ const companyPages = {
           "A closer look at the cement and aggregates network, including where Amrize has strong local positions and where competitors like Buzzi have an advantage.",
           "Holcim spent over $6.3 billion building the roofing business. I looked at the returns so far, and I'm not particularly impressed.",
           "My Base case showed a 13.8% annual return at the publication price. Why I still started with a small position, and what would make me buy more.",
+        ],
+      },
+      {
+        // 05 · Q3 2026 (Oct 26, 2026)
+        ref: "i-expected-more-from-amrize-but-im",
+        layout: "fullbleed",
+        image: "images/amrz/AmrizeQ3.webp", // ✎ a wide, dramatic photo works best here, e.g. "images/pool/q3-2026.webp"
+        title: "I Expected More from Amrize, but I'm Still Holding",
+        lead: "Pricing held up well in Building Materials, but I'm more cautious about the returns on roofing and how quickly cash flow can improve.",
+        inside: [
+          "What held up in Building Materials despite weaker volumes",
+          "Why I'm still questioning the returns on Holcim's roofing acquisitions",
+          "Why I'm no longer using Amrize's original cash flow target in my Base case",
         ],
       },
     ],

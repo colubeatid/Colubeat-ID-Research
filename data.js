@@ -276,6 +276,13 @@ const publishedTheses = [
         excerpt:
           "Q2 2026. The gross margin was better. Organic growth was still 2.5%, and debt went up again.",
       },
+      {
+        label: "Q3 2026 Results",
+        url: "https://colubeatid.substack.com/p/update-tic?r=392fuc",
+        date: "2026-11-07",
+        excerpt:
+          "TIC is growing at a good pace, but cash flow is still lagging. I look at the Q3 results and what I think the business could be worth by 2029.",
+      },
     ],
     earningsIntegrated: false,
     closedReason: null,
@@ -1477,6 +1484,15 @@ const companyPages = {
         ref: "update-tic-solutions-tic-q2-2026",
         image: "images/tic/TICQ2.webp",
       },
+      {
+        ref: "update-tic",
+        image: "images/tic/TICQ326.webp",
+      },
+      {
+        ref: "tics-data-center-business-region",
+        image: "images/tic/TICDC.webp",
+      },
+
       // 02 · FY 2025 Results and 03 · Q1 2026 Results have no block:
       //      they appear automatically. To change only their photo:
       //      { ref: "pool-corporation-pool-fy-2025", image: "images/pool/fy2025.webp" },

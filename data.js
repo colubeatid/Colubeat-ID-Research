@@ -595,7 +595,12 @@ const publishedTheses = [
         url: "https://colubeatid.substack.com/p/update-frp-holdings-inc-frph-q2-2026",
         date: "2026-08-12",
         excerpt:
-          "Q2 2026. The asset values haven’t changed. I still have some doubts about the execution, and a few things I expected to improve this year haven’t. There was also an interesting debate about capital allocation on the call.",
+          "Q2 2026. The asset values haven't changed. I still have some doubts about the execution, and a few things I expected to improve this year haven’t. There was also an interesting debate about capital allocation on the call.",
+      },
+      {
+        label: "Q3 2026 Results",
+        url: "https://colubeatid.substack.com/p/frp-holdings-q3-its-not-just-about?r=392fuc",
+        date: "2026-11-09",
       },
     ],
     earningsIntegrated: false,
@@ -1535,6 +1540,12 @@ const companyPages = {
         ref: "update-frp-holdings-inc-frph-q2-2026",
         image: "images/frp/FRPHQ2.webp",
       },
+      {
+        ref: "frp-holdings-q3-its-not-just-about",
+        layout: "fullbleed",
+        image: "images/frp/FRPHQ3.webp",
+      },
+
       // 02 · FY 2025 Results and 03 · Q1 2026 Results have no block:
       //      they appear automatically. To change only their photo:
       //      { ref: "pool-corporation-pool-fy-2025", image: "images/pool/fy2025.webp" },

@@ -454,6 +454,7 @@ const publishedTheses = [
       visible: true,
       status: "sold", // acquired: the shares were paid out at the deal price
       currency: "USD",
+      averagePrice: 14.82,
       soldPrice: 19,
       soldDate: "2026-02-23", // ✎ date of the "Acquired at $19.00" update; change if the deal closed another day
       updatedAt: "2026-08-28",
@@ -1486,6 +1487,7 @@ const companyPages = {
       },
       {
         ref: "update-tic",
+        layout: "fullbleed",
         image: "images/tic/TICQ326.webp",
       },
       {

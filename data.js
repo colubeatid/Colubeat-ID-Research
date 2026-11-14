@@ -121,6 +121,13 @@ const publishedTheses = [
         excerpt:
           "Q2 2026. The land side still works for me, but there's more debt and less room for buybacks than I expected.",
       },
+      {
+        label: "Rayonier Q3: More Land Sales, More Buybacks?",
+        url: "https://colubeatid.substack.com/p/rayonier-q3-more-land-sales-more?r=392fuc",
+        date: "2026-11-14",
+        excerpt:
+          "I still like Rayonier at $21, but I want to see more of its land value reach shareholders.",
+      },
     ],
     earningsIntegrated: false,
     closedReason: null,
@@ -1578,6 +1585,10 @@ const companyPages = {
       {
         ref: "update-rayonier-inc-ryn-q2-2026-results",
         image: "images/ryn/RYNQ2.webp",
+      },
+      {
+        ref: "rayonier-q3-more-land-sales-more",
+        image: "images/ryn/RYNQ32026.webp",
       },
       // 02 · FY 2025 Results and 03 · Q1 2026 Results have no block:
       //      they appear automatically. To change only their photo:

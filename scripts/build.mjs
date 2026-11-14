@@ -37,7 +37,7 @@ const outDir = path.join(root, "companies");
 fs.mkdirSync(outDir, { recursive: true });
 for (const f of fs.readdirSync(outDir)) if (f.endsWith(".html")) fs.unlinkSync(path.join(outDir, f));
 
-const urls = [{ loc: SITE_URL + "/", lastmod: null }];
+const urls = [{ loc: SITE_URL + "/", lastmod: null }, { loc: SITE_URL + "/about", lastmod: null }];
 
 for (const t of publishedTheses) {
   const m = companyMeta(t);
@@ -120,4 +120,4 @@ ${urls.map((u) => `  <url><loc>${u.loc}</loc>${u.lastmod ? `<lastmod>${u.lastmod
 </urlset>
 `;
 fs.writeFileSync(path.join(root, "sitemap.xml"), sitemap);
-console.log(`Built ${urls.length - 1} company pages + sitemap.xml`);
+console.log(`Built ${urls.length - 2} company pages + sitemap.xml`);

@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Colubeat — who writes it and how the research works</title>
+  <meta name="description"
+    content="I invest my own money and write about companies and industries I find interesting: the assets, the numbers, what could go wrong, and what happens after the thesis.">
+  <link rel="canonical" href="https://www.colubeat.com/about">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Colubeat Investment Desk">
+  <meta property="og:url" content="https://www.colubeat.com/about">
+  <meta property="og:title" content="About Colubeat">
+  <meta property="og:description"
+    content="I invest my own money and write about companies and industries I find interesting.">
+  <meta property="og:image" content="https://www.colubeat.com/images/home-hero.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@colubeatid">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="brand/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;1,300&family=Mona+Sans:wght@300..700&family=Caveat:wght@500&display=swap"
+    rel="stylesheet">
+  <script defer src="/_vercel/insights/script.js"></script>
+  <style>
+    :root {
+      /* same "Kiln at night" palette as the rest of the site */
+      --bg-0: #0d0907;
+      --bg: #140f0c;
+      --bg-2: #1b1410;
+      --surface: #221913;
+      --surface-2: #2c211a;
+      --text: #f1e8db;
+      --text-2: #cdbfae;
+      --muted: #9a8a7b;
+      --line: rgba(241, 232, 219, .10);
+      --line-strong: rgba(241, 232, 219, .2);
+      --ember: #e0b05c;
+      --ember-deep: #9c6d26;
+      --ember-glow: rgba(224, 176, 92, .22);
+      --sans: 'Mona Sans', 'Inter', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --serif: 'Crimson Pro', 'Libre Caslon Text', Georgia, serif;
+      --script: 'Caveat', cursive;
+      --max: 1200px;
+      --gutter: clamp(20px, 4vw, 34px);
+      --r: 3px;
+      --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 .95 0 0 0 0 .9 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    body {
+      font-family: var(--sans);
+      font-size: 18px;
+      line-height: 1.6;
+      letter-spacing: .02em;
+      background:
+        radial-gradient(70% 40% at 12% 0%, rgba(224, 176, 92, .07), transparent 70%),
+        radial-gradient(60% 35% at 100% 45%, rgba(120, 90, 160, .06), transparent 70%),
+        var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      pointer-events: none;
+      background-image: var(--grain);
+      opacity: .07;
+      mix-blend-mode: overlay
+    }
+
+    ::selection {
+      background: var(--ember);
+      color: var(--bg-0)
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    img {
+      display: block;
+      max-width: 100%
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--ember);
+      outline-offset: 3px
+    }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--gutter)
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-2)
+    }
+
+    /* ══ NAV (same as the homepage) ══ */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(16, 11, 9, .72);
+      backdrop-filter: blur(16px) saturate(1.2);
+      -webkit-backdrop-filter: blur(16px) saturate(1.2)
+    }
+
+    .nav::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--line-strong) 20%, rgba(224, 176, 92, .45) 50%, var(--line-strong) 80%, transparent)
+    }
+
+    .nav .wrap {
+      height: 60px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 20px
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 4px
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 19px 12px 18px;
+      white-space: nowrap;
+      border-bottom: 1px solid transparent;
+      transition: border-color .2s
+    }
+
+    .nav-links a:hover,
+    .nav-links a[aria-current="page"] {
+      border-bottom-color: var(--ember)
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      justify-self: center
+    }
+
+    .brand img {
+      width: 30px;
+      height: 30px
+    }
+
+    .brand span {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--ember)
+    }
+
+    .cta {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      padding: 14px 16px 14px 24px;
+      border-radius: var(--r);
+      background: linear-gradient(135deg, #f3d48e, var(--ember) 45%, var(--ember-deep));
+      color: var(--bg-0);
+      overflow: hidden;
+      box-shadow: 0 14px 40px -12px var(--ember-glow), inset 0 1px 0 rgba(255, 255, 255, .35);
+      transition: box-shadow .25s, transform .25s cubic-bezier(.2, .7, .2, 1)
+    }
+
+    .cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 50px -10px rgba(224, 176, 92, .5), inset 0 1px 0 rgba(255, 255, 255, .35)
+    }
+
+    .cta::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, .45) 50%, transparent 65%);
+      transform: translateX(-120%);
+      pointer-events: none
+    }
+
+    .cta.glint::after {
+      animation: glint 4s ease-in-out 2.5s infinite
+    }
+
+    @keyframes glint {
+
+      0%,
+      78% {
+        transform: translateX(-120%)
+      }
+
+      92%,
+      100% {
+        transform: translateX(120%)
+      }
+    }
+
+    .cta-main {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase
+    }
+
+    .cta-arrow {
+      width: 34px;
+      height: 34px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(13, 9, 7, .16);
+      font-size: 16px;
+      transition: transform .25s
+    }
+
+    .cta:hover .cta-arrow {
+      transform: translateX(3px)
+    }
+
+    .cta.sm {
+      gap: 12px;
+      padding: 8px 8px 8px 18px
+    }
+
+    .cta.sm .cta-main {
+      font-size: 12px
+    }
+
+    .cta.sm .cta-arrow {
+      width: 28px;
+      height: 28px;
+      font-size: 14px
+    }
+
+    .nav .cta {
+      justify-self: end
+    }
+
+    /* reading progress: how much of the page is left */
+    .progress {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      width: 100%;
+      background: var(--ember);
+      transform-origin: left;
+      transform: scaleX(0);
+      z-index: 1
+    }
+
+    /* ══ HERO: the greeting, and the wall of real research behind it ══ */
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 60px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+      align-items: center;
+      gap: 56px;
+      padding-top: 40px;
+      padding-bottom: 40px
+    }
+
+    .hello {
+      font-family: var(--script);
+      font-size: clamp(30px, 3vw, 40px);
+      line-height: 1;
+      color: var(--ember);
+      transform: rotate(-3deg);
+      transform-origin: left;
+      display: inline-block;
+      margin-bottom: 22px
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(40px, 5vw, 68px);
+      line-height: 1.02;
+      letter-spacing: .01em;
+      max-width: 15ch
+    }
+
+    .hero-sub {
+      font-size: 18px;
+      color: var(--text-2);
+      max-width: 34em;
+      margin-top: 26px
+    }
+
+    .facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px 44px;
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line)
+    }
+
+    .facts div {
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: .04em
+    }
+
+    .facts b {
+      display: block;
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: 34px;
+      line-height: 1.05;
+      letter-spacing: .01em;
+      color: var(--text);
+      font-variant-numeric: tabular-nums
+    }
+
+    .read-time {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      margin-top: 34px;
+      font-size: 13px;
+      color: var(--muted)
+    }
+
+    .read-time a {
+      color: var(--text);
+      border-bottom: 1px solid var(--ember);
+      padding-bottom: 2px
+    }
+
+    /* the wall: every company cover, drifting slowly in two columns */
+    .wall {
+      position: relative;
+      height: min(78vh, 720px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(180deg, transparent, #000 14%, #000 86%, transparent);
+      mask-image: linear-gradient(180deg, transparent, #000 14%, #000 86%, transparent)
+    }
+
+    .lane {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      animation: drift 70s linear infinite
+    }
+
+    .lane.down {
+      animation-direction: reverse;
+      margin-top: -60px
+    }
+
+    .wall:hover .lane {
+      animation-play-state: paused
+    }
+
+    @keyframes drift {
+      to {
+        transform: translateY(-50%)
+      }
+    }
+
+    .tile {
+      position: relative;
+      display: block;
+      aspect-ratio: 4 / 3;
+      border-radius: var(--r);
+      overflow: hidden;
+      background: var(--surface);
+      box-shadow: 0 24px 50px -28px rgba(0, 0, 0, .9), inset 0 0 0 1px rgba(241, 232, 219, .08)
+    }
+
+    .tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(.85) brightness(.8);
+      transition: filter .4s, transform 1s cubic-bezier(.2, .7, .2, 1)
+    }
+
+    .tile:hover img {
+      filter: none;
+      transform: scale(1.04)
+    }
+
+    .tile span {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      padding: 3px 8px;
+      border-radius: var(--r);
+      background: rgba(13, 9, 7, .62);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px)
+    }
+
+    /* ══ STORY SECTIONS ══ */
+    .chap {
+      padding-top: 20px
+    }
+
+    .chap h2 {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(34px, 3.8vw, 52px);
+      line-height: 1.02;
+      letter-spacing: .01em;
+      max-width: 18ch
+    }
+
+    .body {
+      max-width: 36em;
+      color: var(--text-2)
+    }
+
+    .body p+p {
+      margin-top: 18px
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 72px;
+      align-items: start
+    }
+
+    .split .body {
+      margin-top: 26px
+    }
+
+    /* why a company ends up here: three doors */
+    .doors {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 56px;
+      border-top: 1px solid var(--line)
+    }
+
+    .door {
+      padding: 34px 34px 10px 0
+    }
+
+    .door+.door {
+      padding-left: 34px;
+      border-left: 1px solid var(--line)
+    }
+
+    .door-n {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(56px, 6vw, 84px);
+      line-height: .9;
+      color: var(--ember);
+      font-variant-numeric: tabular-nums
+    }
+
+    .door-n.word {
+      font-size: clamp(40px, 4vw, 56px);
+      line-height: 1.1
+    }
+
+    .door h3 {
+      font-size: 17px;
+      font-weight: 600;
+      margin-top: 16px
+    }
+
+    .door p {
+      font-size: 15px;
+      color: var(--muted);
+      margin-top: 8px
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 18px
+    }
+
+    .chips a {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      padding: 5px 10px;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--r);
+      transition: border-color .2s, background .2s
+    }
+
+    .chips a:hover {
+      border-color: var(--ember);
+      background: rgba(224, 176, 92, .08)
+    }
+
+    /* real assets: the photo is the argument */
+    .asset-fig {
+      position: relative;
+      border-radius: var(--r);
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+      background: var(--surface);
+      box-shadow: 0 40px 80px -40px rgba(0, 0, 0, .9)
+    }
+
+    .asset-fig img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover
+    }
+
+    .asset-fig figcaption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 60px 22px 20px;
+      font-size: 13px;
+      color: var(--text-2);
+      background: linear-gradient(180deg, transparent, rgba(13, 9, 7, .85))
+    }
+
+    .asset-fig figcaption a {
+      color: var(--text);
+      border-bottom: 1px solid var(--ember)
+    }
+
+    .pull {
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(24px, 2.3vw, 30px);
+      line-height: 1.3;
+      color: var(--text);
+      margin: 34px 0;
+      padding-left: 24px;
+      border-left: 2px solid var(--ember);
+      max-width: 26em
+    }
+
+    .shelf {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 14px;
+      margin-top: 34px
+    }
+
+    .shelf a {
+      display: block
+    }
+
+    .shelf .tile {
+      aspect-ratio: 3 / 2
+    }
+
+    .shelf small {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 8px
+    }
+
+    /* the numbers: a real sequence, so it is numbered */
+    .steps {
+      list-style: none;
+      counter-reset: s;
+      margin-top: 56px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0;
+      position: relative
+    }
+
+    .steps::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 23px;
+      height: 1px;
+      background: var(--line-strong)
+    }
+
+    .steps li {
+      position: relative;
+      padding-right: 34px
+    }
+
+    .steps li::before {
+      counter-increment: s;
+      content: counter(s);
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 1px solid var(--ember);
+      font-family: var(--serif);
+      font-size: 22px;
+      color: var(--ember);
+      margin-bottom: 22px
+    }
+
+    .steps h3 {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: 26px;
+      line-height: 1.1
+    }
+
+    .steps p {
+      font-size: 15px;
+      color: var(--muted);
+      margin-top: 10px;
+      max-width: 22em
+    }
+
+    .note {
+      font-family: var(--script);
+      font-size: clamp(28px, 2.6vw, 36px);
+      line-height: 1.15;
+      color: var(--ember);
+      transform: rotate(-2deg);
+      margin-top: 56px;
+      max-width: 22em
+    }
+
+    /* directions I wasn't expecting: the one moment of motion */
+    .trail {
+      position: relative;
+      margin-top: 56px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px
+    }
+
+    .trail svg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 60px;
+      overflow: visible;
+      pointer-events: none
+    }
+
+    .trail path {
+      fill: none;
+      stroke: var(--ember);
+      stroke-width: 1.5;
+      stroke-dasharray: 6 6
+    }
+
+    .stop {
+      position: relative;
+      padding-top: 74px
+    }
+
+    .stop i {
+      position: absolute;
+      top: 22px;
+      left: 0;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--ember)
+    }
+
+    .stop:last-child i {
+      background: var(--ember);
+      box-shadow: 0 0 0 6px var(--ember-glow)
+    }
+
+    .stop b {
+      display: block;
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: 26px;
+      line-height: 1.1
+    }
+
+    .stop span {
+      display: block;
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 6px
+    }
+
+    .trail.go .stop {
+      animation: pop .6s cubic-bezier(.2, .7, .2, 1) both;
+      animation-delay: calc(var(--i) * .45s)
+    }
+
+    @keyframes pop {
+      from {
+        opacity: 0;
+        transform: translateY(10px)
+      }
+    }
+
+    .trail.wait .stop {
+      opacity: 0
+    }
+
+    /* I keep coming back: a live timeline from the archive */
+    .story {
+      margin-top: 56px;
+      padding: 34px;
+      border-radius: var(--r);
+      background: linear-gradient(180deg, rgba(241, 232, 219, .035), rgba(241, 232, 219, 0)), var(--bg-2);
+      border: 1px solid var(--line)
+    }
+
+    .story-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 20px;
+      flex-wrap: wrap
+    }
+
+    .story-head h3 {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: 28px;
+      line-height: 1.1
+    }
+
+    .story-head a {
+      font-size: 13px;
+      border-bottom: 1px solid var(--ember);
+      padding-bottom: 2px
+    }
+
+    .story-line {
+      list-style: none;
+      position: relative;
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(140px, 1fr);
+      gap: 18px;
+      margin-top: 34px;
+      overflow-x: auto;
+      padding-bottom: 6px
+    }
+
+    .story-line::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 6px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--ember), var(--line-strong))
+    }
+
+    .story-line li {
+      position: relative;
+      padding-top: 26px
+    }
+
+    .story-line li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--bg-2);
+      border: 2px solid var(--ember)
+    }
+
+    .story-line li:first-child::before {
+      background: var(--ember);
+      transform: rotate(45deg);
+      border-radius: 1px
+    }
+
+    .story-line time {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: .04em
+    }
+
+    .story-line span {
+      display: block;
+      font-size: 15px;
+      line-height: 1.35;
+      margin-top: 4px
+    }
+
+    /* easy to follow, open to discussion */
+    .two {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 0;
+      margin-top: 56px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line)
+    }
+
+    .two>div {
+      padding: 40px 40px 40px 0
+    }
+
+    .two>div+div {
+      padding-left: 40px;
+      border-left: 1px solid var(--line)
+    }
+
+    .two h3 {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: 28px;
+      line-height: 1.1;
+      margin-bottom: 14px
+    }
+
+    .two p {
+      font-size: 16px;
+      color: var(--text-2)
+    }
+
+    .talk {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+      font-size: 14px
+    }
+
+    .talk a {
+      border-bottom: 1px solid var(--ember);
+      padding-bottom: 2px
+    }
+
+    /* ══ END ══ */
+    .end {
+      margin-top: 160px;
+      padding: 110px 0;
+      text-align: center;
+      background:
+        radial-gradient(50% 80% at 50% 0%, rgba(224, 176, 92, .14), transparent 70%),
+        var(--bg-2);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line)
+    }
+
+    .end .thanks {
+      font-family: var(--script);
+      font-size: clamp(44px, 5vw, 64px);
+      line-height: 1;
+      color: var(--ember);
+      transform: rotate(-3deg);
+      display: inline-block
+    }
+
+    .end p {
+      max-width: 34em;
+      margin: 26px auto 0;
+      color: var(--text-2)
+    }
+
+    .end-acts {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 38px
+    }
+
+    .end-acts .plain {
+      font-size: 14px;
+      border-bottom: 1px solid var(--ember);
+      padding-bottom: 2px
+    }
+
+    .disclaimer {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 44px
+    }
+
+    footer {
+      background: radial-gradient(60% 120% at 50% 0%, rgba(224, 176, 92, .08), transparent 60%), var(--bg-0);
+      padding: 68px 0 40px
+    }
+
+    .foot {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 45px;
+      border-bottom: 1px solid var(--line)
+    }
+
+    .foot .brand {
+      justify-self: start;
+      margin-bottom: 20px
+    }
+
+    .foot p {
+      font-size: 14px;
+      line-height: 1.6;
+      opacity: .75;
+      max-width: 440px
+    }
+
+    .foot h3 {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 18px
+    }
+
+    .foot a {
+      display: block;
+      font-size: 14px;
+      opacity: .75;
+      margin-bottom: 10px
+    }
+
+    .foot a:hover {
+      opacity: 1;
+      color: var(--ember)
+    }
+
+    .foot .brand {
+      opacity: 1
+    }
+
+    .copy {
+      font-size: 12px;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      opacity: .6;
+      padding-top: 24px
+    }
+
+    /* ══ RESPONSIVE ══ */
+    @media (max-width: 1100px) {
+      .nav-links a[href$="#archive"]:nth-child(3) {
+        display: none
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: 0;
+        gap: 40px;
+        padding-top: 70px
+      }
+
+      /* on narrow screens the wall turns into one moving band */
+      .wall {
+        height: auto;
+        display: block;
+        margin: 0 calc(var(--gutter) * -1);
+        -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+        mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)
+      }
+
+      .lane {
+        flex-direction: row;
+        width: max-content;
+        animation-name: drift-x
+      }
+
+      .lane.down {
+        display: none
+      }
+
+      .lane .tile {
+        width: 220px
+      }
+
+      @keyframes drift-x {
+        to {
+          transform: translateX(-50%)
+        }
+      }
+
+      .split,
+      .two {
+        grid-template-columns: 1fr;
+        gap: 40px
+      }
+
+      .split .asset-fig {
+        aspect-ratio: 4 / 3
+      }
+    }
+
+    @media (max-width: 760px) {
+      body {
+        font-size: 17px
+      }
+
+      .nav .wrap {
+        grid-template-columns: auto 1fr;
+        gap: 12px
+      }
+
+      .nav-links {
+        display: none
+      }
+
+      .brand {
+        justify-self: start
+      }
+
+      .nav .cta {
+        padding: 6px 6px 6px 14px
+      }
+
+      .chap {
+        padding-top: 80px
+      }
+
+      .doors,
+      .steps {
+        grid-template-columns: 1fr
+      }
+
+      .door,
+      .door+.door {
+        padding: 28px 0;
+        border-left: 0
+      }
+
+      .door+.door {
+        border-top: 1px solid var(--line)
+      }
+
+      .steps::before {
+        left: 23px;
+        right: auto;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        height: auto
+      }
+
+      .steps li {
+        padding: 0 0 34px 70px
+      }
+
+      .steps li::before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin: 0
+      }
+
+      .trail {
+        grid-template-columns: 1fr;
+        gap: 0
+      }
+
+      .trail svg {
+        display: none
+      }
+
+      .stop {
+        padding: 0 0 26px 34px;
+        border-left: 1px dashed var(--ember);
+        margin-left: 7px
+      }
+
+      .stop:last-child {
+        border-left-color: transparent
+      }
+
+      .stop i {
+        top: 4px;
+        left: -9px
+      }
+
+      .story {
+        padding: 24px
+      }
+
+      .two>div,
+      .two>div+div {
+        padding: 30px 0;
+        border-left: 0
+      }
+
+      .two>div+div {
+        border-top: 1px solid var(--line)
+      }
+
+      .foot {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .foot>div:first-child {
+        grid-column: 1 / -1
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important
+      }
+
+      .trail.wait .stop {
+        opacity: 1
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="wrap">
+      <nav class="nav-links" aria-label="Sections">
+        <a href="index.html#archive">Companies</a>
+        <a href="index.html#archive">Insights</a>
+        <a href="index.html#archive">Accounting Required</a>
+        <a href="about.html" aria-current="page">About</a>
+      </nav>
+      <a class="brand" href="index.html" aria-label="Colubeat Investment Desk — home">
+        <img src="brand/icon-light.svg" alt="" width="30" height="30"><span>Colubeat</span>
+      </a>
+      <a class="cta sm glint" href="https://colubeatid.substack.com/subscribe" target="_blank" rel="noopener"
+        data-analytics="about_nav_subscribe_click">
+        <span class="cta-main">Subscribe</span><span class="cta-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+    <div class="progress" id="progress" aria-hidden="true"></div>
+  </header>
+
+  <main>
+    <!-- ── HERO ──
+         ✎ Every sentence on this page is yours, taken from your Substack About.
+           Only the section titles are new: change any of them freely. -->
+    <section class="hero wrap" aria-labelledby="about-title">
+      <div>
+        <span class="hello">Hey, welcome to Colubeat!</span>
+        <h1 id="about-title">I invest my own money and write about companies and industries I find interesting.</h1>
+        <p class="hero-sub">I really enjoy understanding how businesses work, especially what makes them different
+          from their competitors and how they make money.</p>
+        <div class="facts" id="facts"></div>
+        <p class="read-time">A three-minute read. <a href="#why">Start with why a company ends up here</a></p>
+      </div>
+      <div class="wall" id="wall" aria-label="Companies I have written about"></div>
+    </section>
+
+    <!-- ── 1. WHY A COMPANY ENDS UP HERE ── -->
+    <section class="chap wrap" id="why" aria-labelledby="why-title">
+      <h2 id="why-title">Why a company ends up here</h2>
+      <div class="doors" id="doors"></div>
+    </section>
+
+    <!-- ── 2. REAL ASSETS ── -->
+    <section class="chap wrap" aria-labelledby="assets-title">
+      <div class="split">
+        <div>
+          <h2 id="assets-title">A soft spot for real assets</h2>
+          <div class="body">
+            <p>I don't have a favourite industry, although I have a soft spot for companies with real assets,
+              particularly land and properties in locations that aren't easy to replicate.</p>
+            <p>I invest in real estate outside the stock market too, so I guess that explains part of my interest. I
+              still remember looking through Veris Residential's apartment buildings and loving some of the
+              properties, their views and amenities.</p>
+          </div>
+          <blockquote class="pull">I can spend hours exploring buildings, land and developments on maps, looking at
+            photos and trying to understand what makes each property interesting.</blockquote>
+          <div class="body">
+            <p>Unfortunately, I can't usually visit them in person, so I use whatever tools and information I can find
+              to get a better idea of what they're actually like.</p>
+          </div>
+        </div>
+        <figure class="asset-fig" id="assetFig"></figure>
+      </div>
+      <div class="shelf" id="shelf" aria-label="Real-asset companies I have written about"></div>
+    </section>
+
+    <!-- ── 3. THE NUMBERS ── -->
+    <section class="chap wrap" aria-labelledby="numbers-title">
+      <h2 id="numbers-title">Liking the assets doesn't make it a good investment</h2>
+      <div class="body" style="margin-top:26px">
+        <p>There's much more to consider, and that's where I enjoy getting into the numbers.</p>
+      </div>
+      <ol class="steps">
+        <li>
+          <h3>What it's worth</h3>
+          <p>I spend a lot of time on valuations, trying to work out what a business might reasonably be worth using
+            assumptions I think are most likely to happen.</p>
+        </li>
+        <li>
+          <h3>What could go wrong</h3>
+          <p>I also want to understand what could go wrong.</p>
+        </li>
+        <li>
+          <h3>What it means for shareholders</h3>
+          <p>And how that value might eventually translate into returns for shareholders.</p>
+        </li>
+      </ol>
+      <p class="note">Sometimes I end up liking the business a lot more than the investment opportunity.</p>
+    </section>
+
+    <!-- ── 4. DIRECTIONS I WASN'T EXPECTING ── -->
+    <section class="chap wrap" aria-labelledby="trail-title">
+      <h2 id="trail-title">My research can take me in directions I wasn't expecting</h2>
+      <div class="trail wait" id="trail">
+        <svg viewBox="0 0 1000 60" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M8 30 C 120 -10, 200 70, 260 30 S 420 -10, 510 30 S 680 70, 760 30 S 900 -5, 1000 30" />
+        </svg>
+        <div class="stop" style="--i:0"><i></i><b>Its earnings</b><span>I might start by looking at a company's
+            earnings</span></div>
+        <div class="stop" style="--i:1"><i></i><b>Its suppliers</b><span>and end up learning about its
+            suppliers,</span></div>
+        <div class="stop" style="--i:2"><i></i><b>Its competitors</b><span>its competitors,</span></div>
+        <div class="stop" style="--i:3"><i></i><b>Another industry</b><span>or something happening in a completely
+            different industry.</span></div>
+      </div>
+      <div class="body" style="margin-top:40px">
+        <p>I enjoy that part of investing, even when it takes longer than I originally planned.</p>
+      </div>
+    </section>
+
+    <!-- ── 5. I KEEP COMING BACK ── -->
+    <section class="chap wrap" aria-labelledby="back-title">
+      <div class="split">
+        <h2 id="back-title">You'll see me returning to companies I've written about before</h2>
+        <div class="body" style="margin-top:6px">
+          <p>I follow their results, revisit my valuations and check whether what I expected is actually happening.
+            Sometimes new information changes my opinion, or I discover something I didn't understand well enough the
+            first time.</p>
+          <p>I share those changes too, because I think they're just as useful as the original research.</p>
+        </div>
+      </div>
+      <div class="story" id="story"></div>
+    </section>
+
+    <!-- ── 6. EASY TO FOLLOW, OPEN TO DISCUSSION ── -->
+    <section class="chap wrap" aria-labelledby="read-title">
+      <h2 id="read-title">Easy to follow, even when there's a lot of work behind it</h2>
+      <div class="two">
+        <div>
+          <h3>What I've found, and why</h3>
+          <p>I want to explain what I've found, what I think about it and why, without filling every article with all
+            the calculations I've made along the way.</p>
+        </div>
+        <div>
+          <h3>Tell me what I missed</h3>
+          <p>I really enjoy discussing these ideas with other investors. Some readers have pointed out things I'd
+            missed or made me question my assumptions, which has led to some very interesting investigations.</p>
+          <p class="talk"><a href="https://x.com/colubeatid" target="_blank" rel="noopener">Talk to me on X</a><a
+              href="https://colubeatid.substack.com/" target="_blank" rel="noopener">Comment on Substack</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── END ── -->
+    <section class="end" aria-labelledby="thanks-title">
+      <div class="wrap">
+        <h2 class="thanks" id="thanks-title">Thanks for reading!</h2>
+        <p>Every update, insight and change of mind goes out by email. Free to start.</p>
+        <div class="end-acts">
+          <a class="cta" href="https://colubeatid.substack.com/subscribe" target="_blank" rel="noopener"
+            data-analytics="about_end_subscribe_click">
+            <span class="cta-main">Subscribe</span><span class="cta-arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="plain" href="index.html#start">Or start with three pieces</a>
+        </div>
+        <p class="disclaimer">Everything I write reflects my own research and opinions, not personal investment advice.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot">
+        <div>
+          <a class="brand" href="index.html"><img src="brand/icon-light.svg" alt="" width="30"
+              height="30"><span>Colubeat</span></a>
+          <p>Colubeat Investment Desk provides independent equity research for educational purposes only. Nothing
+            published constitutes investment advice. Always do your own due diligence.</p>
+        </div>
+        <div>
+          <h3>Read</h3>
+          <a href="https://colubeatid.substack.com/" target="_blank" rel="noopener">Substack</a>
+          <a href="index.html#archive">Companies</a>
+          <a href="about.html">About</a>
+        </div>
+        <div>
+          <h3>Follow</h3>
+          <a href="https://x.com/colubeatid" target="_blank" rel="noopener">X / Twitter</a>
+          <a href="https://colubeatid.substack.com/subscribe" target="_blank" rel="noopener">Newsletter</a>
+        </div>
+      </div>
+      <p class="copy">© 2026 Colubeat Investment Desk. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script>
+    const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+    const T = publishedTheses;
+    const short = (t) => t.company.replace(/,? (Inc\.?|Corp\.?|Corporation|Ltd\.?|plc|SpA|Incorporated|Holding Limited|International Holding Limited)$/i, "");
+    const monthYear = (d) => new Date(d).toLocaleDateString("en-US", { month: "short", year: "numeric" });
+
+    /* track clicks the same way the homepage does */
+    document.addEventListener("click", (e) => {
+      const el = e.target.closest("[data-analytics]");
+      if (!el) return;
+      try {
+        if (typeof window.gtag === "function") window.gtag("event", el.dataset.analytics, {});
+        else if (typeof window.plausible === "function") window.plausible(el.dataset.analytics);
+      } catch (err) { }
+    });
+
+    /* HERO: real numbers from data.js, so they stay true as you publish */
+    // every thesis, update, insight and Accounting Required issue already published
+    const now = new Date(), done = (d) => d && new Date(d) <= now;
+    const pieces = T.filter((t) => done(t.datePublished)).length
+      + T.reduce((n, t) => n + (t.updates || []).filter((u) => done(u.date)).length, 0)
+      + (typeof insights !== "undefined" ? insights.filter((i) => done(i.date)).length : 0)
+      + (typeof behindTheNumber !== "undefined" ? behindTheNumber.filter((b) => done(b.date)).length : 0);
+    const first = T.map((t) => t.datePublished).filter(Boolean).sort()[0];
+    document.getElementById("facts").innerHTML = [
+      [T.length, "companies researched"],
+      [pieces, "pieces published"],
+      [monthYear(first), "writing since"],
+    ].map(([v, l]) => `<div><b>${esc(v)}</b>${l}</div>`).join("");
+
+    /* the wall: every company cover, duplicated so the drift loops without a seam */
+    const covers = T.filter((t) => t.image);
+    const tile = (t, lazy) => `<a class="tile" href="${companyUrl(t)}" tabindex="-1"><img ${imgAttrs(t.image, "(max-width: 980px) 220px, 300px", 800)} alt="${esc(t.company)}" ${lazy ? 'loading="lazy"' : ""} decoding="async"><span>${esc(t.ticker)}</span></a>`;
+    const lanes = [covers.filter((_, i) => i % 2 === 0), covers.filter((_, i) => i % 2 === 1)];
+    document.getElementById("wall").innerHTML = lanes.map((l, k) =>
+      `<div class="lane${k ? " down" : ""}">${[...l, ...l].map((t, i) => tile(t, i > 2)).join("")}</div>`).join("");
+
+    /* 1. three doors, filled from each company's position */
+    const pos = (s) => T.filter((t) => posVisible(t) && t.position.status === s);
+    const chips = (list) => `<div class="chips">${list.map((t) => `<a href="${companyUrl(t)}">${esc(t.ticker)}</a>`).join("")}</div>`;
+    const own = pos("holding"), maybe = pos("watching");
+    document.getElementById("doors").innerHTML = `
+      <div class="door"><div class="door-n">${own.length}</div><h3>Businesses I already own</h3><p>Some are businesses I already own.</p>${chips(own)}</div>
+      <div class="door"><div class="door-n">${maybe.length}</div><h3>Ones I'm thinking about buying</h3><p>Others I'm thinking about buying.</p>${chips(maybe)}</div>
+      <div class="door"><div class="door-n word">Curiosity</div><h3>No intention of investing</h3><p>Sometimes I just get curious about a company and end up spending days learning about it without any intention of investing.</p></div>`;
+
+    /* 2. real assets: Veris as the photo, then every real-asset company I've covered */
+    const vre = T.find((t) => t.ticker === "VRE");
+    if (vre && vre.image) document.getElementById("assetFig").innerHTML =
+      `<img ${imgAttrs(vre.image, "(max-width: 980px) 100vw, 560px", 1600)} alt="${esc(vre.company)}" loading="lazy" decoding="async"><figcaption><a href="${companyUrl(vre)}">${esc(vre.company)}</a></figcaption>`;
+    const realAssets = T.filter((t) => /REIT|RE Developer/.test(t.sector) && t.image);
+    document.getElementById("shelf").innerHTML = realAssets.map((t) =>
+      `<a href="${companyUrl(t)}"><span class="tile"><img ${imgAttrs(t.image, "200px", 480)} alt="" loading="lazy" decoding="async"><span>${esc(t.ticker)}</span></span><small>${esc(short(t))}</small></a>`).join("");
+
+    /* 5. a live example: the company with the most pieces, as a timeline */
+    const busiest = [...T].sort((a, b) => publicationCount(b) - publicationCount(a) || new Date(lastActivity(b)) - new Date(lastActivity(a)))[0];
+    if (busiest) {
+      const now = new Date();
+      const items = [{ date: busiest.datePublished, label: "Original thesis" },
+      ...(busiest.updates || []).map((u) => ({ date: u.date, label: u.label }))]
+        .filter((x) => x.date && new Date(x.date) <= now).sort((a, b) => new Date(a.date) - new Date(b.date));
+      document.getElementById("story").innerHTML = `
+        <div class="story-head"><h3>${esc(short(busiest))}: ${items.length} pieces since ${monthYear(items[0].date)}</h3><a href="${companyUrl(busiest)}">See the whole story</a></div>
+        <ol class="story-line">${items.map((x) => `<li><time datetime="${esc(x.date)}">${fmt(x.date)}</time><span>${esc(x.label)}</span></li>`).join("")}</ol>`;
+    }
+
+    /* the one orchestrated moment: the trail draws itself when it comes into view */
+    const trail = document.getElementById("trail");
+    if (REDUCED || !("IntersectionObserver" in window)) trail.classList.remove("wait");
+    else new IntersectionObserver((en, ob) => en.forEach((x) => {
+      if (x.isIntersecting) { trail.classList.remove("wait"); trail.classList.add("go"); ob.disconnect(); }
+    }), { rootMargin: "0px 0px -20% 0px" }).observe(trail);
+
+    /* reading progress in the nav */
+    const bar = document.getElementById("progress");
+    const onScroll = () => {
+      const h = document.documentElement.scrollHeight - innerHeight;
+      bar.style.transform = `scaleX(${h > 0 ? Math.min(1, scrollY / h) : 0})`;
+    };
+    addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  </script>
+</body>
+
+</html>
